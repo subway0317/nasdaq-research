@@ -46,6 +46,18 @@ cp .env.example .env
 
 Do not commit `.env` or local data files.
 
+## Historical Data
+
+The initial stock pool is configured in `src/nasdaq_research/config.py`.
+
+Download the configured one-year daily history files with:
+
+```bash
+PYTHONPATH=src python -m nasdaq_research.download
+```
+
+Each symbol is saved as a separate CSV under `data/raw/`. Local CSV data files are ignored by Git.
+
 ## Development Phases
 
 1. Project skeleton and baseline configuration.
@@ -54,4 +66,3 @@ Do not commit `.env` or local data files.
 4. Feature engineering and research notebooks or scripts.
 5. Strategy prototypes and backtesting workflow.
 6. Reporting, experiment tracking, and reproducibility checks.
-
