@@ -1,0 +1,4 @@
+# Keep dependencies minimal during the project skeleton phase.
+python-dotenv>=1.0
+pandas>=2.2
+numpy>=2.0
