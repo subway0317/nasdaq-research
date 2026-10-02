@@ -208,3 +208,106 @@ invariance. The current archived input has no amended or repeated-period rows;
 synthetic tests cover those scenarios. This alignment inherits the archived
 Company Facts vintage and Stage 4 provenance limitations; it cannot establish
 that SEC never revised the upstream historical facts.
+
+## Research Feature Engineering (Stage 6 / 6.1)
+
+Run independently using existing Stage 4/5 CSVs, entirely offline:
+
+```bash
+PYTHONPATH=src ./.venv/bin/python -m nasdaq_research.research_features
+```
+
+Optional arguments are `--fundamentals-path`, `--research-path`, `--raw-path`
+(local archived facts for diagnostics only), and `--output-dir`. Outputs under `data/research/` are
+`NVDA_fundamental_features.csv` (all eligible filing-level snapshots),
+`NVDA_features.csv` (Stage 5 columns plus features and comparison provenance),
+and `NVDA_feature_validation.json` (validation, counts, missing values and
+period-matching and comparative-value diagnostics). Earlier artifacts are read
+only; the report records hashes and verifies Stage 5 reproduction in memory.
+Calendar dates accept ISO `YYYY-MM-DD`, `YYYYMMDD`, or naive date objects.
+Invalid/ambiguous dates, numeric epochs and intraday/timezone timestamps are
+rejected. Comparisons and sorting use `datetime64[ns]`; CSV dates use `YYYY-MM-DD`.
+
+There are 30 new features: seven `q_*` ratios and seven `fy_*` ratios
+(`gross_margin`, `operating_margin`, `net_margin`, `rd_to_revenue`,
+`sga_to_revenue`, `ocf_margin`, `fcf_margin`), four balance-sheet ratios
+(`current_ratio`, `cash_to_assets`, `liabilities_to_assets`, `debt_to_assets`),
+and six YoY growth features per basis (`revenue`, `gross_profit`,
+`operating_income`, `net_income`, `rd`, `operating_cash_flow`). Income/cash-flow
+ratios divide the corresponding field by revenue **within one observation**.
+Balance ratios use current assets/current liabilities, cash/assets,
+liabilities/assets and noncurrent long-term debt/assets, respectively.
+
+Quarterly and annual flows remain separate. Quarterly YoY is current value /
+previous FY's same fiscal quarter value − 1; annual YoY uses previous FY's
+annual value. A reference must have been filed on or before the current
+snapshot's filing date, with an explicit cutoff check. Select the latest
+comparable observation **retained in the current Stage 4 processed dataset**,
+ordered by filing date, period end, amendment preference, period start and
+lexical accession. Freeze this reference at the
+current filing; later reference amendments do not rewrite past snapshots.
+`yoy_reference_*` columns retain its full period/filing identity. A fiscal key
+with multiple distinct periods known at that time is ambiguous. Require both
+start and end dates to be 330–400 days apart, with nonoverlapping periods;
+otherwise growth is missing and `yoy_comparison_status` explains why. This
+conservative guard catches inconsistent early source labels without relabeling
+Stage 4 or choosing adjacent quarters. The 330–400-day guard admits 52/53-week
+years but does not certify a fiscal calendar or repair calendar changes.
+Stage 4 excludes comparative facts outside each accession's latest end date;
+its retained references are not necessarily the latest of all public SEC
+versions. Archived same-concept/unit/physical-period redisclosures are compared
+separately as **historical comparative value differences**, without changing
+denominators or inferring that every difference is a restatement.
+
+Ratios and growth require a positive denominator. Missing inputs, zero or
+negative denominators, absent/ambiguous comparisons and arithmetic overflow
+remain NaN. Negative current earnings with a positive comparison denominator
+use the stated formula. No YTD flows, subtraction to infer quarters, field
+filling, interpolation, clipping, scaling or imputation are introduced. Growth
+is computed on filing-level history: daily repeated financial values cannot
+be fed to `pct_change()` to recover financial-period growth.
+
+Daily mapping reuses Stage 5's effective-date helper and whole-observation
+as-of selection, preserving its filing-day exclusion and observed-calendar
+coverage limitation. Snapshot `effective_date` uses that same calendar;
+`selected_for_daily` identifies the snapshots actually selected in the market
+window across any state. `selected_for_q`, `selected_for_fy`, `selected_for_bs`
+and `selected_for_stage5` identify each selector. Historical snapshots remain
+in the file for inspection. Independent whole quarterly and annual streams
+carry their features until that same basis receives a later effective filing;
+one basis never clears the other. Metadata is `q_*` and `fy_*` (filing/effective
+dates, accession, form, fiscal year/period, physical period, basis and ages),
+with separate `q_yoy_reference_*` and `fy_yoy_reference_*` provenance. Existing
+Stage 5 fields and unprefixed `yoy_reference_*` retain the single-observation
+checkpoint context; they do not identify both independent states.
+
+The balance-sheet stream selects the latest quarterly/annual observation with
+at least one of its seven source BS fields present. All four ratios, `bs_*`
+metadata and seven `bs_` source values come from that same whole snapshot.
+Missing metrics stay missing; income-only observations do not replace an
+available BS state. Each stream uses Stage 5's documented deterministic tie
+order. State means **latest filing**, not latest financial period: an older
+period's late amendment may move `period_end` backward. The report counts these
+transitions; no previous daily row is rewritten.
+
+Snapshot and state `effective_date_is_sample_truncated`/`effective_date_basis`
+explicitly identify filings before the first market session. For those rows,
+`days_since_effective_date` measures time since the **sample-effective** date,
+not the unavailable historical next exchange session. `days_since_filing`
+always uses the real filing date. No pre-window trading calendar is guessed.
+
+All nine Stage 3 market features and their warm-up NaNs are retained. SMAs
+remain trailing close means over 5/20/60 sessions; volatility remains the
+trailing 20/60-session standard deviation of simple returns, `ddof=1`, without
+annualization. Stage 3 has no momentum or price/MA-ratio feature, so none is
+added here. Validation audits every Stage 5 cell and derived snapshot against
+source history. Identifiers/metadata and raw SEC values use exact equality
+(numeric dtype changes and paired NaNs allowed); derived ratios/growth use
+explicit `rtol=0`, `atol=1e-12`. Original market columns are independently
+checked for preservation, including temporary-name collisions. Adversarial
+tests include a small independent daily-loop oracle without production joins.
+CSV export preserves original Stage 4/5 source-cell text (canonicalizing dates)
+and validates a reload before saving, avoiding decimal-parser precision drift.
+This stage includes no ROA/ROE, TTM, valuation, interactions,
+prediction or strategy features. Run all offline regression tests with the
+existing `unittest discover` command above.
