@@ -160,3 +160,51 @@ are not substituted. Some periods lack directly reported total liabilities.
 EPS is as disclosed in each filing and can change with stock splits or
 restatements; it is not retrospectively harmonized. Raw API snapshots are
 replaced on each download; archive them separately to preserve multiple vintages.
+
+## Point-in-Time Research Dataset (Stage 5)
+
+Read existing Stage 3/4 CSVs offline, without downloading or rebuilding them:
+
+```bash
+PYTHONPATH=src ./.venv/bin/python -m nasdaq_research.alignment
+```
+
+Outputs are `data/research/NVDA_research.csv` and `NVDA_validation.json`.
+All Stage 3 columns and their warm-up missing values are retained; `ticker=NVDA`
+is added because Stage 3 uses per-symbol files. Financial values and concept
+provenance columns are copied from one whole observation, with metadata renamed
+`fundamental_*`. `days_since_filing` and `days_since_effective_date` count calendar
+days. No field-level filling or backward filling occurs.
+
+Availability is strictly after filing day. The effective date is the next date
+present in the market dataset, and a backward as-of join uses effective dates,
+never period ends. This uses observed trading sessions rather than guessed
+business weekdays; weekends and exchange holidays absent from the input are
+skipped. The market input must contain all trading sessions over its coverage.
+For filings before coverage begins, effective dates are **left-censored to the
+first observed session**: they describe first availability within this dataset,
+not the historical exchange session immediately following that old filing.
+A filing after the final session is never matched. The report identifies this
+calendar convention. An extended exchange calendar would be needed to recover
+exact pre-window effective dates.
+
+Only standalone `quarterly` and `annual` rows are eligible. YTD is excluded,
+including its cash-flow values; missing quarterly cash flow remains missing.
+For competing observations on one effective date, select the greatest tuple:
+filing date, period end, quarterly preference over annual, amendment preference,
+period start, lexical accession. The final accession tie-break is deterministic,
+not a claim about intraday filing order. Selection preserves complete source
+rows. A later amendment changes data only after its own filing date; older
+snapshots are never rewritten. Different annual and quarterly durations remain
+explicit in `fundamental_data_period_type`; they are not directly comparable
+flows and this stage does not derive TTM or annualized features.
+
+Validation checks every market row/column and every attached value/provenance
+cell against the selected source observation, plus strict filing-day exclusion,
+effective date bounds, ticker/order/uniqueness and information age. Offline
+regressions cover pre-filing missing data, filing day, next session, holidays,
+amendments, deterministic ties, YTD exclusion, future mutations and prefix
+invariance. The current archived input has no amended or repeated-period rows;
+synthetic tests cover those scenarios. This alignment inherits the archived
+Company Facts vintage and Stage 4 provenance limitations; it cannot establish
+that SEC never revised the upstream historical facts.

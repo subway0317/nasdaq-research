@@ -1,0 +1,21 @@
+{
+  "valid": true,
+  "errors": [],
+  "row_count": 251,
+  "unmatched_rows": 0,
+  "ticker": "NVDA",
+  "market_input": "/home/zbw21/projects/nasdaq-research/data/processed/NVDA.csv",
+  "fundamentals_input": "/home/zbw21/projects/nasdaq-research/data/fundamentals/processed/NVDA_fundamentals.csv",
+  "calendar_basis": "Observed market sessions; pre-window effective dates are left-censored",
+  "pre_window_observations": 108,
+  "excluded_ytd": 35,
+  "amended_observations": 0,
+  "repeated_period_observations": 0,
+  "matched_accessions": [
+    "0001045810-25-000209",
+    "0001045810-25-000230",
+    "0001045810-26-000021",
+    "0001045810-26-000052",
+    "0001045810-26-000075"
+  ]
+}
