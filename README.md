@@ -311,3 +311,89 @@ and validates a reload before saving, avoiding decimal-parser precision drift.
 This stage includes no ROA/ROE, TTM, valuation, interactions,
 prediction or strategy features. Run all offline regression tests with the
 existing `unittest discover` command above.
+
+## Feature Diagnostics & Exploratory Research (Stage 7)
+
+Diagnose the existing Stage 6.1 outputs offline, without downloading or rebuilding
+price/SEC data:
+
+```bash
+PYTHONPATH=src ./.venv/bin/python -m nasdaq_research.diagnostics
+```
+
+Optional arguments: `--features-path`, `--snapshots-path`, `--validation-path`,
+and `--output-dir`. The Stage 6.1 validation must pass. The command reads
+`NVDA_features.csv`, `NVDA_fundamental_features.csv`, and
+`NVDA_feature_validation.json`; it reports the actual shape, ticker and dates.
+SHA-256 checks protect the input files and existing Stage 1–6.1 data, including
+`NVDA_research.csv`. All outputs go to `data/research/diagnostics/`.
+
+Feature classification reuses the Stage 3/6 feature definitions. The full column
+inventory distinguishes market, quarterly, annual and balance-sheet research
+features from numeric metadata (ages/fiscal years), provenance and raw source
+values. Only research features enter distributions and correlations.
+
+Diagnostics include non-null coverage, missing blocks and longest missing runs;
+sample standard deviation, quantiles, skewness and excess kurtosis; transparent
+outer IQR fences (`Q1 − 3×IQR`, `Q3 + 3×IQR`); near-constant values; market
+warm-up checks and unusually long constant runs; and fundamental changes against
+each stream's effective date. Missing-to-value and value-to-missing changes are
+checked too. Timing inconsistencies are reported without changing source data.
+
+Thresholds are centralized in `DiagnosticThresholds`: 100% coverage is full,
+95–100% is high, 50–95% is moderate, below 50% is sparse, and zero is all missing.
+Near-constant means one distinct finite value with at least two observations,
+or a dominant value of at least 99% with at least 20 observations. Outliers
+require at least eight finite observations and positive IQR; zero-IQR and small
+samples remain explicitly unassessed. Short history means fewer than 60 finite
+daily observations or five finite window states.
+
+Pearson correlation uses finite pairwise complete observations and records every
+pair's sample count. At least 20 complete observations are required for a
+coefficient in any view; `abs(correlation) >= 0.95` flags potential redundancy.
+All-missing and constant features remain in reports/matrices with undefined
+coefficients. No feature is deleted. Daily fundamental pairs also report each
+feature's distinct filing-state count within that pair's overlap.
+
+Fundamental distributions/correlations have separate `daily_repeated`,
+`window_snapshot` and `historical_snapshot` views. Window states are identified
+by whole filing provenance, never by unique feature values. Near-constant,
+outlier and short-history quality flags for fundamentals use these window
+states, so normal filing-driven repetition is not treated as a defect.
+Historical statistics read the archived snapshot file directly, within each
+basis separately, using filings strictly before the last observed session.
+They describe a longer history than the daily window and inherit its archived
+vintage and source limitations. Small window-state samples produce counts and
+distributions but no correlation coefficients under the minimum-sample rule.
+
+Outputs:
+
+- `feature_inventory.csv`, `feature_missingness.csv`, `feature_quality.csv`:
+  column classification, coverage and diagnostic flags/notes.
+- `feature_distributions.csv`: daily, window-state and historical statistics.
+- `feature_correlations.csv`, `correlation_pairwise_counts.csv`,
+  `correlation_pairs.csv`, `high_correlation_pairs.csv`: full daily matrix,
+  overlap counts and pair diagnostics.
+- `temporal_diagnostics.csv`, `fundamental_states.csv`,
+  `snapshot_correlations.csv`: timing checks, observed state repetition and
+  within-basis snapshot pair diagnostics.
+- `NVDA_feature_diagnostics.json`: input hashes, thresholds, counts, known
+  missingness, limitations, validation and output hashes.
+- `figures/*.png`: coverage, four group correlation heatmaps, existing 20/60-day
+  volatility series and quarterly revenue-growth/gross-margin step plots.
+
+Matplotlib is the only added direct dependency; figures use its offline Agg
+backend with no dashboard. Reports omit run timestamps and use no random steps;
+tests compare both reports and PNG bytes across repeated runs in one environment.
+Run Stage 7 tests with `unittest discover -s tests -p 'test_diagnostics.py' -v`,
+or use the full offline suite command above for all stages.
+
+`usable` means data quality permits further research; it says nothing about
+predictive ability or model suitability. The current daily sample is about one
+year, with far fewer distinct fundamental states. Daily repetitions are not
+independent fundamental observations; even distinct filings can be dependent.
+Correlation establishes neither causality nor predictive power, and these
+results describe only NVDA's current window. This stage has no prediction target
+or future-return analysis: target design belongs to Stage 8. Stage 7 performs
+no feature selection, cleaning, imputation, winsorization, scaling, interaction
+engineering, modeling, valuation or backtesting.

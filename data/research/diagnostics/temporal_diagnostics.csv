@@ -1,0 +1,40 @@
+feature_name,feature_group,temporal_behavior,value_change_count,payload_transition_count,longest_constant_run,leading_missing_count,expected_warmup_count,unexpected_missing_count,missing_warmup_count,distinct_fundamental_states,state_change_count,effective_date_aligned_changes,potential_temporal_inconsistency,inconsistency_dates,notes
+simple_return,market,daily_varying,249,250,1,1,1.0,0.0,0.0,,,,False,,
+log_return,market,daily_varying,249,250,1,1,1.0,0.0,0.0,,,,False,,
+intraday_return,market,daily_varying,250,250,1,0,0.0,0.0,0.0,,,,False,,
+daily_range,market,daily_varying,250,250,1,0,0.0,0.0,0.0,,,,False,,
+sma_5,market,daily_varying,246,247,1,4,4.0,0.0,0.0,,,,False,,
+sma_20,market,daily_varying,231,232,1,19,19.0,0.0,0.0,,,,False,,
+sma_60,market,daily_varying,191,192,1,59,59.0,0.0,0.0,,,,False,,
+rolling_volatility_20,market,daily_varying,230,231,1,20,20.0,0.0,0.0,,,,False,,
+rolling_volatility_60,market,daily_varying,190,191,1,60,60.0,0.0,0.0,,,,False,,
+q_gross_margin,quarterly,step_function,3,3,124,0,,,,4.0,3.0,3.0,False,,filing-driven step behavior; daily repetition is expected
+q_operating_margin,quarterly,step_function,3,3,124,0,,,,4.0,3.0,3.0,False,,filing-driven step behavior; daily repetition is expected
+q_net_margin,quarterly,step_function,3,3,124,0,,,,4.0,3.0,3.0,False,,filing-driven step behavior; daily repetition is expected
+q_rd_to_revenue,quarterly,step_function,3,3,124,0,,,,4.0,3.0,3.0,False,,filing-driven step behavior; daily repetition is expected
+q_sga_to_revenue,quarterly,step_function,3,3,124,0,,,,4.0,3.0,3.0,False,,filing-driven step behavior; daily repetition is expected
+q_ocf_margin,quarterly,sparse,0,2,67,160,,,,4.0,3.0,2.0,False,,filing-driven step behavior; daily repetition is expected
+q_fcf_margin,quarterly,sparse,0,0,0,251,,,,4.0,3.0,0.0,False,,filing-driven step behavior; daily repetition is expected
+fy_gross_margin,annual,step_function,1,1,150,0,,,,2.0,1.0,1.0,False,,filing-driven step behavior; daily repetition is expected
+fy_operating_margin,annual,step_function,1,1,150,0,,,,2.0,1.0,1.0,False,,filing-driven step behavior; daily repetition is expected
+fy_net_margin,annual,step_function,1,1,150,0,,,,2.0,1.0,1.0,False,,filing-driven step behavior; daily repetition is expected
+fy_rd_to_revenue,annual,step_function,1,1,150,0,,,,2.0,1.0,1.0,False,,filing-driven step behavior; daily repetition is expected
+fy_sga_to_revenue,annual,step_function,1,1,150,0,,,,2.0,1.0,1.0,False,,filing-driven step behavior; daily repetition is expected
+fy_ocf_margin,annual,step_function,1,1,150,0,,,,2.0,1.0,1.0,False,,filing-driven step behavior; daily repetition is expected
+fy_fcf_margin,annual,sparse,0,0,0,251,,,,2.0,1.0,0.0,False,,filing-driven step behavior; daily repetition is expected
+current_ratio,balance_sheet,step_function,4,4,67,0,,,,5.0,4.0,4.0,False,,filing-driven step behavior; daily repetition is expected
+cash_to_assets,balance_sheet,step_function,4,4,67,0,,,,5.0,4.0,4.0,False,,filing-driven step behavior; daily repetition is expected
+liabilities_to_assets,balance_sheet,step_function,4,4,67,0,,,,5.0,4.0,4.0,False,,filing-driven step behavior; daily repetition is expected
+debt_to_assets,balance_sheet,step_function,4,4,67,0,,,,5.0,4.0,4.0,False,,filing-driven step behavior; daily repetition is expected
+q_revenue_growth_yoy,quarterly,step_function,3,3,124,0,,,,4.0,3.0,3.0,False,,filing-driven step behavior; daily repetition is expected
+q_gross_profit_growth_yoy,quarterly,step_function,3,3,124,0,,,,4.0,3.0,3.0,False,,filing-driven step behavior; daily repetition is expected
+q_operating_income_growth_yoy,quarterly,step_function,3,3,124,0,,,,4.0,3.0,3.0,False,,filing-driven step behavior; daily repetition is expected
+q_net_income_growth_yoy,quarterly,step_function,3,3,124,0,,,,4.0,3.0,3.0,False,,filing-driven step behavior; daily repetition is expected
+q_rd_growth_yoy,quarterly,step_function,3,3,124,0,,,,4.0,3.0,3.0,False,,filing-driven step behavior; daily repetition is expected
+q_operating_cash_flow_growth_yoy,quarterly,sparse,0,2,67,160,,,,4.0,3.0,2.0,False,,filing-driven step behavior; daily repetition is expected
+fy_revenue_growth_yoy,annual,step_function,1,1,150,0,,,,2.0,1.0,1.0,False,,filing-driven step behavior; daily repetition is expected
+fy_gross_profit_growth_yoy,annual,step_function,1,1,150,0,,,,2.0,1.0,1.0,False,,filing-driven step behavior; daily repetition is expected
+fy_operating_income_growth_yoy,annual,step_function,1,1,150,0,,,,2.0,1.0,1.0,False,,filing-driven step behavior; daily repetition is expected
+fy_net_income_growth_yoy,annual,step_function,1,1,150,0,,,,2.0,1.0,1.0,False,,filing-driven step behavior; daily repetition is expected
+fy_rd_growth_yoy,annual,step_function,1,1,150,0,,,,2.0,1.0,1.0,False,,filing-driven step behavior; daily repetition is expected
+fy_operating_cash_flow_growth_yoy,annual,step_function,1,1,150,0,,,,2.0,1.0,1.0,False,,filing-driven step behavior; daily repetition is expected
