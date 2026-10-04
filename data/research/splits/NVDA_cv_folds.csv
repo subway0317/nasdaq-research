@@ -1,0 +1,10 @@
+target_name,fold,train_start_date,train_end_date_nominal,train_end_date_effective,train_count_nominal,train_count_effective,purged_count,train_missing_target_count,validation_start_date,validation_end_date,validation_count,validation_count_effective,evaluation_missing_target_count,embargo_sessions,max_validation_target_exit_date,pre_test_gap_rows,validation_labels_reaching_final_test,final_test_start_date
+forward_return_1d,cv_1,2025-10-01,2026-02-25,2026-02-24,101,100,1,0,2026-02-26,2026-04-01,25,25,0,0,2026-04-02,20,0,2026-07-15
+forward_return_5d,cv_1,2025-10-01,2026-02-25,2026-02-18,101,96,5,0,2026-02-26,2026-04-01,25,25,0,0,2026-04-09,20,0,2026-07-15
+forward_return_20d,cv_1,2025-10-01,2026-02-25,2026-01-27,101,81,20,0,2026-02-26,2026-04-01,25,25,0,0,2026-04-30,20,0,2026-07-15
+forward_return_1d,cv_2,2025-10-01,2026-04-01,2026-03-31,126,125,1,0,2026-04-02,2026-05-07,25,25,0,0,2026-05-08,20,0,2026-07-15
+forward_return_5d,cv_2,2025-10-01,2026-04-01,2026-03-25,126,121,5,0,2026-04-02,2026-05-07,25,25,0,0,2026-05-14,20,0,2026-07-15
+forward_return_20d,cv_2,2025-10-01,2026-04-01,2026-03-04,126,106,20,0,2026-04-02,2026-05-07,25,25,0,0,2026-06-05,20,0,2026-07-15
+forward_return_1d,cv_3,2025-10-01,2026-05-07,2026-05-06,151,150,1,0,2026-05-08,2026-06-12,25,25,0,0,2026-06-15,20,0,2026-07-15
+forward_return_5d,cv_3,2025-10-01,2026-05-07,2026-04-30,151,146,5,0,2026-05-08,2026-06-12,25,25,0,0,2026-06-22,20,0,2026-07-15
+forward_return_20d,cv_3,2025-10-01,2026-05-07,2026-04-09,151,131,20,0,2026-05-08,2026-06-12,25,25,0,0,2026-07-14,20,0,2026-07-15

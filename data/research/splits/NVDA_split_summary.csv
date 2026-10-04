@@ -1,0 +1,4 @@
+target_name,primary_target,total_rows,primary_labelable_rows,unlabeled_tail_rows,development_rows,final_test_rows,cv_fold_count,validation_rows_per_fold,embargo_sessions,pre_test_gap_rows,pre_test_gap_start_date,pre_test_gap_end_date,cv_history_rows,cv_validation_total_rows,initial_train_count_nominal,effective_train_count,purged_count,missing_target_count,final_train_missing_target_count,final_test_usable_count,final_test_missing_target_count,final_test_locked
+forward_return_1d,forward_return_5d,251,246,5,196,50,3,25,0,20,2026-06-15,2026-07-14,176,75,101,195,1,1,0,50,0,True
+forward_return_5d,forward_return_5d,251,246,5,196,50,3,25,0,20,2026-06-15,2026-07-14,176,75,101,191,5,5,0,50,0,True
+forward_return_20d,forward_return_5d,251,246,5,196,50,3,25,0,20,2026-06-15,2026-07-14,176,75,101,176,20,20,0,35,15,True

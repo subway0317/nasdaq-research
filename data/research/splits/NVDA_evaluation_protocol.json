@@ -1,0 +1,152 @@
+{
+  "protocol_version": "9.1",
+  "registered_targets": [
+    "forward_return_1d",
+    "forward_return_5d",
+    "forward_return_20d"
+  ],
+  "ticker": "NVDA",
+  "primary_target": "forward_return_5d",
+  "secondary_targets": [
+    "forward_return_1d",
+    "forward_return_20d"
+  ],
+  "config": {
+    "final_test_size": 50,
+    "validation_size": 25,
+    "n_folds": 3,
+    "minimum_initial_training_size": 60,
+    "embargo_sessions": 0
+  },
+  "final_test_size": 50,
+  "cv_fold_count": 3,
+  "validation_size": 25,
+  "split_type": "chronological_expanding_window",
+  "purge_rule": "target present AND target_exit_date < evaluation_start_date",
+  "exact_boundary_policy": "target_exit_date == evaluation_start_date is purged",
+  "secondary_target_boundaries": "Same primary-defined date blocks; independent horizon-specific training purge",
+  "embargo_sessions": 0,
+  "embargo_reason": "Training is earlier than evaluation; provenance purge controls training overlap; no extra post-validation embargo",
+  "primary_metric": "MAE",
+  "secondary_metrics": [
+    "RMSE",
+    "R\u00b2",
+    "Pearson correlation",
+    "Spearman correlation",
+    "Directional accuracy"
+  ],
+  "metric_definitions": {
+    "MAE": "mean(abs(y_true - prediction)); fixed primary metric",
+    "RMSE": "sqrt(mean((y_true - prediction)**2))",
+    "R\u00b2": "1 - SSE/SST; undefined if SST is zero",
+    "Pearson correlation": "Linear correlation; undefined for constant vectors or fewer than two complete observations",
+    "Spearman correlation": "Correlation of average ranks for ties; undefined for constant ranks or fewer than two complete observations",
+    "Directional accuracy": "mean(sign(prediction) == sign(y_true)); zero is its own sign category"
+  },
+  "cv_metric_aggregation": "Equal-weight mean of fold MAE; report per-fold and per-horizon usable counts; no best-fold selection",
+  "primary_metric_changes_after_results_allowed": false,
+  "baselines": [
+    {
+      "name": "Zero-return baseline",
+      "definition": "prediction = 0",
+      "executed": false
+    },
+    {
+      "name": "Historical-mean baseline",
+      "definition": "mean of this horizon's usable, purged training-fold targets only",
+      "fit_scope": "training_only",
+      "validation_test_full_sample_mean_allowed": false,
+      "executed": false
+    }
+  ],
+  "preprocessing": {
+    "fit_scope": "usable_training_only",
+    "validation_test_action": "transform_only",
+    "full_sample_fit_allowed": false,
+    "implemented": false,
+    "operations": [
+      "imputation",
+      "scaling",
+      "normalization",
+      "feature selection",
+      "target-dependent filtering"
+    ]
+  },
+  "feature_selection": {
+    "scope": "usable_training_only",
+    "final_test_access_allowed": false,
+    "implemented": false
+  },
+  "final_test_locked": true,
+  "final_test_policy": "Final test is a one-shot out-of-sample evaluation set.",
+  "final_test_use_for_model_feature_preprocessing_target_selection_allowed": false,
+  "final_test_performance_evaluated": false,
+  "random_split_allowed": false,
+  "model_training_performed": false,
+  "unlabeled_tail_policy": "Retained and excluded for every horizon, even if a secondary target is present",
+  "boundaries": {
+    "development": {
+      "start": "2025-10-01",
+      "end": "2026-07-14"
+    },
+    "final_test": {
+      "start": "2026-07-15",
+      "end": "2026-09-23"
+    },
+    "unlabeled_tail": {
+      "start": "2026-09-24",
+      "end": "2026-09-30"
+    },
+    "pre_test_gap": {
+      "start": "2026-06-15",
+      "end": "2026-07-14"
+    },
+    "cv": [
+      {
+        "fold": "cv_1",
+        "start": "2026-02-26",
+        "end": "2026-04-01"
+      },
+      {
+        "fold": "cv_2",
+        "start": "2026-04-02",
+        "end": "2026-05-07"
+      },
+      {
+        "fold": "cv_3",
+        "start": "2026-05-08",
+        "end": "2026-06-12"
+      }
+    ]
+  },
+  "limitations": [
+    "The current dataset covers about one year for NVDA only.",
+    "The final test has 50 nominal primary-labelable observations and each CV block has 25 under the default protocol.",
+    "Overlapping targets reduce independent information; neither row counts nor folds imply independence.",
+    "Purging reduces effective training sizes, especially for the 20-session target.",
+    "Secondary final-test labels can be missing within the shared primary-defined date block.",
+    "The dynamic pre-test gap reduces CV initial training history while preserving complete validation blocks.",
+    "Training-label purge prevents training exits at/after an evaluation start; it does not make evaluation blocks independent.",
+    "Gap rows are excluded from CV model selection but can return to horizon-specific final training when their labels have matured.",
+    "No model, baseline predictions, transaction-cost simulation, feature selection or preprocessing is performed.",
+    "The locked final test has not been used for performance evaluation."
+  ],
+  "validation_label_availability_rule": "target present AND target_exit_date < final_test_start_date",
+  "pre_test_gap_policy": "dynamic",
+  "pre_test_gap_basis": "all_registered_horizons",
+  "longest_registered_horizon": "forward_return_20d",
+  "cv_validation_policy": "Last n_folds * validation_size fully label-available development observations; chronological full blocks",
+  "missing_validation_label_policy": "Not safe; exclude from CV validation history for every registered horizon",
+  "pre_test_gap_final_training_policy": "Gap membership is not a final-training exclusion; apply each horizon's original target-exit purge",
+  "pre_test_gap": {
+    "row_count": 20,
+    "start_date": "2026-06-15",
+    "end_date": "2026-07-14"
+  },
+  "validation_labels_reaching_final_test_calendar": [],
+  "strict_pre_test_model_selection_boundary_satisfied": true,
+  "stage10_readiness": "READY FOR STAGE 10",
+  "readiness_reason": "All three leakage boundaries pass; final readiness also requires pipeline source/round-trip validation and regression/reproducibility checks",
+  "source_labeled_sha256": "e6a438a1b832e97eab30b0de4f656e881618fc87348debc8c5b7978410cace2b",
+  "source_labeled_file": "/home/zbw21/projects/nasdaq-research/data/research/NVDA_labeled.csv"
+}

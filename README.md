@@ -473,3 +473,142 @@ PYTHONPATH=src ./.venv/bin/python -m unittest discover -s tests -p 'test_targets
 
 Use the full `unittest discover -s tests -v` command above for regression checks.
 Repeated runs produce identical CSV/JSON/PNG artifacts in the same environment.
+
+## Stage 9 — Leakage-Safe Temporal Splitting & Evaluation Protocol
+
+Create manifests from the existing Stage 8 labeled dataset, without rebuilding
+upstream files or training any model:
+
+```bash
+PYTHONPATH=src ./.venv/bin/python -m nasdaq_research.splits
+```
+
+The primary target remains `forward_return_5d`. The last **50 primary-labelable
+observations** form the locked final test; all earlier primary-labelable rows
+form Development. Primary missing labels must be a contiguous unlabeled tail,
+retained and excluded from every target's training/evaluation, even when a
+secondary label is available. No feature rows or columns are deleted.
+
+With Stage 9.1, the last 75 Development observations whose labels for all
+registered horizons have matured strictly before final-test start form
+**three chronological validation blocks of 25 rows**. Each fold's nominal training candidates are all preceding
+Development observations, so earlier validation periods can become later
+training candidates. Configuration lives in `SplitConfig`; the default requires
+at least 60 nominal initial training observations, without shrinking the fixed
+50/25/3 protocol to fit insufficient data. Each effective training pool must
+also be nonempty. Unordered dates, duplicate dates, mixed tickers, missing
+required provenance and interior primary-label gaps are rejected.
+
+For every fold and the final training pool, a training candidate is usable only
+when its own target exists and **`target_exit_date < evaluation_start_date`**.
+Equality is purged. This uses actual Stage 8 exit provenance, never a fixed
+number of trailing rows. The 1d/5d/20d targets share the same nominal validation
+and final-test date blocks but receive independent training purges. Missing
+secondary labels are marked `target_missing` with `is_usable=false` in training
+and the final test. CV validation requires complete labels for every registered
+horizon, so every validation block remains fully usable for all three targets.
+
+`embargo_sessions=0`: training is always before evaluation and its overlapping
+labels are purged. This causal expanding-window protocol adds no post-validation
+embargo. Nonzero embargo is explicitly unsupported rather than silently ignored;
+another CV architecture would require a new decision. Random splits, shuffled
+K-fold and `train_test_split(..., shuffle=True)` are prohibited.
+
+**Final test is a one-shot out-of-sample evaluation set.** It is locked to the
+source hash, configuration, dates and evaluation contract. Rerunning cannot
+silently move its boundary or replace the registered primary metric. Final-test
+performance must never choose targets, algorithms, features, hyperparameters
+or preprocessing; it has not been evaluated in Stage 9. Manifest `is_usable`
+denotes data eligibility, not authorization to use locked test results during
+development. Roles are scoped by `(fold, target_name, date)`; `not_candidate`
+keeps future rows visible while excluding them from a CV fold.
+
+Stage 10's preregistered regression contract is **MAE primary**, with RMSE, R²,
+Pearson correlation, Spearman correlation and directional accuracy secondary.
+The primary metric cannot be changed after seeing results. CV MAE is aggregated
+with equal fold weights. Baselines are zero return and historical mean; the
+latter may use only that horizon's usable, purged training-fold targets, never
+validation, test or full-sample means. Baselines and metrics are defined but
+not executed here. Any later imputation, scaling, normalization, feature
+selection or target-dependent filtering must fit on usable training data only,
+then transform validation/test. Full-sample preprocessing is prohibited.
+
+Outputs under `data/research/splits/`:
+
+- `NVDA_split_manifest.csv`: all dates × horizons × CV/final contexts, with
+  nominal membership, usable/purged/missing/tail roles, entry/exit dates, locked
+  test flags, a `pre_test_gap` flag and role, and explicit final-training
+  candidate/purged/usable flags.
+- `NVDA_cv_folds.csv`, `NVDA_final_training_pool.csv`: nominal/effective training
+  counts, horizon-specific purge counts, evaluation dates/completeness, maximum
+  validation exit dates, and gap rows returning to final training.
+- `NVDA_split_summary.csv`: primary partition sizes, gap dates/counts,
+  CV history/validation sizes and per-horizon counts.
+- `NVDA_split_validation.json`: independent role/date audits, source/output
+  hashes, reproducibility metadata and readiness.
+- `NVDA_evaluation_protocol.json`: fixed split, purge, metrics, baselines,
+  preprocessing restrictions, lock and limitations for later stages.
+
+CLI path overrides are `--labeled-path`, `--targets-path`, `--features-path`,
+`--target-validation-path`, and `--output-dir`. Stage 8 hashes and formulas are
+audited read-only, then all existing Stage 1–8 data hashes are checked again.
+No train/validation/test copies, figures or new dependencies are needed.
+Run Stage 9 tests with `unittest discover -s tests -p 'test_splits.py' -v`, then
+the full suite command above. CSV/JSON bytes are reproducible across repeats.
+
+The current window is about one year; the 50-row test and 25-row validation
+blocks contain fewer independent observations because labels overlap. Purge
+reduces training sizes further, especially at 20d. No model, transaction-cost
+simulation, feature selection or preprocessing is performed.
+
+### Stage 9.1 — Validation/Test Boundary Hardening
+
+Feature-date separation alone does not isolate the test: a validation feature
+date can precede test start while its forward label still needs prices inside
+the test period. The original Stage 9 Fold 3 had 1/5/20 such validation labels
+for 1d/5d/20d. Stage 9.1 requires every model-selection validation label to
+satisfy **`target_exit_date < final_test_start_date`**; equality is unsafe.
+
+`pre_test_gap` is the Development suffix after the latest observation with
+complete labels and pre-test exits for **all registered horizons** (1d, 5d,
+20d). Its dates and row count are derived from actual provenance, not a fixed
+20-row offset or calendar-day subtraction. The longest registered horizon is
+currently 20d. Missing labels or exit metadata never count as safe. Any interior
+ineligible observations are also excluded from the eligible CV validation
+history; they remain present in the manifest and can still be training
+candidates subject to the existing purge.
+
+The last 75 eligible observations form three full 25-row validation blocks,
+moving the complete CV schedule earlier. Initial nominal training remains at
+least 60 rows; insufficient post-gap history fails explicitly without changing
+the 50-row test, 25-row folds or three-fold count. Every fold, not only Fold 3,
+is audited for complete pre-test validation labels. The validation JSON reports
+per-horizon crossing counts, maximum validation exits, gap dates/counts and
+all three leakage boundaries.
+
+Gap rows receive `role=pre_test_gap` and `is_usable=false` in CV contexts. They
+are **not permanently discarded**: in the `final` context they are ordinary
+Development candidates, usable or purged independently for each target using
+its own `target_exit_date < final_test_start_date`. The global `pre_test_gap`
+flag keeps their membership visible. This separates model-selection eligibility
+from final-training eligibility.
+
+Training purge and the pre-test gap protect different boundaries:
+
+- Training → Validation: each training label exits before its fold's validation start.
+- Validation → Final Test: all registered validation labels exit before test start.
+- Final Training → Final Test: each final-training label exits before test start.
+
+The gap is distinct from embargo; `embargo_sessions` remains zero. Final test
+remains the last 50 primary-labelable rows, currently 2026-07-15 through
+2026-09-23, and the five-row unlabeled tail remains outside all evaluations.
+MAE, secondary metrics, baselines and training-only preprocessing/selection
+contracts are unchanged. Gap design uses label availability only, without
+inspecting target distributions or performance. No modeling is performed.
+
+The same CLI upgrades a recognized, uncommitted Stage 9 protocol to version
+`9.1` only after checking its source hash, original dates and unchanged final-test
+and evaluation contracts. A version 9.1 protocol locks the new CV/gap boundaries
+as well; subsequent runs cannot silently move them. CSV/JSON repeats remain
+byte-for-byte reproducible. The gap further reduces CV training history, and
+overlapping 20d labels still provide limited independent information.
