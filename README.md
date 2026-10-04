@@ -699,3 +699,75 @@ This is a development-CV benchmark for approximately one year of NVDA data,
 with only 75 OOF observations and 25 per fold. Overlapping 5d labels mean
 observations are not independent. There is no nonlinear modeling, transaction
 cost calculation or backtest, and no final-test performance has been evaluated.
+
+### Stage 10.1 — Baseline Model Stability Diagnostics
+
+Stage 10's learned linear models have large cv_3 errors. This stage diagnoses
+that instability while preserving the fixed target, features, preprocessing,
+Ridge alpha, folds and Stage 10 candidate ranking. It introduces no model,
+tuning, feature selection or treatment. Stage 10 code and baseline artifacts
+remain unchanged.
+
+```bash
+PYTHONPATH=src .venv/bin/python -m nasdaq_research.model_stability
+```
+
+The CLI checks the Stage 9.1 and Stage 10 frozen hashes, reconstructs the same
+four learned-model fits on effective training rows, and verifies saved OOF
+predictions and metrics with `rtol=0, atol=1e-12`. Diagnostics cover the 75 OOF
+validation observations; row errors include all six candidates (450 records).
+Residuals consistently mean **actual minus prediction**.
+
+Outputs under `data/research/modeling/stability/` include row errors,
+prediction distributions, raw train-versus-validation feature shift,
+training-scaler validation z-scores, per-feature prediction contributions,
+coefficient drift, training design-matrix conditioning, OLS training influence,
+fundamental state context, and summary/validation JSON. All candidate features
+receive raw shift statistics; dropped features receive no artificial z-score
+or contribution. Strict raw range comparisons exclude equality and missing
+values; range fractions use non-null validation values. Descriptive standard
+deviations use `ddof=1`; Stage 10 scaler parameters retain `ddof=0`.
+
+Contributions reconstruct every learned prediction as intercept plus the sum
+of coefficient times z-score. Missing-fold coefficients remain NaN. Sign flips
+count opposite nonzero signs in consecutive available folds; missing folds are
+skipped and exact zero is a separate sign category. Coefficient norms and
+Ridge/OLS ratios are descriptive only.
+
+Conditioning uses NumPy SVD on the actual post-imputation/scaling training X,
+with the numerical rank threshold `max(shape) * eps * largest singular value`.
+Numerically rank-deficient matrices have infinite condition number (JSON null
+with an explicit infinity flag). Training correlation counts use unique pairs.
+OLS influence uses the intercept-inclusive Moore-Penrose projection, internal
+studentization and effective-rank residual degrees of freedom. Undefined
+quantities retain NaN and a reason. No observation is deleted or refitted.
+
+State context compares a validation row's selected q/fy/bs source identity with
+its immediately previous observed session. Existing calendar-day filing and
+sample-effective ages preserve Stage 6.1 semantics; metadata never enters X.
+State associations and linear diagnostics do not establish causality.
+
+Five figures under `stability/figures/` show actual versus prediction, prediction
+ranges, cv_3 largest errors, largest validation z-scores and coefficient drift.
+Each is marked **development CV only**. Feature ordering in these figures is
+for visualization and cannot change the fitted feature set.
+
+Final Test remains locked, with predictions and metrics both false. Pre-test
+gap, Final Test and unlabeled-tail rows are excluded from all diagnostics.
+The CLI executes in-memory feature/target/state-metadata isolation mutations,
+audits CSV round trips, and checks Stage 1–10 SHA-256 immutability. Repeated
+machine-readable outputs are deterministic. Path overrides are `--labeled-path`,
+`--split-dir`, `--diagnostic-dir`, `--baseline-dir` and `--output-dir`;
+`--no-figures` skips only plotting.
+
+```bash
+PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -p 'test_model_stability.py' -v
+PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -v
+```
+
+Tests include independent range, z-score, two-feature OLS contribution,
+conditioning and influence oracles, coefficient-sign/missing-fold checks,
+artifact tampering and scope mutations. Validation mutations protect the same
+fold's fit; earlier validation may legitimately enter later expanding training.
+This stage explains the development benchmark only, without opening the test
+or implementing any next-stage intervention.

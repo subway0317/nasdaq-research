@@ -1,0 +1,4113 @@
+{
+  "ticker": "NVDA",
+  "stage": "10.1",
+  "primary_target": "forward_return_5d",
+  "diagnostic_protocol": {
+    "stage": "10.1",
+    "ticker": "NVDA",
+    "primary_target": "forward_return_5d",
+    "split_protocol_version": "9.1",
+    "models": [
+      "zero_return",
+      "historical_mean",
+      "ols_market",
+      "ols_all",
+      "ridge_market",
+      "ridge_all"
+    ],
+    "residual_definition": "actual - prediction",
+    "descriptive_std_ddof": 1,
+    "range_definition": "strict raw non-null validation < training min or > training max; equality is inside",
+    "range_fraction_denominator": "non-null validation values; undefined training range yields NaN",
+    "zscore_definition": "(validation filled with fixed training median - training scaler mean) / training scaler scale",
+    "zscore_percentile_method": "linear",
+    "z_thresholds_are_diagnostic_only": [
+      3,
+      5
+    ],
+    "prediction_magnitude_thresholds_are_diagnostic_only": [
+      0.1,
+      0.2,
+      0.3
+    ],
+    "coefficient_std_ddof": 1,
+    "coefficient_sign_policy": "sign(0)=0; missing folds skipped; flips require opposite nonzero signs in consecutive available folds",
+    "svd_rank_tolerance": "max(matrix.shape) * float64 eps * largest singular value",
+    "condition_number_policy": "infinity if numerically rank deficient; JSON null plus condition_number_is_infinite flag",
+    "influence_design": "post-scaling training X with intercept; SVD Moore-Penrose projection",
+    "influence_studentization": "internal: residual / sqrt(MSE * (1 - leverage))",
+    "influence_MSE": "training residual SSE / (n - intercept-design numerical rank)",
+    "cooks_distance": "residual^2 / (rank * MSE) * leverage / (1-leverage)^2",
+    "influence_undefined_policy": "NaN with reason for zero residual variance, nonpositive residual df or unit leverage",
+    "state_identity_fields": [
+      "accession",
+      "filing_date",
+      "period_start",
+      "period_end",
+      "data_period_type"
+    ],
+    "state_comparison": "current validation row versus its immediately previous observed session; no future state",
+    "state_age_semantics": "existing calendar-day metadata; sample-effective age can be truncated at source window start",
+    "comparison_tolerance": {
+      "rtol": 0,
+      "atol": 1e-12
+    },
+    "new_model_ranking": false,
+    "ridge_alpha": 1.0,
+    "new_preprocessing": false,
+    "hyperparameter_tuning": false,
+    "feature_selection": false,
+    "final_training_pool_used": false,
+    "final_test_locked": true,
+    "final_test_predictions_generated": false,
+    "final_test_metrics_computed": false,
+    "figures_feature_ordering": "variability/magnitude ordering is visualization only; fitted features are unchanged"
+  },
+  "stage10_best_cv_candidate_reference": "zero_return",
+  "prediction_distributions": [
+    {
+      "fold": "cv_1",
+      "model_name": "zero_return",
+      "feature_spec": "none",
+      "n": 25,
+      "actual_mean": 0.001006404460462238,
+      "actual_std": 0.03818293624078942,
+      "actual_median": 0.0044956543402303595,
+      "actual_min": -0.056129443099653176,
+      "actual_max": 0.06812644607562457,
+      "prediction_mean": 0.0,
+      "prediction_std": 0.0,
+      "prediction_median": 0.0,
+      "prediction_min": 0.0,
+      "prediction_max": 0.0,
+      "prediction_abs_max": 0.0,
+      "prediction_std_to_actual_std_ratio": 0.0,
+      "prediction_range": 0.0,
+      "actual_range": 0.12425588917527775,
+      "count_abs_prediction_gt_0_10": 0,
+      "count_abs_prediction_gt_0_20": 0,
+      "count_abs_prediction_gt_0_30": 0
+    },
+    {
+      "fold": "cv_1",
+      "model_name": "historical_mean",
+      "feature_spec": "none",
+      "n": 25,
+      "actual_mean": 0.001006404460462238,
+      "actual_std": 0.03818293624078942,
+      "actual_median": 0.0044956543402303595,
+      "actual_min": -0.056129443099653176,
+      "actual_max": 0.06812644607562457,
+      "prediction_mean": -0.0011279772152137796,
+      "prediction_std": 0.0,
+      "prediction_median": -0.0011279772152137796,
+      "prediction_min": -0.0011279772152137796,
+      "prediction_max": -0.0011279772152137796,
+      "prediction_abs_max": 0.0011279772152137796,
+      "prediction_std_to_actual_std_ratio": 0.0,
+      "prediction_range": 0.0,
+      "actual_range": 0.12425588917527775,
+      "count_abs_prediction_gt_0_10": 0,
+      "count_abs_prediction_gt_0_20": 0,
+      "count_abs_prediction_gt_0_30": 0
+    },
+    {
+      "fold": "cv_1",
+      "model_name": "ols_market",
+      "feature_spec": "market",
+      "n": 25,
+      "actual_mean": 0.001006404460462238,
+      "actual_std": 0.03818293624078942,
+      "actual_median": 0.0044956543402303595,
+      "actual_min": -0.056129443099653176,
+      "actual_max": 0.06812644607562457,
+      "prediction_mean": 0.021737358399180194,
+      "prediction_std": 0.02354851087799353,
+      "prediction_median": 0.018236252223456095,
+      "prediction_min": -0.030284910811234803,
+      "prediction_max": 0.06780611100385973,
+      "prediction_abs_max": 0.06780611100385973,
+      "prediction_std_to_actual_std_ratio": 0.616728654116378,
+      "prediction_range": 0.09809102181509453,
+      "actual_range": 0.12425588917527775,
+      "count_abs_prediction_gt_0_10": 0,
+      "count_abs_prediction_gt_0_20": 0,
+      "count_abs_prediction_gt_0_30": 0
+    },
+    {
+      "fold": "cv_1",
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "n": 25,
+      "actual_mean": 0.001006404460462238,
+      "actual_std": 0.03818293624078942,
+      "actual_median": 0.0044956543402303595,
+      "actual_min": -0.056129443099653176,
+      "actual_max": 0.06812644607562457,
+      "prediction_mean": 0.018654858234206678,
+      "prediction_std": 0.027896542011043364,
+      "prediction_median": 0.013763821560128849,
+      "prediction_min": -0.03765269722982363,
+      "prediction_max": 0.07507495847453731,
+      "prediction_abs_max": 0.07507495847453731,
+      "prediction_std_to_actual_std_ratio": 0.7306023254765441,
+      "prediction_range": 0.11272765570436094,
+      "actual_range": 0.12425588917527775,
+      "count_abs_prediction_gt_0_10": 0,
+      "count_abs_prediction_gt_0_20": 0,
+      "count_abs_prediction_gt_0_30": 0
+    },
+    {
+      "fold": "cv_1",
+      "model_name": "ridge_market",
+      "feature_spec": "market",
+      "n": 25,
+      "actual_mean": 0.001006404460462238,
+      "actual_std": 0.03818293624078942,
+      "actual_median": 0.0044956543402303595,
+      "actual_min": -0.056129443099653176,
+      "actual_max": 0.06812644607562457,
+      "prediction_mean": 0.021324543621602556,
+      "prediction_std": 0.02300565104897525,
+      "prediction_median": 0.018540609572661144,
+      "prediction_min": -0.028291664642172313,
+      "prediction_max": 0.06781452035568379,
+      "prediction_abs_max": 0.06781452035568379,
+      "prediction_std_to_actual_std_ratio": 0.6025113130089551,
+      "prediction_range": 0.0961061849978561,
+      "actual_range": 0.12425588917527775,
+      "count_abs_prediction_gt_0_10": 0,
+      "count_abs_prediction_gt_0_20": 0,
+      "count_abs_prediction_gt_0_30": 0
+    },
+    {
+      "fold": "cv_1",
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "n": 25,
+      "actual_mean": 0.001006404460462238,
+      "actual_std": 0.03818293624078942,
+      "actual_median": 0.0044956543402303595,
+      "actual_min": -0.056129443099653176,
+      "actual_max": 0.06812644607562457,
+      "prediction_mean": 0.018436777214557453,
+      "prediction_std": 0.027514998337111834,
+      "prediction_median": 0.01372471937200733,
+      "prediction_min": -0.036600924656376786,
+      "prediction_max": 0.07447056827616208,
+      "prediction_abs_max": 0.07447056827616208,
+      "prediction_std_to_actual_std_ratio": 0.7206098075746877,
+      "prediction_range": 0.11107149293253887,
+      "actual_range": 0.12425588917527775,
+      "count_abs_prediction_gt_0_10": 0,
+      "count_abs_prediction_gt_0_20": 0,
+      "count_abs_prediction_gt_0_30": 0
+    },
+    {
+      "fold": "cv_2",
+      "model_name": "zero_return",
+      "feature_spec": "none",
+      "n": 25,
+      "actual_mean": 0.04399832737075285,
+      "actual_std": 0.05145689139042836,
+      "actual_median": 0.06059999175528885,
+      "actual_min": -0.07616359746438661,
+      "actual_max": 0.10660473568980877,
+      "prediction_mean": 0.0,
+      "prediction_std": 0.0,
+      "prediction_median": 0.0,
+      "prediction_min": 0.0,
+      "prediction_max": 0.0,
+      "prediction_abs_max": 0.0,
+      "prediction_std_to_actual_std_ratio": 0.0,
+      "prediction_range": 0.0,
+      "actual_range": 0.18276833315419538,
+      "count_abs_prediction_gt_0_10": 0,
+      "count_abs_prediction_gt_0_20": 0,
+      "count_abs_prediction_gt_0_30": 0
+    },
+    {
+      "fold": "cv_2",
+      "model_name": "historical_mean",
+      "feature_spec": "none",
+      "n": 25,
+      "actual_mean": 0.04399832737075285,
+      "actual_std": 0.05145689139042836,
+      "actual_median": 0.06059999175528885,
+      "actual_min": -0.07616359746438661,
+      "actual_max": 0.10660473568980877,
+      "prediction_mean": -0.005046129608109132,
+      "prediction_std": 0.0,
+      "prediction_median": -0.005046129608109132,
+      "prediction_min": -0.005046129608109132,
+      "prediction_max": -0.005046129608109132,
+      "prediction_abs_max": 0.005046129608109132,
+      "prediction_std_to_actual_std_ratio": 0.0,
+      "prediction_range": 0.0,
+      "actual_range": 0.18276833315419538,
+      "count_abs_prediction_gt_0_10": 0,
+      "count_abs_prediction_gt_0_20": 0,
+      "count_abs_prediction_gt_0_30": 0
+    },
+    {
+      "fold": "cv_2",
+      "model_name": "ols_market",
+      "feature_spec": "market",
+      "n": 25,
+      "actual_mean": 0.04399832737075285,
+      "actual_std": 0.05145689139042836,
+      "actual_median": 0.06059999175528885,
+      "actual_min": -0.07616359746438661,
+      "actual_max": 0.10660473568980877,
+      "prediction_mean": -0.019197281980815308,
+      "prediction_std": 0.048349074181841326,
+      "prediction_median": -0.03613330225144267,
+      "prediction_min": -0.08304716149057653,
+      "prediction_max": 0.06518191233538875,
+      "prediction_abs_max": 0.08304716149057653,
+      "prediction_std_to_actual_std_ratio": 0.9396034792501062,
+      "prediction_range": 0.14822907382596529,
+      "actual_range": 0.18276833315419538,
+      "count_abs_prediction_gt_0_10": 0,
+      "count_abs_prediction_gt_0_20": 0,
+      "count_abs_prediction_gt_0_30": 0
+    },
+    {
+      "fold": "cv_2",
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "n": 25,
+      "actual_mean": 0.04399832737075285,
+      "actual_std": 0.05145689139042836,
+      "actual_median": 0.06059999175528885,
+      "actual_min": -0.07616359746438661,
+      "actual_max": 0.10660473568980877,
+      "prediction_mean": -0.05649198131748455,
+      "prediction_std": 0.06385310884431886,
+      "prediction_median": -0.07332249580983567,
+      "prediction_min": -0.13465453198363303,
+      "prediction_max": 0.05758549065297384,
+      "prediction_abs_max": 0.13465453198363303,
+      "prediction_std_to_actual_std_ratio": 1.2409049034819144,
+      "prediction_range": 0.19224002263660686,
+      "actual_range": 0.18276833315419538,
+      "count_abs_prediction_gt_0_10": 9,
+      "count_abs_prediction_gt_0_20": 0,
+      "count_abs_prediction_gt_0_30": 0
+    },
+    {
+      "fold": "cv_2",
+      "model_name": "ridge_market",
+      "feature_spec": "market",
+      "n": 25,
+      "actual_mean": 0.04399832737075285,
+      "actual_std": 0.05145689139042836,
+      "actual_median": 0.06059999175528885,
+      "actual_min": -0.07616359746438661,
+      "actual_max": 0.10660473568980877,
+      "prediction_mean": -0.019973147260420595,
+      "prediction_std": 0.04872505751387338,
+      "prediction_median": -0.03478011551172992,
+      "prediction_min": -0.08439367198425028,
+      "prediction_max": 0.06614173784557044,
+      "prediction_abs_max": 0.08439367198425028,
+      "prediction_std_to_actual_std_ratio": 0.9469102426761998,
+      "prediction_range": 0.15053540982982072,
+      "actual_range": 0.18276833315419538,
+      "count_abs_prediction_gt_0_10": 0,
+      "count_abs_prediction_gt_0_20": 0,
+      "count_abs_prediction_gt_0_30": 0
+    },
+    {
+      "fold": "cv_2",
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "n": 25,
+      "actual_mean": 0.04399832737075285,
+      "actual_std": 0.05145689139042836,
+      "actual_median": 0.06059999175528885,
+      "actual_min": -0.07616359746438661,
+      "actual_max": 0.10660473568980877,
+      "prediction_mean": -0.05673063759111775,
+      "prediction_std": 0.06422026135612532,
+      "prediction_median": -0.0727129409148718,
+      "prediction_min": -0.1364980955394787,
+      "prediction_max": 0.05854510689447226,
+      "prediction_abs_max": 0.1364980955394787,
+      "prediction_std_to_actual_std_ratio": 1.2480400510177556,
+      "prediction_range": 0.19504320243395096,
+      "actual_range": 0.18276833315419538,
+      "count_abs_prediction_gt_0_10": 10,
+      "count_abs_prediction_gt_0_20": 0,
+      "count_abs_prediction_gt_0_30": 0
+    },
+    {
+      "fold": "cv_3",
+      "model_name": "zero_return",
+      "feature_spec": "none",
+      "n": 25,
+      "actual_mean": -0.015190078947658234,
+      "actual_std": 0.038038533336500674,
+      "actual_median": -0.02167377567008877,
+      "actual_min": -0.08160926967099635,
+      "actual_max": 0.05270049706554891,
+      "prediction_mean": 0.0,
+      "prediction_std": 0.0,
+      "prediction_median": 0.0,
+      "prediction_min": 0.0,
+      "prediction_max": 0.0,
+      "prediction_abs_max": 0.0,
+      "prediction_std_to_actual_std_ratio": 0.0,
+      "prediction_range": 0.0,
+      "actual_range": 0.13430976673654527,
+      "count_abs_prediction_gt_0_10": 0,
+      "count_abs_prediction_gt_0_20": 0,
+      "count_abs_prediction_gt_0_30": 0
+    },
+    {
+      "fold": "cv_3",
+      "model_name": "historical_mean",
+      "feature_spec": "none",
+      "n": 25,
+      "actual_mean": -0.015190078947658234,
+      "actual_std": 0.038038533336500674,
+      "actual_median": -0.02167377567008877,
+      "actual_min": -0.08160926967099635,
+      "actual_max": 0.05270049706554891,
+      "prediction_mean": 0.001916850132140534,
+      "prediction_std": 0.0,
+      "prediction_median": 0.001916850132140534,
+      "prediction_min": 0.001916850132140534,
+      "prediction_max": 0.001916850132140534,
+      "prediction_abs_max": 0.001916850132140534,
+      "prediction_std_to_actual_std_ratio": 0.0,
+      "prediction_range": 0.0,
+      "actual_range": 0.13430976673654527,
+      "count_abs_prediction_gt_0_10": 0,
+      "count_abs_prediction_gt_0_20": 0,
+      "count_abs_prediction_gt_0_30": 0
+    },
+    {
+      "fold": "cv_3",
+      "model_name": "ols_market",
+      "feature_spec": "market",
+      "n": 25,
+      "actual_mean": -0.015190078947658234,
+      "actual_std": 0.038038533336500674,
+      "actual_median": -0.02167377567008877,
+      "actual_min": -0.08160926967099635,
+      "actual_max": 0.05270049706554891,
+      "prediction_mean": -0.24474026371507487,
+      "prediction_std": 0.06254266401210662,
+      "prediction_median": -0.26097843874902926,
+      "prediction_min": -0.3277492445745211,
+      "prediction_max": -0.10749504519370047,
+      "prediction_abs_max": 0.3277492445745211,
+      "prediction_std_to_actual_std_ratio": 1.644192310435179,
+      "prediction_range": 0.22025419938082064,
+      "actual_range": 0.13430976673654527,
+      "count_abs_prediction_gt_0_10": 25,
+      "count_abs_prediction_gt_0_20": 20,
+      "count_abs_prediction_gt_0_30": 5
+    },
+    {
+      "fold": "cv_3",
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "n": 25,
+      "actual_mean": -0.015190078947658234,
+      "actual_std": 0.038038533336500674,
+      "actual_median": -0.02167377567008877,
+      "actual_min": -0.08160926967099635,
+      "actual_max": 0.05270049706554891,
+      "prediction_mean": -0.28185294960236384,
+      "prediction_std": 0.08126733773510895,
+      "prediction_median": -0.31243786486749925,
+      "prediction_min": -0.38220014358746435,
+      "prediction_max": -0.11612523362951441,
+      "prediction_abs_max": 0.38220014358746435,
+      "prediction_std_to_actual_std_ratio": 2.1364477177969206,
+      "prediction_range": 0.2660749099579499,
+      "actual_range": 0.13430976673654527,
+      "count_abs_prediction_gt_0_10": 25,
+      "count_abs_prediction_gt_0_20": 20,
+      "count_abs_prediction_gt_0_30": 14
+    },
+    {
+      "fold": "cv_3",
+      "model_name": "ridge_market",
+      "feature_spec": "market",
+      "n": 25,
+      "actual_mean": -0.015190078947658234,
+      "actual_std": 0.038038533336500674,
+      "actual_median": -0.02167377567008877,
+      "actual_min": -0.08160926967099635,
+      "actual_max": 0.05270049706554891,
+      "prediction_mean": -0.24164216125470056,
+      "prediction_std": 0.06116762094379831,
+      "prediction_median": -0.2573149241724066,
+      "prediction_min": -0.3205630311183766,
+      "prediction_max": -0.10741827091365927,
+      "prediction_abs_max": 0.3205630311183766,
+      "prediction_std_to_actual_std_ratio": 1.6080436225732089,
+      "prediction_range": 0.21314476020471732,
+      "actual_range": 0.13430976673654527,
+      "count_abs_prediction_gt_0_10": 25,
+      "count_abs_prediction_gt_0_20": 19,
+      "count_abs_prediction_gt_0_30": 5
+    },
+    {
+      "fold": "cv_3",
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "n": 25,
+      "actual_mean": -0.015190078947658234,
+      "actual_std": 0.038038533336500674,
+      "actual_median": -0.02167377567008877,
+      "actual_min": -0.08160926967099635,
+      "actual_max": 0.05270049706554891,
+      "prediction_mean": -0.2650449831312388,
+      "prediction_std": 0.07087034960922471,
+      "prediction_median": -0.2877562065120959,
+      "prediction_min": -0.3533369961408837,
+      "prediction_max": -0.11565072329510094,
+      "prediction_abs_max": 0.3533369961408837,
+      "prediction_std_to_actual_std_ratio": 1.8631199311046933,
+      "prediction_range": 0.23768627284578275,
+      "actual_range": 0.13430976673654527,
+      "count_abs_prediction_gt_0_10": 25,
+      "count_abs_prediction_gt_0_20": 20,
+      "count_abs_prediction_gt_0_30": 11
+    }
+  ],
+  "extreme_errors": [
+    {
+      "fold": "cv_1",
+      "model_name": "zero_return",
+      "largest_absolute_error": 0.06812644607562457,
+      "largest_error_date": "2026-04-01",
+      "absolute_error_mean": 0.03203053458199966,
+      "absolute_error_median": 0.02682563702307661,
+      "absolute_error_min": 0.0018175004879137369,
+      "top_3_share_of_total_absolute_error": 0.2384157512489324,
+      "top_5_share_of_total_absolute_error": 0.3760359041563812,
+      "count_absolute_error_gt_0_10": 0,
+      "count_absolute_error_gt_0_20": 0,
+      "top_5_error_rows": [
+        {
+          "date": "2026-04-01",
+          "actual_forward_return_5d": 0.06812644607562457,
+          "prediction": 0.0,
+          "absolute_error": 0.06812644607562457
+        },
+        {
+          "date": "2026-03-30",
+          "actual_forward_return_5d": 0.06665870995653123,
+          "prediction": 0.0,
+          "absolute_error": 0.06665870995653123
+        },
+        {
+          "date": "2026-03-13",
+          "actual_forward_return_5d": -0.056129443099653176,
+          "prediction": 0.0,
+          "absolute_error": 0.056129443099653176
+        },
+        {
+          "date": "2026-03-23",
+          "actual_forward_return_5d": -0.055253695366566546,
+          "prediction": 0.0,
+          "absolute_error": 0.055253695366566546
+        },
+        {
+          "date": "2026-03-20",
+          "actual_forward_return_5d": -0.054947481305486434,
+          "prediction": 0.0,
+          "absolute_error": 0.054947481305486434
+        }
+      ]
+    },
+    {
+      "fold": "cv_1",
+      "model_name": "historical_mean",
+      "largest_absolute_error": 0.06925442329083835,
+      "largest_error_date": "2026-04-01",
+      "absolute_error_mean": 0.03216589184782531,
+      "absolute_error_median": 0.02795361423829039,
+      "absolute_error_min": 0.0006895232726999573,
+      "top_3_share_of_total_absolute_error": 0.23881517385628648,
+      "top_5_share_of_total_absolute_error": 0.3730508079898675,
+      "count_absolute_error_gt_0_10": 0,
+      "count_absolute_error_gt_0_20": 0,
+      "top_5_error_rows": [
+        {
+          "date": "2026-04-01",
+          "actual_forward_return_5d": 0.06812644607562457,
+          "prediction": -0.0011279772152137796,
+          "absolute_error": 0.06925442329083835
+        },
+        {
+          "date": "2026-03-30",
+          "actual_forward_return_5d": 0.06665870995653123,
+          "prediction": -0.0011279772152137796,
+          "absolute_error": 0.067786687171745
+        },
+        {
+          "date": "2026-03-13",
+          "actual_forward_return_5d": -0.056129443099653176,
+          "prediction": -0.0011279772152137796,
+          "absolute_error": 0.055001465884439396
+        },
+        {
+          "date": "2026-03-23",
+          "actual_forward_return_5d": -0.055253695366566546,
+          "prediction": -0.0011279772152137796,
+          "absolute_error": 0.05412571815135277
+        },
+        {
+          "date": "2026-03-20",
+          "actual_forward_return_5d": -0.054947481305486434,
+          "prediction": -0.0011279772152137796,
+          "absolute_error": 0.053819504090272655
+        }
+      ]
+    },
+    {
+      "fold": "cv_1",
+      "model_name": "ols_market",
+      "largest_absolute_error": 0.09670230225228851,
+      "largest_error_date": "2026-03-20",
+      "absolute_error_mean": 0.032432708261423,
+      "absolute_error_median": 0.023651880278092206,
+      "absolute_error_min": 0.000828908196650012,
+      "top_3_share_of_total_absolute_error": 0.3147582832773883,
+      "top_5_share_of_total_absolute_error": 0.45616035865271354,
+      "count_absolute_error_gt_0_10": 0,
+      "count_absolute_error_gt_0_20": 0,
+      "top_5_error_rows": [
+        {
+          "date": "2026-03-20",
+          "actual_forward_return_5d": -0.054947481305486434,
+          "prediction": 0.041754820946802086,
+          "absolute_error": 0.09670230225228851
+        },
+        {
+          "date": "2026-03-23",
+          "actual_forward_return_5d": -0.055253695366566546,
+          "prediction": 0.028889896418082463,
+          "absolute_error": 0.084143591784649
+        },
+        {
+          "date": "2026-03-13",
+          "actual_forward_return_5d": -0.056129443099653176,
+          "prediction": 0.018236252223456095,
+          "absolute_error": 0.07436569532310927
+        },
+        {
+          "date": "2026-03-19",
+          "actual_forward_return_5d": -0.03797749722941535,
+          "prediction": 0.020405984793125283,
+          "absolute_error": 0.05838348202254063
+        },
+        {
+          "date": "2026-03-17",
+          "actual_forward_return_5d": -0.03989477723446799,
+          "prediction": 0.0163730471981831,
+          "absolute_error": 0.05626782443265109
+        }
+      ]
+    },
+    {
+      "fold": "cv_1",
+      "model_name": "ols_all",
+      "largest_absolute_error": 0.09553860170899398,
+      "largest_error_date": "2026-03-20",
+      "absolute_error_mean": 0.032901728427336206,
+      "absolute_error_median": 0.024527738615138784,
+      "absolute_error_min": 0.0003268735631926506,
+      "top_3_share_of_total_absolute_error": 0.3016777730693837,
+      "top_5_share_of_total_absolute_error": 0.44248508045160023,
+      "count_absolute_error_gt_0_10": 0,
+      "count_absolute_error_gt_0_20": 0,
+      "top_5_error_rows": [
+        {
+          "date": "2026-03-20",
+          "actual_forward_return_5d": -0.054947481305486434,
+          "prediction": 0.040591120403507534,
+          "absolute_error": 0.09553860170899398
+        },
+        {
+          "date": "2026-03-23",
+          "actual_forward_return_5d": -0.055253695366566546,
+          "prediction": 0.027457442316968027,
+          "absolute_error": 0.08271113768353458
+        },
+        {
+          "date": "2026-03-13",
+          "actual_forward_return_5d": -0.056129443099653176,
+          "prediction": 0.013763821560128849,
+          "absolute_error": 0.06989326465978202
+        },
+        {
+          "date": "2026-03-02",
+          "actual_forward_return_5d": 0.023306562133977193,
+          "prediction": -0.03765269722982363,
+          "absolute_error": 0.060959259363800825
+        },
+        {
+          "date": "2026-03-19",
+          "actual_forward_return_5d": -0.03797749722941535,
+          "prediction": 0.01688333810863734,
+          "absolute_error": 0.05486083533805269
+        }
+      ]
+    },
+    {
+      "fold": "cv_1",
+      "model_name": "ridge_market",
+      "largest_absolute_error": 0.09510657241623133,
+      "largest_error_date": "2026-03-20",
+      "absolute_error_mean": 0.032343620555613184,
+      "absolute_error_median": 0.022936060849775383,
+      "absolute_error_min": 0.0011558103991525653,
+      "top_3_share_of_total_absolute_error": 0.31380876551643955,
+      "top_5_share_of_total_absolute_error": 0.4559711014964289,
+      "count_absolute_error_gt_0_10": 0,
+      "count_absolute_error_gt_0_20": 0,
+      "top_5_error_rows": [
+        {
+          "date": "2026-03-20",
+          "actual_forward_return_5d": -0.054947481305486434,
+          "prediction": 0.040159091110744886,
+          "absolute_error": 0.09510657241623133
+        },
+        {
+          "date": "2026-03-23",
+          "actual_forward_return_5d": -0.055253695366566546,
+          "prediction": 0.02871247051711559,
+          "absolute_error": 0.08396616588368214
+        },
+        {
+          "date": "2026-03-13",
+          "actual_forward_return_5d": -0.056129443099653176,
+          "prediction": 0.018540609572661144,
+          "absolute_error": 0.07467005267231432
+        },
+        {
+          "date": "2026-03-19",
+          "actual_forward_return_5d": -0.03797749722941535,
+          "prediction": 0.02069957463168678,
+          "absolute_error": 0.05867707186110213
+        },
+        {
+          "date": "2026-03-17",
+          "actual_forward_return_5d": -0.03989477723446799,
+          "prediction": 0.016379267210339235,
+          "absolute_error": 0.05627404444480723
+        }
+      ]
+    },
+    {
+      "fold": "cv_1",
+      "model_name": "ridge_all",
+      "largest_absolute_error": 0.0947844892292008,
+      "largest_error_date": "2026-03-20",
+      "absolute_error_mean": 0.032690638968865156,
+      "absolute_error_median": 0.024979259837914616,
+      "absolute_error_min": 0.0007552775419336494,
+      "top_3_share_of_total_absolute_error": 0.3022837661107141,
+      "top_5_share_of_total_absolute_error": 0.44271130397000197,
+      "count_absolute_error_gt_0_10": 0,
+      "count_absolute_error_gt_0_20": 0,
+      "top_5_error_rows": [
+        {
+          "date": "2026-03-20",
+          "actual_forward_return_5d": -0.054947481305486434,
+          "prediction": 0.03983700792371436,
+          "absolute_error": 0.0947844892292008
+        },
+        {
+          "date": "2026-03-23",
+          "actual_forward_return_5d": -0.055253695366566546,
+          "prediction": 0.027153889534427933,
+          "absolute_error": 0.08240758490099448
+        },
+        {
+          "date": "2026-03-13",
+          "actual_forward_return_5d": -0.056129443099653176,
+          "prediction": 0.01372471937200733,
+          "absolute_error": 0.0698541624716605
+        },
+        {
+          "date": "2026-03-02",
+          "actual_forward_return_5d": 0.023306562133977193,
+          "prediction": -0.036600924656376786,
+          "absolute_error": 0.05990748679035398
+        },
+        {
+          "date": "2026-03-19",
+          "actual_forward_return_5d": -0.03797749722941535,
+          "prediction": 0.01688166451634625,
+          "absolute_error": 0.054859161745761595
+        }
+      ]
+    },
+    {
+      "fold": "cv_2",
+      "model_name": "zero_return",
+      "largest_absolute_error": 0.10660473568980877,
+      "largest_error_date": "2026-05-07",
+      "absolute_error_mean": 0.059630048113214304,
+      "absolute_error_median": 0.0647437400293771,
+      "absolute_error_min": 0.0013006228853142954,
+      "top_3_share_of_total_absolute_error": 0.20940173972299128,
+      "top_5_share_of_total_absolute_error": 0.3286570120504807,
+      "count_absolute_error_gt_0_10": 3,
+      "count_absolute_error_gt_0_20": 0,
+      "top_5_error_rows": [
+        {
+          "date": "2026-05-07",
+          "actual_forward_return_5d": 0.10660473568980877,
+          "prediction": 0.0,
+          "absolute_error": 0.10660473568980877
+        },
+        {
+          "date": "2026-05-05",
+          "actual_forward_return_5d": 0.10450747637918223,
+          "prediction": 0.0,
+          "absolute_error": 0.10450747637918223
+        },
+        {
+          "date": "2026-05-04",
+          "actual_forward_return_5d": 0.10105368329782771,
+          "prediction": 0.0,
+          "absolute_error": 0.10105368329782771
+        },
+        {
+          "date": "2026-04-08",
+          "actual_forward_return_5d": 0.09365375672166265,
+          "prediction": 0.0,
+          "absolute_error": 0.09365375672166265
+        },
+        {
+          "date": "2026-04-10",
+          "actual_forward_return_5d": 0.08412618394440408,
+          "prediction": 0.0,
+          "absolute_error": 0.08412618394440408
+        }
+      ]
+    },
+    {
+      "fold": "cv_2",
+      "model_name": "historical_mean",
+      "largest_absolute_error": 0.1116508652979179,
+      "largest_error_date": "2026-05-07",
+      "absolute_error_mean": 0.06280133545909049,
+      "absolute_error_median": 0.06978986963748623,
+      "absolute_error_min": 0.0030957426479481,
+      "top_3_share_of_total_absolute_error": 0.20846963320030407,
+      "top_5_share_of_total_absolute_error": 0.32813091015175816,
+      "count_absolute_error_gt_0_10": 3,
+      "count_absolute_error_gt_0_20": 0,
+      "top_5_error_rows": [
+        {
+          "date": "2026-05-07",
+          "actual_forward_return_5d": 0.10660473568980877,
+          "prediction": -0.005046129608109132,
+          "absolute_error": 0.1116508652979179
+        },
+        {
+          "date": "2026-05-05",
+          "actual_forward_return_5d": 0.10450747637918223,
+          "prediction": -0.005046129608109132,
+          "absolute_error": 0.10955360598729136
+        },
+        {
+          "date": "2026-05-04",
+          "actual_forward_return_5d": 0.10105368329782771,
+          "prediction": -0.005046129608109132,
+          "absolute_error": 0.10609981290593684
+        },
+        {
+          "date": "2026-04-08",
+          "actual_forward_return_5d": 0.09365375672166265,
+          "prediction": -0.005046129608109132,
+          "absolute_error": 0.09869988632977178
+        },
+        {
+          "date": "2026-04-10",
+          "actual_forward_return_5d": 0.08412618394440408,
+          "prediction": -0.005046129608109132,
+          "absolute_error": 0.0891723135525132
+        }
+      ]
+    },
+    {
+      "fold": "cv_2",
+      "model_name": "ols_market",
+      "largest_absolute_error": 0.1896518971803853,
+      "largest_error_date": "2026-05-07",
+      "absolute_error_mean": 0.06502578094689122,
+      "absolute_error_median": 0.047190542594996436,
+      "absolute_error_min": 2.728361481668662e-05,
+      "top_3_share_of_total_absolute_error": 0.32171838091403265,
+      "top_5_share_of_total_absolute_error": 0.5107536791070348,
+      "count_absolute_error_gt_0_10": 6,
+      "count_absolute_error_gt_0_20": 0,
+      "top_5_error_rows": [
+        {
+          "date": "2026-05-07",
+          "actual_forward_return_5d": 0.10660473568980877,
+          "prediction": -0.08304716149057653,
+          "absolute_error": 0.1896518971803853
+        },
+        {
+          "date": "2026-05-05",
+          "actual_forward_return_5d": 0.10450747637918223,
+          "prediction": -0.0656246239618239,
+          "absolute_error": 0.17013210034100612
+        },
+        {
+          "date": "2026-05-04",
+          "actual_forward_return_5d": 0.10105368329782771,
+          "prediction": -0.06216204327839081,
+          "absolute_error": 0.16321572657621852
+        },
+        {
+          "date": "2026-05-06",
+          "actual_forward_return_5d": 0.08394934146393251,
+          "prediction": -0.07646285963823213,
+          "absolute_error": 0.16041220110216464
+        },
+        {
+          "date": "2026-05-01",
+          "actual_forward_return_5d": 0.07869672655760485,
+          "prediction": -0.06819526962844112,
+          "absolute_error": 0.14689199618604598
+        }
+      ]
+    },
+    {
+      "fold": "cv_2",
+      "model_name": "ols_all",
+      "largest_absolute_error": 0.2412592676734418,
+      "largest_error_date": "2026-05-07",
+      "absolute_error_mean": 0.10049030868823743,
+      "absolute_error_median": 0.07240063072999389,
+      "absolute_error_min": 0.007158249376403268,
+      "top_3_share_of_total_absolute_error": 0.2699933953246095,
+      "top_5_share_of_total_absolute_error": 0.4361844095777928,
+      "count_absolute_error_gt_0_10": 11,
+      "count_absolute_error_gt_0_20": 5,
+      "top_5_error_rows": [
+        {
+          "date": "2026-05-07",
+          "actual_forward_return_5d": 0.10660473568980877,
+          "prediction": -0.13465453198363303,
+          "absolute_error": 0.2412592676734418
+        },
+        {
+          "date": "2026-05-05",
+          "actual_forward_return_5d": 0.10450747637918223,
+          "prediction": -0.11640218060872125,
+          "absolute_error": 0.2209096569879035
+        },
+        {
+          "date": "2026-05-04",
+          "actual_forward_return_5d": 0.10105368329782771,
+          "prediction": -0.11507038303971014,
+          "absolute_error": 0.21612406633753783
+        },
+        {
+          "date": "2026-05-06",
+          "actual_forward_return_5d": 0.08394934146393251,
+          "prediction": -0.13063715354180902,
+          "absolute_error": 0.21458649500574153
+        },
+        {
+          "date": "2026-05-01",
+          "actual_forward_return_5d": 0.07869672655760485,
+          "prediction": -0.12423143652449502,
+          "absolute_error": 0.20292816308209988
+        }
+      ]
+    },
+    {
+      "fold": "cv_2",
+      "model_name": "ridge_market",
+      "largest_absolute_error": 0.18852553205727973,
+      "largest_error_date": "2026-05-07",
+      "absolute_error_mean": 0.06583903743161403,
+      "absolute_error_median": 0.048364690818479966,
+      "absolute_error_min": 0.0013979978161933332,
+      "top_3_share_of_total_absolute_error": 0.3203924803904891,
+      "top_5_share_of_total_absolute_error": 0.5077997584296658,
+      "count_absolute_error_gt_0_10": 7,
+      "count_absolute_error_gt_0_20": 0,
+      "top_5_error_rows": [
+        {
+          "date": "2026-05-07",
+          "actual_forward_return_5d": 0.10660473568980877,
+          "prediction": -0.08192079636747097,
+          "absolute_error": 0.18852553205727973
+        },
+        {
+          "date": "2026-05-05",
+          "actual_forward_return_5d": 0.10450747637918223,
+          "prediction": -0.06598229084628204,
+          "absolute_error": 0.17048976722546427
+        },
+        {
+          "date": "2026-05-06",
+          "actual_forward_return_5d": 0.08394934146393251,
+          "prediction": -0.08439367198425028,
+          "absolute_error": 0.1683430134481828
+        },
+        {
+          "date": "2026-05-04",
+          "actual_forward_return_5d": 0.10105368329782771,
+          "prediction": -0.06103605244902527,
+          "absolute_error": 0.16208973574685298
+        },
+        {
+          "date": "2026-05-01",
+          "actual_forward_return_5d": 0.07869672655760485,
+          "prediction": -0.06768140753999846,
+          "absolute_error": 0.1463781340976033
+        }
+      ]
+    },
+    {
+      "fold": "cv_2",
+      "model_name": "ridge_all",
+      "largest_absolute_error": 0.24043233429191008,
+      "largest_error_date": "2026-05-07",
+      "absolute_error_mean": 0.1007289649618706,
+      "absolute_error_median": 0.07266013913558592,
+      "absolute_error_min": 0.006198633134904846,
+      "top_3_share_of_total_absolute_error": 0.27079278025954423,
+      "top_5_share_of_total_absolute_error": 0.4365198599469473,
+      "count_absolute_error_gt_0_10": 11,
+      "count_absolute_error_gt_0_20": 5,
+      "top_5_error_rows": [
+        {
+          "date": "2026-05-07",
+          "actual_forward_return_5d": 0.10660473568980877,
+          "prediction": -0.1338275986021013,
+          "absolute_error": 0.24043233429191008
+        },
+        {
+          "date": "2026-05-05",
+          "actual_forward_return_5d": 0.10450747637918223,
+          "prediction": -0.11652966419277541,
+          "absolute_error": 0.22103714057195764
+        },
+        {
+          "date": "2026-05-06",
+          "actual_forward_return_5d": 0.08394934146393251,
+          "prediction": -0.1364980955394787,
+          "absolute_error": 0.2204474370034112
+        },
+        {
+          "date": "2026-05-04",
+          "actual_forward_return_5d": 0.10105368329782771,
+          "prediction": -0.11401280472441641,
+          "absolute_error": 0.21506648802224412
+        },
+        {
+          "date": "2026-05-01",
+          "actual_forward_return_5d": 0.07869672655760485,
+          "prediction": -0.12357471549678994,
+          "absolute_error": 0.2022714420543948
+        }
+      ]
+    },
+    {
+      "fold": "cv_3",
+      "model_name": "zero_return",
+      "largest_absolute_error": 0.08160926967099635,
+      "largest_error_date": "2026-06-01",
+      "absolute_error_mean": 0.03515331875210655,
+      "absolute_error_median": 0.036113455096886016,
+      "absolute_error_min": 0.0012923811737858282,
+      "top_3_share_of_total_absolute_error": 0.23659366711336094,
+      "top_5_share_of_total_absolute_error": 0.3659964171712438,
+      "count_absolute_error_gt_0_10": 0,
+      "count_absolute_error_gt_0_20": 0,
+      "top_5_error_rows": [
+        {
+          "date": "2026-06-01",
+          "actual_forward_return_5d": -0.08160926967099635,
+          "prediction": 0.0,
+          "absolute_error": 0.08160926967099635
+        },
+        {
+          "date": "2026-05-15",
+          "actual_forward_return_5d": -0.06325311521723542,
+          "prediction": 0.0,
+          "absolute_error": 0.06325311521723542
+        },
+        {
+          "date": "2026-06-03",
+          "actual_forward_return_5d": -0.06306392998091237,
+          "prediction": 0.0,
+          "absolute_error": 0.06306392998091237
+        },
+        {
+          "date": "2026-06-02",
+          "actual_forward_return_5d": -0.061022905939049354,
+          "prediction": 0.0,
+          "absolute_error": 0.061022905939049354
+        },
+        {
+          "date": "2026-05-08",
+          "actual_forward_return_5d": 0.05270049706554891,
+          "prediction": 0.0,
+          "absolute_error": 0.05270049706554891
+        }
+      ]
+    },
+    {
+      "fold": "cv_3",
+      "model_name": "historical_mean",
+      "largest_absolute_error": 0.08352611980313689,
+      "largest_error_date": "2026-06-01",
+      "absolute_error_mean": 0.03553668877853466,
+      "absolute_error_median": 0.03419660496474548,
+      "absolute_error_min": 0.0032092313059263623,
+      "top_3_share_of_total_absolute_error": 0.2405140969629491,
+      "top_5_share_of_total_absolute_error": 0.3689797691042945,
+      "count_absolute_error_gt_0_10": 0,
+      "count_absolute_error_gt_0_20": 0,
+      "top_5_error_rows": [
+        {
+          "date": "2026-06-01",
+          "actual_forward_return_5d": -0.08160926967099635,
+          "prediction": 0.001916850132140534,
+          "absolute_error": 0.08352611980313689
+        },
+        {
+          "date": "2026-05-15",
+          "actual_forward_return_5d": -0.06325311521723542,
+          "prediction": 0.001916850132140534,
+          "absolute_error": 0.06516996534937596
+        },
+        {
+          "date": "2026-06-03",
+          "actual_forward_return_5d": -0.06306392998091237,
+          "prediction": 0.001916850132140534,
+          "absolute_error": 0.0649807801130529
+        },
+        {
+          "date": "2026-06-02",
+          "actual_forward_return_5d": -0.061022905939049354,
+          "prediction": 0.001916850132140534,
+          "absolute_error": 0.06293975607118989
+        },
+        {
+          "date": "2026-05-29",
+          "actual_forward_return_5d": -0.049274509036976055,
+          "prediction": 0.001916850132140534,
+          "absolute_error": 0.05119135916911659
+        }
+      ]
+    },
+    {
+      "fold": "cv_3",
+      "model_name": "ols_market",
+      "largest_absolute_error": 0.3449617027309612,
+      "largest_error_date": "2026-06-11",
+      "absolute_error_mean": 0.22955018476741668,
+      "absolute_error_median": 0.22830892147957454,
+      "absolute_error_min": 0.11098547351242413,
+      "top_3_share_of_total_absolute_error": 0.17323627419071286,
+      "top_5_share_of_total_absolute_error": 0.2801926058755242,
+      "count_absolute_error_gt_0_10": 25,
+      "count_absolute_error_gt_0_20": 15,
+      "top_5_error_rows": [
+        {
+          "date": "2026-06-11",
+          "actual_forward_return_5d": 0.028458468289002115,
+          "prediction": -0.3165032344419591,
+          "absolute_error": 0.3449617027309612
+        },
+        {
+          "date": "2026-06-09",
+          "actual_forward_return_5d": 0.01457717112505219,
+          "prediction": -0.3141125457440252,
+          "absolute_error": 0.3286897168690774
+        },
+        {
+          "date": "2026-06-08",
+          "actual_forward_return_5d": 0.008688642453136941,
+          "prediction": -0.3118204066692493,
+          "absolute_error": 0.32050904912238626
+        },
+        {
+          "date": "2026-06-12",
+          "actual_forward_return_5d": -0.0012923811737858282,
+          "prediction": -0.3110400348755803,
+          "absolute_error": 0.30974765370179447
+        },
+        {
+          "date": "2026-06-10",
+          "actual_forward_return_5d": 0.015683102472432653,
+          "prediction": -0.28836538633311143,
+          "absolute_error": 0.3040484888055441
+        }
+      ]
+    },
+    {
+      "fold": "cv_3",
+      "model_name": "ols_all",
+      "largest_absolute_error": 0.39879399891591216,
+      "largest_error_date": "2026-06-11",
+      "absolute_error_mean": 0.2666628706547057,
+      "absolute_error_median": 0.281145523151519,
+      "absolute_error_min": 0.11929877891230511,
+      "top_3_share_of_total_absolute_error": 0.1734147559220947,
+      "top_5_share_of_total_absolute_error": 0.2814223113053246,
+      "count_absolute_error_gt_0_10": 25,
+      "count_absolute_error_gt_0_20": 17,
+      "top_5_error_rows": [
+        {
+          "date": "2026-06-11",
+          "actual_forward_return_5d": 0.028458468289002115,
+          "prediction": -0.37033553062691005,
+          "absolute_error": 0.39879399891591216
+        },
+        {
+          "date": "2026-06-09",
+          "actual_forward_return_5d": 0.01457717112505219,
+          "prediction": -0.3685187486939041,
+          "absolute_error": 0.3830959198189563
+        },
+        {
+          "date": "2026-06-08",
+          "actual_forward_return_5d": 0.008688642453136941,
+          "prediction": -0.3655033545137669,
+          "absolute_error": 0.37419199696690386
+        },
+        {
+          "date": "2026-06-12",
+          "actual_forward_return_5d": -0.0012923811737858282,
+          "prediction": -0.3649589593532163,
+          "absolute_error": 0.3636665781794305
+        },
+        {
+          "date": "2026-06-10",
+          "actual_forward_return_5d": 0.015683102472432653,
+          "prediction": -0.3406904386203665,
+          "absolute_error": 0.3563735410927992
+        }
+      ]
+    },
+    {
+      "fold": "cv_3",
+      "model_name": "ridge_market",
+      "largest_absolute_error": 0.3386174707011376,
+      "largest_error_date": "2026-06-11",
+      "absolute_error_mean": 0.2264520823070423,
+      "absolute_error_median": 0.22594486728135127,
+      "absolute_error_min": 0.11342352265678746,
+      "top_3_share_of_total_absolute_error": 0.17189380324105596,
+      "top_5_share_of_total_absolute_error": 0.2786360786644181,
+      "count_absolute_error_gt_0_10": 25,
+      "count_absolute_error_gt_0_20": 15,
+      "top_5_error_rows": [
+        {
+          "date": "2026-06-11",
+          "actual_forward_return_5d": 0.028458468289002115,
+          "prediction": -0.3101590024121355,
+          "absolute_error": 0.3386174707011376
+        },
+        {
+          "date": "2026-06-09",
+          "actual_forward_return_5d": 0.01457717112505219,
+          "prediction": -0.30443372200205593,
+          "absolute_error": 0.3190108931271081
+        },
+        {
+          "date": "2026-06-08",
+          "actual_forward_return_5d": 0.008688642453136941,
+          "prediction": -0.30682573570897087,
+          "absolute_error": 0.3155143781621078
+        },
+        {
+          "date": "2026-06-12",
+          "actual_forward_return_5d": -0.0012923811737858282,
+          "prediction": -0.30458201805888413,
+          "absolute_error": 0.3032896368850983
+        },
+        {
+          "date": "2026-06-10",
+          "actual_forward_return_5d": 0.015683102472432653,
+          "prediction": -0.2853275241377735,
+          "absolute_error": 0.30101062661020617
+        }
+      ]
+    },
+    {
+      "fold": "cv_3",
+      "model_name": "ridge_all",
+      "largest_absolute_error": 0.3709068142499378,
+      "largest_error_date": "2026-06-11",
+      "absolute_error_mean": 0.24985490418358058,
+      "absolute_error_median": 0.25777428638266103,
+      "absolute_error_min": 0.12185082507478018,
+      "top_3_share_of_total_absolute_error": 0.1713556400089627,
+      "top_5_share_of_total_absolute_error": 0.27827187615749965,
+      "count_absolute_error_gt_0_10": 25,
+      "count_absolute_error_gt_0_20": 16,
+      "top_5_error_rows": [
+        {
+          "date": "2026-06-11",
+          "actual_forward_return_5d": 0.028458468289002115,
+          "prediction": -0.3424483459609357,
+          "absolute_error": 0.3709068142499378
+        },
+        {
+          "date": "2026-06-09",
+          "actual_forward_return_5d": 0.01457717112505219,
+          "prediction": -0.33692581777611713,
+          "absolute_error": 0.3515029889011693
+        },
+        {
+          "date": "2026-06-08",
+          "actual_forward_return_5d": 0.008688642453136941,
+          "prediction": -0.3392527297896435,
+          "absolute_error": 0.34794137224278043
+        },
+        {
+          "date": "2026-06-12",
+          "actual_forward_return_5d": -0.0012923811737858282,
+          "prediction": -0.3368924943231675,
+          "absolute_error": 0.33560011314938165
+        },
+        {
+          "date": "2026-06-10",
+          "actual_forward_return_5d": 0.015683102472432653,
+          "prediction": -0.31655543284223014,
+          "absolute_error": 0.3322385353146628
+        }
+      ]
+    }
+  ],
+  "zscore_summary": [
+    {
+      "fold": "cv_1",
+      "feature_spec": "market",
+      "zscore_value_count": 175,
+      "max_abs_validation_z": 2.6913996459524796,
+      "median_abs_validation_z": 0.6400724168807912,
+      "p95_abs_validation_z": 2.382315752137573,
+      "count_abs_z_gt_3": 0,
+      "count_abs_z_gt_5": 0,
+      "fraction_abs_z_gt_3": 0.0,
+      "fraction_abs_z_gt_5": 0.0
+    },
+    {
+      "fold": "cv_1",
+      "feature_spec": "all",
+      "zscore_value_count": 525,
+      "max_abs_validation_z": 4.390472130219181,
+      "median_abs_validation_z": 0.7745966692414855,
+      "p95_abs_validation_z": 3.8059302768520715,
+      "count_abs_z_gt_3": 50,
+      "count_abs_z_gt_5": 0,
+      "fraction_abs_z_gt_3": 0.09523809523809523,
+      "fraction_abs_z_gt_5": 0.0
+    },
+    {
+      "fold": "cv_2",
+      "feature_spec": "market",
+      "zscore_value_count": 225,
+      "max_abs_validation_z": 5.217989695684774,
+      "median_abs_validation_z": 1.046032066271006,
+      "p95_abs_validation_z": 4.052096252461062,
+      "count_abs_z_gt_3": 35,
+      "count_abs_z_gt_5": 2,
+      "fraction_abs_z_gt_3": 0.15555555555555556,
+      "fraction_abs_z_gt_5": 0.008888888888888889
+    },
+    {
+      "fold": "cv_2",
+      "feature_spec": "all",
+      "zscore_value_count": 875,
+      "max_abs_validation_z": 5.217989695684774,
+      "median_abs_validation_z": 1.7690524205696925,
+      "p95_abs_validation_z": 2.7688266610771155,
+      "count_abs_z_gt_3": 35,
+      "count_abs_z_gt_5": 2,
+      "fraction_abs_z_gt_3": 0.04,
+      "fraction_abs_z_gt_5": 0.002285714285714286
+    },
+    {
+      "fold": "cv_3",
+      "feature_spec": "market",
+      "zscore_value_count": 225,
+      "max_abs_validation_z": 19.250139045199376,
+      "median_abs_validation_z": 1.5859539491582648,
+      "p95_abs_validation_z": 12.930371519855573,
+      "count_abs_z_gt_3": 77,
+      "count_abs_z_gt_5": 51,
+      "fraction_abs_z_gt_3": 0.3422222222222222,
+      "fraction_abs_z_gt_5": 0.22666666666666666
+    },
+    {
+      "fold": "cv_3",
+      "feature_spec": "all",
+      "zscore_value_count": 875,
+      "max_abs_validation_z": 594.0161605934132,
+      "median_abs_validation_z": 1.4981470036162832,
+      "p95_abs_validation_z": 56.03164878143153,
+      "count_abs_z_gt_3": 205,
+      "count_abs_z_gt_5": 147,
+      "fraction_abs_z_gt_3": 0.2342857142857143,
+      "fraction_abs_z_gt_5": 0.168
+    }
+  ],
+  "out_of_training_range_summary": [
+    {
+      "fold": "cv_1",
+      "feature_spec": "market",
+      "used_features": 7,
+      "validation_non_null_values": 175,
+      "out_of_training_range_count": 11,
+      "out_of_training_range_fraction": 0.06285714285714286
+    },
+    {
+      "fold": "cv_1",
+      "feature_spec": "all",
+      "used_features": 21,
+      "validation_non_null_values": 525,
+      "out_of_training_range_count": 111,
+      "out_of_training_range_fraction": 0.21142857142857144
+    },
+    {
+      "fold": "cv_2",
+      "feature_spec": "market",
+      "used_features": 9,
+      "validation_non_null_values": 225,
+      "out_of_training_range_count": 49,
+      "out_of_training_range_fraction": 0.21777777777777776
+    },
+    {
+      "fold": "cv_2",
+      "feature_spec": "all",
+      "used_features": 35,
+      "validation_non_null_values": 875,
+      "out_of_training_range_count": 49,
+      "out_of_training_range_fraction": 0.056
+    },
+    {
+      "fold": "cv_3",
+      "feature_spec": "market",
+      "used_features": 9,
+      "validation_non_null_values": 225,
+      "out_of_training_range_count": 79,
+      "out_of_training_range_fraction": 0.3511111111111111
+    },
+    {
+      "fold": "cv_3",
+      "feature_spec": "all",
+      "used_features": 35,
+      "validation_non_null_values": 875,
+      "out_of_training_range_count": 287,
+      "out_of_training_range_fraction": 0.328
+    }
+  ],
+  "coefficient_norms": [
+    {
+      "fold": "cv_1",
+      "model_name": "ols_market",
+      "feature_spec": "market",
+      "L1_coefficient_norm": 0.23154735700641235,
+      "L2_coefficient_norm": 0.1417035124313186,
+      "max_abs_coefficient": 0.10135172391489897,
+      "median_abs_coefficient": 0.00514150060634045
+    },
+    {
+      "fold": "cv_1",
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "L1_coefficient_norm": 0.10225771999018336,
+      "L2_coefficient_norm": 0.04850767055361396,
+      "max_abs_coefficient": 0.03093914889031774,
+      "median_abs_coefficient": 0.0006212194425674942
+    },
+    {
+      "fold": "cv_1",
+      "model_name": "ridge_market",
+      "feature_spec": "market",
+      "L1_coefficient_norm": 0.03748285623585258,
+      "L2_coefficient_norm": 0.024601955063935473,
+      "max_abs_coefficient": 0.02356956574942654,
+      "median_abs_coefficient": 0.0028679645805385822
+    },
+    {
+      "fold": "cv_1",
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "L1_coefficient_norm": 0.05233736698864528,
+      "L2_coefficient_norm": 0.02782717739736579,
+      "max_abs_coefficient": 0.026659473659888043,
+      "median_abs_coefficient": 0.0006144024814373582
+    },
+    {
+      "fold": "cv_2",
+      "model_name": "ols_market",
+      "feature_spec": "market",
+      "L1_coefficient_norm": 0.3795704802401887,
+      "L2_coefficient_norm": 0.23964826289489294,
+      "max_abs_coefficient": 0.17272782694796482,
+      "median_abs_coefficient": 0.005964938548078452
+    },
+    {
+      "fold": "cv_2",
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "L1_coefficient_norm": 0.3065228499887327,
+      "L2_coefficient_norm": 0.18043121405215368,
+      "max_abs_coefficient": 0.13182273123361093,
+      "median_abs_coefficient": 0.000629284643325156
+    },
+    {
+      "fold": "cv_2",
+      "model_name": "ridge_market",
+      "feature_spec": "market",
+      "L1_coefficient_norm": 0.047676087232587,
+      "L2_coefficient_norm": 0.0224645671303157,
+      "max_abs_coefficient": 0.019023344554454383,
+      "median_abs_coefficient": 0.005172702999365399
+    },
+    {
+      "fold": "cv_2",
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "L1_coefficient_norm": 0.06547129843277591,
+      "L2_coefficient_norm": 0.02576582449223639,
+      "max_abs_coefficient": 0.023136568560848735,
+      "median_abs_coefficient": 0.0006190273445135294
+    },
+    {
+      "fold": "cv_3",
+      "model_name": "ols_market",
+      "feature_spec": "market",
+      "L1_coefficient_norm": 0.3375765565254729,
+      "L2_coefficient_norm": 0.19448816211319864,
+      "max_abs_coefficient": 0.13969848621520953,
+      "median_abs_coefficient": 0.012812115453605074
+    },
+    {
+      "fold": "cv_3",
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "L1_coefficient_norm": 0.3680318037121763,
+      "L2_coefficient_norm": 0.21312642079149446,
+      "max_abs_coefficient": 0.15335423482963956,
+      "median_abs_coefficient": 0.00021489527968301828
+    },
+    {
+      "fold": "cv_3",
+      "model_name": "ridge_market",
+      "feature_spec": "market",
+      "L1_coefficient_norm": 0.0689763000262236,
+      "L2_coefficient_norm": 0.02951902414766677,
+      "max_abs_coefficient": 0.017515158367332254,
+      "median_abs_coefficient": 0.005813869759970661
+    },
+    {
+      "fold": "cv_3",
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "L1_coefficient_norm": 0.07249226217327137,
+      "L2_coefficient_norm": 0.030043707332760884,
+      "max_abs_coefficient": 0.017210542210610913,
+      "median_abs_coefficient": 0.0001870105281866548
+    }
+  ],
+  "ridge_to_ols_coefficient_ratios": [
+    {
+      "fold": "cv_1",
+      "feature_spec": "market",
+      "ridge_L2_to_ols_L2_ratio": 0.17361570395694775,
+      "ridge_max_abs_to_ols_max_abs_ratio": 0.23255219387503434
+    },
+    {
+      "fold": "cv_1",
+      "feature_spec": "all",
+      "ridge_L2_to_ols_L2_ratio": 0.5736655065018904,
+      "ridge_max_abs_to_ols_max_abs_ratio": 0.8616744356607366
+    },
+    {
+      "fold": "cv_2",
+      "feature_spec": "market",
+      "ridge_L2_to_ols_L2_ratio": 0.09373974532070116,
+      "ridge_max_abs_to_ols_max_abs_ratio": 0.11013479930008768
+    },
+    {
+      "fold": "cv_2",
+      "feature_spec": "all",
+      "ridge_L2_to_ols_L2_ratio": 0.1428013696387853,
+      "ridge_max_abs_to_ols_max_abs_ratio": 0.17551273854163316
+    },
+    {
+      "fold": "cv_3",
+      "feature_spec": "market",
+      "ridge_L2_to_ols_L2_ratio": 0.15177799937502473,
+      "ridge_max_abs_to_ols_max_abs_ratio": 0.12537829751676513
+    },
+    {
+      "fold": "cv_3",
+      "feature_spec": "all",
+      "ridge_L2_to_ols_L2_ratio": 0.14096660198762123,
+      "ridge_max_abs_to_ols_max_abs_ratio": 0.11222736841750745
+    }
+  ],
+  "coefficient_sign_flips": [
+    {
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "feature_name": "intraday_return",
+      "folds_present": 3,
+      "coefficient_mean_available": -0.0021563784695196805,
+      "coefficient_std_available": 0.003256609747764705,
+      "max_abs_coefficient": 0.005286025447843697,
+      "min_abs_nonzero_coefficient": 0.0012138506229726737,
+      "max_abs_consecutive_available_change": 0.00649987607081637,
+      "sign_flip_count_across_consecutive_available_folds": 2,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": -0.005286025447843697,
+      "coefficient_cv_2": 0.0012138506229726737,
+      "coefficient_cv_3": -0.0023969605836880177,
+      "sign_cv_1": -1.0,
+      "sign_cv_2": 1.0,
+      "sign_cv_3": -1.0
+    },
+    {
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "feature_name": "daily_range",
+      "folds_present": 3,
+      "coefficient_mean_available": -0.000252641653500934,
+      "coefficient_std_available": 0.0016591386439000217,
+      "max_abs_coefficient": 0.0021668520546715892,
+      "min_abs_nonzero_coefficient": 0.0006367144163153423,
+      "max_abs_consecutive_available_change": 0.0029390647325250345,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": 0.0006367144163153423,
+      "coefficient_cv_2": 0.0007722126778534451,
+      "coefficient_cv_3": -0.0021668520546715892,
+      "sign_cv_1": 1.0,
+      "sign_cv_2": 1.0,
+      "sign_cv_3": -1.0
+    },
+    {
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "feature_name": "sma_20",
+      "folds_present": 3,
+      "coefficient_mean_available": -0.0002898595300386083,
+      "coefficient_std_available": 0.002606334288420605,
+      "max_abs_coefficient": 0.0027187091669672665,
+      "min_abs_nonzero_coefficient": 0.0017280816386141713,
+      "max_abs_consecutive_available_change": 0.0044467908055814374,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": -0.0018602061184689199,
+      "coefficient_cv_2": -0.0017280816386141713,
+      "coefficient_cv_3": 0.0027187091669672665,
+      "sign_cv_1": -1.0,
+      "sign_cv_2": -1.0,
+      "sign_cv_3": 1.0
+    },
+    {
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "feature_name": "q_gross_margin",
+      "folds_present": 3,
+      "coefficient_mean_available": -0.0003753948622491051,
+      "coefficient_std_available": 0.0003797901900985235,
+      "max_abs_coefficient": 0.0006212194425667534,
+      "min_abs_nonzero_coefficient": 6.203021823598165e-05,
+      "max_abs_consecutive_available_change": 0.0006290255806525253,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": -0.0006212194425667534,
+      "coefficient_cv_2": -0.0005669953624165436,
+      "coefficient_cv_3": 6.203021823598165e-05,
+      "sign_cv_1": -1.0,
+      "sign_cv_2": -1.0,
+      "sign_cv_3": 1.0
+    },
+    {
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "feature_name": "q_operating_margin",
+      "folds_present": 3,
+      "coefficient_mean_available": -0.00037539486224932406,
+      "coefficient_std_available": 0.0003797901900976399,
+      "max_abs_coefficient": 0.0006212194425674967,
+      "min_abs_nonzero_coefficient": 6.203021823465057e-05,
+      "max_abs_consecutive_available_change": 0.0006290255806497767,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": -0.0006212194425674967,
+      "coefficient_cv_2": -0.0005669953624151262,
+      "coefficient_cv_3": 6.203021823465057e-05,
+      "sign_cv_1": -1.0,
+      "sign_cv_2": -1.0,
+      "sign_cv_3": 1.0
+    },
+    {
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "feature_name": "q_net_margin",
+      "folds_present": 3,
+      "coefficient_mean_available": 0.0003753948622498375,
+      "coefficient_std_available": 0.0003797901900985875,
+      "max_abs_coefficient": 0.0006212194425674967,
+      "min_abs_nonzero_coefficient": 6.203021823532571e-05,
+      "max_abs_consecutive_available_change": 0.0006290255806526671,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": 0.0006212194425674967,
+      "coefficient_cv_2": 0.0005669953624173414,
+      "coefficient_cv_3": -6.203021823532571e-05,
+      "sign_cv_1": 1.0,
+      "sign_cv_2": 1.0,
+      "sign_cv_3": -1.0
+    },
+    {
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "feature_name": "q_rd_to_revenue",
+      "folds_present": 3,
+      "coefficient_mean_available": 0.00037539486224965994,
+      "coefficient_std_available": 0.0003797901900986711,
+      "max_abs_coefficient": 0.0006212194425672087,
+      "min_abs_nonzero_coefficient": 6.203021823561368e-05,
+      "max_abs_consecutive_available_change": 0.0006290255806529984,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": 0.0006212194425672087,
+      "coefficient_cv_2": 0.0005669953624173848,
+      "coefficient_cv_3": -6.203021823561368e-05,
+      "sign_cv_1": 1.0,
+      "sign_cv_2": 1.0,
+      "sign_cv_3": -1.0
+    },
+    {
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "feature_name": "q_sga_to_revenue",
+      "folds_present": 3,
+      "coefficient_mean_available": 0.00037539486224943155,
+      "coefficient_std_available": 0.0003797901900982512,
+      "max_abs_coefficient": 0.0006212194425670883,
+      "min_abs_nonzero_coefficient": 6.203021823532571e-05,
+      "max_abs_consecutive_available_change": 0.0006290255806518576,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": 0.0006212194425670883,
+      "coefficient_cv_2": 0.0005669953624165319,
+      "coefficient_cv_3": -6.203021823532571e-05,
+      "sign_cv_1": 1.0,
+      "sign_cv_2": 1.0,
+      "sign_cv_3": -1.0
+    },
+    {
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "feature_name": "q_revenue_growth_yoy",
+      "folds_present": 3,
+      "coefficient_mean_available": -0.0003753948622492053,
+      "coefficient_std_available": 0.00037979019009820223,
+      "max_abs_coefficient": 0.0006212194425674967,
+      "min_abs_nonzero_coefficient": 6.203021823543813e-05,
+      "max_abs_consecutive_available_change": 0.0006290255806509956,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": -0.0006212194425674967,
+      "coefficient_cv_2": -0.0005669953624155575,
+      "coefficient_cv_3": 6.203021823543813e-05,
+      "sign_cv_1": -1.0,
+      "sign_cv_2": -1.0,
+      "sign_cv_3": 1.0
+    },
+    {
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "feature_name": "q_gross_profit_growth_yoy",
+      "folds_present": 3,
+      "coefficient_mean_available": -0.00037539486224989245,
+      "coefficient_std_available": 0.00037979019009816374,
+      "max_abs_coefficient": 0.0006212194425674575,
+      "min_abs_nonzero_coefficient": 6.203021823476713e-05,
+      "max_abs_consecutive_available_change": 0.0006290255806517542,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": -0.0006212194425674575,
+      "coefficient_cv_2": -0.0005669953624169871,
+      "coefficient_cv_3": 6.203021823476713e-05,
+      "sign_cv_1": -1.0,
+      "sign_cv_2": -1.0,
+      "sign_cv_3": 1.0
+    },
+    {
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "feature_name": "q_operating_income_growth_yoy",
+      "folds_present": 3,
+      "coefficient_mean_available": -0.0003753948622489314,
+      "coefficient_std_available": 0.00037979019009891287,
+      "max_abs_coefficient": 0.0006212194425672097,
+      "min_abs_nonzero_coefficient": 6.203021823657124e-05,
+      "max_abs_consecutive_available_change": 0.0006290255806527271,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": -0.0006212194425672097,
+      "coefficient_cv_2": -0.0005669953624161559,
+      "coefficient_cv_3": 6.203021823657124e-05,
+      "sign_cv_1": -1.0,
+      "sign_cv_2": -1.0,
+      "sign_cv_3": 1.0
+    },
+    {
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "feature_name": "q_net_income_growth_yoy",
+      "folds_present": 3,
+      "coefficient_mean_available": -0.0003753948622498193,
+      "coefficient_std_available": 0.0003797901900981888,
+      "max_abs_coefficient": 0.0006212194425672962,
+      "min_abs_nonzero_coefficient": 6.203021823487815e-05,
+      "max_abs_consecutive_available_change": 0.0006290255806519179,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": -0.0006212194425672962,
+      "coefficient_cv_2": -0.0005669953624170398,
+      "coefficient_cv_3": 6.203021823487815e-05,
+      "sign_cv_1": -1.0,
+      "sign_cv_2": -1.0,
+      "sign_cv_3": 1.0
+    },
+    {
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "feature_name": "q_rd_growth_yoy",
+      "folds_present": 3,
+      "coefficient_mean_available": 0.00037539486224965306,
+      "coefficient_std_available": 0.0003797901900979134,
+      "max_abs_coefficient": 0.0006212194425674942,
+      "min_abs_nonzero_coefficient": 6.20302182346804e-05,
+      "max_abs_consecutive_available_change": 0.0006290255806508259,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": 0.0006212194425674942,
+      "coefficient_cv_2": 0.0005669953624161455,
+      "coefficient_cv_3": -6.20302182346804e-05,
+      "sign_cv_1": 1.0,
+      "sign_cv_2": 1.0,
+      "sign_cv_3": -1.0
+    },
+    {
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "feature_name": "current_ratio",
+      "folds_present": 3,
+      "coefficient_mean_available": -1.465582697395809e-05,
+      "coefficient_std_available": 0.0005260501490050999,
+      "max_abs_coefficient": 0.0006212194425670883,
+      "min_abs_nonzero_coefficient": 0.0002605333759731127,
+      "max_abs_consecutive_available_change": 0.0009379380282391898,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": -0.0006212194425670883,
+      "coefficient_cv_2": 0.0003167185856721014,
+      "coefficient_cv_3": 0.0002605333759731127,
+      "sign_cv_1": -1.0,
+      "sign_cv_2": 1.0,
+      "sign_cv_3": 1.0
+    },
+    {
+      "model_name": "ridge_market",
+      "feature_spec": "market",
+      "feature_name": "daily_range",
+      "folds_present": 3,
+      "coefficient_mean_available": 0.00020515532588879538,
+      "coefficient_std_available": 0.0008682317423157644,
+      "max_abs_coefficient": 0.001149945715119789,
+      "min_abs_nonzero_coefficient": 2.31989349432431e-05,
+      "max_abs_consecutive_available_change": 0.001707624387516435,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": 2.31989349432431e-05,
+      "coefficient_cv_2": 0.001149945715119789,
+      "coefficient_cv_3": -0.000557678672396646,
+      "sign_cv_1": 1.0,
+      "sign_cv_2": 1.0,
+      "sign_cv_3": -1.0
+    },
+    {
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "feature_name": "intraday_return",
+      "folds_present": 3,
+      "coefficient_mean_available": -0.0020880512606054297,
+      "coefficient_std_available": 0.003155353964441181,
+      "max_abs_coefficient": 0.005100653456216479,
+      "min_abs_nonzero_coefficient": 0.0011929130867109122,
+      "max_abs_consecutive_available_change": 0.006293566542927391,
+      "sign_flip_count_across_consecutive_available_folds": 2,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": -0.005100653456216479,
+      "coefficient_cv_2": 0.0011929130867109122,
+      "coefficient_cv_3": -0.002356413412310723,
+      "sign_cv_1": -1.0,
+      "sign_cv_2": 1.0,
+      "sign_cv_3": -1.0
+    },
+    {
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "feature_name": "daily_range",
+      "folds_present": 3,
+      "coefficient_mean_available": 0.0007756935559212705,
+      "coefficient_std_available": 0.0012787677885737908,
+      "max_abs_coefficient": 0.001991230892194444,
+      "min_abs_nonzero_coefficient": 0.0005580908112111037,
+      "max_abs_consecutive_available_change": 0.0025493217034055476,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": 0.0008939405867804716,
+      "coefficient_cv_2": 0.001991230892194444,
+      "coefficient_cv_3": -0.0005580908112111037,
+      "sign_cv_1": 1.0,
+      "sign_cv_2": 1.0,
+      "sign_cv_3": -1.0
+    },
+    {
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "feature_name": "sma_20",
+      "folds_present": 3,
+      "coefficient_mean_available": -0.000954515301625377,
+      "coefficient_std_available": 0.002220145802294584,
+      "max_abs_coefficient": 0.0023586570741746683,
+      "min_abs_nonzero_coefficient": 0.0016050638068068074,
+      "max_abs_consecutive_available_change": 0.003963720880981476,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": -0.00210995263750827,
+      "coefficient_cv_2": -0.0023586570741746683,
+      "coefficient_cv_3": 0.0016050638068068074,
+      "sign_cv_1": -1.0,
+      "sign_cv_2": -1.0,
+      "sign_cv_3": 1.0
+    },
+    {
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "feature_name": "q_gross_margin",
+      "folds_present": 3,
+      "coefficient_mean_available": -0.00039098098403060936,
+      "coefficient_std_available": 0.00036215454564849275,
+      "max_abs_coefficient": 0.000614402481437291,
+      "min_abs_nonzero_coefficient": 2.6863788927278056e-05,
+      "max_abs_consecutive_available_change": 0.0006122680485090931,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": -0.000614402481437291,
+      "coefficient_cv_2": -0.0005854042595818151,
+      "coefficient_cv_3": 2.6863788927278056e-05,
+      "sign_cv_1": -1.0,
+      "sign_cv_2": -1.0,
+      "sign_cv_3": 1.0
+    },
+    {
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "feature_name": "q_operating_margin",
+      "folds_present": 3,
+      "coefficient_mean_available": -0.00039098098403066807,
+      "coefficient_std_available": 0.0003621545456486403,
+      "max_abs_coefficient": 0.0006144024814373582,
+      "min_abs_nonzero_coefficient": 2.6863788927393506e-05,
+      "max_abs_consecutive_available_change": 0.000612268048509433,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": -0.0006144024814373582,
+      "coefficient_cv_2": -0.0005854042595820395,
+      "coefficient_cv_3": 2.6863788927393506e-05,
+      "sign_cv_1": -1.0,
+      "sign_cv_2": -1.0,
+      "sign_cv_3": 1.0
+    },
+    {
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "feature_name": "q_net_margin",
+      "folds_present": 3,
+      "coefficient_mean_available": 0.0003909809840307252,
+      "coefficient_std_available": 0.0003621545456485766,
+      "max_abs_coefficient": 0.0006144024814373582,
+      "min_abs_nonzero_coefficient": 2.6863788927263707e-05,
+      "max_abs_consecutive_available_change": 0.000612268048509345,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": 0.0006144024814373582,
+      "coefficient_cv_2": 0.0005854042595820813,
+      "coefficient_cv_3": -2.6863788927263707e-05,
+      "sign_cv_1": 1.0,
+      "sign_cv_2": 1.0,
+      "sign_cv_3": -1.0
+    },
+    {
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "feature_name": "q_rd_to_revenue",
+      "folds_present": 3,
+      "coefficient_mean_available": 0.00039098098403072884,
+      "coefficient_std_available": 0.0003621545456484969,
+      "max_abs_coefficient": 0.0006144024814373839,
+      "min_abs_nonzero_coefficient": 2.6863788927164753e-05,
+      "max_abs_consecutive_available_change": 0.000612268048509132,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": 0.0006144024814373839,
+      "coefficient_cv_2": 0.0005854042595819672,
+      "coefficient_cv_3": -2.6863788927164753e-05,
+      "sign_cv_1": 1.0,
+      "sign_cv_2": 1.0,
+      "sign_cv_3": -1.0
+    },
+    {
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "feature_name": "q_sga_to_revenue",
+      "folds_present": 3,
+      "coefficient_mean_available": 0.00039098098403071106,
+      "coefficient_std_available": 0.0003621545456484883,
+      "max_abs_coefficient": 0.0006144024814373154,
+      "min_abs_nonzero_coefficient": 2.6863788927174728e-05,
+      "max_abs_consecutive_available_change": 0.0006122680485091673,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": 0.0006144024814373154,
+      "coefficient_cv_2": 0.0005854042595819926,
+      "coefficient_cv_3": -2.6863788927174728e-05,
+      "sign_cv_1": 1.0,
+      "sign_cv_2": 1.0,
+      "sign_cv_3": -1.0
+    },
+    {
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "feature_name": "q_revenue_growth_yoy",
+      "folds_present": 3,
+      "coefficient_mean_available": -0.00039098098403076223,
+      "coefficient_std_available": 0.00036215454564846787,
+      "max_abs_coefficient": 0.0006144024814373582,
+      "min_abs_nonzero_coefficient": 2.6863788927099827e-05,
+      "max_abs_consecutive_available_change": 0.0006122680485091282,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": -0.0006144024814373582,
+      "coefficient_cv_2": -0.0005854042595820284,
+      "coefficient_cv_3": 2.6863788927099827e-05,
+      "sign_cv_1": -1.0,
+      "sign_cv_2": -1.0,
+      "sign_cv_3": 1.0
+    },
+    {
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "feature_name": "q_gross_profit_growth_yoy",
+      "folds_present": 3,
+      "coefficient_mean_available": -0.00039098098403060155,
+      "coefficient_std_available": 0.0003621545456484936,
+      "max_abs_coefficient": 0.0006144024814373376,
+      "min_abs_nonzero_coefficient": 2.6863788927284348e-05,
+      "max_abs_consecutive_available_change": 0.0006122680485090358,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": -0.0006144024814373376,
+      "coefficient_cv_2": -0.0005854042595817515,
+      "coefficient_cv_3": 2.6863788927284348e-05,
+      "sign_cv_1": -1.0,
+      "sign_cv_2": -1.0,
+      "sign_cv_3": 1.0
+    },
+    {
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "feature_name": "q_operating_income_growth_yoy",
+      "folds_present": 3,
+      "coefficient_mean_available": -0.00039098098403064297,
+      "coefficient_std_available": 0.0003621545456484388,
+      "max_abs_coefficient": 0.00061440248143736,
+      "min_abs_nonzero_coefficient": 2.686378892717897e-05,
+      "max_abs_consecutive_available_change": 0.0006122680485089268,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": -0.00061440248143736,
+      "coefficient_cv_2": -0.0005854042595817479,
+      "coefficient_cv_3": 2.686378892717897e-05,
+      "sign_cv_1": -1.0,
+      "sign_cv_2": -1.0,
+      "sign_cv_3": 1.0
+    },
+    {
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "feature_name": "q_net_income_growth_yoy",
+      "folds_present": 3,
+      "coefficient_mean_available": -0.0003909809840306982,
+      "coefficient_std_available": 0.00036215454564859174,
+      "max_abs_coefficient": 0.0006144024814373299,
+      "min_abs_nonzero_coefficient": 2.68637889273087e-05,
+      "max_abs_consecutive_available_change": 0.000612268048509382,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": -0.0006144024814373299,
+      "coefficient_cv_2": -0.0005854042595820733,
+      "coefficient_cv_3": 2.68637889273087e-05,
+      "sign_cv_1": -1.0,
+      "sign_cv_2": -1.0,
+      "sign_cv_3": 1.0
+    },
+    {
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "feature_name": "q_rd_growth_yoy",
+      "folds_present": 3,
+      "coefficient_mean_available": 0.0003909809840306655,
+      "coefficient_std_available": 0.00036215454564844695,
+      "max_abs_coefficient": 0.0006144024814373304,
+      "min_abs_nonzero_coefficient": 2.686378892716851e-05,
+      "max_abs_consecutive_available_change": 0.0006122680485090031,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": 0.0006144024814373304,
+      "coefficient_cv_2": 0.0005854042595818346,
+      "coefficient_cv_3": -2.686378892716851e-05,
+      "sign_cv_1": 1.0,
+      "sign_cv_2": 1.0,
+      "sign_cv_3": -1.0
+    },
+    {
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "feature_name": "current_ratio",
+      "folds_present": 3,
+      "coefficient_mean_available": -3.4636704602547916e-05,
+      "coefficient_std_available": 0.0005037516451915579,
+      "max_abs_coefficient": 0.0006144024814373154,
+      "min_abs_nonzero_coefficient": 0.00021438724303579358,
+      "max_abs_consecutive_available_change": 0.0009105076060311934,
+      "sign_flip_count_across_consecutive_available_folds": 1,
+      "sign_consistent_across_available_folds": false,
+      "coefficient_cv_1": -0.0006144024814373154,
+      "coefficient_cv_2": 0.00029610512459387803,
+      "coefficient_cv_3": 0.00021438724303579358,
+      "sign_cv_1": -1.0,
+      "sign_cv_2": 1.0,
+      "sign_cv_3": 1.0
+    }
+  ],
+  "conditioning": [
+    {
+      "fold": "cv_1",
+      "feature_spec": "market",
+      "training_rows": 96,
+      "used_features": 7,
+      "n_to_p_ratio": 13.714285714285714,
+      "matrix_rank": 7,
+      "full_column_rank": true,
+      "rank_deficient": false,
+      "largest_singular_value": 16.77547675383013,
+      "smallest_singular_value": 0.10648524866114445,
+      "rank_tolerance": 3.5759079439039274e-13,
+      "condition_number": 157.53803427940304,
+      "condition_number_is_infinite": false,
+      "max_abs_pairwise_correlation": 0.9998385631415558,
+      "high_corr_pair_count_abs_ge_0_95": 1,
+      "undefined_pairwise_correlation_count": 0
+    },
+    {
+      "fold": "cv_1",
+      "feature_spec": "all",
+      "training_rows": 96,
+      "used_features": 21,
+      "n_to_p_ratio": 4.571428571428571,
+      "matrix_rank": 9,
+      "full_column_rank": false,
+      "rank_deficient": true,
+      "largest_singular_value": 37.34410941426838,
+      "smallest_singular_value": 6.895035007495951e-16,
+      "rank_tolerance": 7.96037570032163e-13,
+      "condition_number": null,
+      "condition_number_is_infinite": true,
+      "max_abs_pairwise_correlation": 1.0,
+      "high_corr_pair_count_abs_ge_0_95": 92,
+      "undefined_pairwise_correlation_count": 0
+    },
+    {
+      "fold": "cv_2",
+      "feature_spec": "market",
+      "training_rows": 121,
+      "used_features": 9,
+      "n_to_p_ratio": 13.444444444444445,
+      "matrix_rank": 9,
+      "full_column_rank": true,
+      "rank_deficient": false,
+      "largest_singular_value": 18.86977488250088,
+      "smallest_singular_value": 0.11722305774664472,
+      "rank_tolerance": 5.069817367659117e-13,
+      "condition_number": 160.97323551552716,
+      "condition_number_is_infinite": false,
+      "max_abs_pairwise_correlation": 0.9998411067502746,
+      "high_corr_pair_count_abs_ge_0_95": 1,
+      "undefined_pairwise_correlation_count": 0
+    },
+    {
+      "fold": "cv_2",
+      "feature_spec": "all",
+      "training_rows": 121,
+      "used_features": 35,
+      "n_to_p_ratio": 3.4571428571428573,
+      "matrix_rank": 12,
+      "full_column_rank": false,
+      "rank_deficient": true,
+      "largest_singular_value": 46.32269553055333,
+      "smallest_singular_value": 7.999881572997119e-16,
+      "rank_tolerance": 1.2445702600054516e-12,
+      "condition_number": null,
+      "condition_number_is_infinite": true,
+      "max_abs_pairwise_correlation": 1.0,
+      "high_corr_pair_count_abs_ge_0_95": 115,
+      "undefined_pairwise_correlation_count": 0
+    },
+    {
+      "fold": "cv_3",
+      "feature_spec": "market",
+      "training_rows": 146,
+      "used_features": 9,
+      "n_to_p_ratio": 16.22222222222222,
+      "matrix_rank": 9,
+      "full_column_rank": true,
+      "rank_deficient": false,
+      "largest_singular_value": 21.019153261568245,
+      "smallest_singular_value": 0.12346376995067863,
+      "rank_tolerance": 6.814096789462462e-13,
+      "condition_number": 170.24551631596043,
+      "condition_number_is_infinite": false,
+      "max_abs_pairwise_correlation": 0.9998460160225312,
+      "high_corr_pair_count_abs_ge_0_95": 1,
+      "undefined_pairwise_correlation_count": 0
+    },
+    {
+      "fold": "cv_3",
+      "feature_spec": "all",
+      "training_rows": 146,
+      "used_features": 35,
+      "n_to_p_ratio": 4.171428571428572,
+      "matrix_rank": 11,
+      "full_column_rank": false,
+      "rank_deficient": true,
+      "largest_singular_value": 52.68951907341059,
+      "smallest_singular_value": 7.000884417127266e-31,
+      "rank_tolerance": 1.708115823166422e-12,
+      "condition_number": null,
+      "condition_number_is_infinite": true,
+      "max_abs_pairwise_correlation": 1.0,
+      "high_corr_pair_count_abs_ge_0_95": 115,
+      "undefined_pairwise_correlation_count": 0
+    }
+  ],
+  "influence_maxima": [
+    {
+      "fold": "cv_1",
+      "feature_spec": "market",
+      "undefined_metric_count": 0,
+      "max_leverage": 0.5302795166813572,
+      "date_of_max_leverage": "2026-02-06",
+      "max_abs_studentized_residual": 3.2532129996600285,
+      "date_of_max_abs_studentized_residual": "2025-10-22",
+      "max_cooks_distance": 0.19665674444030326,
+      "date_of_max_cooks_distance": "2025-11-20"
+    },
+    {
+      "fold": "cv_1",
+      "feature_spec": "all",
+      "undefined_metric_count": 0,
+      "max_leverage": 0.5440615728887988,
+      "date_of_max_leverage": "2026-02-06",
+      "max_abs_studentized_residual": 2.97427580680898,
+      "date_of_max_abs_studentized_residual": "2025-10-22",
+      "max_cooks_distance": 0.14460777206566508,
+      "date_of_max_cooks_distance": "2025-11-20"
+    },
+    {
+      "fold": "cv_2",
+      "feature_spec": "market",
+      "undefined_metric_count": 0,
+      "max_leverage": 0.5062542478047785,
+      "date_of_max_leverage": "2026-02-06",
+      "max_abs_studentized_residual": 3.435817885159791,
+      "date_of_max_abs_studentized_residual": "2025-10-22",
+      "max_cooks_distance": 0.05822937858879938,
+      "date_of_max_cooks_distance": "2025-11-20"
+    },
+    {
+      "fold": "cv_2",
+      "feature_spec": "all",
+      "undefined_metric_count": 0,
+      "max_leverage": 0.523960001663873,
+      "date_of_max_leverage": "2026-02-06",
+      "max_abs_studentized_residual": 3.1393085723259775,
+      "date_of_max_abs_studentized_residual": "2025-10-22",
+      "max_cooks_distance": 0.06557670524899853,
+      "date_of_max_cooks_distance": "2025-10-22"
+    },
+    {
+      "fold": "cv_3",
+      "feature_spec": "market",
+      "undefined_metric_count": 0,
+      "max_leverage": 0.38631768824927326,
+      "date_of_max_leverage": "2026-02-06",
+      "max_abs_studentized_residual": 3.4806656244881995,
+      "date_of_max_abs_studentized_residual": "2025-10-22",
+      "max_cooks_distance": 0.08628979846472255,
+      "date_of_max_cooks_distance": "2026-04-30"
+    },
+    {
+      "fold": "cv_3",
+      "feature_spec": "all",
+      "undefined_metric_count": 0,
+      "max_leverage": 0.4084608053285809,
+      "date_of_max_leverage": "2026-02-06",
+      "max_abs_studentized_residual": 3.5108272262457123,
+      "date_of_max_abs_studentized_residual": "2025-10-22",
+      "max_cooks_distance": 0.094800827975272,
+      "date_of_max_cooks_distance": "2026-04-30"
+    }
+  ],
+  "cv_3_top_error_rows_and_contributors": [
+    {
+      "date": "2026-06-11",
+      "ticker": "NVDA",
+      "fold": "cv_3",
+      "model_name": "ols_market",
+      "feature_spec": "market",
+      "actual_forward_return_5d": 0.028458468289002115,
+      "prediction": -0.3165032344419591,
+      "residual": 0.3449617027309612,
+      "absolute_error": 0.3449617027309612,
+      "squared_error": 0.11899857635104405,
+      "absolute_error_rank_within_fold_model": 1.0,
+      "row_max_abs_z": 18.767180029701496,
+      "used_features_outside_training_range_count": 3,
+      "intercept": 0.0019168501321404007,
+      "top_3_positive_contributions": [
+        {
+          "feature_name": "simple_return",
+          "coefficient": 0.13193500458868318,
+          "z_value": 0.9424445121109708,
+          "feature_contribution": 0.12434142102994021
+        },
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.012812115453605074,
+          "z_value": 4.155978880827356,
+          "feature_contribution": 0.05324688124390449
+        },
+        {
+          "feature_name": "sma_20",
+          "coefficient": 0.0033077133663184134,
+          "z_value": 7.8766752118961785,
+          "feature_contribution": 0.02605378388053791
+        }
+      ],
+      "top_3_negative_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.017169470712839877,
+          "z_value": 18.767180029701496,
+          "feature_contribution": -0.3222225478825532
+        },
+        {
+          "feature_name": "log_return",
+          "coefficient": -0.13969848621520953,
+          "z_value": 0.944292349319577,
+          "feature_contribution": -0.13191621174454873
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.018119748348819638,
+          "z_value": 2.571523451841172,
+          "feature_contribution": -0.04659535782045005
+        }
+      ],
+      "top_3_absolute_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.017169470712839877,
+          "z_value": 18.767180029701496,
+          "feature_contribution": -0.3222225478825532
+        },
+        {
+          "feature_name": "log_return",
+          "coefficient": -0.13969848621520953,
+          "z_value": 0.944292349319577,
+          "feature_contribution": -0.13191621174454873
+        },
+        {
+          "feature_name": "simple_return",
+          "coefficient": 0.13193500458868318,
+          "z_value": 0.9424445121109708,
+          "feature_contribution": 0.12434142102994021
+        }
+      ],
+      "q_state_changed_since_previous_observed_session": false,
+      "q_days_since_effective_date": 21.0,
+      "q_days_since_filing": 22.0,
+      "fy_state_changed_since_previous_observed_session": false,
+      "fy_days_since_effective_date": 105.0,
+      "fy_days_since_filing": 106.0,
+      "bs_state_changed_since_previous_observed_session": false,
+      "bs_days_since_effective_date": 21.0,
+      "bs_days_since_filing": 22.0
+    },
+    {
+      "date": "2026-06-09",
+      "ticker": "NVDA",
+      "fold": "cv_3",
+      "model_name": "ols_market",
+      "feature_spec": "market",
+      "actual_forward_return_5d": 0.01457717112505219,
+      "prediction": -0.3141125457440252,
+      "residual": 0.3286897168690774,
+      "absolute_error": 0.3286897168690774,
+      "squared_error": 0.10803692997547426,
+      "absolute_error_rank_within_fold_model": 2.0,
+      "row_max_abs_z": 17.985172449825964,
+      "used_features_outside_training_range_count": 4,
+      "intercept": 0.0019168501321404007,
+      "top_3_positive_contributions": [
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.012812115453605074,
+          "z_value": 3.4693554435114904,
+          "feature_contribution": 0.044449782491862454
+        },
+        {
+          "feature_name": "sma_20",
+          "coefficient": 0.0033077133663184134,
+          "z_value": 8.40198805193841,
+          "feature_contribution": 0.02779136818304429
+        },
+        {
+          "feature_name": "log_return",
+          "coefficient": -0.13969848621520953,
+          "z_value": -0.11436467837823916,
+          "feature_contribution": 0.015976572445929316
+        }
+      ],
+      "top_3_negative_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.017169470712839877,
+          "z_value": 17.985172449825964,
+          "feature_contribution": -0.30879589164266147
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.018119748348819638,
+          "z_value": 3.314594185071801,
+          "feature_contribution": -0.06005961251196194
+        },
+        {
+          "feature_name": "simple_return",
+          "coefficient": 0.13193500458868318,
+          "z_value": -0.12552017158089684,
+          "feature_contribution": -0.016560504413497924
+        }
+      ],
+      "top_3_absolute_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.017169470712839877,
+          "z_value": 17.985172449825964,
+          "feature_contribution": -0.30879589164266147
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.018119748348819638,
+          "z_value": 3.314594185071801,
+          "feature_contribution": -0.06005961251196194
+        },
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.012812115453605074,
+          "z_value": 3.4693554435114904,
+          "feature_contribution": 0.044449782491862454
+        }
+      ],
+      "q_state_changed_since_previous_observed_session": false,
+      "q_days_since_effective_date": 19.0,
+      "q_days_since_filing": 20.0,
+      "fy_state_changed_since_previous_observed_session": false,
+      "fy_days_since_effective_date": 103.0,
+      "fy_days_since_filing": 104.0,
+      "bs_state_changed_since_previous_observed_session": false,
+      "bs_days_since_effective_date": 19.0,
+      "bs_days_since_filing": 20.0
+    },
+    {
+      "date": "2026-06-08",
+      "ticker": "NVDA",
+      "fold": "cv_3",
+      "model_name": "ols_market",
+      "feature_spec": "market",
+      "actual_forward_return_5d": 0.008688642453136941,
+      "prediction": -0.3118204066692493,
+      "residual": 0.32050904912238626,
+      "absolute_error": 0.32050904912238626,
+      "squared_error": 0.1027260505693362,
+      "absolute_error_rank_within_fold_model": 3.0,
+      "row_max_abs_z": 17.440845244465855,
+      "used_features_outside_training_range_count": 4,
+      "intercept": 0.0019168501321404007,
+      "top_3_positive_contributions": [
+        {
+          "feature_name": "simple_return",
+          "coefficient": 0.13193500458868318,
+          "z_value": 0.7257176632936052,
+          "feature_contribution": 0.09574756323673024
+        },
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.012812115453605074,
+          "z_value": 3.5987434755576233,
+          "feature_contribution": 0.046107516896752264
+        },
+        {
+          "feature_name": "sma_20",
+          "coefficient": 0.0033077133663184134,
+          "z_value": 8.545012456656053,
+          "feature_contribution": 0.028264451918238568
+        }
+      ],
+      "top_3_negative_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.017169470712839877,
+          "z_value": 17.440845244465855,
+          "feature_contribution": -0.29945008163202913
+        },
+        {
+          "feature_name": "log_return",
+          "coefficient": -0.13969848621520953,
+          "z_value": 0.7315096025382011,
+          "feature_contribution": -0.10219078412647628
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.018119748348819638,
+          "z_value": 3.7011917826575527,
+          "feature_contribution": -0.067064663692474
+        }
+      ],
+      "top_3_absolute_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.017169470712839877,
+          "z_value": 17.440845244465855,
+          "feature_contribution": -0.29945008163202913
+        },
+        {
+          "feature_name": "log_return",
+          "coefficient": -0.13969848621520953,
+          "z_value": 0.7315096025382011,
+          "feature_contribution": -0.10219078412647628
+        },
+        {
+          "feature_name": "simple_return",
+          "coefficient": 0.13193500458868318,
+          "z_value": 0.7257176632936052,
+          "feature_contribution": 0.09574756323673024
+        }
+      ],
+      "q_state_changed_since_previous_observed_session": false,
+      "q_days_since_effective_date": 18.0,
+      "q_days_since_filing": 19.0,
+      "fy_state_changed_since_previous_observed_session": false,
+      "fy_days_since_effective_date": 102.0,
+      "fy_days_since_filing": 103.0,
+      "bs_state_changed_since_previous_observed_session": false,
+      "bs_days_since_effective_date": 18.0,
+      "bs_days_since_filing": 19.0
+    },
+    {
+      "date": "2026-06-12",
+      "ticker": "NVDA",
+      "fold": "cv_3",
+      "model_name": "ols_market",
+      "feature_spec": "market",
+      "actual_forward_return_5d": -0.0012923811737858282,
+      "prediction": -0.3110400348755803,
+      "residual": 0.30974765370179447,
+      "absolute_error": 0.30974765370179447,
+      "squared_error": 0.09594360897376679,
+      "absolute_error_rank_within_fold_model": 4.0,
+      "row_max_abs_z": 19.250139045199376,
+      "used_features_outside_training_range_count": 3,
+      "intercept": 0.0019168501321404007,
+      "top_3_positive_contributions": [
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.012812115453605074,
+          "z_value": 4.1092986570491705,
+          "feature_contribution": 0.05264880882745825
+        },
+        {
+          "feature_name": "sma_20",
+          "coefficient": 0.0033077133663184134,
+          "z_value": 7.48828445628732,
+          "feature_contribution": 0.02476909858685598
+        },
+        {
+          "feature_name": "simple_return",
+          "coefficient": 0.13193500458868318,
+          "z_value": 0.037514840640410704,
+          "feature_contribution": 0.004949520672036305
+        }
+      ],
+      "top_3_negative_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.017169470712839877,
+          "z_value": 19.250139045199376,
+          "feature_contribution": -0.33051469855464605
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.018119748348819638,
+          "z_value": 2.5739016033386433,
+          "feature_contribution": -0.0466384493271196
+        },
+        {
+          "feature_name": "rolling_volatility_20",
+          "coefficient": -0.009609639127666048,
+          "z_value": 1.3135547488179482,
+          "feature_contribution": -0.012622787110572502
+        }
+      ],
+      "top_3_absolute_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.017169470712839877,
+          "z_value": 19.250139045199376,
+          "feature_contribution": -0.33051469855464605
+        },
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.012812115453605074,
+          "z_value": 4.1092986570491705,
+          "feature_contribution": 0.05264880882745825
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.018119748348819638,
+          "z_value": 2.5739016033386433,
+          "feature_contribution": -0.0466384493271196
+        }
+      ],
+      "q_state_changed_since_previous_observed_session": false,
+      "q_days_since_effective_date": 22.0,
+      "q_days_since_filing": 23.0,
+      "fy_state_changed_since_previous_observed_session": false,
+      "fy_days_since_effective_date": 106.0,
+      "fy_days_since_filing": 107.0,
+      "bs_state_changed_since_previous_observed_session": false,
+      "bs_days_since_effective_date": 22.0,
+      "bs_days_since_filing": 23.0
+    },
+    {
+      "date": "2026-06-10",
+      "ticker": "NVDA",
+      "fold": "cv_3",
+      "model_name": "ols_market",
+      "feature_spec": "market",
+      "actual_forward_return_5d": 0.015683102472432653,
+      "prediction": -0.28836538633311143,
+      "residual": 0.3040484888055441,
+      "absolute_error": 0.3040484888055441,
+      "squared_error": 0.09244548354493506,
+      "absolute_error_rank_within_fold_model": 5.0,
+      "row_max_abs_z": 18.320262838263513,
+      "used_features_outside_training_range_count": 3,
+      "intercept": 0.0019168501321404007,
+      "top_3_positive_contributions": [
+        {
+          "feature_name": "log_return",
+          "coefficient": -0.13969848621520953,
+          "z_value": -1.6890708088149724,
+          "feature_contribution": 0.23596063510175122
+        },
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.012812115453605074,
+          "z_value": 4.025869086807327,
+          "feature_contribution": 0.0515798995412751
+        },
+        {
+          "feature_name": "sma_20",
+          "coefficient": 0.0033077133663184134,
+          "z_value": 8.143145654840954,
+          "feature_contribution": 0.026935191726395132
+        }
+      ],
+      "top_3_negative_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.017169470712839877,
+          "z_value": 18.320262838263513,
+          "feature_contribution": -0.3145492162530941
+        },
+        {
+          "feature_name": "simple_return",
+          "coefficient": 0.13193500458868318,
+          "z_value": -1.667170320384815,
+          "feature_contribution": -0.21995812387008698
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.018119748348819638,
+          "z_value": 2.9359241623574728,
+          "feature_contribution": -0.053198206993136495
+        }
+      ],
+      "top_3_absolute_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.017169470712839877,
+          "z_value": 18.320262838263513,
+          "feature_contribution": -0.3145492162530941
+        },
+        {
+          "feature_name": "log_return",
+          "coefficient": -0.13969848621520953,
+          "z_value": -1.6890708088149724,
+          "feature_contribution": 0.23596063510175122
+        },
+        {
+          "feature_name": "simple_return",
+          "coefficient": 0.13193500458868318,
+          "z_value": -1.667170320384815,
+          "feature_contribution": -0.21995812387008698
+        }
+      ],
+      "q_state_changed_since_previous_observed_session": false,
+      "q_days_since_effective_date": 20.0,
+      "q_days_since_filing": 21.0,
+      "fy_state_changed_since_previous_observed_session": false,
+      "fy_days_since_effective_date": 104.0,
+      "fy_days_since_filing": 105.0,
+      "bs_state_changed_since_previous_observed_session": false,
+      "bs_days_since_effective_date": 20.0,
+      "bs_days_since_filing": 21.0
+    },
+    {
+      "date": "2026-06-11",
+      "ticker": "NVDA",
+      "fold": "cv_3",
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "actual_forward_return_5d": 0.028458468289002115,
+      "prediction": -0.37033553062691005,
+      "residual": 0.39879399891591216,
+      "absolute_error": 0.39879399891591216,
+      "squared_error": 0.15903665357134456,
+      "absolute_error_rank_within_fold_model": 1.0,
+      "row_max_abs_z": 594.0161605934132,
+      "used_features_outside_training_range_count": 16,
+      "intercept": 0.0019168501321404129,
+      "top_3_positive_contributions": [
+        {
+          "feature_name": "simple_return",
+          "coefficient": 0.1448172368648683,
+          "z_value": 0.9424445121109708,
+          "feature_contribution": 0.1364822101423697
+        },
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.013824522170590934,
+          "z_value": 4.155978880827356,
+          "feature_contribution": 0.057454422178505486
+        },
+        {
+          "feature_name": "sma_20",
+          "coefficient": 0.0027187091669672665,
+          "z_value": 7.8766752118961785,
+          "feature_contribution": 0.021414389103805977
+        }
+      ],
+      "top_3_negative_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.01799922123450771,
+          "z_value": 18.767180029701496,
+          "feature_contribution": -0.3377946253024322
+        },
+        {
+          "feature_name": "log_return",
+          "coefficient": -0.15335423482963956,
+          "z_value": 0.944292349319577,
+          "feature_contribution": -0.14481123068538643
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017699198223459185,
+          "z_value": 2.571523451841172,
+          "feature_contribution": -0.0455139033104109
+        }
+      ],
+      "top_3_absolute_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.01799922123450771,
+          "z_value": 18.767180029701496,
+          "feature_contribution": -0.3377946253024322
+        },
+        {
+          "feature_name": "log_return",
+          "coefficient": -0.15335423482963956,
+          "z_value": 0.944292349319577,
+          "feature_contribution": -0.14481123068538643
+        },
+        {
+          "feature_name": "simple_return",
+          "coefficient": 0.1448172368648683,
+          "z_value": 0.9424445121109708,
+          "feature_contribution": 0.1364822101423697
+        }
+      ],
+      "q_state_changed_since_previous_observed_session": false,
+      "q_days_since_effective_date": 21.0,
+      "q_days_since_filing": 22.0,
+      "fy_state_changed_since_previous_observed_session": false,
+      "fy_days_since_effective_date": 105.0,
+      "fy_days_since_filing": 106.0,
+      "bs_state_changed_since_previous_observed_session": false,
+      "bs_days_since_effective_date": 21.0,
+      "bs_days_since_filing": 22.0
+    },
+    {
+      "date": "2026-06-09",
+      "ticker": "NVDA",
+      "fold": "cv_3",
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "actual_forward_return_5d": 0.01457717112505219,
+      "prediction": -0.3685187486939041,
+      "residual": 0.3830959198189563,
+      "absolute_error": 0.3830959198189563,
+      "squared_error": 0.14676248378193218,
+      "absolute_error_rank_within_fold_model": 2.0,
+      "row_max_abs_z": 594.0161605934132,
+      "used_features_outside_training_range_count": 17,
+      "intercept": 0.0019168501321404129,
+      "top_3_positive_contributions": [
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.013824522170590934,
+          "z_value": 3.4693554435114904,
+          "feature_contribution": 0.04796218124648494
+        },
+        {
+          "feature_name": "sma_20",
+          "coefficient": 0.0027187091669672665,
+          "z_value": 8.40198805193841,
+          "feature_contribution": 0.022842561937554403
+        },
+        {
+          "feature_name": "log_return",
+          "coefficient": -0.15335423482963956,
+          "z_value": -0.11436467837823916,
+          "feature_contribution": 0.01753830774423269
+        }
+      ],
+      "top_3_negative_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.01799922123450771,
+          "z_value": 17.985172449825964,
+          "feature_contribution": -0.32371909786519054
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017699198223459185,
+          "z_value": 3.314594185071801,
+          "feature_contribution": -0.05866565951191097
+        },
+        {
+          "feature_name": "q_rd_growth_yoy",
+          "coefficient": -6.20302182346804e-05,
+          "z_value": 594.0161605934132,
+          "feature_contribution": -0.036846952076536384
+        }
+      ],
+      "top_3_absolute_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.01799922123450771,
+          "z_value": 17.985172449825964,
+          "feature_contribution": -0.32371909786519054
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017699198223459185,
+          "z_value": 3.314594185071801,
+          "feature_contribution": -0.05866565951191097
+        },
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.013824522170590934,
+          "z_value": 3.4693554435114904,
+          "feature_contribution": 0.04796218124648494
+        }
+      ],
+      "q_state_changed_since_previous_observed_session": false,
+      "q_days_since_effective_date": 19.0,
+      "q_days_since_filing": 20.0,
+      "fy_state_changed_since_previous_observed_session": false,
+      "fy_days_since_effective_date": 103.0,
+      "fy_days_since_filing": 104.0,
+      "bs_state_changed_since_previous_observed_session": false,
+      "bs_days_since_effective_date": 19.0,
+      "bs_days_since_filing": 20.0
+    },
+    {
+      "date": "2026-06-08",
+      "ticker": "NVDA",
+      "fold": "cv_3",
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "actual_forward_return_5d": 0.008688642453136941,
+      "prediction": -0.3655033545137669,
+      "residual": 0.37419199696690386,
+      "absolute_error": 0.37419199696690386,
+      "squared_error": 0.1400196505940794,
+      "absolute_error_rank_within_fold_model": 3.0,
+      "row_max_abs_z": 594.0161605934132,
+      "used_features_outside_training_range_count": 17,
+      "intercept": 0.0019168501321404129,
+      "top_3_positive_contributions": [
+        {
+          "feature_name": "simple_return",
+          "coefficient": 0.1448172368648683,
+          "z_value": 0.7257176632936052,
+          "feature_contribution": 0.10509642674220877
+        },
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.013824522170590934,
+          "z_value": 3.5987434755576233,
+          "feature_contribution": 0.04975090896411584
+        },
+        {
+          "feature_name": "sma_20",
+          "coefficient": 0.0027187091669672665,
+          "z_value": 8.545012456656053,
+          "feature_contribution": 0.023231403697760295
+        }
+      ],
+      "top_3_negative_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.01799922123450771,
+          "z_value": 17.440845244465855,
+          "feature_contribution": -0.31392163207195267
+        },
+        {
+          "feature_name": "log_return",
+          "coefficient": -0.15335423482963956,
+          "z_value": 0.7315096025382011,
+          "feature_contribution": -0.11218009536777958
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017699198223459185,
+          "z_value": 3.7011917826575527,
+          "feature_contribution": -0.06550812702429429
+        }
+      ],
+      "top_3_absolute_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.01799922123450771,
+          "z_value": 17.440845244465855,
+          "feature_contribution": -0.31392163207195267
+        },
+        {
+          "feature_name": "log_return",
+          "coefficient": -0.15335423482963956,
+          "z_value": 0.7315096025382011,
+          "feature_contribution": -0.11218009536777958
+        },
+        {
+          "feature_name": "simple_return",
+          "coefficient": 0.1448172368648683,
+          "z_value": 0.7257176632936052,
+          "feature_contribution": 0.10509642674220877
+        }
+      ],
+      "q_state_changed_since_previous_observed_session": false,
+      "q_days_since_effective_date": 18.0,
+      "q_days_since_filing": 19.0,
+      "fy_state_changed_since_previous_observed_session": false,
+      "fy_days_since_effective_date": 102.0,
+      "fy_days_since_filing": 103.0,
+      "bs_state_changed_since_previous_observed_session": false,
+      "bs_days_since_effective_date": 18.0,
+      "bs_days_since_filing": 19.0
+    },
+    {
+      "date": "2026-06-12",
+      "ticker": "NVDA",
+      "fold": "cv_3",
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "actual_forward_return_5d": -0.0012923811737858282,
+      "prediction": -0.3649589593532163,
+      "residual": 0.3636665781794305,
+      "absolute_error": 0.3636665781794305,
+      "squared_error": 0.13225338008473583,
+      "absolute_error_rank_within_fold_model": 4.0,
+      "row_max_abs_z": 594.0161605934132,
+      "used_features_outside_training_range_count": 16,
+      "intercept": 0.0019168501321404129,
+      "top_3_positive_contributions": [
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.013824522170590934,
+          "z_value": 4.1092986570491705,
+          "feature_contribution": 0.05680909038995581
+        },
+        {
+          "feature_name": "sma_20",
+          "coefficient": 0.0027187091669672665,
+          "z_value": 7.48828445628732,
+          "feature_contribution": 0.02035846759616683
+        },
+        {
+          "feature_name": "simple_return",
+          "coefficient": 0.1448172368648683,
+          "z_value": 0.037514840640410704,
+          "feature_contribution": 0.005432795562970144
+        }
+      ],
+      "top_3_negative_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.01799922123450771,
+          "z_value": 19.250139045199376,
+          "feature_contribution": -0.3464875114695786
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017699198223459185,
+          "z_value": 2.5739016033386433,
+          "feature_contribution": -0.04555599468517006
+        },
+        {
+          "feature_name": "q_rd_growth_yoy",
+          "coefficient": -6.20302182346804e-05,
+          "z_value": 594.0161605934132,
+          "feature_contribution": -0.036846952076536384
+        }
+      ],
+      "top_3_absolute_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.01799922123450771,
+          "z_value": 19.250139045199376,
+          "feature_contribution": -0.3464875114695786
+        },
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.013824522170590934,
+          "z_value": 4.1092986570491705,
+          "feature_contribution": 0.05680909038995581
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017699198223459185,
+          "z_value": 2.5739016033386433,
+          "feature_contribution": -0.04555599468517006
+        }
+      ],
+      "q_state_changed_since_previous_observed_session": false,
+      "q_days_since_effective_date": 22.0,
+      "q_days_since_filing": 23.0,
+      "fy_state_changed_since_previous_observed_session": false,
+      "fy_days_since_effective_date": 106.0,
+      "fy_days_since_filing": 107.0,
+      "bs_state_changed_since_previous_observed_session": false,
+      "bs_days_since_effective_date": 22.0,
+      "bs_days_since_filing": 23.0
+    },
+    {
+      "date": "2026-06-10",
+      "ticker": "NVDA",
+      "fold": "cv_3",
+      "model_name": "ols_all",
+      "feature_spec": "all",
+      "actual_forward_return_5d": 0.015683102472432653,
+      "prediction": -0.3406904386203665,
+      "residual": 0.3563735410927992,
+      "absolute_error": 0.3563735410927992,
+      "squared_error": 0.12700210079102103,
+      "absolute_error_rank_within_fold_model": 5.0,
+      "row_max_abs_z": 594.0161605934132,
+      "used_features_outside_training_range_count": 16,
+      "intercept": 0.0019168501321404129,
+      "top_3_positive_contributions": [
+        {
+          "feature_name": "log_return",
+          "coefficient": -0.15335423482963956,
+          "z_value": -1.6890708088149724,
+          "feature_contribution": 0.2590261614589005
+        },
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.013824522170590934,
+          "z_value": 4.025869086807327,
+          "feature_contribution": 0.05565571644646457
+        },
+        {
+          "feature_name": "sma_20",
+          "coefficient": 0.0027187091669672665,
+          "z_value": 8.143145654840954,
+          "feature_contribution": 0.022138844739765764
+        }
+      ],
+      "top_3_negative_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.01799922123450771,
+          "z_value": 18.320262838263513,
+          "feature_contribution": -0.32975046390023516
+        },
+        {
+          "feature_name": "simple_return",
+          "coefficient": 0.1448172368648683,
+          "z_value": -1.667170320384815,
+          "feature_contribution": -0.2414349991812461
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017699198223459185,
+          "z_value": 2.9359241623574728,
+          "feature_contribution": -0.05196350371860828
+        }
+      ],
+      "top_3_absolute_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.01799922123450771,
+          "z_value": 18.320262838263513,
+          "feature_contribution": -0.32975046390023516
+        },
+        {
+          "feature_name": "log_return",
+          "coefficient": -0.15335423482963956,
+          "z_value": -1.6890708088149724,
+          "feature_contribution": 0.2590261614589005
+        },
+        {
+          "feature_name": "simple_return",
+          "coefficient": 0.1448172368648683,
+          "z_value": -1.667170320384815,
+          "feature_contribution": -0.2414349991812461
+        }
+      ],
+      "q_state_changed_since_previous_observed_session": false,
+      "q_days_since_effective_date": 20.0,
+      "q_days_since_filing": 21.0,
+      "fy_state_changed_since_previous_observed_session": false,
+      "fy_days_since_effective_date": 104.0,
+      "fy_days_since_filing": 105.0,
+      "bs_state_changed_since_previous_observed_session": false,
+      "bs_days_since_effective_date": 20.0,
+      "bs_days_since_filing": 21.0
+    },
+    {
+      "date": "2026-06-11",
+      "ticker": "NVDA",
+      "fold": "cv_3",
+      "model_name": "ridge_market",
+      "feature_spec": "market",
+      "actual_forward_return_5d": 0.028458468289002115,
+      "prediction": -0.3101590024121355,
+      "residual": 0.3386174707011376,
+      "absolute_error": 0.3386174707011376,
+      "squared_error": 0.1146617914640358,
+      "absolute_error_rank_within_fold_model": 1.0,
+      "row_max_abs_z": 18.767180029701496,
+      "used_features_outside_training_range_count": 3,
+      "intercept": 0.0019168501321404085,
+      "top_3_positive_contributions": [
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.012650039741060553,
+          "z_value": 4.155978880827356,
+          "feature_contribution": 0.05257329800547442
+        },
+        {
+          "feature_name": "sma_20",
+          "coefficient": 0.002264413334695268,
+          "z_value": 7.8766752118961785,
+          "feature_contribution": 0.01783604838288138
+        }
+      ],
+      "top_3_negative_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.01653511085219048,
+          "z_value": 18.767180029701496,
+          "feature_contribution": -0.3103174021741297
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017515158367332254,
+          "z_value": 2.571523451841172,
+          "feature_contribution": -0.04504064050430703
+        },
+        {
+          "feature_name": "rolling_volatility_20",
+          "coefficient": -0.008968925359856824,
+          "z_value": 1.9334046559630926,
+          "feature_contribution": -0.01734056204973264
+        }
+      ],
+      "top_3_absolute_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.01653511085219048,
+          "z_value": 18.767180029701496,
+          "feature_contribution": -0.3103174021741297
+        },
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.012650039741060553,
+          "z_value": 4.155978880827356,
+          "feature_contribution": 0.05257329800547442
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017515158367332254,
+          "z_value": 2.571523451841172,
+          "feature_contribution": -0.04504064050430703
+        }
+      ],
+      "q_state_changed_since_previous_observed_session": false,
+      "q_days_since_effective_date": 21.0,
+      "q_days_since_filing": 22.0,
+      "fy_state_changed_since_previous_observed_session": false,
+      "fy_days_since_effective_date": 105.0,
+      "fy_days_since_filing": 106.0,
+      "bs_state_changed_since_previous_observed_session": false,
+      "bs_days_since_effective_date": 21.0,
+      "bs_days_since_filing": 22.0
+    },
+    {
+      "date": "2026-06-09",
+      "ticker": "NVDA",
+      "fold": "cv_3",
+      "model_name": "ridge_market",
+      "feature_spec": "market",
+      "actual_forward_return_5d": 0.01457717112505219,
+      "prediction": -0.30443372200205593,
+      "residual": 0.3190108931271081,
+      "absolute_error": 0.3190108931271081,
+      "squared_error": 0.1017679499337552,
+      "absolute_error_rank_within_fold_model": 2.0,
+      "row_max_abs_z": 17.985172449825964,
+      "used_features_outside_training_range_count": 4,
+      "intercept": 0.0019168501321404085,
+      "top_3_positive_contributions": [
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.012650039741060553,
+          "z_value": 3.4693554435114904,
+          "feature_contribution": 0.043887484236285114
+        },
+        {
+          "feature_name": "sma_20",
+          "coefficient": 0.002264413334695268,
+          "z_value": 8.40198805193841,
+          "feature_contribution": 0.019025573782759653
+        },
+        {
+          "feature_name": "intraday_return",
+          "coefficient": -0.0028683440026262747,
+          "z_value": -0.5185374479981657,
+          "feature_contribution": 0.0014873437791026725
+        }
+      ],
+      "top_3_negative_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.01653511085219048,
+          "z_value": 17.985172449825964,
+          "feature_contribution": -0.29738682015363455
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017515158367332254,
+          "z_value": 3.314594185071801,
+          "feature_contribution": -0.058055642074971194
+        },
+        {
+          "feature_name": "rolling_volatility_20",
+          "coefficient": -0.008968925359856824,
+          "z_value": 1.671827901570581,
+          "feature_contribution": -0.014994499663712602
+        }
+      ],
+      "top_3_absolute_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.01653511085219048,
+          "z_value": 17.985172449825964,
+          "feature_contribution": -0.29738682015363455
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017515158367332254,
+          "z_value": 3.314594185071801,
+          "feature_contribution": -0.058055642074971194
+        },
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.012650039741060553,
+          "z_value": 3.4693554435114904,
+          "feature_contribution": 0.043887484236285114
+        }
+      ],
+      "q_state_changed_since_previous_observed_session": false,
+      "q_days_since_effective_date": 19.0,
+      "q_days_since_filing": 20.0,
+      "fy_state_changed_since_previous_observed_session": false,
+      "fy_days_since_effective_date": 103.0,
+      "fy_days_since_filing": 104.0,
+      "bs_state_changed_since_previous_observed_session": false,
+      "bs_days_since_effective_date": 19.0,
+      "bs_days_since_filing": 20.0
+    },
+    {
+      "date": "2026-06-08",
+      "ticker": "NVDA",
+      "fold": "cv_3",
+      "model_name": "ridge_market",
+      "feature_spec": "market",
+      "actual_forward_return_5d": 0.008688642453136941,
+      "prediction": -0.30682573570897087,
+      "residual": 0.3155143781621078,
+      "absolute_error": 0.3155143781621078,
+      "squared_error": 0.09954932282702157,
+      "absolute_error_rank_within_fold_model": 3.0,
+      "row_max_abs_z": 17.440845244465855,
+      "used_features_outside_training_range_count": 4,
+      "intercept": 0.0019168501321404085,
+      "top_3_positive_contributions": [
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.012650039741060553,
+          "z_value": 3.5987434755576233,
+          "feature_contribution": 0.04552424798368631
+        },
+        {
+          "feature_name": "sma_20",
+          "coefficient": 0.002264413334695268,
+          "z_value": 8.545012456656053,
+          "feature_contribution": 0.019349440151989136
+        },
+        {
+          "feature_name": "intraday_return",
+          "coefficient": -0.0028683440026262747,
+          "z_value": -0.30852775100504637,
+          "feature_contribution": 0.0008849637242390974
+        }
+      ],
+      "top_3_negative_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.01653511085219048,
+          "z_value": 17.440845244465855,
+          "feature_contribution": -0.2883863094731421
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017515158367332254,
+          "z_value": 3.7011917826575527,
+          "feature_contribution": -0.06482696022111581
+        },
+        {
+          "feature_name": "rolling_volatility_20",
+          "coefficient": -0.008968925359856824,
+          "z_value": 1.7889716855667028,
+          "feature_contribution": -0.016045153518745008
+        }
+      ],
+      "top_3_absolute_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.01653511085219048,
+          "z_value": 17.440845244465855,
+          "feature_contribution": -0.2883863094731421
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017515158367332254,
+          "z_value": 3.7011917826575527,
+          "feature_contribution": -0.06482696022111581
+        },
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.012650039741060553,
+          "z_value": 3.5987434755576233,
+          "feature_contribution": 0.04552424798368631
+        }
+      ],
+      "q_state_changed_since_previous_observed_session": false,
+      "q_days_since_effective_date": 18.0,
+      "q_days_since_filing": 19.0,
+      "fy_state_changed_since_previous_observed_session": false,
+      "fy_days_since_effective_date": 102.0,
+      "fy_days_since_filing": 103.0,
+      "bs_state_changed_since_previous_observed_session": false,
+      "bs_days_since_effective_date": 18.0,
+      "bs_days_since_filing": 19.0
+    },
+    {
+      "date": "2026-06-12",
+      "ticker": "NVDA",
+      "fold": "cv_3",
+      "model_name": "ridge_market",
+      "feature_spec": "market",
+      "actual_forward_return_5d": -0.0012923811737858282,
+      "prediction": -0.30458201805888413,
+      "residual": 0.3032896368850983,
+      "absolute_error": 0.3032896368850983,
+      "squared_error": 0.09198460384189477,
+      "absolute_error_rank_within_fold_model": 4.0,
+      "row_max_abs_z": 19.250139045199376,
+      "used_features_outside_training_range_count": 3,
+      "intercept": 0.0019168501321404085,
+      "top_3_positive_contributions": [
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.012650039741060553,
+          "z_value": 4.1092986570491705,
+          "feature_contribution": 0.05198279131955877
+        },
+        {
+          "feature_name": "sma_20",
+          "coefficient": 0.002264413334695268,
+          "z_value": 7.48828445628732,
+          "feature_contribution": 0.01695657117680831
+        },
+        {
+          "feature_name": "daily_range",
+          "coefficient": -0.000557678672396646,
+          "z_value": -0.8503313795294543,
+          "feature_contribution": 0.0004742116748331946
+        }
+      ],
+      "top_3_negative_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.01653511085219048,
+          "z_value": 19.250139045199376,
+          "feature_contribution": -0.31830318303245186
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017515158367332254,
+          "z_value": 2.5739016033386433,
+          "feature_contribution": -0.04508229420440674
+        },
+        {
+          "feature_name": "rolling_volatility_20",
+          "coefficient": -0.008968925359856824,
+          "z_value": 1.3135547488179482,
+          "feature_contribution": -0.011781174498233656
+        }
+      ],
+      "top_3_absolute_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.01653511085219048,
+          "z_value": 19.250139045199376,
+          "feature_contribution": -0.31830318303245186
+        },
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.012650039741060553,
+          "z_value": 4.1092986570491705,
+          "feature_contribution": 0.05198279131955877
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017515158367332254,
+          "z_value": 2.5739016033386433,
+          "feature_contribution": -0.04508229420440674
+        }
+      ],
+      "q_state_changed_since_previous_observed_session": false,
+      "q_days_since_effective_date": 22.0,
+      "q_days_since_filing": 23.0,
+      "fy_state_changed_since_previous_observed_session": false,
+      "fy_days_since_effective_date": 106.0,
+      "fy_days_since_filing": 107.0,
+      "bs_state_changed_since_previous_observed_session": false,
+      "bs_days_since_effective_date": 22.0,
+      "bs_days_since_filing": 23.0
+    },
+    {
+      "date": "2026-06-10",
+      "ticker": "NVDA",
+      "fold": "cv_3",
+      "model_name": "ridge_market",
+      "feature_spec": "market",
+      "actual_forward_return_5d": 0.015683102472432653,
+      "prediction": -0.2853275241377735,
+      "residual": 0.30101062661020617,
+      "absolute_error": 0.30101062661020617,
+      "squared_error": 0.09060739733226895,
+      "absolute_error_rank_within_fold_model": 5.0,
+      "row_max_abs_z": 18.320262838263513,
+      "used_features_outside_training_range_count": 3,
+      "intercept": 0.0019168501321404085,
+      "top_3_positive_contributions": [
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.012650039741060553,
+          "z_value": 4.025869086807327,
+          "feature_contribution": 0.05092740394041984
+        },
+        {
+          "feature_name": "sma_20",
+          "coefficient": 0.002264413334695268,
+          "z_value": 8.143145654840954,
+          "feature_contribution": 0.018439447607187683
+        },
+        {
+          "feature_name": "log_return",
+          "coefficient": -0.005813869759970661,
+          "z_value": -1.6890708088149724,
+          "feature_contribution": 0.009820037697818555
+        }
+      ],
+      "top_3_negative_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.01653511085219048,
+          "z_value": 18.320262838263513,
+          "feature_contribution": -0.302927576871953
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017515158367332254,
+          "z_value": 2.9359241623574728,
+          "feature_contribution": -0.05142317665816843
+        },
+        {
+          "feature_name": "rolling_volatility_20",
+          "coefficient": -0.008968925359856824,
+          "z_value": 1.9424262432653236,
+          "feature_contribution": -0.017421475992873782
+        }
+      ],
+      "top_3_absolute_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.01653511085219048,
+          "z_value": 18.320262838263513,
+          "feature_contribution": -0.302927576871953
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017515158367332254,
+          "z_value": 2.9359241623574728,
+          "feature_contribution": -0.05142317665816843
+        },
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.012650039741060553,
+          "z_value": 4.025869086807327,
+          "feature_contribution": 0.05092740394041984
+        }
+      ],
+      "q_state_changed_since_previous_observed_session": false,
+      "q_days_since_effective_date": 20.0,
+      "q_days_since_filing": 21.0,
+      "fy_state_changed_since_previous_observed_session": false,
+      "fy_days_since_effective_date": 104.0,
+      "fy_days_since_filing": 105.0,
+      "bs_state_changed_since_previous_observed_session": false,
+      "bs_days_since_effective_date": 20.0,
+      "bs_days_since_filing": 21.0
+    },
+    {
+      "date": "2026-06-11",
+      "ticker": "NVDA",
+      "fold": "cv_3",
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "actual_forward_return_5d": 0.028458468289002115,
+      "prediction": -0.3424483459609357,
+      "residual": 0.3709068142499378,
+      "absolute_error": 0.3709068142499378,
+      "squared_error": 0.13757186485703787,
+      "absolute_error_rank_within_fold_model": 1.0,
+      "row_max_abs_z": 594.0161605934132,
+      "used_features_outside_training_range_count": 16,
+      "intercept": 0.0019168501321404196,
+      "top_3_positive_contributions": [
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.01352930809948678,
+          "z_value": 4.155978880827356,
+          "feature_contribution": 0.05622751873367356
+        },
+        {
+          "feature_name": "sma_20",
+          "coefficient": 0.0016050638068068074,
+          "z_value": 7.8766752118961785,
+          "feature_contribution": 0.012642566300586897
+        },
+        {
+          "feature_name": "q_net_income_growth_yoy",
+          "coefficient": 2.68637889273087e-05,
+          "z_value": 56.03164878143153,
+          "feature_contribution": 0.0015052223861134705
+        }
+      ],
+      "top_3_negative_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.017210542210610913,
+          "z_value": 18.767180029701496,
+          "feature_contribution": -0.3229933440753118
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017162735499267927,
+          "z_value": 2.571523451841172,
+          "feature_contribution": -0.04413437683411448
+        },
+        {
+          "feature_name": "rolling_volatility_20",
+          "coefficient": -0.008717162092623737,
+          "z_value": 1.9334046559630926,
+          "feature_contribution": -0.01685380177666371
+        }
+      ],
+      "top_3_absolute_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.017210542210610913,
+          "z_value": 18.767180029701496,
+          "feature_contribution": -0.3229933440753118
+        },
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.01352930809948678,
+          "z_value": 4.155978880827356,
+          "feature_contribution": 0.05622751873367356
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017162735499267927,
+          "z_value": 2.571523451841172,
+          "feature_contribution": -0.04413437683411448
+        }
+      ],
+      "q_state_changed_since_previous_observed_session": false,
+      "q_days_since_effective_date": 21.0,
+      "q_days_since_filing": 22.0,
+      "fy_state_changed_since_previous_observed_session": false,
+      "fy_days_since_effective_date": 105.0,
+      "fy_days_since_filing": 106.0,
+      "bs_state_changed_since_previous_observed_session": false,
+      "bs_days_since_effective_date": 21.0,
+      "bs_days_since_filing": 22.0
+    },
+    {
+      "date": "2026-06-09",
+      "ticker": "NVDA",
+      "fold": "cv_3",
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "actual_forward_return_5d": 0.01457717112505219,
+      "prediction": -0.33692581777611713,
+      "residual": 0.3515029889011693,
+      "absolute_error": 0.3515029889011693,
+      "squared_error": 0.12355435120645557,
+      "absolute_error_rank_within_fold_model": 2.0,
+      "row_max_abs_z": 594.0161605934132,
+      "used_features_outside_training_range_count": 17,
+      "intercept": 0.0019168501321404196,
+      "top_3_positive_contributions": [
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.01352930809948678,
+          "z_value": 3.4693554435114904,
+          "feature_contribution": 0.04693797870189856
+        },
+        {
+          "feature_name": "sma_20",
+          "coefficient": 0.0016050638068068074,
+          "z_value": 8.40198805193841,
+          "feature_contribution": 0.013485726927389577
+        },
+        {
+          "feature_name": "q_net_income_growth_yoy",
+          "coefficient": 2.68637889273087e-05,
+          "z_value": 56.03164878143153,
+          "feature_contribution": 0.0015052223861134705
+        }
+      ],
+      "top_3_negative_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.017210542210610913,
+          "z_value": 17.985172449825964,
+          "feature_contribution": -0.3095345696128462
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017162735499267927,
+          "z_value": 3.314594185071801,
+          "feature_contribution": -0.05688750328579885
+        },
+        {
+          "feature_name": "q_rd_growth_yoy",
+          "coefficient": -2.686378892716851e-05,
+          "z_value": 594.0161605934132,
+          "feature_contribution": -0.015957524757508487
+        }
+      ],
+      "top_3_absolute_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.017210542210610913,
+          "z_value": 17.985172449825964,
+          "feature_contribution": -0.3095345696128462
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017162735499267927,
+          "z_value": 3.314594185071801,
+          "feature_contribution": -0.05688750328579885
+        },
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.01352930809948678,
+          "z_value": 3.4693554435114904,
+          "feature_contribution": 0.04693797870189856
+        }
+      ],
+      "q_state_changed_since_previous_observed_session": false,
+      "q_days_since_effective_date": 19.0,
+      "q_days_since_filing": 20.0,
+      "fy_state_changed_since_previous_observed_session": false,
+      "fy_days_since_effective_date": 103.0,
+      "fy_days_since_filing": 104.0,
+      "bs_state_changed_since_previous_observed_session": false,
+      "bs_days_since_effective_date": 19.0,
+      "bs_days_since_filing": 20.0
+    },
+    {
+      "date": "2026-06-08",
+      "ticker": "NVDA",
+      "fold": "cv_3",
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "actual_forward_return_5d": 0.008688642453136941,
+      "prediction": -0.3392527297896435,
+      "residual": 0.34794137224278043,
+      "absolute_error": 0.34794137224278043,
+      "squared_error": 0.1210631985181891,
+      "absolute_error_rank_within_fold_model": 3.0,
+      "row_max_abs_z": 594.0161605934132,
+      "used_features_outside_training_range_count": 17,
+      "intercept": 0.0019168501321404196,
+      "top_3_positive_contributions": [
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.01352930809948678,
+          "z_value": 3.5987434755576233,
+          "feature_contribution": 0.04868850925183696
+        },
+        {
+          "feature_name": "sma_20",
+          "coefficient": 0.0016050638068068074,
+          "z_value": 8.545012456656053,
+          "feature_contribution": 0.013715290222891955
+        },
+        {
+          "feature_name": "q_net_income_growth_yoy",
+          "coefficient": 2.68637889273087e-05,
+          "z_value": 56.03164878143153,
+          "feature_contribution": 0.0015052223861134705
+        }
+      ],
+      "top_3_negative_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.017210542210610913,
+          "z_value": 17.440845244465855,
+          "feature_contribution": -0.3001664032686122
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017162735499267927,
+          "z_value": 3.7011917826575527,
+          "feature_contribution": -0.06352257559781552
+        },
+        {
+          "feature_name": "q_rd_growth_yoy",
+          "coefficient": -2.686378892716851e-05,
+          "z_value": 594.0161605934132,
+          "feature_contribution": -0.015957524757508487
+        }
+      ],
+      "top_3_absolute_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.017210542210610913,
+          "z_value": 17.440845244465855,
+          "feature_contribution": -0.3001664032686122
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017162735499267927,
+          "z_value": 3.7011917826575527,
+          "feature_contribution": -0.06352257559781552
+        },
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.01352930809948678,
+          "z_value": 3.5987434755576233,
+          "feature_contribution": 0.04868850925183696
+        }
+      ],
+      "q_state_changed_since_previous_observed_session": false,
+      "q_days_since_effective_date": 18.0,
+      "q_days_since_filing": 19.0,
+      "fy_state_changed_since_previous_observed_session": false,
+      "fy_days_since_effective_date": 102.0,
+      "fy_days_since_filing": 103.0,
+      "bs_state_changed_since_previous_observed_session": false,
+      "bs_days_since_effective_date": 18.0,
+      "bs_days_since_filing": 19.0
+    },
+    {
+      "date": "2026-06-12",
+      "ticker": "NVDA",
+      "fold": "cv_3",
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "actual_forward_return_5d": -0.0012923811737858282,
+      "prediction": -0.3368924943231675,
+      "residual": 0.33560011314938165,
+      "absolute_error": 0.33560011314938165,
+      "squared_error": 0.11262743594587776,
+      "absolute_error_rank_within_fold_model": 4.0,
+      "row_max_abs_z": 594.0161605934132,
+      "used_features_outside_training_range_count": 16,
+      "intercept": 0.0019168501321404196,
+      "top_3_positive_contributions": [
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.01352930809948678,
+          "z_value": 4.1092986570491705,
+          "feature_contribution": 0.05559596760402549
+        },
+        {
+          "feature_name": "sma_20",
+          "coefficient": 0.0016050638068068074,
+          "z_value": 7.48828445628732,
+          "feature_contribution": 0.01201917435586077
+        },
+        {
+          "feature_name": "q_net_income_growth_yoy",
+          "coefficient": 2.68637889273087e-05,
+          "z_value": 56.03164878143153,
+          "feature_contribution": 0.0015052223861134705
+        }
+      ],
+      "top_3_negative_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.017210542210610913,
+          "z_value": 19.250139045199376,
+          "feature_contribution": -0.3313053305975331
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017162735499267927,
+          "z_value": 2.5739016033386433,
+          "feature_contribution": -0.04417519241924277
+        },
+        {
+          "feature_name": "q_rd_growth_yoy",
+          "coefficient": -2.686378892716851e-05,
+          "z_value": 594.0161605934132,
+          "feature_contribution": -0.015957524757508487
+        }
+      ],
+      "top_3_absolute_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.017210542210610913,
+          "z_value": 19.250139045199376,
+          "feature_contribution": -0.3313053305975331
+        },
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.01352930809948678,
+          "z_value": 4.1092986570491705,
+          "feature_contribution": 0.05559596760402549
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017162735499267927,
+          "z_value": 2.5739016033386433,
+          "feature_contribution": -0.04417519241924277
+        }
+      ],
+      "q_state_changed_since_previous_observed_session": false,
+      "q_days_since_effective_date": 22.0,
+      "q_days_since_filing": 23.0,
+      "fy_state_changed_since_previous_observed_session": false,
+      "fy_days_since_effective_date": 106.0,
+      "fy_days_since_filing": 107.0,
+      "bs_state_changed_since_previous_observed_session": false,
+      "bs_days_since_effective_date": 22.0,
+      "bs_days_since_filing": 23.0
+    },
+    {
+      "date": "2026-06-10",
+      "ticker": "NVDA",
+      "fold": "cv_3",
+      "model_name": "ridge_all",
+      "feature_spec": "all",
+      "actual_forward_return_5d": 0.015683102472432653,
+      "prediction": -0.31655543284223014,
+      "residual": 0.3322385353146628,
+      "absolute_error": 0.3322385353146628,
+      "squared_error": 0.11038244434803243,
+      "absolute_error_rank_within_fold_model": 5.0,
+      "row_max_abs_z": 594.0161605934132,
+      "used_features_outside_training_range_count": 16,
+      "intercept": 0.0019168501321404196,
+      "top_3_positive_contributions": [
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.01352930809948678,
+          "z_value": 4.025869086807327,
+          "feature_contribution": 0.05446722324361582
+        },
+        {
+          "feature_name": "sma_20",
+          "coefficient": 0.0016050638068068074,
+          "z_value": 8.143145654840954,
+          "feature_contribution": 0.013070268364141335
+        },
+        {
+          "feature_name": "log_return",
+          "coefficient": -0.006313185010226335,
+          "z_value": -1.6890708088149724,
+          "feature_contribution": 0.010663416511421556
+        }
+      ],
+      "top_3_negative_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.017210542210610913,
+          "z_value": 18.320262838263513,
+          "feature_contribution": -0.3153016568874207
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017162735499267927,
+          "z_value": 2.9359241623574728,
+          "feature_contribution": -0.05038848984445105
+        },
+        {
+          "feature_name": "rolling_volatility_20",
+          "coefficient": -0.008717162092623737,
+          "z_value": 1.9424262432653236,
+          "feature_contribution": -0.016932444415510013
+        }
+      ],
+      "top_3_absolute_contributions": [
+        {
+          "feature_name": "sma_60",
+          "coefficient": -0.017210542210610913,
+          "z_value": 18.320262838263513,
+          "feature_contribution": -0.3153016568874207
+        },
+        {
+          "feature_name": "rolling_volatility_60",
+          "coefficient": 0.01352930809948678,
+          "z_value": 4.025869086807327,
+          "feature_contribution": 0.05446722324361582
+        },
+        {
+          "feature_name": "sma_5",
+          "coefficient": -0.017162735499267927,
+          "z_value": 2.9359241623574728,
+          "feature_contribution": -0.05038848984445105
+        }
+      ],
+      "q_state_changed_since_previous_observed_session": false,
+      "q_days_since_effective_date": 20.0,
+      "q_days_since_filing": 21.0,
+      "fy_state_changed_since_previous_observed_session": false,
+      "fy_days_since_effective_date": 104.0,
+      "fy_days_since_filing": 105.0,
+      "bs_state_changed_since_previous_observed_session": false,
+      "bs_days_since_effective_date": 20.0,
+      "bs_days_since_filing": 21.0
+    }
+  ],
+  "state_transitions_on_validation_dates": {
+    "q": [
+      {
+        "date": "2026-05-21",
+        "fold": "cv_3"
+      }
+    ],
+    "fy": [
+      {
+        "date": "2026-02-26",
+        "fold": "cv_1"
+      }
+    ],
+    "bs": [
+      {
+        "date": "2026-02-26",
+        "fold": "cv_1"
+      },
+      {
+        "date": "2026-05-21",
+        "fold": "cv_3"
+      }
+    ]
+  },
+  "state_identity_available": {
+    "q": true,
+    "fy": true,
+    "bs": true
+  },
+  "state_context_status": "available",
+  "state_previous_observed_dates_used": [
+    "2026-02-25",
+    "2026-02-26",
+    "2026-02-27",
+    "2026-03-02",
+    "2026-03-03",
+    "2026-03-04",
+    "2026-03-05",
+    "2026-03-06",
+    "2026-03-09",
+    "2026-03-10",
+    "2026-03-11",
+    "2026-03-12",
+    "2026-03-13",
+    "2026-03-16",
+    "2026-03-17",
+    "2026-03-18",
+    "2026-03-19",
+    "2026-03-20",
+    "2026-03-23",
+    "2026-03-24",
+    "2026-03-25",
+    "2026-03-26",
+    "2026-03-27",
+    "2026-03-30",
+    "2026-03-31",
+    "2026-04-01",
+    "2026-04-02",
+    "2026-04-06",
+    "2026-04-07",
+    "2026-04-08",
+    "2026-04-09",
+    "2026-04-10",
+    "2026-04-13",
+    "2026-04-14",
+    "2026-04-15",
+    "2026-04-16",
+    "2026-04-17",
+    "2026-04-20",
+    "2026-04-21",
+    "2026-04-22",
+    "2026-04-23",
+    "2026-04-24",
+    "2026-04-27",
+    "2026-04-28",
+    "2026-04-29",
+    "2026-04-30",
+    "2026-05-01",
+    "2026-05-04",
+    "2026-05-05",
+    "2026-05-06",
+    "2026-05-07",
+    "2026-05-08",
+    "2026-05-11",
+    "2026-05-12",
+    "2026-05-13",
+    "2026-05-14",
+    "2026-05-15",
+    "2026-05-18",
+    "2026-05-19",
+    "2026-05-20",
+    "2026-05-21",
+    "2026-05-22",
+    "2026-05-26",
+    "2026-05-27",
+    "2026-05-28",
+    "2026-05-29",
+    "2026-06-01",
+    "2026-06-02",
+    "2026-06-03",
+    "2026-06-04",
+    "2026-06-05",
+    "2026-06-08",
+    "2026-06-09",
+    "2026-06-10",
+    "2026-06-11"
+  ],
+  "mechanism_assessment_policy": "Combine errors, raw shift, z-scores, contributions, coefficient drift, conditioning and shrinkage descriptively; no automatic dominance or causality claim.",
+  "limitations": [
+    "About one year of NVDA data; only the primary 5-session target is modeled.",
+    "Only 75 OOF observations, with 25 per fold under the registered protocol.",
+    "Overlapping 5-session targets and repeated fundamentals mean observations are not independent.",
+    "Results are a descriptive development-CV benchmark, not evidence of profitability or generalization.",
+    "No hyperparameter tuning, predictive feature selection or nonlinear models.",
+    "No final model fit, final-test prediction or final-test metric calculation.",
+    "No backtest, statistical significance test, transaction costs or portfolio construction.",
+    "Standardized-feature coefficients are diagnostics and cannot drive feature/model changes in this stage.",
+    "Linear diagnostics and state-transition associations are not causal evidence; coefficient drift and regime changes may be mixed."
+  ]
+}
