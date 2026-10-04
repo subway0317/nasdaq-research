@@ -397,3 +397,79 @@ results describe only NVDA's current window. This stage has no prediction target
 or future-return analysis: target design belongs to Stage 8. Stage 7 performs
 no feature selection, cleaning, imputation, winsorization, scaling, interaction
 engineering, modeling, valuation or backtesting.
+
+## Target Definition & Label Engineering (Stage 8)
+
+Construct continuous supervised-learning labels from the existing feature
+matrix, entirely offline:
+
+```bash
+PYTHONPATH=src ./.venv/bin/python -m nasdaq_research.targets
+```
+
+`X_t` is available **after trading session t closes**, because market features
+use that day's full OHLC and trailing data. The earliest assumed entry is
+therefore **the next observed session's open**, `Open[t+1]`. Using `Close[t]`
+as entry would assume execution at a price already used to construct X.
+
+| Target | Definition | Exit | Role |
+|---|---|---|---|
+| `forward_return_1d` | `Close[t+1] / Open[t+1] - 1` | Next session close | Secondary |
+| `forward_return_5d` | `Close[t+5] / Open[t+1] - 1` | Fifth subsequent session close | **Primary** |
+| `forward_return_20d` | `Close[t+20] / Open[t+1] - 1` | Twentieth subsequent session close | Secondary |
+
+Horizons count positions in the existing observed market rows, never calendar
+days. Weekends and absent holiday sessions are skipped without generating
+dates or downloading a calendar. The pipeline explicitly supports only NVDA,
+rejects duplicate/unordered dates, and requires finite, positive numeric open
+and close prices. Invalid prices cause failure without substitution or filling.
+
+Outputs:
+
+- `data/research/targets/NVDA_targets.csv`: one row per feature date, containing
+  `date`, `ticker`, entry date/open, and each horizon's exit date/close and return.
+  `date` is the feature date; it is not duplicated as another provenance column.
+- `data/research/NVDA_labeled.csv`: all original feature columns in original
+  order plus eleven target/provenance columns. All rows, metadata and NaNs remain.
+- `data/research/targets/NVDA_target_validation.json`: actual counts, strict
+  formula/date/position/source-price checks, source/output hashes and limitations.
+- `data/research/targets/target_summary.csv`: only target distributions, including
+  counts, missingness, mean, sample std, quantiles and extrema.
+- `data/research/targets/figures/`: three target histograms and the primary target
+  time series, without feature-target comparisons or prediction lines.
+
+Optional flags: `--features-path`, `--output-dir`, `--labeled-path`,
+`--feature-validation-path`, and `--diagnostics-path`. Successful Stage 6.1/7
+reports must describe the input, including the Stage 7 checkpoint's feature
+hash. The labeled file must retain the name `NVDA_labeled.csv` to protect older
+artifacts. SHA-256 checks cover existing Stage 1–7 data, including all Stage 7
+diagnostic outputs. The source feature file is never rewritten. CSV export
+preserves original X and future price decimal tokens, and validates a reload;
+source prices are compared exactly and derived returns use `rtol=0`, `atol=1e-12`.
+
+Targets intentionally use future prices; features cannot. Future information is
+confined to the appended Y/provenance columns, and every original X cell is
+validated for preservation. Rows without enough future sessions keep NaN labels:
+the missing counts are computed from actual data, including samples shorter
+than a horizon. Available entry provenance is retained even when a later exit
+is unavailable. No rows are dropped and no targets are transformed or clipped.
+
+Adjacent 5/20-session intervals overlap substantially. Daily label counts are
+not independent sample counts, especially for 20-session labels. Entry/exit
+dates are retained for later chronological split, purge and embargo design.
+Later modeling must not use a simple shuffled random split such as
+`train_test_split(..., shuffle=True)`. Stage 8 implements no split, purge or
+embargo; these belong to Stage 9. The current window is about one year, prices
+inherit the existing archived OHLC basis, and transaction costs/slippage are
+not included. Observed prices do not guarantee actual execution.
+
+This stage defines no model, classification/threshold labels, feature selection,
+feature-target correlations, information coefficients, strategy or backtest.
+Run the Stage 8 offline tests, including an independent scalar oracle, with:
+
+```bash
+PYTHONPATH=src ./.venv/bin/python -m unittest discover -s tests -p 'test_targets.py' -v
+```
+
+Use the full `unittest discover -s tests -v` command above for regression checks.
+Repeated runs produce identical CSV/JSON/PNG artifacts in the same environment.
