@@ -5,3 +5,5 @@ numpy>=2.0
 yfinance>=0.2
 # Static, offline Stage 7 research figures.
 matplotlib>=3.8
+# CPU-only Stage 10 baseline regression and training-only standardization.
+scikit-learn>=1.8,<2.0

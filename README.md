@@ -612,3 +612,90 @@ and evaluation contracts. A version 9.1 protocol locks the new CV/gap boundaries
 as well; subsequent runs cannot silently move them. CSV/JSON repeats remain
 byte-for-byte reproducible. The gap further reduces CV training history, and
 overlapping 20d labels still provide limited independent information.
+
+### Stage 10 — Leakage-Safe Baseline Modeling
+
+Run the development-CV benchmark locally on CPU:
+
+```bash
+PYTHONPATH=src .venv/bin/python -m nasdaq_research.modeling
+```
+
+Stage 9.1's manifest and evaluation protocol are the sole split authority.
+The CLI verifies their frozen checkpoint hashes before fitting; it never
+rebuilds splits. Only `forward_return_5d` is modeled, in its original return
+units. Effective training counts are currently 96 / 121 / 146, with 25
+validation observations per fold. The resulting wide OOF table has 75 unique,
+chronological validation dates and six prediction columns. Training, pre-test
+gap, final-test and unlabeled-tail predictions are excluded.
+
+The six registered candidates are `zero_return`, `historical_mean`,
+`ols_market`, `ols_all`, `ridge_market` and `ridge_all`. Historical mean uses
+only the current fold's effective training targets. OLS uses
+`LinearRegression`; Ridge fixes `alpha=1.0` and uses the deterministic SVD
+solver. Both retain an intercept. No tuning, predictive feature selection,
+extra models or final-model fit is performed. The Stage 9.1 final training
+pool is checked for immutability but is not used to fit a model.
+
+Market candidates are the nine Stage 7 market research features; All candidates
+are the 39 registered research features (9 market, 13 quarterly, 13 annual,
+4 balance-sheet). Inventory/classification is verified explicitly; numeric
+column selection is prohibited. Targets, target provenance, raw OHLC/SEC
+values and metadata cannot enter X. Stage 7 overall quality/coverage scores
+do not decide fold-level feature retention.
+
+Each OLS/Ridge fold fits its own preprocessing on effective training rows
+only: retain coverage **>= 0.50**, fill missing values with training medians,
+drop exactly constant imputed training features, then fit `StandardScaler`
+with population variance (`ddof=0`). Validation uses those fixed medians and
+scaler parameters, including newly missing values; validation never fits a
+transform. Feature coverage, drop reasons, medians, means, standard deviations,
+scaler scales and fit dates are saved for audit. Coefficients use standardized
+feature units and remain descriptive diagnostics.
+
+Ranking uses equal-fold **mean MAE**, with sample standard deviation
+(`ddof=1`). Exact ties share rank and are reported together. Fold and pooled
+OOF metrics also include RMSE, R², Pearson, Spearman and directional accuracy
+using `sign`, with exact zero its own category. Negative R² is retained.
+Undefined correlations for constant predictions are empty CSV values (NaN);
+undefined JSON values are `null`.
+
+Seven artifacts are written atomically under `data/research/modeling/`:
+
+- `NVDA_baseline_oof_predictions.csv`
+- `NVDA_baseline_cv_metrics.csv`
+- `NVDA_baseline_cv_summary.csv`
+- `NVDA_baseline_feature_usage.csv`
+- `NVDA_baseline_coefficients.csv`
+- `NVDA_baseline_protocol.json`
+- `NVDA_baseline_validation.json`
+
+Validation independently checks training statistics, fit dates, historical
+means, saved-coefficient reconstruction of OOF predictions, metric integrity,
+CSV round trips and upstream SHA-256 immutability. JSON records input/output
+hashes and software versions; timestamps are omitted and BLAS uses one thread
+so repeated runs produce identical bytes in this environment. Existing Stage
+10 protocol changes fail explicitly. CLI overrides are `--labeled-path`,
+`--split-dir`, `--diagnostic-dir` and `--output-dir`.
+
+**Final Test remains locked:** `final_test_predictions_generated=false` and
+`final_test_metrics_computed=false`. The 20-session pre-test gap is excluded
+from all CV fitting, preprocessing, model selection, metrics and predictions.
+The pipeline does not ingest secondary targets or raw target prices into its
+modeling dataset. The full source file is hashed only for checkpoint integrity.
+
+```bash
+PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -p 'test_modeling.py' -v
+PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -v
+```
+
+Stage 10 tests include independent one-feature OLS/Ridge closed-form oracles,
+known-value metric checks, exact 50% coverage and constant-feature boundaries,
+and adversarial gap, final-test feature/target, secondary-target and validation
+mutations. Validation mutations test the same fold's fit: earlier validation
+rows may legitimately become training rows in later expanding folds.
+
+This is a development-CV benchmark for approximately one year of NVDA data,
+with only 75 OOF observations and 25 per fold. Overlapping 5d labels mean
+observations are not independent. There is no nonlinear modeling, transaction
+cost calculation or backtest, and no final-test performance has been evaluated.
