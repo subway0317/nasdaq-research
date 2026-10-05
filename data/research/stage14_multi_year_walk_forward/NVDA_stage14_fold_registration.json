@@ -1,0 +1,11 @@
+{
+  "boundary_changes_after_modeling_allowed": false,
+  "fold_count": 22,
+  "fold_sha256": {
+    "feature_manifest": "915a4119ba4dab2129616aadcb1a23a3163b5d75b1e32a1d46cf8158b9c18216",
+    "fold_inventory": "e7658efb97b92d1b03e6ca97cdf13f6864348ad6e81f4003e6f8b26dc0019f95",
+    "target_purge_audit": "766cd1e520ad1fcbd5624aba82fa4ed5f9daa0361a961bae64309de137e3bae3"
+  },
+  "folds_frozen_before_modeling": true,
+  "protocol_sha256": "e6787c175a077a3e422d9533df00369e0450c35532b7c67276fbaeee21446908"
+}

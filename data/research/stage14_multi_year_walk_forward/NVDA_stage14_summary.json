@@ -1,0 +1,296 @@
+{
+  "OOF_coverage": {
+    "actual_OOF_sessions": 1367,
+    "duplicate_OOF_sessions": 0,
+    "expected_OOF_sessions": 1367,
+    "missing_OOF_sessions": 0
+  },
+  "OOF_prediction_values": 8202,
+  "OOF_sessions": 1367,
+  "baseline_comparisons": [
+    {
+      "baseline": "zero_return",
+      "fold_count": 22,
+      "losses": 14,
+      "mean_delta_MAE": 0.004312976342713003,
+      "median_delta_MAE": 0.0009697917180933047,
+      "model": "original_ols",
+      "ties": 0,
+      "win_rate": 0.36363636363636365,
+      "wins": 8
+    },
+    {
+      "baseline": "historical_mean",
+      "fold_count": 22,
+      "losses": 15,
+      "mean_delta_MAE": 0.004890596726202275,
+      "median_delta_MAE": 0.0020984964761032975,
+      "model": "original_ols",
+      "ties": 0,
+      "win_rate": 0.3181818181818182,
+      "wins": 7
+    },
+    {
+      "baseline": "zero_return",
+      "fold_count": 22,
+      "losses": 14,
+      "mean_delta_MAE": 0.0032468723511712666,
+      "median_delta_MAE": 0.000829245485377255,
+      "model": "original_ridge_alpha1",
+      "ties": 0,
+      "win_rate": 0.36363636363636365,
+      "wins": 8
+    },
+    {
+      "baseline": "historical_mean",
+      "fold_count": 22,
+      "losses": 15,
+      "mean_delta_MAE": 0.003824492734660538,
+      "median_delta_MAE": 0.0015858038847460336,
+      "model": "original_ridge_alpha1",
+      "ties": 0,
+      "win_rate": 0.3181818181818182,
+      "wins": 7
+    },
+    {
+      "baseline": "zero_return",
+      "fold_count": 22,
+      "losses": 12,
+      "mean_delta_MAE": 0.0010365201678167392,
+      "median_delta_MAE": 0.00013565096269299928,
+      "model": "relative_ols",
+      "ties": 0,
+      "win_rate": 0.45454545454545453,
+      "wins": 10
+    },
+    {
+      "baseline": "historical_mean",
+      "fold_count": 22,
+      "losses": 13,
+      "mean_delta_MAE": 0.0016141405513060106,
+      "median_delta_MAE": 0.0005192927597118431,
+      "model": "relative_ols",
+      "ties": 0,
+      "win_rate": 0.4090909090909091,
+      "wins": 9
+    },
+    {
+      "baseline": "zero_return",
+      "fold_count": 22,
+      "losses": 11,
+      "mean_delta_MAE": 0.0008851398916872467,
+      "median_delta_MAE": -0.0002010718826778654,
+      "model": "relative_ridge_alpha1",
+      "ties": 0,
+      "win_rate": 0.5,
+      "wins": 11
+    },
+    {
+      "baseline": "historical_mean",
+      "fold_count": 22,
+      "losses": 13,
+      "mean_delta_MAE": 0.001462760275176518,
+      "median_delta_MAE": 0.00028621951322833905,
+      "model": "relative_ridge_alpha1",
+      "ties": 0,
+      "win_rate": 0.4090909090909091,
+      "wins": 9
+    }
+  ],
+  "canonical_vintage_id": "NVDA_YAHOO_STAGE13_2020_2026_V1",
+  "development_dates": [
+    "2020-01-02",
+    "2026-06-12"
+  ],
+  "development_rows": 1620,
+  "engineering_status": "PASS",
+  "final_model_fitted": false,
+  "final_test_locked": true,
+  "final_test_metrics_computed": false,
+  "final_test_predictions_generated": false,
+  "final_training_pool_used": false,
+  "first_fold": "2021Q1",
+  "fold_count": 22,
+  "fundamentals_used": false,
+  "historical_statuses": {
+    "Recovery": "LEGACY_EVIDENCE_NOT_RECOVERABLE",
+    "Stage13": "INCOMPLETE_OR_BLOCKED",
+    "Stage13_1": "UNRESOLVED_BLOCKER",
+    "Stage13_2": "APPROVED_WITH_DOCUMENTED_NONMATERIAL_CROSS_VINTAGE_DIFFERENCE",
+    "legacy_root_cause": "UNRESOLVED_SOURCE_DISCREPANCY"
+  },
+  "hyperparameter_tuning_allowed": false,
+  "label_realization_in_pretest_gap": 5,
+  "last_fold": "2026Q2",
+  "learned_model_fits": 88,
+  "legacy_root_cause_reinvestigated": false,
+  "model_summary": [
+    {
+      "OOF_rows": 1367,
+      "fold_count": 22,
+      "mean_fold_MAE": 0.0524426275631154,
+      "median_fold_MAE": 0.051463954999627366,
+      "model": "zero_return",
+      "pooled_OOF_MAE": 0.05240643675151172
+    },
+    {
+      "OOF_rows": 1367,
+      "fold_count": 22,
+      "mean_fold_MAE": 0.05186500717962612,
+      "median_fold_MAE": 0.04912816012936325,
+      "model": "historical_mean",
+      "pooled_OOF_MAE": 0.051845002734463484
+    },
+    {
+      "OOF_rows": 1367,
+      "fold_count": 22,
+      "mean_fold_MAE": 0.05675560390582839,
+      "median_fold_MAE": 0.056877988163136675,
+      "model": "original_ols",
+      "pooled_OOF_MAE": 0.05672543936071713
+    },
+    {
+      "OOF_rows": 1367,
+      "fold_count": 22,
+      "mean_fold_MAE": 0.05568949991428667,
+      "median_fold_MAE": 0.05631534286907315,
+      "model": "original_ridge_alpha1",
+      "pooled_OOF_MAE": 0.055657683394000186
+    },
+    {
+      "OOF_rows": 1367,
+      "fold_count": 22,
+      "mean_fold_MAE": 0.053479147730932125,
+      "median_fold_MAE": 0.04860204571994134,
+      "model": "relative_ols",
+      "pooled_OOF_MAE": 0.053452912008846255
+    },
+    {
+      "OOF_rows": 1367,
+      "fold_count": 22,
+      "mean_fold_MAE": 0.05332776745480264,
+      "median_fold_MAE": 0.04838846425237828,
+      "model": "relative_ridge_alpha1",
+      "pooled_OOF_MAE": 0.053301723061131866
+    }
+  ],
+  "network_allowed": false,
+  "network_requests": 0,
+  "new_catastrophic_threshold_monitoring": {
+    "folds_with_abs_prediction_gt_0_20": {
+      "historical_mean": 0,
+      "original_ols": 0,
+      "original_ridge_alpha1": 0,
+      "relative_ols": 0,
+      "relative_ridge_alpha1": 0,
+      "zero_return": 0
+    },
+    "max_abs_predictions": {
+      "historical_mean": 0.01603809367511823,
+      "original_ols": 0.14523974623630967,
+      "original_ridge_alpha1": 0.1265343392208934,
+      "relative_ols": 0.10311695167224448,
+      "relative_ridge_alpha1": 0.09282867409078249,
+      "zero_return": 0.0
+    },
+    "thresholds_descriptive_only": true
+  },
+  "new_stage_design": false,
+  "predictive_assessment": {
+    "classification": "NO_ROBUST_MULTI_YEAR_SIGNAL",
+    "four_mean_majority_gates": {
+      "relative_ols": false,
+      "relative_ridge_alpha1": false
+    },
+    "model_criteria": {
+      "relative_ols": {
+        "all_six_passed": false,
+        "mean_MAE_beats_historical_mean": false,
+        "mean_MAE_beats_zero_return": false,
+        "median_delta_vs_historical_mean_negative": false,
+        "median_delta_vs_zero_return_negative": false,
+        "win_rate_vs_historical_mean_majority": false,
+        "win_rate_vs_zero_return_majority": false
+      },
+      "relative_ridge_alpha1": {
+        "all_six_passed": false,
+        "mean_MAE_beats_historical_mean": false,
+        "mean_MAE_beats_zero_return": false,
+        "median_delta_vs_historical_mean_negative": false,
+        "median_delta_vs_zero_return_negative": true,
+        "win_rate_vs_historical_mean_majority": false,
+        "win_rate_vs_zero_return_majority": false
+      }
+    }
+  },
+  "predictive_signal_classification": "NO_ROBUST_MULTI_YEAR_SIGNAL",
+  "representation_assessment": {
+    "SMA_mechanism_summary": {
+      "original_mean_fold_outside_fraction": 0.4741590223470336,
+      "original_median_fold_max_z": 3.056041850860497,
+      "relative_lower_max_z_folds": 13,
+      "relative_mean_fold_outside_fraction": 0.007266652845215774,
+      "relative_median_fold_max_z": 2.664706355482371
+    },
+    "classification": "BROAD_REPRESENTATION_STABILITY_SUPPORT",
+    "family_MAE_majority": {
+      "ols": true,
+      "ridge_alpha1": true
+    },
+    "mechanism_criteria": {
+      "majority_fold_SMA_max_z_lower": true,
+      "mean_SMA_fraction_gt5_no_higher": true,
+      "mean_SMA_outside_fraction_lower": true,
+      "median_SMA_max_z_lower": true
+    },
+    "new_systematic_pathology": false,
+    "prediction_pathology": {
+      "ols": {
+        "fold_count": 22,
+        "systematic": false,
+        "worse_fold_count": 0
+      },
+      "ridge_alpha1": {
+        "fold_count": 22,
+        "systematic": false,
+        "worse_fold_count": 0
+      }
+    },
+    "severe_extrapolation_fold_count": 0,
+    "systematic_severe_extrapolation": false
+  },
+  "representation_stability_classification": "BROAD_REPRESENTATION_STABILITY_SUPPORT",
+  "secondary_targets_modeled": false,
+  "stage_name": "Stage 14 \u2014 Pre-Registered Multi-Year Walk-Forward Validation of Relative Market Linear Models",
+  "statistical_inference_performed": false,
+  "target_purged_rows_per_fold": {
+    "2021Q1": 5,
+    "2021Q2": 5,
+    "2021Q3": 5,
+    "2021Q4": 5,
+    "2022Q1": 5,
+    "2022Q2": 5,
+    "2022Q3": 5,
+    "2022Q4": 5,
+    "2023Q1": 5,
+    "2023Q2": 5,
+    "2023Q3": 5,
+    "2023Q4": 5,
+    "2024Q1": 5,
+    "2024Q2": 5,
+    "2024Q3": 5,
+    "2024Q4": 5,
+    "2025Q1": 5,
+    "2025Q2": 5,
+    "2025Q3": 5,
+    "2025Q4": 5,
+    "2026Q1": 5,
+    "2026Q2": 5
+  },
+  "upstream": {
+    "changed_files": [],
+    "files_checked": 267,
+    "mutation_violations": 0
+  },
+  "volume_used": false
+}

@@ -1,0 +1,10 @@
+{
+  "HEAD": "c3da396f929ec6be0e61e0842d6661b003851dbf",
+  "branch": "main",
+  "formal_execution_order": "Protocol and upstream frozen before canonical data load/fold construction/modeling",
+  "initial_diff_check_passed": true,
+  "initial_log_5": "c3da396 Approve stage 13 canonical market data authority\n04e2789 Complete legacy evidence recovery audit\nd6c4b2c Record stage 13 history expansion and unresolved source reconciliation\nbde8ed9 Complete stage 12 post-representation signal diagnostics\ndbe6689 Complete stage 11 market representation ablation\n",
+  "initial_working_tree": "clean",
+  "origin_main": "c3da396f929ec6be0e61e0842d6661b003851dbf",
+  "protected_files": 267
+}

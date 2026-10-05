@@ -1,0 +1,332 @@
+{
+  "OLS": "LinearRegression(fit_intercept=True,n_jobs=1)",
+  "Ridge": "Ridge(alpha=1,fit_intercept=True,solver=svd)",
+  "baseline_definitions": {
+    "historical_mean": "mean of effective training primary y only",
+    "zero_return": "0.0, no fit"
+  },
+  "baselines": [
+    "zero_return",
+    "historical_mean"
+  ],
+  "canonical_authority": "data/research/historical_expansion/stage13_2_canonical_authority/NVDA_stage13_2_canonical_vintage_manifest.json",
+  "canonical_source": "data/research/historical_expansion/stage13_nvda",
+  "canonical_vintage_id": "NVDA_YAHOO_STAGE13_2020_2026_V1",
+  "coverage_threshold": 0.5,
+  "delta_definition": "MAE_model - MAE_reference",
+  "dependency_policy": "Require Stage13.2 source/graph evidence and no used Volume dependency for the nine+three market representations; only exact market X columns can reach scalers; changed upstream hashes fail closed",
+  "development_end": "2026-06-12",
+  "development_start": "2020-01-02",
+  "exact_50_percent_rule": "KEEP",
+  "exact_substitutions": {
+    "sma_20": "close_to_sma_20",
+    "sma_5": "close_to_sma_5",
+    "sma_60": "close_to_sma_60"
+  },
+  "extrapolation_endpoints": [
+    "max_abs_validation_z",
+    "median_abs_validation_z",
+    "fraction_abs_z_gt_3",
+    "fraction_abs_z_gt_5",
+    "fraction_validation_outside_training_min_max",
+    "train_min",
+    "train_max",
+    "validation_min",
+    "validation_max"
+  ],
+  "final_model_fit_allowed": false,
+  "final_test_end": "2026-09-23",
+  "final_test_locked": true,
+  "final_test_metrics_computed": false,
+  "final_test_predictions_generated": false,
+  "final_test_rows": 50,
+  "final_test_start": "2026-07-15",
+  "final_training_pool_used": false,
+  "first_validation_period": "2021Q1",
+  "fit_authority": "market_representation.fit_arm -> unmodified modeling.fit_linear",
+  "fold_calendar_definitions": [
+    {
+      "fold_id": "2021Q1",
+      "partial": false,
+      "validation_calendar_end": "2021-03-31",
+      "validation_calendar_start": "2021-01-01"
+    },
+    {
+      "fold_id": "2021Q2",
+      "partial": false,
+      "validation_calendar_end": "2021-06-30",
+      "validation_calendar_start": "2021-04-01"
+    },
+    {
+      "fold_id": "2021Q3",
+      "partial": false,
+      "validation_calendar_end": "2021-09-30",
+      "validation_calendar_start": "2021-07-01"
+    },
+    {
+      "fold_id": "2021Q4",
+      "partial": false,
+      "validation_calendar_end": "2021-12-31",
+      "validation_calendar_start": "2021-10-01"
+    },
+    {
+      "fold_id": "2022Q1",
+      "partial": false,
+      "validation_calendar_end": "2022-03-31",
+      "validation_calendar_start": "2022-01-01"
+    },
+    {
+      "fold_id": "2022Q2",
+      "partial": false,
+      "validation_calendar_end": "2022-06-30",
+      "validation_calendar_start": "2022-04-01"
+    },
+    {
+      "fold_id": "2022Q3",
+      "partial": false,
+      "validation_calendar_end": "2022-09-30",
+      "validation_calendar_start": "2022-07-01"
+    },
+    {
+      "fold_id": "2022Q4",
+      "partial": false,
+      "validation_calendar_end": "2022-12-31",
+      "validation_calendar_start": "2022-10-01"
+    },
+    {
+      "fold_id": "2023Q1",
+      "partial": false,
+      "validation_calendar_end": "2023-03-31",
+      "validation_calendar_start": "2023-01-01"
+    },
+    {
+      "fold_id": "2023Q2",
+      "partial": false,
+      "validation_calendar_end": "2023-06-30",
+      "validation_calendar_start": "2023-04-01"
+    },
+    {
+      "fold_id": "2023Q3",
+      "partial": false,
+      "validation_calendar_end": "2023-09-30",
+      "validation_calendar_start": "2023-07-01"
+    },
+    {
+      "fold_id": "2023Q4",
+      "partial": false,
+      "validation_calendar_end": "2023-12-31",
+      "validation_calendar_start": "2023-10-01"
+    },
+    {
+      "fold_id": "2024Q1",
+      "partial": false,
+      "validation_calendar_end": "2024-03-31",
+      "validation_calendar_start": "2024-01-01"
+    },
+    {
+      "fold_id": "2024Q2",
+      "partial": false,
+      "validation_calendar_end": "2024-06-30",
+      "validation_calendar_start": "2024-04-01"
+    },
+    {
+      "fold_id": "2024Q3",
+      "partial": false,
+      "validation_calendar_end": "2024-09-30",
+      "validation_calendar_start": "2024-07-01"
+    },
+    {
+      "fold_id": "2024Q4",
+      "partial": false,
+      "validation_calendar_end": "2024-12-31",
+      "validation_calendar_start": "2024-10-01"
+    },
+    {
+      "fold_id": "2025Q1",
+      "partial": false,
+      "validation_calendar_end": "2025-03-31",
+      "validation_calendar_start": "2025-01-01"
+    },
+    {
+      "fold_id": "2025Q2",
+      "partial": false,
+      "validation_calendar_end": "2025-06-30",
+      "validation_calendar_start": "2025-04-01"
+    },
+    {
+      "fold_id": "2025Q3",
+      "partial": false,
+      "validation_calendar_end": "2025-09-30",
+      "validation_calendar_start": "2025-07-01"
+    },
+    {
+      "fold_id": "2025Q4",
+      "partial": false,
+      "validation_calendar_end": "2025-12-31",
+      "validation_calendar_start": "2025-10-01"
+    },
+    {
+      "fold_id": "2026Q1",
+      "partial": false,
+      "validation_calendar_end": "2026-03-31",
+      "validation_calendar_start": "2026-01-01"
+    },
+    {
+      "fold_id": "2026Q2",
+      "partial": true,
+      "validation_calendar_end": "2026-06-12",
+      "validation_calendar_start": "2026-04-01"
+    }
+  ],
+  "fold_win_definition": "strict delta < 0; exact ties are not wins",
+  "formal_prediction_policy": "One immutable fold\u00d7model\u00d7date prediction set; debug/repro runs must produce identical formal bytes",
+  "fundamentals_forbidden": true,
+  "future_stage_design_allowed": false,
+  "historical_statuses": {
+    "Recovery": "LEGACY_EVIDENCE_NOT_RECOVERABLE",
+    "Stage13": "INCOMPLETE_OR_BLOCKED",
+    "Stage13_1": "UNRESOLVED_BLOCKER",
+    "Stage13_2": "APPROVED_WITH_DOCUMENTED_NONMATERIAL_CROSS_VINTAGE_DIFFERENCE",
+    "legacy_root_cause": "UNRESOLVED_SOURCE_DISCREPANCY"
+  },
+  "hyperparameter_tuning_allowed": false,
+  "last_validation_period": "2026Q2_PARTIAL",
+  "limitations": [
+    "Single ticker; overlapping 5d labels and successive expanding fits are dependent",
+    "Historical Stage11/12 development findings already known; Stage14 is a frozen follow-up, not an independent Final Test",
+    "No economic alpha/profitability/statistical significance claim",
+    "Labels may end in inherited pre-test gap; no gap feature rows used",
+    "Stage13.2 acquisition metadata limitations and Volume-use restrictions remain unchanged"
+  ],
+  "models": [
+    "original_ols",
+    "original_ridge_alpha1",
+    "relative_ols",
+    "relative_ridge_alpha1"
+  ],
+  "network_allowed": false,
+  "new_feature_target_or_model_search_allowed": false,
+  "original_market_features": [
+    "simple_return",
+    "log_return",
+    "intraday_return",
+    "daily_range",
+    "sma_5",
+    "sma_20",
+    "sma_60",
+    "rolling_volatility_20",
+    "rolling_volatility_60"
+  ],
+  "post_test_tail_end": "2026-09-30",
+  "post_test_tail_start": "2026-09-24",
+  "prediction_reconstruction_tolerance": {
+    "atol": 1e-12,
+    "rtol": 1e-10
+  },
+  "prediction_stability_endpoints": [
+    "prediction_mean",
+    "prediction_std_ddof1",
+    "prediction_min",
+    "prediction_max",
+    "max_abs_prediction",
+    "fraction_abs_prediction_gt_0_10",
+    "fraction_abs_prediction_gt_0_20"
+  ],
+  "predictive_classifications": [
+    "ROBUST_MULTI_YEAR_SIGNAL",
+    "MIXED_OR_REGIME_DEPENDENT_SIGNAL",
+    "NO_ROBUST_MULTI_YEAR_SIGNAL"
+  ],
+  "predictive_success_rules": {
+    "ambiguity_resolution": "Use the explicit numeric conditions in sections 40/42/43 in that order; illustrative examples in section 44 do not override numeric NO_ROBUST predicate.",
+    "classification_precedence": [
+      "ROBUST if either Relative model passes all six",
+      "NO_ROBUST if neither Relative model simultaneously passes both mean-fold baseline wins and both strict majority fold wins",
+      "MIXED otherwise"
+    ],
+    "model_robust": "All six: mean-fold MAE beats zero and historical_mean; median fold delta vs each <0; strict fold win rate vs each >0.50"
+  },
+  "preprocessing_order": [
+    "effective-train coverage >= 0.50",
+    "effective-train median fill",
+    "exact zero-variance removal on imputed effective train",
+    "effective-train StandardScaler ddof=0",
+    "fit with intercept; y unscaled"
+  ],
+  "pretest_gap_end": "2026-07-14",
+  "pretest_gap_start": "2026-06-15",
+  "primary_aggregate_metric": "equal-weight mean fold MAE",
+  "primary_metric": "MAE",
+  "purge_rule": "Training feature date < first observed validation session; entry/exit observed-source oracle; 5d exit must be strictly before first observed validation session. Ordinary folds use 5d; frozen final pre-gap is not shortened.",
+  "range_denominator": "Non-null raw validation feature values; strict below/above raw effective-train min/max; equality within",
+  "relative_formula_authority": "nasdaq_research.market_representation.representation",
+  "relative_market_features": [
+    "simple_return",
+    "log_return",
+    "intraday_return",
+    "daily_range",
+    "close_to_sma_5",
+    "close_to_sma_20",
+    "close_to_sma_60",
+    "rolling_volatility_20",
+    "rolling_volatility_60"
+  ],
+  "representation_classifications": [
+    "BROAD_REPRESENTATION_STABILITY_SUPPORT",
+    "MIXED_REPRESENTATION_RESULT",
+    "NO_BROAD_REPRESENTATION_STABILITY_SUPPORT"
+  ],
+  "representation_success_rules": {
+    "SMA_mechanism_support": [
+      "median across folds of SMA-group max|z| is strictly lower for Relative",
+      "equal-weight mean fold SMA out-of-range fraction is strictly lower for Relative",
+      "strict majority of folds have lower Relative SMA max|z|",
+      "mean fold SMA fraction |z|>5 is no higher for Relative"
+    ],
+    "classification_precedence": [
+      "NO_BROAD if neither family has majority MAE improvement OR new_systematic_pathology",
+      "BROAD if both have majority MAE improvement AND all SMA mechanism support gates AND no new_systematic_pathology",
+      "MIXED otherwise"
+    ],
+    "fold_MAE_support": "Relative vs Original strict fold win rate >0.50 for BOTH OLS and Ridge",
+    "mechanism_unit": "One paired fold\u00d7representation exposure per feature, not duplicated across OLS/Ridge; selected features use actual training scaler and train-imputed validation values",
+    "new_systematic_pathology": "Either severe extrapolation or severe-prediction predicate",
+    "operationalization_reason": "Freeze quantitative meaning of overall mechanism direction/systematic pathology before any Stage14 results; use prompt diagnostic thresholds 5 and 0.20 plus its majority semantics, no threshold search",
+    "systematic_severe_extrapolation": "Strict majority of folds where Relative SMA max|z|>5 and >Original, AND Relative SMA fraction |z|>5 >Original",
+    "systematic_severe_predictions": "For either family, strict majority of folds where Relative fraction |prediction|>0.20 >Original AND Relative max|prediction|>Original AND Relative max|prediction|>0.20"
+  },
+  "reproducibility_policy": "Two consecutive offline formal runs; every authoritative CSV/JSON byte-identical; runtime/test logs and post-run execution_verification separate; no current timestamps in formal files",
+  "required_authority_status": "APPROVED_WITH_DOCUMENTED_NONMATERIAL_CROSS_VINTAGE_DIFFERENCE",
+  "ridge_alpha": 1.0,
+  "row_eligibility_policy": "Target date/provenance availability only; do not globally drop missing X or sparse fundamentals. Missing/invalid labels or authorized nonfinite features fail loudly and are audited; no silent row removal.",
+  "secondary_aggregate_metrics": [
+    "pooled OOF MAE",
+    "median fold MAE",
+    "mean delta MAE",
+    "median delta MAE",
+    "strict fold win rate"
+  ],
+  "secondary_target_policy": "Date/provenance-only for inherited boundary checks; never numerical labels, predictions or model metrics",
+  "secondary_targets_modeling_allowed": false,
+  "stage_name": "Stage 14 \u2014 Pre-Registered Multi-Year Walk-Forward Validation of Relative Market Linear Models",
+  "stage_type": [
+    "OUT-OF-SAMPLE VALIDATION",
+    "TEMPORAL STABILITY TEST",
+    "REPRESENTATION ABLATION VALIDATION"
+  ],
+  "statistical_inference_allowed": false,
+  "target": "forward_return_5d",
+  "target_definition": "Close[t+5] / Open[t+1] - 1 using observed session positions",
+  "target_horizon": 5,
+  "thresholds_diagnostic_only": true,
+  "validation_frequency": "CALENDAR_QUARTER",
+  "validation_label_policy": "Every declared development validation session retains its canonical 5d label and provenance. Labels may realize in the frozen pre-test gap but must end strictly before Final Test. Gap sessions are never training/validation feature observations; frozen labels are not recomputed using a truncated price window.",
+  "versions": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "scikit_learn": "1.9.1"
+  },
+  "volume_forbidden": true,
+  "walk_forward_type": "EXPANDING_WINDOW",
+  "yearly_diagnostics": "2021\u20132026 development only; descriptive; cannot drive selection or regime rules"
+}

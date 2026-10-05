@@ -1,0 +1,47 @@
+{
+  "Final_Test": [
+    "2026-07-15",
+    "2026-09-23"
+  ],
+  "checks": {
+    "development_rows_before_gap": true,
+    "fit_labels_realized_before_validation": true,
+    "fit_rows_before_gap": true,
+    "locked_final_row_count_50": true,
+    "no_final_training_pool_or_final_fit": true,
+    "no_gap_test_tail_predictions": true,
+    "no_locked_numeric_target_loaded": true,
+    "no_secondary_numeric_labels_loaded": true,
+    "validation_labels_end_before_Final_Test": true,
+    "validation_rows_before_gap": true
+  },
+  "development": [
+    "2020-01-02",
+    "2026-06-12"
+  ],
+  "final_model_fitted": false,
+  "final_test_locked": true,
+  "final_test_metrics_computed": false,
+  "final_test_predictions_generated": false,
+  "final_training_pool_used": false,
+  "frozen_pretest_gap": [
+    "2026-06-15",
+    "2026-07-14"
+  ],
+  "fundamentals_used": false,
+  "gap_feature_observations_used": 0,
+  "hyperparameter_tuning_allowed": false,
+  "legacy_root_cause_reinvestigated": false,
+  "locked_numeric_labels_loaded": false,
+  "network_allowed": false,
+  "network_requests": 0,
+  "new_stage_design": false,
+  "post_test_tail": [
+    "2026-09-24",
+    "2026-09-30"
+  ],
+  "secondary_targets_modeled": false,
+  "valid": true,
+  "validation_labels_realizing_in_gap": 5,
+  "volume_used": false
+}
