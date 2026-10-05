@@ -1,0 +1,5 @@
+fold,n_windows,pair_denominator,overlapping_pair_count,overlapping_pair_fraction,adjacent_pair_denominator,adjacent_overlapping_pair_count,adjacent_overlapping_fraction
+cv_1,25,300,90,0.3,24,24,1.0
+cv_2,25,300,90,0.3,24,24,1.0
+cv_3,25,300,90,0.3,24,24,1.0
+pooled,75,2775,290,0.1045045045045045,74,74,1.0

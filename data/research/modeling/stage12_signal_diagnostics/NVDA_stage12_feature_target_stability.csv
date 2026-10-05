@@ -1,0 +1,5 @@
+fold,n_used_feature_fold_pairs,pearson_defined_pair_count,pearson_sign_match_count,pearson_sign_mismatch_count,pearson_sign_flip_count,pearson_sign_match_fraction,mean_absolute_change_pearson,spearman_defined_pair_count,spearman_sign_match_count,spearman_sign_mismatch_count,spearman_sign_flip_count,spearman_sign_match_fraction,mean_absolute_change_spearman
+cv_1,7,7,4,3,3,0.5714285714285714,0.17591678607293396,7,4,3,3,0.5714285714285714,0.18544900634211148
+cv_2,9,9,7,2,2,0.7777777777777778,0.2664037176160714,9,5,4,4,0.5555555555555556,0.2456685751062081
+cv_3,9,9,5,4,4,0.5555555555555556,0.12219780135242925,9,4,5,5,0.4444444444444444,0.14727186444366502
+pooled,25,25,16,9,9,0.64,0.18915324692908173,25,13,12,12,0.52,0.19338428001374552

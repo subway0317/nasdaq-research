@@ -1,0 +1,7 @@
+arm,model,fold_a,fold_b,n_common_features,common_feature_names,cosine_similarity,undefined_reason
+treatment,ols,cv_1,cv_2,7,"[""simple_return"",""log_return"",""intraday_return"",""daily_range"",""close_to_sma_5"",""close_to_sma_20"",""rolling_volatility_20""]",0.9974876656747403,defined
+treatment,ols,cv_1,cv_3,7,"[""simple_return"",""log_return"",""intraday_return"",""daily_range"",""close_to_sma_5"",""close_to_sma_20"",""rolling_volatility_20""]",0.9979127559182428,defined
+treatment,ols,cv_2,cv_3,9,"[""simple_return"",""log_return"",""intraday_return"",""daily_range"",""close_to_sma_5"",""close_to_sma_20"",""close_to_sma_60"",""rolling_volatility_20"",""rolling_volatility_60""]",0.994020732402645,defined
+treatment,ridge,cv_1,cv_2,7,"[""simple_return"",""log_return"",""intraday_return"",""daily_range"",""close_to_sma_5"",""close_to_sma_20"",""rolling_volatility_20""]",0.9684500376761914,defined
+treatment,ridge,cv_1,cv_3,7,"[""simple_return"",""log_return"",""intraday_return"",""daily_range"",""close_to_sma_5"",""close_to_sma_20"",""rolling_volatility_20""]",0.8922193835688116,defined
+treatment,ridge,cv_2,cv_3,9,"[""simple_return"",""log_return"",""intraday_return"",""daily_range"",""close_to_sma_5"",""close_to_sma_20"",""close_to_sma_60"",""rolling_volatility_20"",""rolling_volatility_60""]",0.7286181869523536,defined
