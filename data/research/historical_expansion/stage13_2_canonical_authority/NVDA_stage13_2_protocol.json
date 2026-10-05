@@ -1,0 +1,167 @@
+{
+  "acceptance_rule": "All governance, complete dependencies/registry, materiality proof, adversarial and positive controls, frozen future policy, historical preservation, locked Final Test/no modeling/network, all historical/new tests, deterministic repeats and immutable upstream inputs; approval determined only from evidence",
+  "approval_categories": [
+    "APPROVED_CANONICAL_VINTAGE",
+    "APPROVED_WITH_DOCUMENTED_NONMATERIAL_CROSS_VINTAGE_DIFFERENCE",
+    "NOT_APPROVED_FOR_DOWNSTREAM_RESEARCH"
+  ],
+  "approval_decision_rules": {
+    "APPROVED_CANONICAL_VINTAGE": "All critical governance/reproducibility/immutability gates pass, no known unresolved cross-vintage discrepancies remain",
+    "APPROVED_WITH_DOCUMENTED_NONMATERIAL_CROSS_VINTAGE_DIFFERENCE": "All critical governance gates pass, coherent immutable candidate, complete registry, every unresolved known discrepancy programmatically proven provenance-material but current-model-semantic-nonmaterial, all mutation/positive controls pass, future policy and use restrictions frozen; legacy root remains unresolved",
+    "NOT_APPROVED_FOR_DOWNSTREAM_RESEARCH": "Any critical governance/source/hash/internal/calendar/corporate-action/PIT/target/reproducibility failure, semantic-material discrepancy, unknown materiality, incomplete registry, unresolved dependency proof or broken positive controls"
+  },
+  "approval_scope": {
+    "Stage14_design_authorized": false,
+    "direction": "Multi-year walk-forward Relative Market baseline/reference research; OLS, inherited Ridge(alpha=1), zero_return, historical_mean; primary forward_return_5d",
+    "folds_models_predictions_metrics_authorized": false,
+    "volume_features_in_scope": false
+  },
+  "candidate_vintage": {
+    "candidate_vintage_id": "NVDA_YAHOO_STAGE13_2020_2026_V1",
+    "directory": "data/research/historical_expansion/stage13_nvda/",
+    "provider": "Yahoo Finance via yfinance",
+    "research_end": "2026-09-30",
+    "research_start": "2020-01-01",
+    "ticker": "NVDA"
+  },
+  "final_test_lock": {
+    "end": "2026-09-23",
+    "final_test_locked": true,
+    "final_test_metrics_computed": false,
+    "final_test_predictions_generated": false,
+    "final_training_pool_used": false,
+    "predictive_performance_read": false,
+    "rows": 50,
+    "start": "2026-07-15"
+  },
+  "forbidden_operations": [
+    "new Yahoo/yfinance/SEC/third-party acquisition",
+    "Git forensic search",
+    "historical timing recovery",
+    "root-cause reclassification",
+    "feature/target/PIT changes",
+    "data editing",
+    "cell overrides",
+    "model/CV/MAE/RMSE/PnL/backtest",
+    "Stage14 design/execution",
+    "git add/commit/push/tag/reset/restore/clean/gc/prune/stash"
+  ],
+  "future_vintage_policy": {
+    "cross_vintage_diff_and_materiality_required": true,
+    "missing_or_hash_mismatched_canonical_source": "Fail loudly; no network fallback",
+    "new_acquisition_new_vintage": true,
+    "new_vintage_requires_explicit_governance_decision": true,
+    "required_fields": [
+      "vintage_id",
+      "provider",
+      "ticker_or_universe",
+      "retrieval_timestamp_utc",
+      "query_start",
+      "query_end",
+      "interval",
+      "endpoint_request_semantics",
+      "library_name",
+      "library_version",
+      "raw_vendor_response",
+      "raw_sha256",
+      "normalized_output",
+      "normalized_sha256",
+      "adjustment_semantics",
+      "timezone_session_semantics",
+      "corporate_action_semantics"
+    ],
+    "research_mode_requires_explicit_vintage_id": true,
+    "silent_refresh_allowed": false,
+    "used_research_vintage_immutable": true
+  },
+  "governance_axis_definition": "Frozen source identity/hash/query boundaries, normalized coherence, calendar/critical OHLC, existing corporate-action/PIT/target audits, reproducibility and upstream preservation must pass; do not reuse Stage13 strict legacy-overlap failure as automatic prospective failure",
+  "historical_statuses": {
+    "Legacy_Recovery": "LEGACY_EVIDENCE_NOT_RECOVERABLE",
+    "Stage13": "INCOMPLETE_OR_BLOCKED",
+    "Stage13_1": "UNRESOLVED_BLOCKER",
+    "Stage13_original_unexpected_overlap_violations": 5,
+    "legacy_root_cause": "UNRESOLVED_SOURCE_DISCREPANCY"
+  },
+  "known_discrepancy_registration_rule": "Read original Stage13 unexpected overlap differences; deduplicate independent ticker/date/field/value observations and preserve all five manifestations; cannot drop known Volume mismatch",
+  "legacy_immutability_rule": "Stage1–12 remain immutable historical research records; if approved their future role is HISTORICAL_RESEARCH_RECORD_ONLY",
+  "legacy_root_cause_reinvestigation_allowed": false,
+  "materiality_axis_definition": "Classify every independent known discrepancy using code-derived field dependencies, frozen authoritative manifests and isolated mutation/positive controls; unknown dependency evidence fails closed",
+  "materiality_categories": [
+    "RESEARCH_SEMANTIC_MATERIAL",
+    "PROVENANCE_MATERIAL_MODEL_SEMANTIC_NONMATERIAL",
+    "UNKNOWN_MATERIALITY"
+  ],
+  "materiality_decision_rules": {
+    "PROVENANCE_MATERIAL_MODEL_SEMANTIC_NONMATERIAL": "Complete code/manifest evidence plus legal-value mutation tests prove no current X/Y/PIT numerical/provenance/eligibility dependency; discrepancy remains provenance-material",
+    "RESEARCH_SEMANTIC_MATERIAL": "Known field change affects registered X/Y/PIT construction or provenance/eligibility, via direct/indirect dependency or observed mutation differences",
+    "UNKNOWN_MATERIALITY": "Any incomplete dependency, unsupported code change, inconclusive mutation/positive control or unverified required relation"
+  },
+  "metadata_gap_policy": "Unknown acquisition-time retrieval timestamp/library version/endpoint remain null; documented limitation may be accepted only with frozen original payloads, hash identity, query range, exact normalization preservation, reproducibility and critical internal audits; no fabricated metadata or absolute-truth claim",
+  "modeling_allowed": false,
+  "mutation_rules": {
+    "Final_Test": "Never predictive performance; any numeric target audit excludes locked Final Test target cells",
+    "general_dates": "Deterministic observed sessions spanning pre-sample and multiple research years, including split contexts and pre-Final-Test 2026; at least four representative historical dates",
+    "general_mutations": [
+      "Volume multiplied by 10 plus 123",
+      "all Volume values multiplied by 10 plus 123"
+    ],
+    "isolated_copies_only": true,
+    "outputs_checked": "9 market,3 relative SMA,all registered fundamental feature/provenance states,1d/5d/20d targets and row/date eligibility",
+    "positive_controls": "Isolated valid OHLC changes must change their registered feature/target dependents; actual source pipeline must execute",
+    "primary_date": "2026-09-30",
+    "primary_mutations": [
+      "legacy legal integer value 121269300",
+      "candidate Volume multiplied by 10"
+    ]
+  },
+  "network_allowed": false,
+  "no_cell_patching_rule": "Never splice legacy and Stage13 cells or edit/drop primary date/Volume; use one coherent frozen vintage",
+  "reproducibility": "At least two consecutive offline formal runs on frozen inputs; all deterministic CSV/JSON byte-identical; no current timestamp in formal output; execution log explicitly excluded",
+  "research_dependency_rules": {
+    "PIT_fundamentals": "All registered fundamental features and provenance/activation state fields; exclude carried raw market fields from fundamental-state equality",
+    "current_market_features": [
+      "simple_return",
+      "log_return",
+      "intraday_return",
+      "daily_range",
+      "sma_5",
+      "sma_20",
+      "sma_60",
+      "rolling_volatility_20",
+      "rolling_volatility_60"
+    ],
+    "global_preprocessing_dependencies": "Audit validity/date/row-selection gates as well as numeric formulas; a legal Volume count change must not change registered values or row eligibility",
+    "primary_target": "forward_return_5d",
+    "read_authoritative_code_and_protocols": true,
+    "relative_market_features": [
+      "close_to_sma_5",
+      "close_to_sma_20",
+      "close_to_sma_60"
+    ],
+    "secondary_targets": [
+      "forward_return_1d",
+      "forward_return_20d"
+    ],
+    "symbolic_dependency_evidence": "Parse existing feature/relative/target/integration/preprocessing source; record actual transformations and source/function/hash references; do not replace formulas with prompt examples",
+    "unresolved_symbolic_or_runtime_dependency": "UNKNOWN_MATERIALITY; never assume nonmaterial"
+  },
+  "stage13_immutability_rule": "Stage13 candidate/raw/formal outputs/blocked report,Stage13.1 outputs/policy/report,Recovery outputs/report stay byte-identical; no regeneration of old artifacts",
+  "stage_name": "Stage 13.2 — Prospective Canonical Market-Data Authority Resolution",
+  "stage_type": [
+    "DATA GOVERNANCE",
+    "SOURCE AUTHORITY",
+    "FIT-FOR-PURPOSE APPROVAL"
+  ],
+  "volume_future_use_revalidation_rule": {
+    "examples": [
+      "Volume",
+      "turnover",
+      "volume change",
+      "volume z-score",
+      "liquidity proxy"
+    ],
+    "volume_dependent_feature_research_requires_new_field_validation": true,
+    "volume_dependent_future_research_requires_revalidation": true,
+    "volume_field_approved_for_current_modeling": false
+  }
+}

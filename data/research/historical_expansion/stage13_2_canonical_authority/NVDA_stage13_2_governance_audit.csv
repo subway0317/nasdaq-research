@@ -1,0 +1,27 @@
+check,status,evidence_source,violations,notes
+raw_source_frozen,PASS,data/research/historical_expansion/stage13_nvda/raw,0,Original archived table and HTTP response present; no current vendor request
+raw_and_normalized_hash_identity,PASS,data/research/historical_expansion/stage13_nvda/raw/NVDA_acquisition.json,0,
+provider_identity_and_query_bounds,PASS,data/research/historical_expansion/stage13_nvda/raw/NVDA_acquisition.json,0,Research slice 2020-01-01–2026-09-30; daily bars
+original_table_normalization_exact_replay,PASS,data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_source.csv,0,
+raw_chart_source_identity_and_sessions,PASS,Stage13 frozen chart meta/timestamp,0,"Provider session date interpreted in America/New_York; timestamps are bar timestamps, not retrieval times"
+raw_chart_volume_internal_coherence,PASS,Stage13 original chart/table/normalized Volume,0,"This is internal vintage coherence, not absolute vendor truth"
+critical_OHLC_valid,PASS,data/research/historical_expansion/stage13_nvda/raw/NVDA_market.csv,0,
+Volume_legal_values,PASS,data/research/historical_expansion/stage13_nvda/raw/NVDA_market.csv,0,Volume is a validity input; current registered numerical features do not consume its count
+market_rows_ranges_unique_order,PASS,data/research/historical_expansion/stage13_nvda/raw/NVDA_market.csv,0,
+presample_maturity,PASS,data/research/historical_expansion/stage13_nvda/NVDA_stage13_protocol.json,0,2609 pre-sample sessions; all raw history retained for PIT initialization
+calendar_audit,PASS,data/research/historical_expansion/stage13_nvda/NVDA_stage13_validation.json#calendar,0,
+raw_calendar_audit,PASS,data/research/historical_expansion/stage13_nvda/NVDA_stage13_validation.json#raw_calendar,0,
+corporate_actions,PASS,data/research/historical_expansion/stage13_nvda/NVDA_stage13_validation.json#corporate_action_audit,0,Existing fixed split-adjusted OHLC coordinate retained; no dividend reapplication
+PIT_activation_presample_future_filing_amendment,PASS,data/research/historical_expansion/stage13_nvda/NVDA_stage13_validation.json#leakage_audits,0,45 prefix dates; strict next observed session; independent state/YoY; future SEC; amendment positive control
+targets_definition_and_independent_oracle,PASS,data/research/historical_expansion/stage13_nvda/NVDA_stage13_validation.json#target_oracle,0,"Observed Open[t+1] to Close[t+h], h=1/5/20; 4935 checks; 50 locked numerical rows skipped"
+Stage13_two_run_reproducibility_and_current_identity,PASS,data/research/historical_expansion/stage13_nvda/NVDA_stage13_execution_verification.json,0,20 formal artifacts + 6 frozen raw/cache; 26 current hashes verified
+research_exact_semantic_replay,PASS,data/research/historical_expansion/stage13_nvda/NVDA_stage13_research_matrix.csv,0,Original default CSV parser boundaries replayed; comparison exact after date canonicalization
+snapshots_exact_semantic_replay,PASS,data/research/historical_expansion/stage13_nvda/NVDA_stage13_fundamental_snapshots.csv,0,Original default CSV parser boundaries replayed; comparison exact after date canonicalization
+targets_exact_replay_outside_Final_Test,PASS,data/research/historical_expansion/stage13_nvda/NVDA_stage13_targets.csv,0,
+historical_acceptance_failures_preserved,PASS,data/research/historical_expansion/stage13_nvda/NVDA_stage13_validation.json,0,Original strict-overlap failure remains 5; only the separate prospective governance question is judged here
+legacy_nonidentifiability_and_historical_statuses,PASS,Preserved Stage13/13.1/Recovery summaries,0,No forensic investigation or causal closure attempted
+known_discrepancy_registry_complete,PASS,data/research/historical_expansion/stage13_nvda/NVDA_stage13_unexpected_overlap_differences.csv,0,
+code_and_authoritative_manifest_dependency_evidence,PASS,NVDA_stage13_2_dependency_code_evidence.json,0,
+upstream_immutability,PASS,NVDA_stage13_2_upstream_sha256.json,0,246 protected files
+Final_Test_locked_and_no_modeling,PASS,NVDA_stage13_2_protocol.json,0,"No predictions, metrics, fitting, training pool or Stage14 design; target numeric comparisons exclude the 50 locked rows"
+acquisition_timestamp_version_endpoint_limitation,DOCUMENTED_LIMITATION,data/research/historical_expansion/stage13_nvda/raw/NVDA_acquisition.json,0,Reliable retrieval_timestamp_utc/library_version/exact endpoint-request metadata unavailable; null in manifest. Preregistered exception conditional on preserved original payload/hash/query/exact replay/internal audit; future vintages require all metadata.

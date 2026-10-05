@@ -1,0 +1,11 @@
+{
+  "HEAD": "04e2789f781f5a9a851d7be722c2dd23b6fc4680",
+  "branch": "main",
+  "current_status_after_registration": "## main...origin/main\n?? data/research/historical_expansion/stage13_2_canonical_authority/\n",
+  "initial_diff_check_passed": true,
+  "initial_working_tree": "clean; observed before creation of protocol",
+  "log_5": "04e2789 Complete legacy evidence recovery audit\nd6c4b2c Record stage 13 history expansion and unresolved source reconciliation\nbde8ed9 Complete stage 12 post-representation signal diagnostics\ndbe6689 Complete stage 11 market representation ablation\n4b232ac Complete stage 10.1 baseline model stability diagnostics\n",
+  "origin_main": "04e2789f781f5a9a851d7be722c2dd23b6fc4680",
+  "protected_files": 246,
+  "remote": "origin\thttps://github.com/subway0317/nasdaq-research.git (fetch)\norigin\thttps://github.com/subway0317/nasdaq-research.git (push)\n"
+}

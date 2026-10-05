@@ -1,0 +1,2 @@
+ticker,date,field,direct_feature_dependency,indirect_feature_dependency,target_dependency,PIT_dependency,current_research_materiality,dependency_evidence_complete,Volume_mutation_cases_passed,OHLC_positive_controls_passed,row_eligibility_unchanged,limitations
+NVDA,2026-09-30,Volume,False,False,False,False,PROVENANCE_MATERIAL_MODEL_SEMANTIC_NONMATERIAL,True,True,True,True,Legal nonnegative finite Volume counts only; missing/negative/nonfinite Volume is a preprocessing gate. Future Volume use requires revalidation.

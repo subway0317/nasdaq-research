@@ -1,0 +1,5 @@
+date,field,old_value,new_value,market_cells_changed,market_columns_changed,relative_cells_changed,target_cells_changed_outside_lock,target_columns_changed,PIT_cells_changed,snapshot_cells_changed,row_eligibility_changes,passed,violations
+2023-06-30,open,41.68000030517578,41.99099922180176,1,intraday_return,0,4,target_entry_open|forward_return_1d|forward_return_5d|forward_return_20d,0,0,0,True,0
+2023-06-30,high,42.54999923706055,42.97549922943115,1,daily_range,0,0,,0,0,0,True,0
+2023-06-30,low,41.5009994506836,41.08598945617676,1,daily_range,0,0,,0,0,0,True,0
+2023-06-30,close,42.30199813842773,42.42599868774414,399,simple_return|log_return|intraday_return|daily_range|sma_5|sma_20|sma_60|rolling_volatility_20|rolling_volatility_60,93,6,target_exit_close_1d|forward_return_1d|target_exit_close_5d|forward_return_5d|target_exit_close_20d|forward_return_20d,0,0,0,True,0

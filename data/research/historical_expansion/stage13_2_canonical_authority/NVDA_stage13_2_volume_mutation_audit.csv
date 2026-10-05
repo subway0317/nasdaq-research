@@ -1,0 +1,12 @@
+case,date,field,mutated_rows,old_value,new_value,market_cells_changed,relative_cells_changed,target_cells_changed_outside_lock,PIT_cells_changed,snapshot_cells_changed,row_eligibility_changes,violations,passed
+primary_legacy_value,2026-09-30,volume,1,121732200.0,121269300.0,0,0,0,0,0,0,0,True
+primary_times_10,2026-09-30,volume,1,121732200.0,1217322000.0,0,0,0,0,0,0,0,True
+historical_times_10_plus_123,2010-06-30,volume,1,623072000.0,6230720123.0,0,0,0,0,0,0,0,True
+historical_times_10_plus_123,2020-06-30,volume,1,367892000.0,3678920123.0,0,0,0,0,0,0,0,True
+historical_times_10_plus_123,2021-07-20,volume,1,434687000.0,4346870123.0,0,0,0,0,0,0,0,True
+historical_times_10_plus_123,2022-06-30,volume,1,686070000.0,6860700123.0,0,0,0,0,0,0,0,True
+historical_times_10_plus_123,2023-06-30,volume,1,501148000.0,5011480123.0,0,0,0,0,0,0,0,True
+historical_times_10_plus_123,2024-06-10,volume,1,313434100.0,3134341123.0,0,0,0,0,0,0,0,True
+historical_times_10_plus_123,2025-06-30,volume,1,194580300.0,1945803123.0,0,0,0,0,0,0,0,True
+historical_times_10_plus_123,2026-06-30,volume,1,166476700.0,1664767123.0,0,0,0,0,0,0,0,True
+all_rows_times_10_plus_123,,volume,4304,,,0,0,0,0,0,0,0,True

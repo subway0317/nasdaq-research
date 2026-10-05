@@ -1,0 +1,120 @@
+{
+  "approval_scope": {
+    "fundamental_features": [
+      "q_gross_margin",
+      "q_operating_margin",
+      "q_net_margin",
+      "q_rd_to_revenue",
+      "q_sga_to_revenue",
+      "q_ocf_margin",
+      "q_fcf_margin",
+      "fy_gross_margin",
+      "fy_operating_margin",
+      "fy_net_margin",
+      "fy_rd_to_revenue",
+      "fy_sga_to_revenue",
+      "fy_ocf_margin",
+      "fy_fcf_margin",
+      "current_ratio",
+      "cash_to_assets",
+      "liabilities_to_assets",
+      "debt_to_assets",
+      "q_revenue_growth_yoy",
+      "q_gross_profit_growth_yoy",
+      "q_operating_income_growth_yoy",
+      "q_net_income_growth_yoy",
+      "q_rd_growth_yoy",
+      "q_operating_cash_flow_growth_yoy",
+      "fy_revenue_growth_yoy",
+      "fy_gross_profit_growth_yoy",
+      "fy_operating_income_growth_yoy",
+      "fy_net_income_growth_yoy",
+      "fy_rd_growth_yoy",
+      "fy_operating_cash_flow_growth_yoy"
+    ],
+    "market_features": [
+      "simple_return",
+      "log_return",
+      "intraday_return",
+      "daily_range",
+      "sma_5",
+      "sma_20",
+      "sma_60",
+      "rolling_volatility_20",
+      "rolling_volatility_60"
+    ],
+    "primary_target": "forward_return_5d",
+    "prospective_direction": [
+      "Relative Market OLS",
+      "inherited Ridge alpha=1",
+      "zero_return",
+      "historical_mean"
+    ],
+    "relative_market_features": [
+      "close_to_sma_5",
+      "close_to_sma_20",
+      "close_to_sma_60"
+    ],
+    "research_window": [
+      "2020-01-01",
+      "2026-09-30"
+    ],
+    "stage14_design_or_execution_authorized": false,
+    "targets": [
+      "forward_return_1d",
+      "forward_return_5d",
+      "forward_return_20d"
+    ],
+    "ticker": "NVDA"
+  },
+  "candidate_legacy_metadata_exception_is_not_future_permission": true,
+  "cross_vintage_diff_and_materiality_required": true,
+  "future_acquisition_steps": [
+    "Acquire into a new immutable namespace with a distinct vintage ID.",
+    "Persist original vendor response and normalized output, hashes and all required metadata.",
+    "Audit internal calendar/OHLC/corporate-action/PIT/target consistency.",
+    "Generate complete cross-vintage diffs and registered-purpose materiality classification.",
+    "Obtain a new explicit governance decision before adopting the new vintage."
+  ],
+  "future_metadata_missing_means_incomplete": true,
+  "legacy_role_if_approved": "HISTORICAL_RESEARCH_RECORD_ONLY",
+  "missing_or_hash_mismatched_canonical_source": "Fail loudly; no network fallback",
+  "new_acquisition_cannot_overwrite_any_used_vintage": true,
+  "new_acquisition_new_vintage": true,
+  "new_vintage_id_must_differ": true,
+  "new_vintage_requires_explicit_governance_decision": true,
+  "no_cell_patching": true,
+  "policy_version": "Stage13.2-v1",
+  "required_fields": [
+    "vintage_id",
+    "provider",
+    "ticker_or_universe",
+    "retrieval_timestamp_utc",
+    "query_start",
+    "query_end",
+    "interval",
+    "endpoint_request_semantics",
+    "library_name",
+    "library_version",
+    "raw_vendor_response",
+    "raw_sha256",
+    "normalized_output",
+    "normalized_sha256",
+    "adjustment_semantics",
+    "timezone_session_semantics",
+    "corporate_action_semantics"
+  ],
+  "research_mode_requires_explicit_vintage_id": true,
+  "silent_refresh_allowed": false,
+  "used_research_vintage_immutable": true,
+  "volume_dependent_feature_research_requires_new_field_validation": true,
+  "volume_dependent_future_research_requires_revalidation": true,
+  "volume_field_approved_for_current_modeling": false,
+  "volume_revalidation_examples": [
+    "Volume",
+    "turnover",
+    "volume change",
+    "volume z-score",
+    "liquidity proxy"
+  ]
+}

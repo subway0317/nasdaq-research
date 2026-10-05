@@ -1,0 +1,558 @@
+{
+  "PIT_state_columns": [
+    "fundamental_fiscal_year",
+    "fundamental_fiscal_period",
+    "fundamental_period_start",
+    "fundamental_period_end",
+    "fundamental_filing_date",
+    "fundamental_form",
+    "fundamental_data_period_type",
+    "fundamental_accession",
+    "revenue",
+    "cost_of_revenue",
+    "gross_profit",
+    "operating_income",
+    "net_income",
+    "research_and_development",
+    "selling_general_administrative",
+    "eps",
+    "cash_and_cash_equivalents",
+    "total_assets",
+    "total_liabilities",
+    "stockholders_equity",
+    "current_assets",
+    "current_liabilities",
+    "long_term_debt",
+    "operating_cash_flow",
+    "capital_expenditures",
+    "investing_cash_flow",
+    "financing_cash_flow",
+    "free_cash_flow",
+    "revenue_concept",
+    "cost_of_revenue_concept",
+    "gross_profit_concept",
+    "operating_income_concept",
+    "net_income_concept",
+    "research_and_development_concept",
+    "selling_general_administrative_concept",
+    "eps_concept",
+    "cash_and_cash_equivalents_concept",
+    "total_assets_concept",
+    "total_liabilities_concept",
+    "stockholders_equity_concept",
+    "current_assets_concept",
+    "current_liabilities_concept",
+    "long_term_debt_concept",
+    "operating_cash_flow_concept",
+    "capital_expenditures_concept",
+    "investing_cash_flow_concept",
+    "financing_cash_flow_concept",
+    "fundamental_effective_date",
+    "days_since_filing",
+    "days_since_effective_date",
+    "q_gross_margin",
+    "q_operating_margin",
+    "q_net_margin",
+    "q_rd_to_revenue",
+    "q_sga_to_revenue",
+    "q_ocf_margin",
+    "q_fcf_margin",
+    "fy_gross_margin",
+    "fy_operating_margin",
+    "fy_net_margin",
+    "fy_rd_to_revenue",
+    "fy_sga_to_revenue",
+    "fy_ocf_margin",
+    "fy_fcf_margin",
+    "current_ratio",
+    "cash_to_assets",
+    "liabilities_to_assets",
+    "debt_to_assets",
+    "q_revenue_growth_yoy",
+    "q_gross_profit_growth_yoy",
+    "q_operating_income_growth_yoy",
+    "q_net_income_growth_yoy",
+    "q_rd_growth_yoy",
+    "q_operating_cash_flow_growth_yoy",
+    "fy_revenue_growth_yoy",
+    "fy_gross_profit_growth_yoy",
+    "fy_operating_income_growth_yoy",
+    "fy_net_income_growth_yoy",
+    "fy_rd_growth_yoy",
+    "fy_operating_cash_flow_growth_yoy",
+    "yoy_comparison_status",
+    "yoy_reference_fiscal_year",
+    "yoy_reference_fiscal_period",
+    "yoy_reference_period_start",
+    "yoy_reference_period_end",
+    "yoy_reference_filing_date",
+    "yoy_reference_form",
+    "yoy_reference_data_period_type",
+    "yoy_reference_accession",
+    "q_fiscal_year",
+    "q_fiscal_period",
+    "q_period_start",
+    "q_period_end",
+    "q_filing_date",
+    "q_form",
+    "q_data_period_type",
+    "q_accession",
+    "q_effective_date",
+    "q_effective_date_is_sample_truncated",
+    "q_effective_date_basis",
+    "q_days_since_filing",
+    "q_days_since_effective_date",
+    "fy_fiscal_year",
+    "fy_fiscal_period",
+    "fy_period_start",
+    "fy_period_end",
+    "fy_filing_date",
+    "fy_form",
+    "fy_data_period_type",
+    "fy_accession",
+    "fy_effective_date",
+    "fy_effective_date_is_sample_truncated",
+    "fy_effective_date_basis",
+    "fy_days_since_filing",
+    "fy_days_since_effective_date",
+    "bs_fiscal_year",
+    "bs_fiscal_period",
+    "bs_period_start",
+    "bs_period_end",
+    "bs_filing_date",
+    "bs_form",
+    "bs_data_period_type",
+    "bs_accession",
+    "bs_effective_date",
+    "bs_effective_date_is_sample_truncated",
+    "bs_effective_date_basis",
+    "bs_days_since_filing",
+    "bs_days_since_effective_date",
+    "q_yoy_comparison_status",
+    "q_yoy_reference_fiscal_year",
+    "q_yoy_reference_fiscal_period",
+    "q_yoy_reference_period_start",
+    "q_yoy_reference_period_end",
+    "q_yoy_reference_filing_date",
+    "q_yoy_reference_form",
+    "q_yoy_reference_data_period_type",
+    "q_yoy_reference_accession",
+    "fy_yoy_comparison_status",
+    "fy_yoy_reference_fiscal_year",
+    "fy_yoy_reference_fiscal_period",
+    "fy_yoy_reference_period_start",
+    "fy_yoy_reference_period_end",
+    "fy_yoy_reference_filing_date",
+    "fy_yoy_reference_form",
+    "fy_yoy_reference_data_period_type",
+    "fy_yoy_reference_accession",
+    "bs_cash_and_cash_equivalents",
+    "bs_total_assets",
+    "bs_total_liabilities",
+    "bs_stockholders_equity",
+    "bs_current_assets",
+    "bs_current_liabilities",
+    "bs_long_term_debt",
+    "fundamental_effective_date_is_sample_truncated",
+    "fundamental_effective_date_basis"
+  ],
+  "Volume_numeric_formula_dependency": false,
+  "Volume_validation_dependency": true,
+  "authoritative_protocol": "data/research/modeling/stage11_market_representation/NVDA_stage11_protocol.json",
+  "authoritative_protocol_matches": true,
+  "authoritative_protocol_sha256": "65abcffe46ded9948d06ccd6dddfb8ead67f1ce9c6c9c55f1c0fd8db23fb2c35",
+  "complete": true,
+  "functions": [
+    {
+      "code": "def build_features(data: pd.DataFrame) -> pd.DataFrame:\n    \"\"\"Add current/past-only features, preserving OHLCV and warm-up NaNs.\"\"\"\n    _validate_input(data)\n    result = data.loc[:, REQUIRED_COLUMNS].copy()\n    close = result[\"close\"]\n    result[\"simple_return\"] = close.pct_change(fill_method=None)\n    result[\"log_return\"] = np.log(close / close.shift(1))\n    result[\"intraday_return\"] = close / result[\"open\"] - 1\n    result[\"daily_range\"] = (result[\"high\"] - result[\"low\"]) / close\n    for window in (5, 20, 60):\n        result[f\"sma_{window}\"] = close.rolling(window, min_periods=window, center=False).mean()\n    for window in (20, 60):\n        result[f\"rolling_volatility_{window}\"] = result[\"simple_return\"].rolling(\n            window, min_periods=window, center=False\n        ).std(ddof=1)\n    quality = validate_features(result)\n    if not quality[\"valid\"]:\n        raise ValueError(f\"Invalid feature data: {quality}\")\n    return result",
+      "function": "build_features",
+      "line": 45,
+      "source": "src/nasdaq_research/features.py",
+      "source_sha256": "f5ed8367e7f2360291d259d1bc4fac1eadb263522102272655c7e02cc9793f8a"
+    },
+    {
+      "code": "def _validate_input(data: pd.DataFrame) -> None:\n    \"\"\"Reject invalid history without dropping, filling, or reordering rows.\"\"\"\n    missing = set(REQUIRED_COLUMNS) - set(data.columns)\n    if missing:\n        raise ValueError(f\"Missing required columns: {sorted(missing)}\")\n    if data.empty:\n        raise ValueError(\"History is empty\")\n    dates = pd.to_datetime(data[\"date\"], errors=\"raise\")\n    if dates.isna().any() or dates.duplicated().any():\n        raise ValueError(\"Missing or duplicate dates\")\n    if not dates.is_monotonic_increasing:\n        raise ValueError(\"Dates must be in ascending order\")\n    values = data.loc[:, REQUIRED_COLUMNS[1:]]\n    if not all(pd.api.types.is_numeric_dtype(values[col]) for col in values):\n        raise ValueError(\"OHLCV fields must be numeric\")\n    if not np.isfinite(values.to_numpy(dtype=float)).all():\n        raise ValueError(\"Unexpected missing or non-finite OHLCV data\")\n    if (values.loc[:, [\"open\", \"high\", \"low\", \"close\"]] <= 0).any().any():\n        raise ValueError(\"Prices must be positive\")\n    if (values[\"volume\"] < 0).any():\n        raise ValueError(\"Volume must be nonnegative\")",
+      "function": "_validate_input",
+      "line": 22,
+      "source": "src/nasdaq_research/features.py",
+      "source_sha256": "f5ed8367e7f2360291d259d1bc4fac1eadb263522102272655c7e02cc9793f8a"
+    },
+    {
+      "code": "def validate_features(data: pd.DataFrame) -> dict[str, Any]:\n    \"\"\"Distinguish expected positional warm-up NaNs from invalid feature values.\"\"\"\n    _validate_input(data)\n    checks: dict[str, Any] = {}\n    for column, warmup in WARMUP_ROWS.items():\n        values = data[column]\n        expected = np.arange(len(data)) < warmup\n        actual = values.isna().to_numpy()\n        checks[column] = {\n            \"expected_warmup_nan\": int(expected.sum()),\n            \"actual_nan\": int(actual.sum()),\n            \"unexpected_missing\": int((actual & ~expected).sum()),\n            \"missing_warmup_nan\": int((expected & ~actual).sum()),\n            \"infinite_values\": int(np.isinf(values.to_numpy(dtype=float)).sum()),\n        }\n    return {\n        \"row_count\": len(data),\n        \"start_date\": data[\"date\"].iloc[0],\n        \"end_date\": data[\"date\"].iloc[-1],\n        \"columns\": list(data.columns),\n        \"duplicate_dates\": int(pd.to_datetime(data[\"date\"]).duplicated().sum()),\n        \"date_monotonic_increasing\": pd.to_datetime(data[\"date\"]).is_monotonic_increasing,\n        \"features\": checks,\n        \"valid\": all(not (item[\"unexpected_missing\"] or item[\"missing_warmup_nan\"]\n                          or item[\"infinite_values\"]) for item in checks.values()),\n    }",
+      "function": "validate_features",
+      "line": 66,
+      "source": "src/nasdaq_research/features.py",
+      "source_sha256": "f5ed8367e7f2360291d259d1bc4fac1eadb263522102272655c7e02cc9793f8a"
+    },
+    {
+      "code": "def construct_features(market: pd.DataFrame, facts: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:\n    \"\"\"Use trusted Stage 3/5/6.1 builders on full information history, then slice.\"\"\"\n    # Reproduce the registered Stage 3 -> Stage 5 -> Stage 6 CSV/parser\n    # boundaries. Omitting these can change exact OHLC cells by one ULP.\n    processed = pd.read_csv(StringIO(csv_text(build_features(market))))\n    research = legacy_stage5_frame(processed, facts)\n    snapshots, daily = build_feature_matrix(research, facts)\n    for k in (5,20,60):\n        daily[f'close_to_sma_{k}'] = daily.close/daily[f'sma_{k}']-1\n    return processed, snapshots, daily",
+      "function": "construct_features",
+      "line": 223,
+      "source": "src/nasdaq_research/historical_expansion.py",
+      "source_sha256": "0cbb109b635ffc3b2b3e840cc8580f112ef3cb12eaa54d67a626fe9b16ed4c38"
+    },
+    {
+      "code": "def legacy_stage5_frame(processed: pd.DataFrame, facts: pd.DataFrame) -> pd.DataFrame:\n    return pd.read_csv(StringIO(csv_text(build_research_dataset(processed, facts))))",
+      "function": "legacy_stage5_frame",
+      "line": 235,
+      "source": "src/nasdaq_research/historical_expansion.py",
+      "source_sha256": "0cbb109b635ffc3b2b3e840cc8580f112ef3cb12eaa54d67a626fe9b16ed4c38"
+    },
+    {
+      "code": "def research_slice(frame: pd.DataFrame) -> pd.DataFrame:\n    return frame.loc[frame.date.astype(str).between(RESEARCH_START,RESEARCH_END)].reset_index(drop=True)",
+      "function": "research_slice",
+      "line": 239,
+      "source": "src/nasdaq_research/historical_expansion.py",
+      "source_sha256": "0cbb109b635ffc3b2b3e840cc8580f112ef3cb12eaa54d67a626fe9b16ed4c38"
+    },
+    {
+      "code": "def build_targets(features: pd.DataFrame) -> pd.DataFrame:\n    \"\"\"Construct t+1 open to t+h close labels by position, preserving every row.\n\n    Single-ticker scope is explicit. Missing future sessions leave provenance\n    and labels empty; invalid input prices raise rather than being substituted.\n    \"\"\"\n    dates = _check_features(features)\n    sessions = dates.dt.strftime(\"%Y-%m-%d\")\n    entry = features.open.astype(float).shift(-1)\n    targets = pd.DataFrame({\"date\": sessions, \"ticker\": features.ticker.copy(),\n                            \"target_entry_date\": sessions.shift(-1), \"target_entry_open\": entry},\n                           index=features.index)\n    for horizon in HORIZONS:\n        exit_price = features.close.astype(float).shift(-horizon)\n        with np.errstate(over=\"ignore\", divide=\"ignore\", invalid=\"ignore\"):\n            returns = exit_price / entry - 1.0\n        if np.isinf(returns.to_numpy(dtype=float)).any():\n            raise ValueError(f\"Non-finite return arithmetic at horizon {horizon}; source prices are not altered\")\n        targets[f\"target_exit_date_{horizon}d\"] = sessions.shift(-horizon)\n        targets[f\"target_exit_close_{horizon}d\"] = exit_price\n        targets[f\"forward_return_{horizon}d\"] = returns\n    return targets.loc[:, TARGET_COLUMNS]",
+      "function": "build_targets",
+      "line": 87,
+      "source": "src/nasdaq_research/targets.py",
+      "source_sha256": "6b28fa5a0a0f1e3fb473650d7cdbecbbf290d09c52cd58f256ba983768ddfafd"
+    },
+    {
+      "code": "def _check_features(features: pd.DataFrame) -> pd.Series:\n    \"\"\"Require sorted, unique NVDA sessions; reject invalid input without repair.\"\"\"\n    required = {\"date\", \"ticker\", \"open\", \"close\"}\n    if features.empty or not required <= set(features):\n        raise ValueError(f\"Nonempty feature matrix requires {sorted(required)}\")\n    if features.columns.duplicated().any():\n        raise ValueError(\"Duplicate feature column names\")\n    if not features.ticker.eq(\"NVDA\").fillna(False).all():\n        raise ValueError(\"Stage 8 supports exactly ticker == NVDA; mixed tickers are rejected\")\n    dates = parse_dates(features.date)\n    if dates.duplicated().any():\n        raise ValueError(\"Duplicate ticker/trading-date observations\")\n    if not dates.is_monotonic_increasing:\n        raise ValueError(\"Trading dates must be ascending; no sorting or row removal is performed\")\n    if any(c.startswith((\"target_\", \"forward_return_\")) for c in features.columns):\n        raise ValueError(\"Source X must not contain target columns\")\n    bad = invalid_price_count(features)\n    if bad:\n        raise ValueError(f\"Invalid open/close prices in {bad} rows; finite positive numeric prices required\")\n    return dates",
+      "function": "_check_features",
+      "line": 65,
+      "source": "src/nasdaq_research/targets.py",
+      "source_sha256": "6b28fa5a0a0f1e3fb473650d7cdbecbbf290d09c52cd58f256ba983768ddfafd"
+    },
+    {
+      "code": "def invalid_price_count(features: pd.DataFrame) -> int:\n    \"\"\"Count rows violating the strict numeric, finite, positive open/close contract.\"\"\"\n    invalid = np.zeros(len(features), dtype=bool)\n    for column in (\"open\", \"close\"):\n        if column not in features:\n            return len(features)\n        values = features[column]\n        if (not pd.api.types.is_numeric_dtype(values) or pd.api.types.is_bool_dtype(values)\n                or pd.api.types.is_complex_dtype(values)):\n            invalid |= np.ones(len(features), dtype=bool)\n        else:\n            numbers = values.to_numpy(dtype=float, na_value=np.nan)\n            invalid |= ~np.isfinite(numbers) | (numbers <= 0)\n    return int(invalid.sum())",
+      "function": "invalid_price_count",
+      "line": 49,
+      "source": "src/nasdaq_research/targets.py",
+      "source_sha256": "6b28fa5a0a0f1e3fb473650d7cdbecbbf290d09c52cd58f256ba983768ddfafd"
+    },
+    {
+      "code": "def standardize_history(data: pd.DataFrame, symbol: str | None = None) -> pd.DataFrame:\n    \"\"\"Normalize historical OHLCV data to the project CSV schema.\"\"\"\n    if data.empty:\n        raise ValueError(f\"No historical data returned for {symbol or 'symbol'}\")\n\n    frame = _flatten_yfinance_columns(data)\n    frame = frame.reset_index()\n    frame.columns = [_normalize_column_name(column) for column in frame.columns]\n\n    rename_map = {\n        \"datetime\": \"date\",\n    }\n    if \"date\" not in frame.columns:\n        rename_map[\"index\"] = \"date\"\n    frame = frame.rename(columns=rename_map)\n\n    missing = [column for column in REQUIRED_COLUMNS if column not in frame.columns]\n    if missing:\n        raise ValueError(f\"Missing required columns for {symbol or 'symbol'}: {missing}\")\n\n    result = frame.loc[:, REQUIRED_COLUMNS].copy()\n    result[\"date\"] = pd.to_datetime(result[\"date\"]).dt.date\n    for column in (\"open\", \"high\", \"low\", \"close\", \"volume\"):\n        result[column] = pd.to_numeric(result[column], errors=\"coerce\")\n\n    result = result.dropna(subset=list(REQUIRED_COLUMNS))\n    result = result.drop_duplicates(subset=\"date\", keep=\"last\")\n    result = result.sort_values(\"date\").reset_index(drop=True)\n\n    if result.empty:\n        raise ValueError(f\"No valid historical rows after standardization for {symbol or 'symbol'}\")\n\n    return result",
+      "function": "standardize_history",
+      "line": 85,
+      "source": "src/nasdaq_research/data.py",
+      "source_sha256": "adaa407fa48c84de4f2afca8086ee89987ab18f2571eb398034294d515652c0b"
+    },
+    {
+      "code": "def _flatten_yfinance_columns(data: pd.DataFrame) -> pd.DataFrame:\n    \"\"\"Return a copy with yfinance MultiIndex columns reduced to field names.\"\"\"\n    frame = data.copy()\n    if not isinstance(frame.columns, pd.MultiIndex):\n        return frame\n\n    required_names = {\"open\", \"high\", \"low\", \"close\", \"volume\"}\n    for level in range(frame.columns.nlevels):\n        names = {_normalize_column_name(value) for value in frame.columns.get_level_values(level)}\n        if required_names.issubset(names):\n            frame.columns = frame.columns.get_level_values(level)\n            return frame\n\n    frame.columns = [\"_\".join(str(part) for part in column if part) for column in frame.columns]\n    return frame",
+      "function": "_flatten_yfinance_columns",
+      "line": 168,
+      "source": "src/nasdaq_research/data.py",
+      "source_sha256": "adaa407fa48c84de4f2afca8086ee89987ab18f2571eb398034294d515652c0b"
+    },
+    {
+      "code": "def _market(market: pd.DataFrame) -> pd.DataFrame:\n    result = market.copy().reset_index(drop=True)\n    if \"date\" not in result or result.empty:\n        raise ValueError(\"Nonempty market dates required\")\n    dates = parse_dates(result.date)\n    if dates.isna().any() or dates.duplicated().any() or not dates.is_monotonic_increasing:\n        raise ValueError(\"Market dates must be unique, nonmissing and ascending\")\n    if not dates.eq(dates.dt.normalize()).all() or dates.dt.tz is not None:\n        raise ValueError(\"Expected timezone-naive calendar dates\")\n    if \"ticker\" in result and not result.ticker.eq(\"NVDA\").all():\n        raise ValueError(\"Market ticker must be NVDA\")\n    result[\"ticker\"] = \"NVDA\"\n    return result",
+      "function": "_market",
+      "line": 19,
+      "source": "src/nasdaq_research/alignment.py",
+      "source_sha256": "9073c1823f4ad4b8ab5347fc100559db2f3e050fcd5c9745a4a0ada20de6d48a"
+    },
+    {
+      "code": "def effective_dates(filing_dates: pd.Series, dates: pd.Series) -> pd.Series:\n    \"\"\"First observed session strictly after each filing, with coverage censoring.\"\"\"\n    sessions = pd.DatetimeIndex(parse_dates(dates))\n    if sessions.has_duplicates or not sessions.is_monotonic_increasing:\n        raise ValueError(\"Observed sessions must be unique and ascending\")\n    positions = sessions.searchsorted(parse_dates(filing_dates), side=\"right\")\n    return pd.Series(\n        [sessions[p] if p < len(sessions) else pd.NaT for p in positions],\n        index=filing_dates.index, dtype=\"datetime64[ns]\",\n    )",
+      "function": "effective_dates",
+      "line": 34,
+      "source": "src/nasdaq_research/alignment.py",
+      "source_sha256": "9073c1823f4ad4b8ab5347fc100559db2f3e050fcd5c9745a4a0ada20de6d48a"
+    },
+    {
+      "code": "def _observations(\n    fundamentals: pd.DataFrame, dates: pd.Series, *, allow_empty: bool = False,\n) -> pd.DataFrame:\n    fundamentals = normalize_fundamental_dates(fundamentals)\n    quality = validate_fundamentals(fundamentals)\n    if not quality[\"valid\"] and not (allow_empty and quality[\"errors\"] == [\"No observations\"]):\n        raise ValueError(f\"Invalid fundamentals: {quality['errors']}\")\n    internal = {\"_filed\", \"_period_start\", \"_period_end\", \"_quarter\", \"_amended\"}\n    reserved = internal | {\"effective_date\"}\n    if reserved & set(fundamentals):\n        raise ValueError(f\"Reserved fundamental columns: {sorted(reserved & set(fundamentals))}\")\n    selected = fundamentals[fundamentals.data_period_type.isin([\"quarterly\", \"annual\"])].copy()\n    selected[\"_filed\"] = parse_dates(selected.filing_date)\n    selected[\"_period_start\"] = parse_dates(selected.period_start)\n    selected[\"_period_end\"] = parse_dates(selected.period_end)\n    # No guessed weekday calendar: right insertion excludes the filing day,\n    # including weekends/holidays. Dates outside coverage are range-censored.\n    selected[\"effective_date\"] = effective_dates(selected._filed, dates)\n    selected = selected[selected.effective_date.notna()].copy()\n    selected[\"_quarter\"] = selected.data_period_type.eq(\"quarterly\").astype(int)\n    selected[\"_amended\"] = selected.form.str.endswith(\"/A\").astype(int)\n    # At a common effective date: latest filing, latest reported period, standalone\n    # quarter, amendment, latest start, then lexical accession. Never combine rows.\n    selected = selected.sort_values([\n        \"effective_date\", \"_filed\", \"_period_end\", \"_quarter\", \"_amended\",\n        \"_period_start\", \"accession\",\n    ], kind=\"stable\").drop_duplicates(\"effective_date\", keep=\"last\")\n    selected = selected.drop(columns=[\"ticker\", *sorted(internal)])\n    rename = {c: f\"fundamental_{c}\" for c in (*METADATA_COLUMNS, \"effective_date\") if c != \"ticker\"}\n    return selected.rename(columns=rename).reset_index(drop=True)",
+      "function": "_observations",
+      "line": 46,
+      "source": "src/nasdaq_research/alignment.py",
+      "source_sha256": "9073c1823f4ad4b8ab5347fc100559db2f3e050fcd5c9745a4a0ada20de6d48a"
+    },
+    {
+      "code": "def _join(market: pd.DataFrame, observations: pd.DataFrame) -> pd.DataFrame:\n    overlap = set(market) & (set(observations) | set(AGE_COLUMNS))\n    if overlap:\n        raise ValueError(f\"Market/fundamental column collision: {sorted(overlap)}\")\n    left = market.copy()\n    key = \"_trading_date\"\n    while key in set(left) | set(observations):\n        key = \"_\" + key\n    left[key] = parse_dates(left.date)\n    result = pd.merge_asof(\n        left, observations, left_on=key, right_on=\"fundamental_effective_date\",\n        direction=\"backward\", allow_exact_matches=True,\n    )\n    for target, source in zip(AGE_COLUMNS, (\"fundamental_filing_date\", \"fundamental_effective_date\")):\n        result[target] = (result[key] - parse_dates(result[source], allow_missing=True)).dt.days.astype(\"Int64\")\n    result = result.drop(columns=key)\n    # Independent of the fundamental selection: no user market field may vanish,\n    # move or change. This also protects all dynamically chosen temporary names.\n    assert_values_equal(result.loc[:, market.columns], market)\n    return result",
+      "function": "_join",
+      "line": 78,
+      "source": "src/nasdaq_research/alignment.py",
+      "source_sha256": "9073c1823f4ad4b8ab5347fc100559db2f3e050fcd5c9745a4a0ada20de6d48a"
+    },
+    {
+      "code": "def build_research_dataset(\n    market: pd.DataFrame, fundamentals: pd.DataFrame, *, allow_empty: bool = False,\n) -> pd.DataFrame:\n    \"\"\"Keep every market row and attach the latest whole eligible observation.\n\n    effective_date is the first *observed* market session strictly after filing;\n    pre-window filings are left-censored to the first session in this dataset.\n    \"\"\"\n    checked = _market(market)\n    return _join(checked, _observations(fundamentals, parse_dates(checked.date), allow_empty=allow_empty))",
+      "function": "build_research_dataset",
+      "line": 100,
+      "source": "src/nasdaq_research/alignment.py",
+      "source_sha256": "9073c1823f4ad4b8ab5347fc100559db2f3e050fcd5c9745a4a0ada20de6d48a"
+    },
+    {
+      "code": "def build_fundamental_features(fundamentals: pd.DataFrame) -> pd.DataFrame:\n    \"\"\"Compute frozen snapshots at each filing; no daily pct_change or YTD flows.\"\"\"\n    fundamentals = normalize_fundamental_dates(fundamentals)\n    quality = validate_fundamentals(fundamentals)\n    if not quality[\"valid\"]:\n        raise ValueError(f\"Invalid fundamentals: {quality['errors']}\")\n    reserved = set(PAYLOAD_COLUMNS) | {\"effective_date\", \"selected_for_daily\", \"selected_for_stage5\",\n                \"selected_for_q\", \"selected_for_fy\", \"selected_for_bs\",\n                \"effective_date_basis\", \"effective_date_is_sample_truncated\"}\n    if reserved & set(fundamentals):\n        raise ValueError(\"Fundamentals already contain Stage 6 reserved columns\")\n    eligible = fundamentals[fundamentals.data_period_type.isin([\"quarterly\", \"annual\"])].copy()\n    # All sorting, cutoff and period comparisons operate on typed dates. The\n    # canonical strings above are only the boundary of the Stage 4 validator.\n    for column in FUNDAMENTAL_DATE_COLUMNS:\n        eligible[column] = parse_dates(eligible[column])\n    eligible = eligible.sort_values([\n        \"filing_date\", \"period_end\", \"period_start\", \"accession\", \"data_period_type\",\n    ], kind=\"stable\").reset_index(drop=True)\n    computed = []\n    for _, row in eligible.iterrows():\n        values: dict[str, Any] = {c: np.nan for c in FEATURE_COLUMNS}\n        prefix = \"q\" if row.data_period_type == \"quarterly\" else \"fy\"\n        for name, numerator in RATIO_FIELDS.items():\n            values[f\"{prefix}_{name}\"] = _divide(row[numerator], row.revenue)\n        for name, (numerator, denominator) in BALANCE_RATIOS.items():\n            values[name] = _divide(row[numerator], row[denominator])\n        known = eligible[eligible.filing_date.le(row.filing_date)]\n        reference, status = _reference(row, known)\n        values[\"yoy_comparison_status\"] = status\n        values.update({c: None for c in REFERENCE_COLUMNS})\n        if reference is not None:\n            if reference.filing_date > row.filing_date:\n                raise ValueError(\"Historical reference filing is later than current filing\")\n            values.update({f\"yoy_reference_{c}\": reference[c] for c in REFERENCE_FIELDS})\n            for name, field in GROWTH_FIELDS.items():\n                values[f\"{prefix}_{name}_growth_yoy\"] = _divide(row[field], reference[field], growth=True)\n        computed.append(values)\n    derived = pd.DataFrame(computed, columns=SNAPSHOT_PAYLOAD_COLUMNS)\n    derived = derived.astype({c: float for c in FEATURE_COLUMNS})\n    result = pd.concat([eligible, derived], axis=1)\n    for column in date_columns(result.columns):\n        result[column] = canonical_dates(result[column], allow_missing=True)\n    return result",
+      "function": "build_fundamental_features",
+      "line": 108,
+      "source": "src/nasdaq_research/research_features.py",
+      "source_sha256": "aff68e01b3cefd6b19b2abf4e7a772b65273645ca7ff3ab767ee75fa5a643117"
+    },
+    {
+      "code": "def _reference(row: pd.Series, known: pd.DataFrame) -> tuple[pd.Series | None, str]:\n    \"\"\"Resolve a whole prior-year observation using only this filing's vintage.\"\"\"\n    same_basis = known[known.data_period_type.eq(row.data_period_type)\n                       & known.fiscal_period.eq(row.fiscal_period)]\n    current_key = same_basis[same_basis.fiscal_year.eq(row.fiscal_year)]\n    if len(current_key.drop_duplicates([\"period_start\", \"period_end\"])) > 1:\n        return None, \"ambiguous_current_period\"\n    previous = same_basis[same_basis.fiscal_year.eq(int(row.fiscal_year) - 1)]\n    if previous.empty:\n        return None, \"missing_previous_period\"\n    if len(previous.drop_duplicates([\"period_start\", \"period_end\"])) > 1:\n        return None, \"ambiguous_previous_period\"\n    previous = previous.assign(_amended=previous.form.str.endswith(\"/A\").astype(int))\n    reference = previous.sort_values([\n        \"filing_date\", \"period_end\", \"_amended\", \"period_start\", \"accession\",\n    ], kind=\"stable\").iloc[-1]\n    # Fiscal labels alone can be wrong in archived Company Facts. Allow 52/53-week\n    # years, but reject adjacent quarters or skipped years carrying matching labels.\n    gaps = [(pd.Timestamp(row[c]) - pd.Timestamp(reference[c])).days\n            for c in (\"period_start\", \"period_end\")]\n    if not all(330 <= gap <= 400 for gap in gaps) or reference.period_end >= row.period_start:\n        return None, \"noncomparable_period_dates\"\n    return reference, \"available\"",
+      "function": "_reference",
+      "line": 83,
+      "source": "src/nasdaq_research/research_features.py",
+      "source_sha256": "aff68e01b3cefd6b19b2abf4e7a772b65273645ca7ff3ab767ee75fa5a643117"
+    },
+    {
+      "code": "def _divide(numerator: float, denominator: float, *, growth: bool = False) -> float:\n    \"\"\"Require a positive denominator; missing/overflow stays missing.\"\"\"\n    if pd.isna(numerator) or pd.isna(denominator) or denominator <= 0:\n        return np.nan\n    with np.errstate(over=\"ignore\", divide=\"ignore\", invalid=\"ignore\"):\n        value = np.divide(float(numerator), float(denominator)) - int(growth)\n    return float(value) if np.isfinite(value) else np.nan",
+      "function": "_divide",
+      "line": 74,
+      "source": "src/nasdaq_research/research_features.py",
+      "source_sha256": "aff68e01b3cefd6b19b2abf4e7a772b65273645ca7ff3ab767ee75fa5a643117"
+    },
+    {
+      "code": "def _market_from_research(research: pd.DataFrame, fundamentals: pd.DataFrame) -> pd.DataFrame:\n    missing = set(PROCESSED_COLUMNS) - set(research)\n    if missing:\n        raise ValueError(f\"Missing Stage 3 columns: {sorted(missing)}\")\n    if set(PAYLOAD_COLUMNS) & set(research):\n        raise ValueError(\"Research input already contains Stage 6 columns\")\n    if not validate_features(research.assign(date=parse_dates(research.date).dt.date))[\"valid\"]:\n        raise ValueError(\"Stage 3 market feature validation failed\")\n    fundamental_columns = {\n        f\"fundamental_{c}\" if c in METADATA_COLUMNS else c\n        for c in fundamentals if c != \"ticker\"\n    } | {\"fundamental_effective_date\", *AGE_COLUMNS}\n    market = research.drop(columns=list(fundamental_columns & set(research))).copy()\n    quality = validate_research_dataset(_canonical_research(research), market, fundamentals)\n    if not quality[\"valid\"]:\n        raise ValueError(f\"Stage 5 source alignment failed: {quality['errors']}\")\n    return market",
+      "function": "_market_from_research",
+      "line": 171,
+      "source": "src/nasdaq_research/research_features.py",
+      "source_sha256": "aff68e01b3cefd6b19b2abf4e7a772b65273645ca7ff3ab767ee75fa5a643117"
+    },
+    {
+      "code": "def build_feature_matrix(\n    research: pd.DataFrame, fundamentals: pd.DataFrame,\n) -> tuple[pd.DataFrame, pd.DataFrame]:\n    \"\"\"Return all eligible historical snapshots and the augmented Stage 5 matrix.\"\"\"\n    fundamentals = normalize_fundamental_dates(fundamentals)\n    snapshots = build_fundamental_features(fundamentals)\n    market = _market_from_research(research, fundamentals)\n    # Keep YTD rows in the enriched input solely for the existing Stage 5 selector\n    # to exclude them. This also supports all-YTD/no-effective-filing inputs.\n    enriched = fundamentals.merge(\n        snapshots.loc[:, [*KEY_COLUMNS, *SNAPSHOT_PAYLOAD_COLUMNS]],\n        on=list(KEY_COLUMNS), how=\"left\", validate=\"one_to_one\",\n    )\n    aligned = build_research_dataset(market, enriched)\n    daily = research.copy().reset_index(drop=True)\n    payload = {c: aligned[c] for c in PROVENANCE_COLUMNS}\n    snapshots[\"effective_date\"] = effective_dates(snapshots.filing_date, parse_dates(research.date))\n    truncated, basis = _effective_semantics(snapshots.filing_date, snapshots.effective_date, research.date)\n    snapshots[\"effective_date_is_sample_truncated\"] = truncated\n    snapshots[\"effective_date_basis\"] = basis\n    snapshots[\"selected_for_stage5\"] = _selected(snapshots, aligned)\n    masks = {\n        \"q\": enriched.data_period_type.eq(\"quarterly\"),\n        \"fy\": enriched.data_period_type.eq(\"annual\"),\n        # Available means at least one BS source field is present. Select this\n        # complete observation even when some ratios/metrics are missing.\n        \"bs\": enriched.data_period_type.isin([\"quarterly\", \"annual\"])\n              & enriched.loc[:, BALANCE_FIELDS].notna().any(axis=1),\n    }\n    groups = {\"q\": (*QUARTERLY_RATIO_FEATURES, *QUARTERLY_GROWTH_FEATURES),\n              \"fy\": (*ANNUAL_RATIO_FEATURES, *ANNUAL_GROWTH_FEATURES), \"bs\": tuple(BALANCE_RATIOS)}\n    for prefix, mask in masks.items():\n        state = build_research_dataset(market, enriched.loc[mask], allow_empty=True)\n        for c in groups[prefix]:\n            payload[c] = state[c]\n        for c in REFERENCE_FIELDS:\n            payload[f\"{prefix}_{c}\"] = state[f\"fundamental_{c}\"]\n        payload[f\"{prefix}_effective_date\"] = state.fundamental_effective_date\n        flags, labels = _effective_semantics(state.fundamental_filing_date, state.fundamental_effective_date, research.date)\n        payload[f\"{prefix}_effective_date_is_sample_truncated\"] = flags\n        payload[f\"{prefix}_effective_date_basis\"] = labels\n        for c in AGE_COLUMNS:\n            payload[f\"{prefix}_{c}\"] = state[c]\n        if prefix in (\"q\", \"fy\"):\n            for c in PROVENANCE_COLUMNS:\n                payload[f\"{prefix}_{c}\"] = state[c]\n        else:\n            for c in BALANCE_FIELDS:\n                payload[f\"bs_{c}\"] = state[c]\n        snapshots[f\"selected_for_{prefix}\"] = _selected(snapshots, state)\n    payload[GLOBAL_EFFECTIVE_COLUMNS[0]], payload[GLOBAL_EFFECTIVE_COLUMNS[1]] = _effective_semantics(\n        aligned.fundamental_filing_date, aligned.fundamental_effective_date, research.date)\n    daily = pd.concat([daily, pd.DataFrame(payload).loc[:, PAYLOAD_COLUMNS]], axis=1)\n    snapshots[\"selected_for_daily\"] = snapshots[[\"selected_for_q\", \"selected_for_fy\", \"selected_for_bs\"]].any(axis=1)\n    return snapshots, daily",
+      "function": "build_feature_matrix",
+      "line": 190,
+      "source": "src/nasdaq_research/research_features.py",
+      "source_sha256": "aff68e01b3cefd6b19b2abf4e7a772b65273645ca7ff3ab767ee75fa5a643117"
+    },
+    {
+      "code": "def _effective_semantics(filed, effective, market_dates):\n    filed = parse_dates(filed, allow_missing=True)\n    effective = parse_dates(effective, allow_missing=True)\n    flags = (filed < parse_dates(market_dates).iloc[0]).astype(\"boolean\")\n    flags[filed.isna()] = pd.NA\n    labels = pd.Series(\"observed_next_session\", index=filed.index, dtype=object)\n    labels[flags.fillna(False)] = \"sample_start_truncated\"\n    labels[effective.isna()] = \"no_observed_next_session\"\n    labels[filed.isna()] = None\n    return flags, labels",
+      "function": "_effective_semantics",
+      "line": 252,
+      "source": "src/nasdaq_research/research_features.py",
+      "source_sha256": "aff68e01b3cefd6b19b2abf4e7a772b65273645ca7ff3ab767ee75fa5a643117"
+    }
+  ],
+  "fundamental_constant_maps": {
+    "BALANCE_RATIOS": {
+      "cash_to_assets": [
+        "cash_and_cash_equivalents",
+        "total_assets"
+      ],
+      "current_ratio": [
+        "current_assets",
+        "current_liabilities"
+      ],
+      "debt_to_assets": [
+        "long_term_debt",
+        "total_assets"
+      ],
+      "liabilities_to_assets": [
+        "total_liabilities",
+        "total_assets"
+      ]
+    },
+    "GROWTH_FIELDS": {
+      "gross_profit": "gross_profit",
+      "net_income": "net_income",
+      "operating_cash_flow": "operating_cash_flow",
+      "operating_income": "operating_income",
+      "rd": "research_and_development",
+      "revenue": "revenue"
+    },
+    "RATIO_FIELDS": {
+      "fcf_margin": "free_cash_flow",
+      "gross_margin": "gross_profit",
+      "net_margin": "net_income",
+      "ocf_margin": "operating_cash_flow",
+      "operating_margin": "operating_income",
+      "rd_to_revenue": "research_and_development",
+      "sga_to_revenue": "selling_general_administrative"
+    }
+  },
+  "market_graph": {
+    "close_to_sma_20": {
+      "expression": "daily.close / daily[f'sma_{k}'] - 1",
+      "line": 231,
+      "raw_fields": [
+        "close"
+      ],
+      "terms": [
+        "close",
+        "sma_20"
+      ]
+    },
+    "close_to_sma_5": {
+      "expression": "daily.close / daily[f'sma_{k}'] - 1",
+      "line": 231,
+      "raw_fields": [
+        "close"
+      ],
+      "terms": [
+        "close",
+        "sma_5"
+      ]
+    },
+    "close_to_sma_60": {
+      "expression": "daily.close / daily[f'sma_{k}'] - 1",
+      "line": 231,
+      "raw_fields": [
+        "close"
+      ],
+      "terms": [
+        "close",
+        "sma_60"
+      ]
+    },
+    "daily_range": {
+      "expression": "(result['high'] - result['low']) / close",
+      "line": 53,
+      "raw_fields": [
+        "close",
+        "high",
+        "low"
+      ],
+      "terms": [
+        "close",
+        "high",
+        "low"
+      ]
+    },
+    "intraday_return": {
+      "expression": "close / result['open'] - 1",
+      "line": 52,
+      "raw_fields": [
+        "close",
+        "open"
+      ],
+      "terms": [
+        "close",
+        "open"
+      ]
+    },
+    "log_return": {
+      "expression": "np.log(close / close.shift(1))",
+      "line": 51,
+      "raw_fields": [
+        "close"
+      ],
+      "terms": [
+        "close"
+      ]
+    },
+    "rolling_volatility_20": {
+      "expression": "result['simple_return'].rolling(window, min_periods=window, center=False).std(ddof=1)",
+      "line": 57,
+      "raw_fields": [
+        "close"
+      ],
+      "terms": [
+        "simple_return"
+      ]
+    },
+    "rolling_volatility_60": {
+      "expression": "result['simple_return'].rolling(window, min_periods=window, center=False).std(ddof=1)",
+      "line": 57,
+      "raw_fields": [
+        "close"
+      ],
+      "terms": [
+        "simple_return"
+      ]
+    },
+    "simple_return": {
+      "expression": "close.pct_change(fill_method=None)",
+      "line": 50,
+      "raw_fields": [
+        "close"
+      ],
+      "terms": [
+        "close"
+      ]
+    },
+    "sma_20": {
+      "expression": "close.rolling(window, min_periods=window, center=False).mean()",
+      "line": 55,
+      "raw_fields": [
+        "close"
+      ],
+      "terms": [
+        "close"
+      ]
+    },
+    "sma_5": {
+      "expression": "close.rolling(window, min_periods=window, center=False).mean()",
+      "line": 55,
+      "raw_fields": [
+        "close"
+      ],
+      "terms": [
+        "close"
+      ]
+    },
+    "sma_60": {
+      "expression": "close.rolling(window, min_periods=window, center=False).mean()",
+      "line": 55,
+      "raw_fields": [
+        "close"
+      ],
+      "terms": [
+        "close"
+      ]
+    }
+  },
+  "proof_boundary": "Registered source hashes + extracted formulas/constants + all-state isolated replay. Unsupported source changes invalidate the audit; this is not a general-purpose whole-program proof.",
+  "target_graph": {
+    "forward_return_1d": {
+      "expression": "returns",
+      "line": 107,
+      "raw_fields": [
+        "close",
+        "open"
+      ],
+      "terms": [
+        "close",
+        "open"
+      ]
+    },
+    "forward_return_20d": {
+      "expression": "returns",
+      "line": 107,
+      "raw_fields": [
+        "close",
+        "open"
+      ],
+      "terms": [
+        "close",
+        "open"
+      ]
+    },
+    "forward_return_5d": {
+      "expression": "returns",
+      "line": 107,
+      "raw_fields": [
+        "close",
+        "open"
+      ],
+      "terms": [
+        "close",
+        "open"
+      ]
+    },
+    "target_exit_close_1d": {
+      "expression": "exit_price",
+      "line": 106,
+      "raw_fields": [
+        "close"
+      ],
+      "terms": [
+        "close"
+      ]
+    },
+    "target_exit_close_20d": {
+      "expression": "exit_price",
+      "line": 106,
+      "raw_fields": [
+        "close"
+      ],
+      "terms": [
+        "close"
+      ]
+    },
+    "target_exit_close_5d": {
+      "expression": "exit_price",
+      "line": 106,
+      "raw_fields": [
+        "close"
+      ],
+      "terms": [
+        "close"
+      ]
+    }
+  }
+}
