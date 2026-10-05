@@ -1,0 +1,74 @@
+[
+  {
+    "name_status_history": "88beb88069f02fdd69b51cf0ded70bd932483d43\n\nA\tdata/raw/.gitkeep\n2e60b80ce08705a32448990a844ea085521864b3\n\nA\tdata/raw/.gitkeep\nb9428c8ab8e76dde9b164dea2d6a454b107ab6f7\n\nA\tdata/raw/.gitkeep\n4de35de6cf800a928500ce9e250e78f103902847\n\nA\tdata/raw/.gitkeep\n",
+    "path": "data/raw/.gitkeep"
+  },
+  {
+    "name_status_history": "0defce526bf2f59a070b6614fb854040ff3b5afa\n\nA\tdata/research/NVDA_feature_validation.json\n",
+    "path": "data/research/NVDA_feature_validation.json"
+  },
+  {
+    "name_status_history": "0defce526bf2f59a070b6614fb854040ff3b5afa\n\nA\tdata/research/NVDA_features.csv\n",
+    "path": "data/research/NVDA_features.csv"
+  },
+  {
+    "name_status_history": "0defce526bf2f59a070b6614fb854040ff3b5afa\n\nA\tdata/research/NVDA_fundamental_features.csv\n",
+    "path": "data/research/NVDA_fundamental_features.csv"
+  },
+  {
+    "name_status_history": "8823ec5334373cda2bf8cc234a4bae2980e717ea\n\nA\tdata/research/NVDA_labeled.csv\n",
+    "path": "data/research/NVDA_labeled.csv"
+  },
+  {
+    "name_status_history": "c9094bfe99641e3b2fa121d1f6f7c8287748ddc7\n\nA\tdata/research/NVDA_research.csv\n",
+    "path": "data/research/NVDA_research.csv"
+  },
+  {
+    "name_status_history": "c9094bfe99641e3b2fa121d1f6f7c8287748ddc7\n\nA\tdata/research/NVDA_validation.json\n",
+    "path": "data/research/NVDA_validation.json"
+  },
+  {
+    "name_status_history": "0bbf7e79575748a1e80b59ffcf86314888177280\n\nA\tdata/research/splits/NVDA_cv_folds.csv\n",
+    "path": "data/research/splits/NVDA_cv_folds.csv"
+  },
+  {
+    "name_status_history": "0bbf7e79575748a1e80b59ffcf86314888177280\n\nA\tdata/research/splits/NVDA_evaluation_protocol.json\n",
+    "path": "data/research/splits/NVDA_evaluation_protocol.json"
+  },
+  {
+    "name_status_history": "0bbf7e79575748a1e80b59ffcf86314888177280\n\nA\tdata/research/splits/NVDA_final_training_pool.csv\n",
+    "path": "data/research/splits/NVDA_final_training_pool.csv"
+  },
+  {
+    "name_status_history": "0bbf7e79575748a1e80b59ffcf86314888177280\n\nA\tdata/research/splits/NVDA_split_manifest.csv\n",
+    "path": "data/research/splits/NVDA_split_manifest.csv"
+  },
+  {
+    "name_status_history": "0bbf7e79575748a1e80b59ffcf86314888177280\n\nA\tdata/research/splits/NVDA_split_summary.csv\n",
+    "path": "data/research/splits/NVDA_split_summary.csv"
+  },
+  {
+    "name_status_history": "0bbf7e79575748a1e80b59ffcf86314888177280\n\nA\tdata/research/splits/NVDA_split_validation.json\n",
+    "path": "data/research/splits/NVDA_split_validation.json"
+  },
+  {
+    "name_status_history": "8823ec5334373cda2bf8cc234a4bae2980e717ea\n\nA\tdata/research/targets/NVDA_target_validation.json\n",
+    "path": "data/research/targets/NVDA_target_validation.json"
+  },
+  {
+    "name_status_history": "8823ec5334373cda2bf8cc234a4bae2980e717ea\n\nA\tdata/research/targets/NVDA_targets.csv\n",
+    "path": "data/research/targets/NVDA_targets.csv"
+  },
+  {
+    "name_status_history": "80a3e3c50260188e47f70087dc8585bd63b4a406\n\nA\tsrc/nasdaq_research/download.py\n88beb88069f02fdd69b51cf0ded70bd932483d43\n\nA\tsrc/nasdaq_research/download.py\n2e60b80ce08705a32448990a844ea085521864b3\n\nA\tsrc/nasdaq_research/download.py\n72e2f6a7c2d63c82d5ec7552a3036a4a20af2a3c\n\nA\tsrc/nasdaq_research/download.py\n",
+    "path": "src/nasdaq_research/download.py"
+  },
+  {
+    "name_status_history": "dbe66890c9b6b3b6799b62359370ce561be97280\n\nA\tsrc/nasdaq_research/market_representation.py\n",
+    "path": "src/nasdaq_research/market_representation.py"
+  },
+  {
+    "name_status_history": "dbe66890c9b6b3b6799b62359370ce561be97280\n\nA\ttests/test_market_representation.py\n",
+    "path": "tests/test_market_representation.py"
+  }
+]

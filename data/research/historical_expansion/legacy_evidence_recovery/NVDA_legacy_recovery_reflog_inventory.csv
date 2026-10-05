@@ -1,0 +1,38 @@
+entry_index,commit_sha,selector_with_recorded_time,message,time_evidence_role,reachable_from_refs
+0,d6c4b2ce51dd3a38e4fc4847c8a7c1d1ac870fbd,refs/remotes/origin/main@{2026-10-05 11:35:07 -0400},update by push,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+1,d6c4b2ce51dd3a38e4fc4847c8a7c1d1ac870fbd,refs/heads/main@{2026-10-05 11:34:59 -0400},commit: Record stage 13 history expansion and unresolved source reconciliation,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+2,d6c4b2ce51dd3a38e4fc4847c8a7c1d1ac870fbd,HEAD@{2026-10-05 11:34:59 -0400},commit: Record stage 13 history expansion and unresolved source reconciliation,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+3,bde8ed98c34c7a3acb4b8911ae629cdbd99e363f,refs/remotes/origin/main@{2026-10-05 05:01:23 -0400},update by push,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+4,bde8ed98c34c7a3acb4b8911ae629cdbd99e363f,refs/heads/main@{2026-10-05 05:01:15 -0400},commit: Complete stage 12 post-representation signal diagnostics,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+5,bde8ed98c34c7a3acb4b8911ae629cdbd99e363f,HEAD@{2026-10-05 05:01:15 -0400},commit: Complete stage 12 post-representation signal diagnostics,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+6,dbe66890c9b6b3b6799b62359370ce561be97280,refs/remotes/origin/main@{2026-10-05 04:00:59 -0400},update by push,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+7,dbe66890c9b6b3b6799b62359370ce561be97280,refs/heads/main@{2026-10-05 04:00:58 -0400},commit: Complete stage 11 market representation ablation,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+8,dbe66890c9b6b3b6799b62359370ce561be97280,HEAD@{2026-10-05 04:00:58 -0400},commit: Complete stage 11 market representation ablation,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+9,4b232ac24996a72b31ed97970189f038158db567,refs/remotes/origin/main@{2026-10-04 12:16:42 -0400},update by push,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+10,4b232ac24996a72b31ed97970189f038158db567,refs/heads/main@{2026-10-04 12:16:35 -0400},commit: Complete stage 10.1 baseline model stability diagnostics,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+11,4b232ac24996a72b31ed97970189f038158db567,HEAD@{2026-10-04 12:16:35 -0400},commit: Complete stage 10.1 baseline model stability diagnostics,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+12,55250be6c6e0287eb7bd74723a6fcbdf61dd5e72,refs/remotes/origin/main@{2026-10-04 11:21:10 -0400},update by push,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+13,55250be6c6e0287eb7bd74723a6fcbdf61dd5e72,refs/heads/main@{2026-10-04 11:21:06 -0400},commit: Complete stage 10 leakage-safe baseline modeling,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+14,55250be6c6e0287eb7bd74723a6fcbdf61dd5e72,HEAD@{2026-10-04 11:21:06 -0400},commit: Complete stage 10 leakage-safe baseline modeling,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+15,0bbf7e79575748a1e80b59ffcf86314888177280,refs/remotes/origin/main@{2026-10-04 10:10:19 -0400},update by push,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+16,0bbf7e79575748a1e80b59ffcf86314888177280,refs/heads/main@{2026-10-04 10:10:12 -0400},commit: Complete stage 9 leakage-safe temporal splitting and boundary hardening,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+17,0bbf7e79575748a1e80b59ffcf86314888177280,HEAD@{2026-10-04 10:10:12 -0400},commit: Complete stage 9 leakage-safe temporal splitting and boundary hardening,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+18,8823ec5334373cda2bf8cc234a4bae2980e717ea,refs/remotes/origin/main@{2026-10-04 08:51:12 -0400},update by push,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+19,8823ec5334373cda2bf8cc234a4bae2980e717ea,refs/heads/main@{2026-10-04 08:51:05 -0400},commit: Complete stage 8 target definition and label engineering,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+20,8823ec5334373cda2bf8cc234a4bae2980e717ea,HEAD@{2026-10-04 08:51:05 -0400},commit: Complete stage 8 target definition and label engineering,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+21,b12799680465fa0b62e8b8e4d92706ad0798c32b,refs/remotes/origin/main@{2026-10-04 08:18:46 -0400},update by push,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+22,b12799680465fa0b62e8b8e4d92706ad0798c32b,refs/heads/main@{2026-10-04 08:18:41 -0400},commit: Complete stage 7 feature diagnostics and exploratory analysis,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+23,b12799680465fa0b62e8b8e4d92706ad0798c32b,HEAD@{2026-10-04 08:18:41 -0400},commit: Complete stage 7 feature diagnostics and exploratory analysis,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+24,0defce526bf2f59a070b6614fb854040ff3b5afa,refs/remotes/origin/main@{2026-10-02 01:41:19 -0400},update by push,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+25,0defce526bf2f59a070b6614fb854040ff3b5afa,refs/heads/main@{2026-10-02 01:41:09 -0400},commit: Complete stage 6 research feature engineering and audit fixes,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+26,0defce526bf2f59a070b6614fb854040ff3b5afa,HEAD@{2026-10-02 01:41:09 -0400},commit: Complete stage 6 research feature engineering and audit fixes,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+27,c9094bfe99641e3b2fa121d1f6f7c8287748ddc7,refs/remotes/origin/main@{2026-10-01 23:26:16 -0400},update by push,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+28,c9094bfe99641e3b2fa121d1f6f7c8287748ddc7,refs/heads/main@{2026-10-01 23:26:12 -0400},commit: Complete stage 5 point-in-time data integration,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+29,c9094bfe99641e3b2fa121d1f6f7c8287748ddc7,HEAD@{2026-10-01 23:26:12 -0400},commit: Complete stage 5 point-in-time data integration,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+30,8084b014b63b6c4567aabcac9fedce812d27ce8c,refs/remotes/origin/main@{2026-10-01 02:50:56 -0400},update by push,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+31,8084b014b63b6c4567aabcac9fedce812d27ce8c,refs/heads/main@{2026-10-01 02:48:05 -0400},commit: Complete stages 3 and 4 feature and fundamentals pipelines,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+32,8084b014b63b6c4567aabcac9fedce812d27ce8c,HEAD@{2026-10-01 02:48:05 -0400},commit: Complete stages 3 and 4 feature and fundamentals pipelines,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+33,80a3e3c50260188e47f70087dc8585bd63b4a406,refs/heads/main@{2026-10-01 02:20:38 -0400},commit: Add historical market data pipeline,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+34,80a3e3c50260188e47f70087dc8585bd63b4a406,HEAD@{2026-10-01 02:20:38 -0400},commit: Add historical market data pipeline,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+35,b9428c8ab8e76dde9b164dea2d6a454b107ab6f7,refs/heads/main@{2026-10-01 01:31:20 -0400},commit (initial): Initialize project skeleton,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True
+36,b9428c8ab8e76dde9b164dea2d6a454b107ab6f7,HEAD@{2026-10-01 01:31:20 -0400},commit (initial): Initialize project skeleton,REF_MOVEMENT_ONLY_NOT_ACQUISITION_TIME,True

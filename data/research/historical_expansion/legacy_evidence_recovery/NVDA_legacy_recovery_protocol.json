@@ -1,0 +1,145 @@
+{
+  "allowed_completion_classifications": [
+    "LEGACY_EVIDENCE_RECOVERED",
+    "LEGACY_EVIDENCE_NOT_RECOVERABLE"
+  ],
+  "allowed_git_commands": [
+    "status",
+    "log",
+    "show",
+    "rev-list",
+    "ls-tree",
+    "cat-file",
+    "reflog",
+    "fsck",
+    "rev-parse",
+    "ls-files",
+    "remote",
+    "diff",
+    "symbolic-ref"
+  ],
+  "audit_name": "Legacy Evidence Recovery Audit",
+  "audit_self_exclusions": [
+    "data/research/historical_expansion/legacy_evidence_recovery/",
+    "docs/legacy_evidence_recovery_report.md",
+    "src/nasdaq_research/legacy_evidence_recovery.py",
+    "tests/test_legacy_evidence_recovery.py"
+  ],
+  "audit_type": "READ-ONLY FORENSIC EVIDENCE RECOVERY AUDIT",
+  "copy_policy": "Only primary date/value, actual runtime metadata or clearly NVDA/Yahoo original acquisition candidates may be copied into recovered_evidence; never original path; preserve source commit/path/blob/method/SHA256/category/strength",
+  "data_remediation_allowed": false,
+  "evidence_categories": [
+    "RAW_VENDOR_EVIDENCE",
+    "RAW_LIBRARY_EVIDENCE",
+    "RUNTIME_ACQUISITION_METADATA",
+    "NORMALIZED_DATA",
+    "DOWNSTREAM_PROCESSED_DATA",
+    "IMPLEMENTATION_EVIDENCE",
+    "REPORT_OR_DOCUMENTATION",
+    "TEST_FIXTURE",
+    "UNKNOWN"
+  ],
+  "evidence_strength_rules": {
+    "MODERATE": "Original yfinance output with clear legacy provenance or actual run log/parameters materially improving causal identifiability",
+    "STRONG": "Authenticated original Yahoo payload or actual timestamped runtime acquisition/request manifest tied to legacy primary session",
+    "WEAK": "Normalized/downstream data, implementation, reports/comments, unverified artifacts and filesystem mtime/ctime; timestamps WEAK_AUXILIARY_ONLY"
+  },
+  "expanded_dataset_approval_allowed": false,
+  "failure_criteria": "All seven registered search steps completed without qualifying new evidence; existing normalized/downstream/code/report/weak metadata do not count; claim limited to preserved evidence searched",
+  "final_test_lock": {
+    "end": "2026-09-23",
+    "final_test_locked": true,
+    "final_test_metrics_computed": false,
+    "final_test_predictions_generated": false,
+    "final_training_pool_used": false,
+    "performance_read_allowed": false,
+    "rows": 50,
+    "start": "2026-07-15"
+  },
+  "forbidden_git_commands": [
+    "reset",
+    "restore",
+    "checkout",
+    "clean",
+    "gc",
+    "prune",
+    "reflog expire",
+    "repack",
+    "rebase",
+    "add",
+    "commit",
+    "push",
+    "tag",
+    "fsck --lost-found"
+  ],
+  "git_read_only_environment": {
+    "GIT_OPTIONAL_LOCKS": "0"
+  },
+  "immutability": "All existing tracked Stage1–13.1 files and physical Git metadata/object/reflog files must retain bytes; HEAD/branch/origin/main/remote configuration remain fixed; no Git database writes or cleanup",
+  "known_context_exclusions": [
+    "data/research/historical_expansion/stage13_nvda/",
+    "data/research/historical_expansion/stage13_1_yahoo_reconciliation/",
+    "docs/stage13_execution_report.md",
+    "docs/stage13_1_execution_report.md"
+  ],
+  "modeling_allowed": false,
+  "network_allowed": false,
+  "primary_keywords": [
+    "121269300",
+    "2026-09-30",
+    "NVDA",
+    "Yahoo",
+    "yfinance",
+    "chart",
+    "download",
+    "acquisition",
+    "manifest",
+    "raw",
+    "cache"
+  ],
+  "primary_target": {
+    "date": "2026-09-30",
+    "field": "Volume",
+    "legacy_normalized_value": 121269300,
+    "ticker": "NVDA"
+  },
+  "project_search_boundaries": {
+    "archive_rule": "Related zip/tar archives only; inspect bounded members without extracting into original paths",
+    "excluded_directories": [
+      ".git",
+      ".venv",
+      "venv",
+      "node_modules",
+      "__pycache__",
+      ".pytest_cache",
+      ".mypy_cache",
+      ".ruff_cache"
+    ],
+    "maximum_archive_bytes": 104857600,
+    "maximum_text_blob_or_file_bytes": 33554432,
+    "not_searched": [
+      "global shell history",
+      "/home/zbw21 outside projects",
+      "Windows filesystem",
+      "root filesystem"
+    ],
+    "outside_repository_content_read_rule": "Only explicitly nasdaq/NVDA/Yahoo/yfinance-related files, old clones or archives; unrelated project contents not read",
+    "projects_max_directory_depth": 6,
+    "projects_root": "/home/zbw21/projects",
+    "repository": "/home/zbw21/projects/nasdaq-research"
+  },
+  "reproducibility": "At least two consecutive formal read-only seven-step runs; deterministic CSV/JSON bytes identical; audit outputs/module/tests/report excluded from search; no current execution timestamps",
+  "root_cause_reclassification_allowed": false,
+  "search_order": [
+    "reachable_git_history",
+    "deleted_reachable_files",
+    "reflog",
+    "unreachable_git_objects",
+    "repository_local_files",
+    "limited_projects_files",
+    "historical_implementation"
+  ],
+  "search_scope": "Preserved reachable/deleted/reflog/unreachable Git evidence, repository-local files and limited projects evidence; only primary historical input/runtime recovery",
+  "success_criteria": "At least one genuinely new legacy RAW_VENDOR_EVIDENCE, RAW_LIBRARY_EVIDENCE or RUNTIME_ACQUISITION_METADATA of STRONG or materially informative MODERATE strength, tied to the primary session and authenticated provenance",
+  "unreadable_or_skipped_rule": "Record every scope candidate skipped/unreadable and any bounds explicitly; do not silently equate unreadable with absent evidence"
+}

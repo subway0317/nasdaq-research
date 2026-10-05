@@ -1,0 +1,112 @@
+{
+  "Stage13_1_root_cause": "UNRESOLVED_SOURCE_DISCREPANCY",
+  "Stage13_1_status": "UNRESOLVED_BLOCKER",
+  "Stage13_status": "INCOMPLETE_OR_BLOCKED",
+  "audit_name": "Legacy Evidence Recovery Audit",
+  "candidate_category_counts": {
+    "DOWNSTREAM_PROCESSED_DATA": 40,
+    "IMPLEMENTATION_EVIDENCE": 38,
+    "NORMALIZED_DATA": 5,
+    "RAW_LIBRARY_EVIDENCE": 0,
+    "RAW_VENDOR_EVIDENCE": 0,
+    "REPORT_OR_DOCUMENTATION": 27,
+    "RUNTIME_ACQUISITION_METADATA": 0,
+    "TEST_FIXTURE": 22,
+    "UNKNOWN": 62
+  },
+  "candidate_evidence_rows": 194,
+  "checkpoint_HEAD": "d6c4b2ce51dd3a38e4fc4847c8a7c1d1ac870fbd",
+  "completion_classification": "LEGACY_EVIDENCE_NOT_RECOVERABLE",
+  "data_remediation_performed": false,
+  "expanded_dataset_approved_for_downstream_research": false,
+  "final_test_locked": true,
+  "final_test_metrics_computed": false,
+  "final_test_performance_read": false,
+  "final_test_predictions_generated": false,
+  "final_training_pool_used": false,
+  "interpretation_if_not_recovered": "Not recoverable from the preserved evidence searched; historically non-identifiable under the currently preserved evidence set, not impossible in principle",
+  "legacy_acquisition_manifest_recovered": false,
+  "legacy_raw_Yahoo_response_recovered": false,
+  "legacy_raw_yfinance_data_recovered": false,
+  "legacy_reliable_acquisition_timestamp_recovered": false,
+  "model_evaluation_performed": false,
+  "modeling_allowed": false,
+  "network_allowed": false,
+  "network_requests": 0,
+  "new_material_causal_information_recovered": false,
+  "new_model_fit": false,
+  "primary_target": {
+    "date": "2026-09-30",
+    "field": "Volume",
+    "legacy_normalized_value": 121269300,
+    "ticker": "NVDA"
+  },
+  "qualifying_new_evidence_count": 0,
+  "recommendation_if_not_recovered": "Do not repeat forensic investigation of the same preserved evidence; consider a future prospective canonical data-authority policy without designing or executing it here",
+  "recovered_categories": {
+    "RAW_LIBRARY_EVIDENCE": 0,
+    "RAW_VENDOR_EVIDENCE": 0,
+    "RUNTIME_ACQUISITION_METADATA": 0
+  },
+  "root_cause_reclassified": false,
+  "search_order": [
+    "reachable_git_history",
+    "deleted_reachable_files",
+    "reflog",
+    "unreachable_git_objects",
+    "repository_local_files",
+    "limited_projects_files",
+    "historical_implementation"
+  ],
+  "search_statistics": {
+    "deleted": {
+      "all_deleted_path_events": 0,
+      "relevant_deleted_blob_paths": 0
+    },
+    "implementation": {
+      "distinct_downloader_blobs_inspected": 4,
+      "path_change_commits": 8,
+      "runtime_records_recovered_from_implementation": 0
+    },
+    "projects": {
+      "archive_members_inspected": 0,
+      "candidate_files": 0,
+      "old_clone_paths": [],
+      "related_archive_files": 0,
+      "related_old_clones": 0,
+      "unrelated_project_contents_read": 0
+    },
+    "reachable": {
+      "candidate_path_histories_read": 18,
+      "commits_inspected": 40,
+      "matching_distinct_blob_paths": 121,
+      "rev_list_objects_searched": 372
+    },
+    "reflog": {
+      "commits_outside_reachable_refs": 0,
+      "distinct_commits_inspected": 13,
+      "entries_inspected": 37,
+      "matching_tree_path_occurrences": 362
+    },
+    "repository_local": {
+      "candidate_text_or_archive_files_inventoried": 138,
+      "file_names_seen_in_nonexcluded_scope": 162,
+      "files_content_read": 75
+    },
+    "unreachable": {
+      "blobs": 60,
+      "commits": 0,
+      "fsck_diagnostics": [
+        "missing tree 4b825dc642cb6eb9a060e54bf8d69288fbee4904"
+      ],
+      "objects_content_inspected": 83,
+      "objects_present_in_initial_loose_snapshot": 83,
+      "post_registration_objects_excluded_from_checkpoint_inventory": true,
+      "tags": 0,
+      "trees": 23
+    }
+  },
+  "stage14_designed": false,
+  "stage14_executed": false,
+  "stage14_modeling_eligible": false
+}

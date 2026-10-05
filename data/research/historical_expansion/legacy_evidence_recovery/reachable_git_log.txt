@@ -1,0 +1,40 @@
+d6c4b2c (HEAD -> main, origin/main) Record stage 13 history expansion and unresolved source reconciliation
+bde8ed9 Complete stage 12 post-representation signal diagnostics
+dbe6689 Complete stage 11 market representation ablation
+4b232ac Complete stage 10.1 baseline model stability diagnostics
+55250be Complete stage 10 leakage-safe baseline modeling
+0bbf7e7 Complete stage 9 leakage-safe temporal splitting and boundary hardening
+8823ec5 Complete stage 8 target definition and label engineering
+b127996 Complete stage 7 feature diagnostics and exploratory analysis
+0defce5 Complete stage 6 research feature engineering and audit fixes
+c9094bf Complete stage 5 point-in-time data integration
+8084b01 Complete stages 3 and 4 feature and fundamentals pipelines
+80a3e3c Add historical market data pipeline
+de0552f Agent host session a7fbfac3-75eb-4371-b62d-0a0d2f4bd340 - turn 1
+65e6f1b Agent host session a7fbfac3-75eb-4371-b62d-0a0d2f4bd340 - turn 1 start
+88beb88 Agent host session a7fbfac3-75eb-4371-b62d-0a0d2f4bd340 - baseline checkpoint
+5e61e64 Agent host session d2f1a9a6-f443-4587-b528-a4a06ed35beb - turn 1
+d02f2c6 Agent host session d2f1a9a6-f443-4587-b528-a4a06ed35beb - turn 1 start
+2e60b80 Agent host session d2f1a9a6-f443-4587-b528-a4a06ed35beb - baseline checkpoint
+0ce0d47 Agent host session a8f24819-8a5b-42c0-ad36-fcd45758fe11 - turn 7
+820e271 Agent host session a8f24819-8a5b-42c0-ad36-fcd45758fe11 - turn 7 start
+f301fa3 Agent host session a8f24819-8a5b-42c0-ad36-fcd45758fe11 - turn 6
+c72e836 Agent host session a8f24819-8a5b-42c0-ad36-fcd45758fe11 - turn 6 start
+72e2f6a Agent host session a8f24819-8a5b-42c0-ad36-fcd45758fe11 - turn 5
+c143721 Agent host session a8f24819-8a5b-42c0-ad36-fcd45758fe11 - turn 5 start
+b9428c8 Initialize project skeleton
+0540db7 Agent host session a8f24819-8a5b-42c0-ad36-fcd45758fe11 - turn 4
+5ae4a78 Agent host session a8f24819-8a5b-42c0-ad36-fcd45758fe11 - turn 4 start
+4de35de Agent host session a8f24819-8a5b-42c0-ad36-fcd45758fe11 - turn 3
+959f067 Agent host session a8f24819-8a5b-42c0-ad36-fcd45758fe11 - turn 3 start
+8940b71 Agent host session a8f24819-8a5b-42c0-ad36-fcd45758fe11 - turn 2
+9544113 Agent host session a8f24819-8a5b-42c0-ad36-fcd45758fe11 - turn 2 start
+0e08493 Agent host session a8f24819-8a5b-42c0-ad36-fcd45758fe11 - turn 1
+85d65fd Agent host session a8f24819-8a5b-42c0-ad36-fcd45758fe11 - turn 1 start
+c6dc85d Agent host session a8f24819-8a5b-42c0-ad36-fcd45758fe11 - baseline checkpoint
+b96ec89 Agent host session fcf74717-a20b-48f7-aab5-8fb4de4d4610 - turn 1
+6266df6 Agent host session fcf74717-a20b-48f7-aab5-8fb4de4d4610 - turn 1 start
+db059e5 Agent host session fcf74717-a20b-48f7-aab5-8fb4de4d4610 - baseline checkpoint
+0c76718 Agent host session e65eccd7-4e77-411d-b55a-e9d4cbc5d8dc - turn 1
+ebfb009 Agent host session e65eccd7-4e77-411d-b55a-e9d4cbc5d8dc - turn 1 start
+9d5a106 Agent host session e65eccd7-4e77-411d-b55a-e9d4cbc5d8dc - baseline checkpoint

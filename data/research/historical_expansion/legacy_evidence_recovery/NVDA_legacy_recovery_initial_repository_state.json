@@ -1,0 +1,12 @@
+{
+  "HEAD": "d6c4b2ce51dd3a38e4fc4847c8a7c1d1ac870fbd",
+  "branch": "main",
+  "git_physical_files_protected": 501,
+  "initial_diff_check_passed": true,
+  "log_3": "d6c4b2c Record stage 13 history expansion and unresolved source reconciliation\nbde8ed9 Complete stage 12 post-representation signal diagnostics\ndbe6689 Complete stage 11 market representation ablation\n",
+  "origin_main": "d6c4b2ce51dd3a38e4fc4847c8a7c1d1ac870fbd",
+  "remote": "origin\thttps://github.com/subway0317/nasdaq-research.git (fetch)\norigin\thttps://github.com/subway0317/nasdaq-research.git (push)\n",
+  "status_after_protocol_registration": "## main...origin/main\n?? data/research/historical_expansion/legacy_evidence_recovery/\n",
+  "tracked_files_protected": 201,
+  "working_tree_before_audit": "On branch main\nYour branch is up to date with origin/main.\nNothing to commit, working tree clean.\n"
+}
