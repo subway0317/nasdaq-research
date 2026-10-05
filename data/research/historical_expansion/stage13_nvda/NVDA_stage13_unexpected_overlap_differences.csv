@@ -1,0 +1,6 @@
+layer,date,field,legacy_value,expanded_value,reason,evidence
+raw,2026-09-30,volume,121269300,121732200,unexpected_source_or_semantic_difference,
+market,2026-09-30,volume,121269300,121732200,unexpected_source_or_semantic_difference,
+PIT_stage5,2026-09-30,volume,121269300,121732200,unexpected_source_or_semantic_difference,
+research_stage61,2026-09-30,volume,121269300,121732200,unexpected_source_or_semantic_difference,
+labeled_stage8,2026-09-30,volume,121269300,121732200,unexpected_source_or_semantic_difference,

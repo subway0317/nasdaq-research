@@ -1,0 +1,19 @@
+{
+  "auto_adjust": false,
+  "dividend_adjustment_applied": false,
+  "market_end": "2026-09-30",
+  "market_rows": 4304,
+  "market_start": "2009-08-20",
+  "raw_sha256": {
+    "NVDA_companyfacts.json": "19ef503a5770f5660964b3c3aea6937579d9b359da344afe6a9adf59c63d26ff",
+    "NVDA_market.csv": "019077bc0f1708ac4ac2ffb73613d28836b8b315070046e13c9ec59208b1fc14",
+    "NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json": "c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227",
+    "NVDA_yahoo_chart_d2306ab048d4171827c527cc46cc44aa6011145eb3902091ba451399b10aa6ae.json": "d2306ab048d4171827c527cc46cc44aa6011145eb3902091ba451399b10aa6ae",
+    "NVDA_yahoo_source.csv": "df45bf7400f08dc0e0e92c5cde50606a14004bfbcd9e3e9ccf3a0fcb9282c6a2"
+  },
+  "repair": false,
+  "requested_end_exclusive": "2026-10-01",
+  "requested_start": "2009-08-20",
+  "sec_source": "Existing immutable SEC Company Facts snapshot",
+  "source": "Yahoo Finance via existing nasdaq_research.data.download_stock_history"
+}

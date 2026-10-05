@@ -1,0 +1,24 @@
+{
+  "causal_first_divergence_identified": false,
+  "expanded_value": 121732200,
+  "first_divergence_evidence": [
+    {
+      "side": "legacy",
+      "source_file": "data/raw/NVDA.csv",
+      "source_hash": "066133d6cbaa0496cd6e7cfe8626542e269d7da013862b2bbeaced2db4fbd920"
+    },
+    {
+      "side": "expanded",
+      "source_file": "data/research/historical_expansion/stage13_nvda/raw/NVDA_market.csv",
+      "source_hash": "019077bc0f1708ac4ac2ffb73613d28836b8b315070046e13c9ec59208b1fc14"
+    }
+  ],
+  "first_divergence_layer": "NOT_IDENTIFIABLE_WITH_AVAILABLE_EVIDENCE",
+  "first_observed_divergence_layer": "normalized_market",
+  "interpretation": "First common available mismatch is confirmed; missing earlier evidence prevents causal source localization",
+  "legacy_value": 121269300,
+  "missing_earlier_layers": [
+    "raw_yahoo_chart",
+    "raw_yfinance_table"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "acquisition_finished_UTC": "2026-10-05T14:58:05.054492+00:00",
+  "acquisition_started_UTC": "2026-10-05T14:58:04.773972+00:00",
+  "actions": true,
+  "auto_adjust": false,
+  "back_adjust": false,
+  "back_adjust_evidence": "Current installed yf.download signature default; not a claim about legacy library",
+  "chart_requests": [
+    {
+      "HTTP_server_Date": "Mon, 05 Oct 2026 14:58:05 GMT",
+      "HTTP_status": 200,
+      "endpoint": "https://query2.finance.yahoo.com/v8/finance/chart/NVDA",
+      "file": "NVDA_current_chart_027253aff202bdb9c4fdf9db3b129e58dd82d8c505102910293e024f1d2ab41e.json",
+      "method": "GET",
+      "request_parameters": {
+        "interval": "1d",
+        "range": "1d"
+      },
+      "request_started_UTC": "2026-10-05T14:58:04.904445+00:00",
+      "response_received_UTC": "2026-10-05T14:58:04.986362+00:00",
+      "sha256": "027253aff202bdb9c4fdf9db3b129e58dd82d8c505102910293e024f1d2ab41e"
+    },
+    {
+      "HTTP_server_Date": "Mon, 05 Oct 2026 14:58:04 GMT",
+      "HTTP_status": 200,
+      "endpoint": "https://query2.finance.yahoo.com/v8/finance/chart/NVDA",
+      "file": "NVDA_current_chart_052fc9e1fbd3b0f069ae35e2763bae3762e18304b05700b90977f8ca002620db.json",
+      "method": "GET",
+      "request_parameters": {
+        "events": "div,splits,capitalGains",
+        "includePrePost": false,
+        "interval": "1d",
+        "period1": 1790654400,
+        "period2": 1790913600
+      },
+      "request_started_UTC": "2026-10-05T14:58:04.993139+00:00",
+      "response_received_UTC": "2026-10-05T14:58:05.042647+00:00",
+      "sha256": "052fc9e1fbd3b0f069ae35e2763bae3762e18304b05700b90977f8ca002620db"
+    }
+  ],
+  "cookies_or_crumb_archived": false,
+  "evidence_role": "Level 4 current vendor state only; never a replacement for legacy frozen source",
+  "frozen_once": true,
+  "keepna": true,
+  "local_evidence_sha256": "c70bb210276e2fb348e264f449239b749c33ead0535194200de364e5887b62b9",
+  "local_trace_completed_before_external_acquisition": true,
+  "progress": false,
+  "query": {
+    "end_exclusive": "2026-10-02",
+    "interval": "1d",
+    "start": "2026-09-29",
+    "ticker": "NVDA"
+  },
+  "repair": false,
+  "session_impersonate": "chrome",
+  "sha256": {
+    "NVDA_current_chart_027253aff202bdb9c4fdf9db3b129e58dd82d8c505102910293e024f1d2ab41e.json": "027253aff202bdb9c4fdf9db3b129e58dd82d8c505102910293e024f1d2ab41e",
+    "NVDA_current_chart_052fc9e1fbd3b0f069ae35e2763bae3762e18304b05700b90977f8ca002620db.json": "052fc9e1fbd3b0f069ae35e2763bae3762e18304b05700b90977f8ca002620db",
+    "NVDA_current_normalized.csv": "573f1018a1ecc0b0790345ab863f3aa31a7debbcbc47df693c1131b9a206ba98",
+    "NVDA_current_yfinance.csv": "db9ea51abf1c3fa5380e0c840c74b42c2d5137f6dc6daec70a88216ac1b5e994"
+  },
+  "threads": false,
+  "yfinance_version": "1.7.0"
+}

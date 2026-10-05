@@ -1,0 +1,265 @@
+{
+  "PIT_activation_rule": "effective_date = next observed session strictly after filing_date; amendments affect only their effective date onward; no backward-fill",
+  "accounting_concept_mapping": {
+    "capital_expenditures": [
+      [
+        "PaymentsToAcquirePropertyPlantAndEquipment"
+      ],
+      "USD",
+      "duration"
+    ],
+    "cash_and_cash_equivalents": [
+      [
+        "CashAndCashEquivalentsAtCarryingValue"
+      ],
+      "USD",
+      "instant"
+    ],
+    "cost_of_revenue": [
+      [
+        "CostOfRevenue",
+        "CostOfGoodsAndServicesSold"
+      ],
+      "USD",
+      "duration"
+    ],
+    "current_assets": [
+      [
+        "AssetsCurrent"
+      ],
+      "USD",
+      "instant"
+    ],
+    "current_liabilities": [
+      [
+        "LiabilitiesCurrent"
+      ],
+      "USD",
+      "instant"
+    ],
+    "eps": [
+      [
+        "EarningsPerShareDiluted"
+      ],
+      "USD/shares",
+      "duration"
+    ],
+    "financing_cash_flow": [
+      [
+        "NetCashProvidedByUsedInFinancingActivities"
+      ],
+      "USD",
+      "duration"
+    ],
+    "gross_profit": [
+      [
+        "GrossProfit"
+      ],
+      "USD",
+      "duration"
+    ],
+    "investing_cash_flow": [
+      [
+        "NetCashProvidedByUsedInInvestingActivities"
+      ],
+      "USD",
+      "duration"
+    ],
+    "long_term_debt": [
+      [
+        "LongTermDebtNoncurrent"
+      ],
+      "USD",
+      "instant"
+    ],
+    "net_income": [
+      [
+        "NetIncomeLoss"
+      ],
+      "USD",
+      "duration"
+    ],
+    "operating_cash_flow": [
+      [
+        "NetCashProvidedByUsedInOperatingActivities"
+      ],
+      "USD",
+      "duration"
+    ],
+    "operating_income": [
+      [
+        "OperatingIncomeLoss"
+      ],
+      "USD",
+      "duration"
+    ],
+    "research_and_development": [
+      [
+        "ResearchAndDevelopmentExpense"
+      ],
+      "USD",
+      "duration"
+    ],
+    "revenue": [
+      [
+        "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "SalesRevenueNet",
+        "Revenues"
+      ],
+      "USD",
+      "duration"
+    ],
+    "selling_general_administrative": [
+      [
+        "SellingGeneralAndAdministrativeExpense"
+      ],
+      "USD",
+      "duration"
+    ],
+    "stockholders_equity": [
+      [
+        "StockholdersEquity"
+      ],
+      "USD",
+      "instant"
+    ],
+    "total_assets": [
+      [
+        "Assets"
+      ],
+      "USD",
+      "instant"
+    ],
+    "total_liabilities": [
+      [
+        "Liabilities"
+      ],
+      "USD",
+      "instant"
+    ]
+  },
+  "cik": "0001045810",
+  "corporate_action_audit_policy": {
+    "OHLC": "finite positive prices; low<=open/close<=high; all split-event OHLC ratios in [0.5,2.0]",
+    "SMA": "independent scalar trailing means at t-1/t/t+1 for every split",
+    "continuity": "flag adjacent close ratios outside [0.5,2.0], or ratios closer to 1/split_ratio than 1; no silent repair",
+    "documented_splits": [
+      {
+        "date": "2021-07-20",
+        "ratio": 4.0,
+        "source": "https://nvidianews.nvidia.com/news/nvidia-announces-four-for-one-stock-split-pending-stockholder-approval-at-annual-meeting-set-for-june-3"
+      },
+      {
+        "date": "2024-06-10",
+        "ratio": 10.0,
+        "source": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000144/nvda-20240607.htm"
+      }
+    ],
+    "event_inputs": "Yahoo chart dividends/splits plus issuer/SEC split confirmations; documentary metadata never enters feature functions",
+    "targets": "independent entry/exit formulas for labels crossing splits; flag abs(return)>0.5 near a split; thresholds are audit failure gates, never cleaning rules"
+  },
+  "coverage_audit_policy": "2020\u20132026 annual cell coverage and state identity coverage; per-feature missing/infinite/first-valid dates; duplicates and independent US-equity-session audit; retain missing features",
+  "expected_expansion_difference_policy": "Cellwise enumeration only: market warmup fill proven by original positional warmup and independent old-prefix reconstruction; effective_date/basis/truncation/age differences only when same accession was filed before old sample boundary, validated against full observed calendar. No arbitrary missing-value or source-value mismatch exemption.",
+  "final_test_evaluation_allowed": false,
+  "final_test_lock_rules": {
+    "MAE_evaluation": false,
+    "end": "2026-09-23",
+    "final_test_evaluation": false,
+    "final_test_locked": true,
+    "final_test_metrics_computed": false,
+    "final_test_predictions_generated": false,
+    "final_training_pool_used": false,
+    "new_cv": false,
+    "new_model_fit": false,
+    "no_final_test_performance_dependency": true,
+    "no_target_distribution_or_performance_decisions": true,
+    "row_count": 50,
+    "start": "2026-07-15"
+  },
+  "fundamental_pre_sample_policy": "Retain entire archived Company Facts history, including all pre-2020 filings and prior-FY same-quarter/annual reference candidates; filter no SEC rows at research_start.",
+  "fundamental_state_semantics": "Unmodified Stage 4/5/6.1: annual/standalone quarterly/YTD distinct; YTD excluded from default states, no differencing; independent q/fy/bs whole-observation streams; same-FY-quarter prior year / FY-1 YoY frozen at filing; deterministic tie tuple.",
+  "immutability_rules": "Hash every legacy data artifact and tracked file except declared compatible src/nasdaq_research/data.py acquisition API extension. Also retain original data.py HEAD hash and diff; no old artifact replacement.",
+  "inherited_vintage_limitations": [
+    "Fixed Yahoo split-adjusted price coordinate is inherited; this is not an archive of as-traded historical prices. Absolute SMA cannot be certified invariant to vendor retroactive price rescaling.",
+    "SEC current archived Company Facts vintage and retained same-accession concepts are inherited; not a complete historical disclosure-vintage archive. Filing-PIT correctness is tested conditional on this frozen snapshot."
+  ],
+  "market_feature_definitions": {
+    "daily_range": "(high[t]-low[t])/close[t]",
+    "intraday_return": "close[t]/open[t]-1",
+    "log_return": "ln(close[t]/close[t-1])",
+    "rolling_volatility_20": "trailing 20 simple returns; sample std ddof=1; not annualized; min_periods=20",
+    "rolling_volatility_60": "trailing 60 simple returns; sample std ddof=1; not annualized; min_periods=60",
+    "simple_return": "close[t]/close[t-1]-1",
+    "sma_20": "trailing 20 observed closes, including t; min_periods=20",
+    "sma_5": "trailing 5 observed closes, including t; min_periods=5",
+    "sma_60": "trailing 60 observed closes, including t; min_periods=60"
+  },
+  "market_price_semantics": "Existing Stage 2 yfinance auto_adjust=False OHLC; Adj Close is not substituted; no repair, re-adjustment or new price transformation.",
+  "market_raw_end_exclusive": "2026-10-01",
+  "market_raw_start": "2009-08-20",
+  "market_warmup_policy": {
+    "calendar_start_basis": "Earliest retained SEC filing; supplies observed activation calendar for every retained filing and exceeds 60-session feature maturity. Reject insufficient presample sessions.",
+    "required_preceding_sessions": 60
+  },
+  "modeling_allowed": false,
+  "new_cv_allowed": false,
+  "overlap_compatibility_policy": "Compare all legacy raw/processed/Stage5/Stage6.1/Stage8 fields on common dates. Exact metadata/source and OHLC, derived rtol=0 atol=1e-12. Locked test numerical target payload omitted from overlap; target dates/availability permitted.",
+  "primary_target_identity": "forward_return_5d",
+  "raw_history_policy": "Reuse existing SEC vintage; acquire one Yahoo daily snapshot through research_end; never overwrite legacy raw files.",
+  "relative_market_formula": "close_to_sma_k = close[t]/sma_k[t]-1 for k=5,20,60; original SMA retained",
+  "reproducibility_rules": "Two consecutive offline formal runs on frozen raw cache; every formal CSV/JSON byte identical; no runtime timestamps in research artifacts; input hashes and git diff --check required",
+  "research_end": "2026-09-30",
+  "research_feature_whitelist": [
+    "simple_return",
+    "log_return",
+    "intraday_return",
+    "daily_range",
+    "sma_5",
+    "sma_20",
+    "sma_60",
+    "rolling_volatility_20",
+    "rolling_volatility_60",
+    "q_gross_margin",
+    "q_operating_margin",
+    "q_net_margin",
+    "q_rd_to_revenue",
+    "q_sga_to_revenue",
+    "q_ocf_margin",
+    "q_fcf_margin",
+    "fy_gross_margin",
+    "fy_operating_margin",
+    "fy_net_margin",
+    "fy_rd_to_revenue",
+    "fy_sga_to_revenue",
+    "fy_ocf_margin",
+    "fy_fcf_margin",
+    "current_ratio",
+    "cash_to_assets",
+    "liabilities_to_assets",
+    "debt_to_assets",
+    "q_revenue_growth_yoy",
+    "q_gross_profit_growth_yoy",
+    "q_operating_income_growth_yoy",
+    "q_net_income_growth_yoy",
+    "q_rd_growth_yoy",
+    "q_operating_cash_flow_growth_yoy",
+    "fy_revenue_growth_yoy",
+    "fy_gross_profit_growth_yoy",
+    "fy_operating_income_growth_yoy",
+    "fy_net_income_growth_yoy",
+    "fy_rd_growth_yoy",
+    "fy_operating_cash_flow_growth_yoy"
+  ],
+  "research_start": "2020-01-01",
+  "sec_raw_sha256": "19ef503a5770f5660964b3c3aea6937579d9b359da344afe6a9adf59c63d26ff",
+  "stage_name": "Stage 13 \u2014 NVDA Historical Evidence-Base Expansion",
+  "stage_type": "DATA / RESEARCH-FOUNDATION STAGE",
+  "target_definitions": {
+    "forward_return_1d": "close[t+1]/open[t+1]-1 using observed row positions",
+    "forward_return_20d": "close[t+20]/open[t+1]-1 using observed row positions",
+    "forward_return_5d": "close[t+5]/open[t+1]-1 using observed row positions"
+  },
+  "target_policy": "Use only market rows through research_end; retain every research row and all target provenance; natural tail NaNs of 1/5/20 rows.",
+  "ticker": "NVDA",
+  "truncation_audit_policy": "First research session, first/last session of every year before locked test, split +/- observed sessions, real filing transitions before locked test; full feature row vs market-prefix+filing<session rebuild; independent scalar market/state/YoY/target oracles; targets separately checked outside locked dates."
+}

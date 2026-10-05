@@ -1,0 +1,5 @@
+root_cause_candidate,supported_as_final_classification,evidence_status,evidence,current_Yahoo_corroboration,legacy_original_source_available,legacy_acquisition_timing_known
+PIPELINE_PROCESSING_BUG,False,NOT_SUPPORTED,Expanded original raw/table/normalized all preserve 121732200; legacy normalized/downstream all preserve 121269300. No exact discrepancy-causing processing bug found; missing legacy original source prevents complete historical normalization certification.,,False,False
+LEGACY_INCOMPLETE_SESSION_SNAPSHOT,False,NOT_ESTABLISHED,Legacy retrieval/request/raw-source timing unavailable. Lower legacy Volume and daily-bar open timestamp are not proof of incomplete acquisition.,,False,False
+VENDOR_SOURCE_VINTAGE_DRIFT,False,NOT_ESTABLISHED,"Current Yahoo matches expanded value, but original legacy source unavailable and partial-session possibility unresolved; cannot certify cross-vintage causal revision.",121732200.0,False,False
+UNRESOLVED_SOURCE_DISCREPANCY,True,SUPPORTED_FALLBACK,Missing original legacy source plus reliable acquisition timing leaves source-vintage vs incomplete-session/pre-normalized source explanations unresolved.,,False,False

@@ -1,0 +1,123 @@
+{
+  "acceptance_rules": {
+    "resolved": "Complete causal trace, supported first divergence, exactly one supported root cause, frozen mapped policy, no prohibited editing, hashes unchanged, no models/test evaluation, all historical/new tests pass, deterministic repeats",
+    "unresolved": "Record evidence gaps and remaining hypotheses; freeze no-approval policy; engineering audit can pass while root-cause resolution remains false"
+  },
+  "allowed_external_evidence": {
+    "cache": "Freeze one acquisition with original response, source table, normalized output, request parameters and timezone-aware retrieval timestamp; subsequent runs offline",
+    "current_yahoo_query": {
+      "auto_adjust": false,
+      "end_exclusive": "2026-10-02",
+      "interval": "1d",
+      "start": "2026-09-29"
+    },
+    "order": "Only after local trace is written",
+    "third_party": "Only if necessary, secondary corroboration, never sole authority"
+  },
+  "approval_rule": "Resolved category plus evidence and all engineering acceptance checks; pipeline-bug branch additionally corrected and revalidated; otherwise false",
+  "canonical_policy_rules": {
+    "LEGACY_INCOMPLETE_SESSION_SNAPSHOT": {
+      "authority": "stage13_complete_session_frozen_snapshot",
+      "required": "Reliable legacy incomplete-session evidence and expanded complete-session evidence; do not overwrite either vintage",
+      "status": "RESOLVED_LEGACY_INCOMPLETE_SNAPSHOT"
+    },
+    "PIPELINE_PROCESSING_BUG": {
+      "authority": "corrected_and_revalidated_expanded_namespace",
+      "required": "Exact bug location, frozen raw preservation, separate corrected namespace and narrow revalidation; original Stage 13 blocked record remains immutable",
+      "status": "RESOLVED_PIPELINE_BUG"
+    },
+    "UNRESOLVED_SOURCE_DISCREPANCY": {
+      "authority": null,
+      "required": "No expanded downstream approval until missing causal evidence is recovered; preserve both records and original Stage 13 violations",
+      "status": "UNRESOLVED_BLOCKER"
+    },
+    "VENDOR_SOURCE_VINTAGE_DRIFT": {
+      "authority": "stage13_frozen_multi_year_snapshot",
+      "required": "Both original source values, faithful processing, comparable session/source semantics and legacy partial-session possibility excluded; document vintage transition, never splice values",
+      "status": "RESOLVED_VENDOR_VINTAGE_DRIFT"
+    }
+  },
+  "difference": 462900,
+  "expanded_value": 121732200,
+  "final_test_lock_rules": {
+    "end": "2026-09-23",
+    "feature_changes": false,
+    "final_test_locked": true,
+    "final_test_metrics_computed": false,
+    "final_test_performance_dependency": false,
+    "final_test_predictions_generated": false,
+    "final_training_pool_used": false,
+    "new_CV": false,
+    "new_model_fit": false,
+    "rows": 50,
+    "stage14_designed": false,
+    "stage14_executed": false,
+    "start": "2026-07-15",
+    "target_changes": false
+  },
+  "first_divergence_rules": "Compare source to downstream ordered layers. If earlier legacy evidence is absent, report first observable mismatch separately and true first causal divergence as not identifiable. Do not label normalized CSV as original vendor raw.",
+  "forbidden_interventions": [
+    "manual value replacement",
+    "tolerance widening",
+    "Volume omission",
+    "primary-date exclusion",
+    "post-hoc expected difference reclassification",
+    "source splicing",
+    "synthetic historical raw",
+    "model/CV/MAE/PnL/Sharpe/backtest",
+    "overwrite Stage 1\u201313 artifacts or original Stage 13 blocked result",
+    "automatic Stage 14 work"
+  ],
+  "investigation_scope": {
+    "allowed_context_dates": [
+      "2026-09-29",
+      "2026-09-30",
+      "2026-10-01"
+    ],
+    "forbidden": "No current-vendor comparison of the full 4304-row historical data, new quality protocol, feature/target/split change or performance analysis",
+    "primary": "Only NVDA 2026-09-30 Volume"
+  },
+  "legacy_artifact_immutability_rules": "Hash all current Stage 1\u201312 inputs, including already modified data.py; preserve original legacy value and artifacts byte-identically",
+  "legacy_value": 121269300,
+  "primary_date": "2026-09-30",
+  "primary_field": "volume",
+  "reproducibility_rules": "At least two consecutive formal offline runs on frozen local/external evidence; all deterministic CSV/JSON bytes identical. External timestamp recorded once, never refreshed during reproducibility.",
+  "root_cause_categories": [
+    "PIPELINE_PROCESSING_BUG",
+    "LEGACY_INCOMPLETE_SESSION_SNAPSHOT",
+    "VENDOR_SOURCE_VINTAGE_DRIFT",
+    "UNRESOLVED_SOURCE_DISCREPANCY"
+  ],
+  "root_cause_decision_rules": {
+    "LEGACY_INCOMPLETE_SESSION_SNAPSHOT": "Reliable contemporaneous timing or source-unfinal evidence proves legacy incomplete at the primary session; lower volume, file mtime and Git commit time are insufficient.",
+    "PIPELINE_PROCESSING_BUG": "Proven same-source processing mismatch or an exact parser/cache/boundary bug causing this discrepancy; require file/function/transformation evidence.",
+    "UNRESOLVED_SOURCE_DISCREPANCY": "Mandatory fallback for absent legacy raw, insufficient acquisition timing, incompatible sources, conflicting evidence or multiple remaining explanations. Absence of incomplete-session evidence is not evidence of completion.",
+    "VENDOR_SOURCE_VINTAGE_DRIFT": "Both original frozen sources differ, each is preserved faithfully, session/source semantics comparable and unresolved legacy partial-session possibility excluded. Current Yahoo is corroboration only."
+  },
+  "source_authority_hierarchy": [
+    {
+      "authority": "Frozen original Yahoo HTTP response or original yfinance table; normalized CSV named raw is not an original response",
+      "level": 1
+    },
+    {
+      "authority": "Contemporaneous acquisition metadata, query and version/session parameters",
+      "level": 2
+    },
+    {
+      "authority": "Normalized market/parser/dtype/session representation and downstream artifacts",
+      "level": 3
+    },
+    {
+      "authority": "Current Yahoo response as current state only; cannot reconstruct missing legacy evidence",
+      "level": 4
+    },
+    {
+      "authority": "Third-party corroboration only; never sole causal authority",
+      "level": 5
+    }
+  ],
+  "stage13_artifact_immutability_rules": "Hash every current Stage 13 artifact, code/test/report; original status INCOMPLETE_OR_BLOCKED and unexpected count 5 remain immutable. Any evidence-proven bug correction uses separate versioned namespace.",
+  "stage_name": "Stage 13.1 \u2014 Yahoo Source-Vintage Reconciliation and Canonical Snapshot Policy",
+  "stage_type": "DATA PROVENANCE / SOURCE AUTHORITY RESOLUTION STAGE",
+  "ticker": "NVDA"
+}

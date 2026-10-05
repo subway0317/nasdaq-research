@@ -1,0 +1,296 @@
+{
+  "CSV_roundtrip": {
+    "PIT_truncation_oracles": true,
+    "calendar_violations": true,
+    "corporate_action_audit": true,
+    "corporate_action_events": true,
+    "expected_expansion_differences": true,
+    "feature_coverage": true,
+    "fundamental_history": true,
+    "fundamental_snapshots": true,
+    "market_history": true,
+    "overlap_compatibility": true,
+    "pit_states": true,
+    "research_matrix": true,
+    "targets": true,
+    "unexpected_overlap_differences": true,
+    "yearly_coverage": true
+  },
+  "MAE_evaluation": false,
+  "calendar": {
+    "calendar_used_for_label_construction": false,
+    "expected_session_count": 1695,
+    "observed_session_count": 1695,
+    "source": "https://www.nasdaq.com/market-activity/stock-market-holiday-schedule",
+    "special_closure_source": "https://ir.nasdaq.com/news-releases/news-release-details/nasdaq-announces-closure-its-us-markets-honor-national-day-0",
+    "violations": 0
+  },
+  "checks": {
+    "CSV_roundtrip": true,
+    "amendment_positive_control": true,
+    "calendar_complete": true,
+    "corporate_actions": true,
+    "finite_features": true,
+    "fundamentals_valid": true,
+    "historical_scope": true,
+    "leakage_oracles": true,
+    "no_model_or_test_evaluation": true,
+    "overlap_compatible": false,
+    "raw_calendar_complete": true,
+    "raw_response_row_preservation": true,
+    "stage5_PIT": true,
+    "stage61_PIT_features": true,
+    "target_oracle": true,
+    "upstream_immutable": true,
+    "warmup_sufficient": true
+  },
+  "completion_status": "INCOMPLETE_OR_BLOCKED",
+  "corporate_action_audit": {
+    "OHLC_bound_violations": 0,
+    "audit_metadata_used_in_features": false,
+    "dividend_events_in_research_window": 27,
+    "global_discontinuity_violations": 0,
+    "missing_documented_split_events": [],
+    "price_vintage_note": "Vendor OHLC is split-adjusted in a fixed snapshot coordinate; dividends are not reapplied. Absolute levels are not certified historical as-traded prices.",
+    "split_events": [
+      {
+        "SMA_rolling_oracle_violations": 0,
+        "close_ratio": 0.9910674367392721,
+        "cross_event_max_abs_target_return": 0.12686112939648897,
+        "cross_event_target_violations": 0,
+        "date": "2021-07-20",
+        "dividend_amount": null,
+        "event_type": "splits",
+        "inverse_split_mechanical_jump": false,
+        "log_return": -0.0089726977854803,
+        "ohlc_ratios_in_registered_bounds": true,
+        "open_to_prior_close": 0.99735080181816,
+        "previous_session": "2021-07-19",
+        "reason": "documentary audit; unchanged source OHLC",
+        "source_sha256": "c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227",
+        "split_ratio": 4.0,
+        "violations": 0
+      },
+      {
+        "SMA_rolling_oracle_violations": 0,
+        "close_ratio": 1.0074614554265338,
+        "cross_event_max_abs_target_return": 0.448519783818468,
+        "cross_event_target_violations": 0,
+        "date": "2024-06-10",
+        "dividend_amount": null,
+        "event_type": "splits",
+        "inverse_split_mechanical_jump": false,
+        "log_return": 0.0074337564657012,
+        "ohlc_ratios_in_registered_bounds": true,
+        "open_to_prior_close": 0.9957150607206097,
+        "previous_session": "2024-06-07",
+        "reason": "documentary audit; unchanged source OHLC",
+        "source_sha256": "c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227",
+        "split_ratio": 10.0,
+        "violations": 0
+      }
+    ],
+    "violations": 0
+  },
+  "event_source": {
+    "currency": "USD",
+    "full_response": "NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json",
+    "meta_symbol": "NVDA",
+    "timestamp_count": 4304
+  },
+  "final_test_evaluation": false,
+  "final_test_locked": true,
+  "final_test_metrics_computed": false,
+  "final_test_predictions_generated": false,
+  "final_training_pool_used": false,
+  "formal_CSV_sha256": {
+    "NVDA_stage13_PIT_truncation_oracles.csv": "0b5153cca5d5db0e449ae54b9552141c6ef64ca38ee84a974ec300cab883248b",
+    "NVDA_stage13_calendar_violations.csv": "d0aacca4b1a69a74b69254c771fda042e3844ce6b943e2b3254d3ac8eede0016",
+    "NVDA_stage13_corporate_action_audit.csv": "eaa316acd87c817bf81fafcb63e0d8d15d06ea877236d37bfa7bdc70beb0a338",
+    "NVDA_stage13_corporate_action_events.csv": "a93847e6e58e72a22a7b34591a21e1d53d90f2751be3d0ddc86e52524a4e5511",
+    "NVDA_stage13_expected_expansion_differences.csv": "3b0470b3446ef73533ee9cd1f994121837bda4f8dc60bbfa9f7def46c890559b",
+    "NVDA_stage13_feature_coverage.csv": "f391f27fe498794fa21a70818283bbcb5ec6f6f215c9d77341a1e31c7813a14b",
+    "NVDA_stage13_fundamental_history.csv": "033854a3bb8f369a1cc2c81de5055745158245f04cf591e44a1829f0aa3e3cd8",
+    "NVDA_stage13_fundamental_snapshots.csv": "3912be3de1f9cf8c50deb8bc264813f25793b3b83c12f807b57ea987bbc546ec",
+    "NVDA_stage13_market_history.csv": "4ddef40c793a7fdb93dbff4ec89a9bbbb2fc8943038cac08da4735c77b0ecb28",
+    "NVDA_stage13_overlap_compatibility.csv": "8fe7c97c4817aaabc15d3944d0bf4a0974a7415b4f253ec8db57af49965de544",
+    "NVDA_stage13_pit_states.csv": "4881abcb554d11678f7eb98cf5fa23e7ea71cf61a6127cb8c2761401fc8a38b1",
+    "NVDA_stage13_research_matrix.csv": "85d9297de51d4fa930af08d6b0aedea748c2915ee795c472c9a229d49b471ce6",
+    "NVDA_stage13_targets.csv": "7c40adbde262d8f763c255a1b84b95ba4d3c096fda9d163a886e639979ff27ff",
+    "NVDA_stage13_unexpected_overlap_differences.csv": "4f55b69faadd4bd9fa19722b27690d8151bfb5fecd598d58f62cc9b9e7c1453b",
+    "NVDA_stage13_yearly_coverage.csv": "071443508d9d44a333d76de621c1b979160a436d0f0777f1b7ef9c42cb709f90"
+  },
+  "leakage_audits": {
+    "PIT_truncation": {
+      "representative_dates": 45,
+      "violations": 0
+    },
+    "amendment_timing_isolation": {
+      "filing_date": "2024-12-20",
+      "fixture_only": true,
+      "post_effective_positive_control": true,
+      "violations": 0
+    },
+    "deterministic_source_order": {
+      "violations": 0
+    },
+    "future_SEC_isolation": {
+      "cutoff": "2024-05-29",
+      "violations": 0
+    },
+    "future_market_isolation": {
+      "cutoff": "2024-05-29",
+      "violations": 0
+    },
+    "future_split_metadata_isolation": {
+      "basis": "construct_features takes only OHLCV and facts; no action metadata input; raw price vintage held fixed",
+      "violations": 0
+    },
+    "future_split_price_vintage_invariance_certified": false,
+    "future_target_isolation": {
+      "violations": 0,
+      "whitelist": [
+        "simple_return",
+        "log_return",
+        "intraday_return",
+        "daily_range",
+        "sma_5",
+        "sma_20",
+        "sma_60",
+        "rolling_volatility_20",
+        "rolling_volatility_60",
+        "q_gross_margin",
+        "q_operating_margin",
+        "q_net_margin",
+        "q_rd_to_revenue",
+        "q_sga_to_revenue",
+        "q_ocf_margin",
+        "q_fcf_margin",
+        "fy_gross_margin",
+        "fy_operating_margin",
+        "fy_net_margin",
+        "fy_rd_to_revenue",
+        "fy_sga_to_revenue",
+        "fy_ocf_margin",
+        "fy_fcf_margin",
+        "current_ratio",
+        "cash_to_assets",
+        "liabilities_to_assets",
+        "debt_to_assets",
+        "q_revenue_growth_yoy",
+        "q_gross_profit_growth_yoy",
+        "q_operating_income_growth_yoy",
+        "q_net_income_growth_yoy",
+        "q_rd_growth_yoy",
+        "q_operating_cash_flow_growth_yoy",
+        "fy_revenue_growth_yoy",
+        "fy_gross_profit_growth_yoy",
+        "fy_operating_income_growth_yoy",
+        "fy_net_income_growth_yoy",
+        "fy_rd_growth_yoy",
+        "fy_operating_cash_flow_growth_yoy"
+      ]
+    },
+    "independent_YoY_oracle": {
+      "cells_checked": 553,
+      "violations": 0
+    },
+    "independent_state_oracle": {
+      "cells_checked": 1575,
+      "violations": 0
+    },
+    "market_rolling_oracle": {
+      "cells_checked": 405,
+      "violations": 0
+    },
+    "relative_SMA_oracle": {
+      "cells_checked": 135,
+      "violations": 0
+    }
+  },
+  "new_cv": false,
+  "new_model_fit": false,
+  "no_final_test_performance_dependency": true,
+  "normalization": {
+    "comparative_facts_excluded": 2229,
+    "duplicate_source_facts_removed": 0,
+    "issues": []
+  },
+  "overlap": {
+    "exact_matches": 103030,
+    "expected_expansion_differences": 2400,
+    "expected_reason_counts": {
+      "legacy_pre_window_filing_effective_date_left_censoring": 1744,
+      "registered_market_warmup_truncated_at_legacy_sample_start": 656
+    },
+    "field_comparisons": 447,
+    "locked_numeric_target_cells_skipped": 700,
+    "overlapping_dates": 251,
+    "strict_tolerance_matches": 6062,
+    "unexpected_violations": 5
+  },
+  "protocol_sha256": "fc2a63255aa1301665469677d0e77154df4b408dad8ed1275061b808c117d700",
+  "raw_calendar": {
+    "calendar_used_for_label_construction": false,
+    "expected_session_count": 4304,
+    "observed_session_count": 4304,
+    "source": "https://www.nasdaq.com/market-activity/stock-market-holiday-schedule",
+    "special_closure_source": "https://ir.nasdaq.com/news-releases/news-release-details/nasdaq-announces-closure-its-us-markets-honor-national-day-0",
+    "violations": 0
+  },
+  "raw_sha256": {
+    "NVDA_companyfacts.json": "19ef503a5770f5660964b3c3aea6937579d9b359da344afe6a9adf59c63d26ff",
+    "NVDA_market.csv": "019077bc0f1708ac4ac2ffb73613d28836b8b315070046e13c9ec59208b1fc14",
+    "NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json": "c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227",
+    "NVDA_yahoo_chart_d2306ab048d4171827c527cc46cc44aa6011145eb3902091ba451399b10aa6ae.json": "d2306ab048d4171827c527cc46cc44aa6011145eb3902091ba451399b10aa6ae",
+    "NVDA_yahoo_source.csv": "df45bf7400f08dc0e0e92c5cde50606a14004bfbcd9e3e9ccf3a0fcb9282c6a2"
+  },
+  "stage5_validation": {
+    "errors": [],
+    "row_count": 4304,
+    "unmatched_rows": 1,
+    "valid": true
+  },
+  "stage61_validation": {
+    "checks": {
+      "bs_effective_date_no_later_than_trading_date": true,
+      "bs_filing_strictly_before_trading_date": true,
+      "daily_all_feature_columns_present": true,
+      "daily_features_numeric_or_missing": true,
+      "daily_matches_point_in_time_snapshots": true,
+      "daily_no_infinity": true,
+      "effective_date_no_later_than_trading_date": true,
+      "filing_strictly_before_trading_date": true,
+      "fy_effective_date_no_later_than_trading_date": true,
+      "fy_filing_strictly_before_trading_date": true,
+      "fy_period_basis_separate": true,
+      "fy_reference_known_at_state_filing": true,
+      "market_row_count_unchanged": true,
+      "q_effective_date_no_later_than_trading_date": true,
+      "q_filing_strictly_before_trading_date": true,
+      "q_period_basis_separate": true,
+      "q_reference_known_at_state_filing": true,
+      "reference_filing_known_at_snapshot": true,
+      "reference_period_matches": true,
+      "snapshot_all_feature_columns_present": true,
+      "snapshot_features_numeric_or_missing": true,
+      "snapshot_no_infinity": true,
+      "snapshot_period_basis_separate": true,
+      "snapshots_match_filing_sources": true,
+      "stage5_columns_preserved": true
+    },
+    "errors": [],
+    "valid": true
+  },
+  "target_oracle": {
+    "horizon_checks": 4935,
+    "locked_numeric_rows_skipped": 50,
+    "violations": 0
+  },
+  "upstream": {
+    "changed_files": [],
+    "files_checked": 157,
+    "mutation_violations": 0
+  },
+  "valid": false
+}

@@ -1,0 +1,169 @@
+{
+  "CSV_roundtrips": {
+    "acquisition_metadata": true,
+    "processing_trace": true,
+    "root_cause_evidence": true,
+    "source_comparison": true,
+    "source_inventory": true,
+    "timezone_session_context": true
+  },
+  "checks": {
+    "all_layers_including_explicit_missing": true,
+    "available_source_hashes_valid": true,
+    "available_source_values_exact": true,
+    "available_timezone_context_consistent": true,
+    "current_frozen_raw_hashes_valid": true,
+    "current_local_first_order_proven": true,
+    "current_primary_UTC_Eastern_session_agree": true,
+    "current_raw_yfinance_normalized_agree": true,
+    "deterministic_CSV_roundtrip": true,
+    "final_test_not_accessed_for_performance": true,
+    "legacy_inputs_preserved": true,
+    "missing_original_raw_not_fabricated": true,
+    "narrow_expanded_normalization_replay": true,
+    "no_modeling_or_feature_target_split_changes": true,
+    "original_stage13_inputs_preserved": true,
+    "primary_scope_only": true,
+    "propagation_consistent": true,
+    "required_schema": true,
+    "root_category_registered": true,
+    "unresolved_fallback_when_missing_legacy_source": true
+  },
+  "completion_status": "UNRESOLVED_BLOCKER",
+  "current_acquisition_manifest_sha256": "4565e30a967190c961b898ceb7c493be310c561635f95beee910c50edbad9c66",
+  "current_evidence_checks": {
+    "frozen_raw_hashes_valid": true,
+    "local_first_order_proven": true,
+    "primary_UTC_Eastern_session_agree": true,
+    "raw_yfinance_normalized_agree": true
+  },
+  "evidence_facts": {
+    "bug_file": null,
+    "bug_function": null,
+    "bug_transformation": null,
+    "conflicting_evidence": false,
+    "corrected_and_revalidated": false,
+    "expanded_complete_session_proven": true,
+    "expanded_processing_faithful": true,
+    "expanded_raw_available": true,
+    "expanded_raw_value": 121732200,
+    "legacy_complete_session_proven": false,
+    "legacy_incomplete_session_proven": false,
+    "legacy_processing_faithful": false,
+    "legacy_raw_available": false,
+    "legacy_raw_value": null,
+    "legacy_timing_known": false,
+    "processing_bug_proven": false,
+    "source_session_identity_comparable": false,
+    "unresolved_partial_session_possibility": true
+  },
+  "expanded_dataset_approved_for_downstream_research": false,
+  "feature_changes": false,
+  "final_test_locked": true,
+  "final_test_metrics_computed": false,
+  "final_test_performance_dependency": false,
+  "final_test_predictions_generated": false,
+  "final_training_pool_used": false,
+  "first_divergence": {
+    "causal_first_divergence_identified": false,
+    "expanded_value": 121732200,
+    "first_divergence_evidence": [
+      {
+        "side": "legacy",
+        "source_file": "data/raw/NVDA.csv",
+        "source_hash": "066133d6cbaa0496cd6e7cfe8626542e269d7da013862b2bbeaced2db4fbd920"
+      },
+      {
+        "side": "expanded",
+        "source_file": "data/research/historical_expansion/stage13_nvda/raw/NVDA_market.csv",
+        "source_hash": "019077bc0f1708ac4ac2ffb73613d28836b8b315070046e13c9ec59208b1fc14"
+      }
+    ],
+    "first_divergence_layer": "NOT_IDENTIFIABLE_WITH_AVAILABLE_EVIDENCE",
+    "first_observed_divergence_layer": "normalized_market",
+    "interpretation": "First common available mismatch is confirmed; missing earlier evidence prevents causal source localization",
+    "legacy_value": 121269300,
+    "missing_earlier_layers": [
+      "raw_yahoo_chart",
+      "raw_yfinance_table"
+    ]
+  },
+  "formal_generated_sha256": {
+    "NVDA_stage13_1_acquisition_metadata.csv": "d7b43f410145a2f444a3bb65538544153cdb86779902db605987969db28e4fa4",
+    "NVDA_stage13_1_canonical_snapshot_policy.json": "3d3da978f974c72c5762dc69aeeee97677981edbc9f1493cbaa24971cbb5dc05",
+    "NVDA_stage13_1_first_divergence.json": "2603b12c4c1d09c4aa75fdf2a0141ce56bdfaa05c8872dda0ac40c973da3276c",
+    "NVDA_stage13_1_processing_trace.csv": "52b28a32871fe0b870c71448ad9db6aa47000270390c62d4c0591fbd3982730f",
+    "NVDA_stage13_1_root_cause_evidence.csv": "ab197b526c4686049798af2d8c75f94b194e2a3a83d344e686d58ac3473bb9e0",
+    "NVDA_stage13_1_source_comparison.csv": "c6127ef552dcebd86b18b845c758f5ca06e625713739ce4f9234fb2835f969f2",
+    "NVDA_stage13_1_source_inventory.csv": "1499502459e6d89775ec124ad149eb9e24df3ed4fc6d0807286d1e647ca0d1ea",
+    "NVDA_stage13_1_summary.json": "d0a43c067242de51a3ce0534cc18791e0e111d64c5b7cb15ef25da34c0e2ba61",
+    "NVDA_stage13_1_timezone_session_context.csv": "21cbe59ae79d28a5111c4e903efc60c4473f32f2edf29db62a7856a0a4613ae2"
+  },
+  "investigation_engineering_checks_passed": true,
+  "local_bundle_sha256": "e51dda573d873a0e2cae35031be577d292d1c066afe5f3eacb2a38ef68242de9",
+  "new_CV": false,
+  "new_model_fit": false,
+  "normalized_replay": {
+    "exact_transformation": "pd.to_numeric Volume; no arithmetic on Volume; observed date normalization",
+    "function": "nasdaq_research.data.standardize_history",
+    "normalized_recorded_volume": 121732200,
+    "normalized_replay_volume": 121732200,
+    "primary_original_yfinance_volume": 121732200,
+    "violations": 0
+  },
+  "propagation": {
+    "available_lineage_edges_checked": 10,
+    "propagation_consistency_violations": 0,
+    "sides": {
+      "expanded": {
+        "available_layers": 7,
+        "normalized_to_downstream_verified": true,
+        "original_source_to_normalized_verified": true,
+        "propagation_violations": 0
+      },
+      "legacy": {
+        "available_layers": 5,
+        "normalized_to_downstream_verified": true,
+        "original_source_to_normalized_verified": false,
+        "propagation_violations": 0
+      }
+    }
+  },
+  "protected": {
+    "changed_files": [],
+    "mutation_violations": 0,
+    "protected_files_checked": 188,
+    "stage13_files_checked": 30,
+    "stage13_mutation_violations": 0,
+    "stage1_12_files_checked": 158,
+    "stage1_12_mutation_violations": 0
+  },
+  "protocol_sha256": "522a4351f90387d9c15f846eaf036cd90919b37cbb80c4703b6045edc31245f0",
+  "root_cause": "UNRESOLVED_SOURCE_DISCREPANCY",
+  "root_cause_resolved": false,
+  "stage14_designed": false,
+  "stage14_executed": false,
+  "stage14_modeling_eligible": false,
+  "target_changes": false,
+  "timezone_audit": {
+    "available_chart_context_rows_checked": 2,
+    "bar_timestamp_is_retrieval_time": false,
+    "expanded_regularMarketTime_UTC": "2026-10-05T14:06:30+00:00",
+    "issues": 0,
+    "legacy_raw_session_identity_certified": false,
+    "legacy_timezone_evidence": "NOT_AVAILABLE",
+    "primary_bar_US_Eastern": "2026-09-30T09:30:00-04:00",
+    "primary_bar_UTC": "2026-09-30T13:30:00+00:00",
+    "primary_bar_epoch": 1790775000,
+    "vendor_quote_timestamp_is_retrieval_time": false
+  },
+  "trace": {
+    "all_layers_including_explicit_missing": true,
+    "available_source_hashes_valid": true,
+    "available_source_values_exact": true,
+    "missing_original_raw_not_fabricated": true,
+    "primary_scope_only": true,
+    "required_schema": true
+  },
+  "valid": false
+}

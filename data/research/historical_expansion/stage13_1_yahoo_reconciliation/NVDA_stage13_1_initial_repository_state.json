@@ -1,0 +1,16 @@
+{
+  "HEAD": "bde8ed98c34c7a3acb4b8911ae629cdbd99e363f",
+  "Stage13_commit_state": "NOT_COMMITTED; existing Stage 13 artifacts/code/tests/report are protected inputs",
+  "branch": "main",
+  "git_log_5": "bde8ed9 Complete stage 12 post-representation signal diagnostics\ndbe6689 Complete stage 11 market representation ablation\n4b232ac Complete stage 10.1 baseline model stability diagnostics\n55250be Complete stage 10 leakage-safe baseline modeling\n0bbf7e7 Complete stage 9 leakage-safe temporal splitting and boundary hardening\n",
+  "initial_diff_check_passed": true,
+  "initial_observed_status_before_stage13_1_creation": "## main...origin/main\n M src/nasdaq_research/data.py\n?? data/research/historical_expansion/\n?? docs/stage13_execution_report.md\n?? src/nasdaq_research/historical_expansion.py\n?? tests/test_historical_expansion.py\n",
+  "pre_existing_changes": [
+    "modified src/nasdaq_research/data.py",
+    "untracked data/research/historical_expansion/stage13_nvda/",
+    "untracked docs/stage13_execution_report.md",
+    "untracked src/nasdaq_research/historical_expansion.py",
+    "untracked tests/test_historical_expansion.py"
+  ],
+  "registration_status": "## main...origin/main\n M src/nasdaq_research/data.py\n?? data/research/historical_expansion/\n?? docs/stage13_execution_report.md\n?? src/nasdaq_research/historical_expansion.py\n?? src/nasdaq_research/source_reconciliation.py\n?? tests/test_historical_expansion.py\n"
+}

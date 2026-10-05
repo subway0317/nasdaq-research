@@ -1,0 +1,49 @@
+evidence_status,metadata_field,notes,source_file,source_side,value
+NOT_AVAILABLE,retrieval_timestamp,Not recoverable from frozen acquisition evidence; file mtime/Git time are not retrieval time,,legacy,
+NOT_AVAILABLE,request_timestamp,Not recoverable from frozen acquisition evidence; file mtime/Git time are not retrieval time,,legacy,
+NOT_AVAILABLE,query_start,Not recoverable from frozen acquisition evidence; file mtime/Git time are not retrieval time,,legacy,
+NOT_AVAILABLE,query_end,Not recoverable from frozen acquisition evidence; file mtime/Git time are not retrieval time,,legacy,
+NOT_AVAILABLE,endpoint,Not recoverable from frozen acquisition evidence; file mtime/Git time are not retrieval time,,legacy,
+NOT_AVAILABLE,yfinance_version,Not recoverable from frozen acquisition evidence; file mtime/Git time are not retrieval time,,legacy,
+NOT_AVAILABLE,HTTP_response_time,Not recoverable from frozen acquisition evidence; file mtime/Git time are not retrieval time,,legacy,
+PARTIAL,configured_period_default,Configured default only; actual acquisition args not recorded,evidence/legacy_HEAD_data.py,legacy,1y
+PARTIAL,configured_interval_default,Configured default only; actual acquisition args not recorded,evidence/legacy_HEAD_data.py,legacy,1d
+PARTIAL,configured_auto_adjust,Configured default only; actual acquisition args not recorded,evidence/legacy_HEAD_data.py,legacy,False
+AVAILABLE,observed_normalized_date_range,"Observed rows, not query boundaries",data/raw/NVDA.csv,legacy,2025-10-01 through 2026-09-30
+NOT_AVAILABLE,end_exclusive_semantics,No explicit legacy start/end query or historic library version; current docs cannot certify it,,legacy,
+NOT_AVAILABLE,retrieval_timestamp,Omitted from frozen acquisition manifest; current installed version is not acquisition-time proof,,stage13,
+NOT_AVAILABLE,request_timestamp,Omitted from frozen acquisition manifest; current installed version is not acquisition-time proof,,stage13,
+NOT_AVAILABLE,yfinance_version,Omitted from frozen acquisition manifest; current installed version is not acquisition-time proof,,stage13,
+NOT_AVAILABLE,HTTP_response_time,Omitted from frozen acquisition manifest; current installed version is not acquisition-time proof,,stage13,
+NOT_AVAILABLE,recorded_exact_endpoint,Omitted from frozen acquisition manifest; current installed version is not acquisition-time proof,,stage13,
+AVAILABLE,query_start,,raw/NVDA_acquisition.json,stage13,2009-08-20
+AVAILABLE,query_end_exclusive,,raw/NVDA_acquisition.json,stage13,2026-10-01
+AVAILABLE,auto_adjust,,raw/NVDA_acquisition.json,stage13,False
+AVAILABLE,repair,,raw/NVDA_acquisition.json,stage13,False
+AVAILABLE,interval,,data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json,stage13,1d
+AVAILABLE,symbol,,data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json,stage13,NVDA
+AVAILABLE,exchangeTimezoneName,,data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json,stage13,America/New_York
+AVAILABLE,timezone,,data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json,stage13,EDT
+AVAILABLE,gmtoffset,,data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json,stage13,-14400
+AVAILABLE,dataGranularity,,data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json,stage13,1d
+AVAILABLE,range,,data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json,stage13,
+AVAILABLE,regularMarketTime,,data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json,stage13,1791209190
+AVAILABLE,currentTradingPeriod,,data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json,stage13,"{""post"": {""end"": 1791244800, ""gmtoffset"": -14400, ""start"": 1791230400, ""timezone"": ""EDT""}, ""pre"": {""end"": 1791207000, ""gmtoffset"": -14400, ""start"": 1791187200, ""timezone"": ""EDT""}, ""regular"": {""end"": 1791230400, ""gmtoffset"": -14400, ""start"": 1791207000, ""timezone"": ""EDT""}}"
+AVAILABLE,regularMarketTime_UTC,,data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json,stage13,2026-10-05T14:06:30+00:00
+AVAILABLE,timestamp_semantics,,data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json,stage13,bar epoch is a daily-session timestamp; regularMarketTime is quote time; neither is HTTP retrieval timestamp
+NOT_AVAILABLE,back_adjust,Not explicitly passed or recorded; do not replace missing historical-version evidence with current defaults,,stage13,
+AVAILABLE,yfinance_version,Observed now; not proof of either historical acquisition version,,current_environment,1.7.0
+AVAILABLE,acquisition_started_UTC,,data/research/historical_expansion/stage13_1_yahoo_reconciliation/external/NVDA_current_acquisition.json,current_external,2026-10-05T14:58:04.773972+00:00
+AVAILABLE,acquisition_finished_UTC,,data/research/historical_expansion/stage13_1_yahoo_reconciliation/external/NVDA_current_acquisition.json,current_external,2026-10-05T14:58:05.054492+00:00
+AVAILABLE,yfinance_version,,data/research/historical_expansion/stage13_1_yahoo_reconciliation/external/NVDA_current_acquisition.json,current_external,1.7.0
+AVAILABLE,auto_adjust,,data/research/historical_expansion/stage13_1_yahoo_reconciliation/external/NVDA_current_acquisition.json,current_external,False
+AVAILABLE,back_adjust,,data/research/historical_expansion/stage13_1_yahoo_reconciliation/external/NVDA_current_acquisition.json,current_external,False
+AVAILABLE,repair,,data/research/historical_expansion/stage13_1_yahoo_reconciliation/external/NVDA_current_acquisition.json,current_external,False
+AVAILABLE,actions,,data/research/historical_expansion/stage13_1_yahoo_reconciliation/external/NVDA_current_acquisition.json,current_external,True
+AVAILABLE,keepna,,data/research/historical_expansion/stage13_1_yahoo_reconciliation/external/NVDA_current_acquisition.json,current_external,True
+AVAILABLE,end_exclusive,,data/research/historical_expansion/stage13_1_yahoo_reconciliation/external/NVDA_current_acquisition.json,current_external,2026-10-02
+AVAILABLE,interval,,data/research/historical_expansion/stage13_1_yahoo_reconciliation/external/NVDA_current_acquisition.json,current_external,1d
+AVAILABLE,start,,data/research/historical_expansion/stage13_1_yahoo_reconciliation/external/NVDA_current_acquisition.json,current_external,2026-09-29
+AVAILABLE,ticker,,data/research/historical_expansion/stage13_1_yahoo_reconciliation/external/NVDA_current_acquisition.json,current_external,NVDA
+AVAILABLE,endpoint,,data/research/historical_expansion/stage13_1_yahoo_reconciliation/external/NVDA_current_acquisition.json,current_external,https://query2.finance.yahoo.com/v8/finance/chart/NVDA
+AVAILABLE,exact_request_parameters,,data/research/historical_expansion/stage13_1_yahoo_reconciliation/external/NVDA_current_acquisition.json,current_external,"{""events"": ""div,splits,capitalGains"", ""includePrePost"": false, ""interval"": ""1d"", ""period1"": 1790654400, ""period2"": 1790913600}"

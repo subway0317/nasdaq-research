@@ -34,24 +34,10 @@ def download_stock_history(
     symbol: str,
     period: str = DEFAULT_PERIOD,
     interval: str = DEFAULT_INTERVAL,
-    *, start: str | None = None, end: str | None = None,
-    session: Any = None, source_snapshot_path: Path | None = None,
 ) -> pd.DataFrame:
     """Download and standardize historical daily data for one stock symbol."""
-    if source_snapshot_path is not None and source_snapshot_path.exists():
-        raise ValueError("Source snapshot already exists; acquisition is immutable")
     import yfinance as yf
 
-    options: dict[str, Any] = {}
-    if start is not None or end is not None:
-        options.update(start=start, end=end)
-        period = None
-    if session is not None:
-        options["session"] = session
-    if source_snapshot_path is not None:
-        # Retain the vendor table/actions for a new acquisition namespace only.
-        # keepna prevents silent source-row removal in historical expansion.
-        options.update(actions=True, keepna=True)
     raw = yf.download(
         symbol.upper(),
         period=period,
@@ -59,11 +45,7 @@ def download_stock_history(
         auto_adjust=False,
         progress=False,
         threads=False,
-        **options,
     )
-    if source_snapshot_path is not None and raw is not None and not raw.empty:
-        source_snapshot_path.parent.mkdir(parents=True, exist_ok=True)
-        raw.to_csv(source_snapshot_path, index=True)
     return standardize_history(raw, symbol=symbol)
 
 

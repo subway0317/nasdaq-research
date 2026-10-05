@@ -1,0 +1,14 @@
+{
+  "CSV_headers_checked": 88,
+  "legacy_original_source_candidates": [],
+  "local_pre_external_evidence_sha256": "c70bb210276e2fb348e264f449239b749c33ead0535194200de364e5887b62b9",
+  "market_JSON_signatures_checked": 28,
+  "no_acquisition_timestamp_inferred_from_filesystem": true,
+  "original_raw_yfinance_recognition": "Original vendor/yfinance CSV header contains Volume and Adj Close or Price; legacy normalized six-column CSV is level 3",
+  "original_source_candidates": [
+    "data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json",
+    "data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_d2306ab048d4171827c527cc46cc44aa6011145eb3902091ba451399b10aa6ae.json",
+    "data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_source.csv"
+  ],
+  "scope": "Existing data files excluding Stage13.1; header/signature discovery only, no historical source re-evaluation"
+}

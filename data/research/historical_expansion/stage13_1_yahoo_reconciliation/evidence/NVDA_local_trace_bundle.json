@@ -1,0 +1,758 @@
+{
+  "acquisition_metadata": [
+    {
+      "evidence_status": "NOT_AVAILABLE",
+      "metadata_field": "retrieval_timestamp",
+      "notes": "Not recoverable from frozen acquisition evidence; file mtime/Git time are not retrieval time",
+      "source_file": null,
+      "source_side": "legacy",
+      "value": null
+    },
+    {
+      "evidence_status": "NOT_AVAILABLE",
+      "metadata_field": "request_timestamp",
+      "notes": "Not recoverable from frozen acquisition evidence; file mtime/Git time are not retrieval time",
+      "source_file": null,
+      "source_side": "legacy",
+      "value": null
+    },
+    {
+      "evidence_status": "NOT_AVAILABLE",
+      "metadata_field": "query_start",
+      "notes": "Not recoverable from frozen acquisition evidence; file mtime/Git time are not retrieval time",
+      "source_file": null,
+      "source_side": "legacy",
+      "value": null
+    },
+    {
+      "evidence_status": "NOT_AVAILABLE",
+      "metadata_field": "query_end",
+      "notes": "Not recoverable from frozen acquisition evidence; file mtime/Git time are not retrieval time",
+      "source_file": null,
+      "source_side": "legacy",
+      "value": null
+    },
+    {
+      "evidence_status": "NOT_AVAILABLE",
+      "metadata_field": "endpoint",
+      "notes": "Not recoverable from frozen acquisition evidence; file mtime/Git time are not retrieval time",
+      "source_file": null,
+      "source_side": "legacy",
+      "value": null
+    },
+    {
+      "evidence_status": "NOT_AVAILABLE",
+      "metadata_field": "yfinance_version",
+      "notes": "Not recoverable from frozen acquisition evidence; file mtime/Git time are not retrieval time",
+      "source_file": null,
+      "source_side": "legacy",
+      "value": null
+    },
+    {
+      "evidence_status": "NOT_AVAILABLE",
+      "metadata_field": "HTTP_response_time",
+      "notes": "Not recoverable from frozen acquisition evidence; file mtime/Git time are not retrieval time",
+      "source_file": null,
+      "source_side": "legacy",
+      "value": null
+    },
+    {
+      "evidence_status": "PARTIAL",
+      "metadata_field": "configured_period_default",
+      "notes": "Configured default only; actual acquisition args not recorded",
+      "source_file": "evidence/legacy_HEAD_data.py",
+      "source_side": "legacy",
+      "value": "1y"
+    },
+    {
+      "evidence_status": "PARTIAL",
+      "metadata_field": "configured_interval_default",
+      "notes": "Configured default only; actual acquisition args not recorded",
+      "source_file": "evidence/legacy_HEAD_data.py",
+      "source_side": "legacy",
+      "value": "1d"
+    },
+    {
+      "evidence_status": "PARTIAL",
+      "metadata_field": "configured_auto_adjust",
+      "notes": "Configured default only; actual acquisition args not recorded",
+      "source_file": "evidence/legacy_HEAD_data.py",
+      "source_side": "legacy",
+      "value": "False"
+    },
+    {
+      "evidence_status": "AVAILABLE",
+      "metadata_field": "observed_normalized_date_range",
+      "notes": "Observed rows, not query boundaries",
+      "source_file": "data/raw/NVDA.csv",
+      "source_side": "legacy",
+      "value": "2025-10-01 through 2026-09-30"
+    },
+    {
+      "evidence_status": "NOT_AVAILABLE",
+      "metadata_field": "end_exclusive_semantics",
+      "notes": "No explicit legacy start/end query or historic library version; current docs cannot certify it",
+      "source_file": null,
+      "source_side": "legacy",
+      "value": null
+    },
+    {
+      "evidence_status": "NOT_AVAILABLE",
+      "metadata_field": "retrieval_timestamp",
+      "notes": "Omitted from frozen acquisition manifest; current installed version is not acquisition-time proof",
+      "source_file": null,
+      "source_side": "stage13",
+      "value": null
+    },
+    {
+      "evidence_status": "NOT_AVAILABLE",
+      "metadata_field": "request_timestamp",
+      "notes": "Omitted from frozen acquisition manifest; current installed version is not acquisition-time proof",
+      "source_file": null,
+      "source_side": "stage13",
+      "value": null
+    },
+    {
+      "evidence_status": "NOT_AVAILABLE",
+      "metadata_field": "yfinance_version",
+      "notes": "Omitted from frozen acquisition manifest; current installed version is not acquisition-time proof",
+      "source_file": null,
+      "source_side": "stage13",
+      "value": null
+    },
+    {
+      "evidence_status": "NOT_AVAILABLE",
+      "metadata_field": "HTTP_response_time",
+      "notes": "Omitted from frozen acquisition manifest; current installed version is not acquisition-time proof",
+      "source_file": null,
+      "source_side": "stage13",
+      "value": null
+    },
+    {
+      "evidence_status": "NOT_AVAILABLE",
+      "metadata_field": "recorded_exact_endpoint",
+      "notes": "Omitted from frozen acquisition manifest; current installed version is not acquisition-time proof",
+      "source_file": null,
+      "source_side": "stage13",
+      "value": null
+    },
+    {
+      "evidence_status": "AVAILABLE",
+      "metadata_field": "query_start",
+      "notes": null,
+      "source_file": "raw/NVDA_acquisition.json",
+      "source_side": "stage13",
+      "value": "2009-08-20"
+    },
+    {
+      "evidence_status": "AVAILABLE",
+      "metadata_field": "query_end_exclusive",
+      "notes": null,
+      "source_file": "raw/NVDA_acquisition.json",
+      "source_side": "stage13",
+      "value": "2026-10-01"
+    },
+    {
+      "evidence_status": "AVAILABLE",
+      "metadata_field": "auto_adjust",
+      "notes": null,
+      "source_file": "raw/NVDA_acquisition.json",
+      "source_side": "stage13",
+      "value": "False"
+    },
+    {
+      "evidence_status": "AVAILABLE",
+      "metadata_field": "repair",
+      "notes": null,
+      "source_file": "raw/NVDA_acquisition.json",
+      "source_side": "stage13",
+      "value": "False"
+    },
+    {
+      "evidence_status": "AVAILABLE",
+      "metadata_field": "interval",
+      "notes": null,
+      "source_file": "data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json",
+      "source_side": "stage13",
+      "value": "1d"
+    },
+    {
+      "evidence_status": "AVAILABLE",
+      "metadata_field": "symbol",
+      "notes": null,
+      "source_file": "data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json",
+      "source_side": "stage13",
+      "value": "NVDA"
+    },
+    {
+      "evidence_status": "AVAILABLE",
+      "metadata_field": "exchangeTimezoneName",
+      "notes": null,
+      "source_file": "data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json",
+      "source_side": "stage13",
+      "value": "America/New_York"
+    },
+    {
+      "evidence_status": "AVAILABLE",
+      "metadata_field": "timezone",
+      "notes": null,
+      "source_file": "data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json",
+      "source_side": "stage13",
+      "value": "EDT"
+    },
+    {
+      "evidence_status": "AVAILABLE",
+      "metadata_field": "gmtoffset",
+      "notes": null,
+      "source_file": "data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json",
+      "source_side": "stage13",
+      "value": "-14400"
+    },
+    {
+      "evidence_status": "AVAILABLE",
+      "metadata_field": "dataGranularity",
+      "notes": null,
+      "source_file": "data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json",
+      "source_side": "stage13",
+      "value": "1d"
+    },
+    {
+      "evidence_status": "AVAILABLE",
+      "metadata_field": "range",
+      "notes": null,
+      "source_file": "data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json",
+      "source_side": "stage13",
+      "value": null
+    },
+    {
+      "evidence_status": "AVAILABLE",
+      "metadata_field": "regularMarketTime",
+      "notes": null,
+      "source_file": "data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json",
+      "source_side": "stage13",
+      "value": "1791209190"
+    },
+    {
+      "evidence_status": "AVAILABLE",
+      "metadata_field": "currentTradingPeriod",
+      "notes": null,
+      "source_file": "data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json",
+      "source_side": "stage13",
+      "value": "{\"post\": {\"end\": 1791244800, \"gmtoffset\": -14400, \"start\": 1791230400, \"timezone\": \"EDT\"}, \"pre\": {\"end\": 1791207000, \"gmtoffset\": -14400, \"start\": 1791187200, \"timezone\": \"EDT\"}, \"regular\": {\"end\": 1791230400, \"gmtoffset\": -14400, \"start\": 1791207000, \"timezone\": \"EDT\"}}"
+    },
+    {
+      "evidence_status": "AVAILABLE",
+      "metadata_field": "regularMarketTime_UTC",
+      "notes": null,
+      "source_file": "data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json",
+      "source_side": "stage13",
+      "value": "2026-10-05T14:06:30+00:00"
+    },
+    {
+      "evidence_status": "AVAILABLE",
+      "metadata_field": "timestamp_semantics",
+      "notes": null,
+      "source_file": "data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json",
+      "source_side": "stage13",
+      "value": "bar epoch is a daily-session timestamp; regularMarketTime is quote time; neither is HTTP retrieval timestamp"
+    },
+    {
+      "evidence_status": "NOT_AVAILABLE",
+      "metadata_field": "back_adjust",
+      "notes": "Not explicitly passed or recorded; do not replace missing historical-version evidence with current defaults",
+      "source_file": null,
+      "source_side": "stage13",
+      "value": null
+    },
+    {
+      "evidence_status": "AVAILABLE",
+      "metadata_field": "yfinance_version",
+      "notes": "Observed now; not proof of either historical acquisition version",
+      "source_file": null,
+      "source_side": "current_environment",
+      "value": "1.7.0"
+    }
+  ],
+  "local_evidence_sha256": "c70bb210276e2fb348e264f449239b749c33ead0535194200de364e5887b62b9",
+  "processing_trace": [
+    {
+      "authority_level": 1,
+      "available": false,
+      "date": "2026-09-30",
+      "field": "volume",
+      "layer": "raw_yahoo_chart",
+      "notes": "Missing original response; normalized CSV is not a replacement",
+      "representation": "persisted_artifact",
+      "side": "legacy",
+      "source_file": null,
+      "source_hash": null,
+      "value": null
+    },
+    {
+      "authority_level": 1,
+      "available": false,
+      "date": "2026-09-30",
+      "field": "volume",
+      "layer": "raw_yfinance_table",
+      "notes": "Missing original table; never reconstruct a fake source",
+      "representation": "persisted_artifact",
+      "side": "legacy",
+      "source_file": null,
+      "source_hash": null,
+      "value": null
+    },
+    {
+      "authority_level": 3,
+      "available": true,
+      "date": "2026-09-30",
+      "field": "volume",
+      "layer": "normalized_market",
+      "notes": "Frozen normalized/downstream count, exact integer",
+      "representation": "persisted_artifact",
+      "side": "legacy",
+      "source_file": "data/raw/NVDA.csv",
+      "source_hash": "066133d6cbaa0496cd6e7cfe8626542e269d7da013862b2bbeaced2db4fbd920",
+      "value": 121269300.0
+    },
+    {
+      "authority_level": 3,
+      "available": true,
+      "date": "2026-09-30",
+      "field": "volume",
+      "layer": "stage3",
+      "notes": "Frozen normalized/downstream count, exact integer",
+      "representation": "persisted_artifact",
+      "side": "legacy",
+      "source_file": "data/processed/NVDA.csv",
+      "source_hash": "e1c8cd51e259778c60363c47db38af0adb6a7237b171dd19f1cf38b1f6778810",
+      "value": 121269300.0
+    },
+    {
+      "authority_level": 3,
+      "available": true,
+      "date": "2026-09-30",
+      "field": "volume",
+      "layer": "stage5",
+      "notes": "Frozen normalized/downstream count, exact integer",
+      "representation": "persisted_artifact",
+      "side": "legacy",
+      "source_file": "data/research/NVDA_research.csv",
+      "source_hash": "0e4de534498c92686cbc3529ac184047459ad5ab51b8622bf60ae19782bc2804",
+      "value": 121269300.0
+    },
+    {
+      "authority_level": 3,
+      "available": true,
+      "date": "2026-09-30",
+      "field": "volume",
+      "layer": "stage61",
+      "notes": "Frozen normalized/downstream count, exact integer",
+      "representation": "persisted_artifact",
+      "side": "legacy",
+      "source_file": "data/research/NVDA_features.csv",
+      "source_hash": "f73cb2a9d9d4d3fb1e859942141abfb2f895d98a437f7fd518e30e6e94048853",
+      "value": 121269300.0
+    },
+    {
+      "authority_level": 3,
+      "available": true,
+      "date": "2026-09-30",
+      "field": "volume",
+      "layer": "stage8_labeled",
+      "notes": "Frozen normalized/downstream count, exact integer",
+      "representation": "persisted_artifact",
+      "side": "legacy",
+      "source_file": "data/research/NVDA_labeled.csv",
+      "source_hash": "e6a438a1b832e97eab30b0de4f656e881618fc87348debc8c5b7978410cace2b",
+      "value": 121269300.0
+    },
+    {
+      "authority_level": 1,
+      "available": true,
+      "date": "2026-09-30",
+      "field": "volume",
+      "layer": "raw_yahoo_chart",
+      "notes": "Original JSON indicators.quote.volume indexed by primary-session timestamp",
+      "representation": "persisted_artifact",
+      "side": "expanded",
+      "source_file": "data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json",
+      "source_hash": "c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227",
+      "value": 121732200.0
+    },
+    {
+      "authority_level": 1,
+      "available": true,
+      "date": "2026-09-30",
+      "field": "volume",
+      "layer": "raw_yfinance_table",
+      "notes": "Original yfinance multi-index source table",
+      "representation": "persisted_artifact",
+      "side": "expanded",
+      "source_file": "data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_source.csv",
+      "source_hash": "df45bf7400f08dc0e0e92c5cde50606a14004bfbcd9e3e9ccf3a0fcb9282c6a2",
+      "value": 121732200.0
+    },
+    {
+      "authority_level": 3,
+      "available": true,
+      "date": "2026-09-30",
+      "field": "volume",
+      "layer": "normalized_market",
+      "notes": "Frozen Stage 13 equivalent processing layer",
+      "representation": "persisted_artifact",
+      "side": "expanded",
+      "source_file": "data/research/historical_expansion/stage13_nvda/raw/NVDA_market.csv",
+      "source_hash": "019077bc0f1708ac4ac2ffb73613d28836b8b315070046e13c9ec59208b1fc14",
+      "value": 121732200.0
+    },
+    {
+      "authority_level": 3,
+      "available": true,
+      "date": "2026-09-30",
+      "field": "volume",
+      "layer": "stage3",
+      "notes": "Frozen Stage 13 equivalent processing layer",
+      "representation": "persisted_artifact",
+      "side": "expanded",
+      "source_file": "data/research/historical_expansion/stage13_nvda/NVDA_stage13_market_history.csv",
+      "source_hash": "4ddef40c793a7fdb93dbff4ec89a9bbbb2fc8943038cac08da4735c77b0ecb28",
+      "value": 121732200.0
+    },
+    {
+      "authority_level": 3,
+      "available": true,
+      "date": "2026-09-30",
+      "field": "volume",
+      "layer": "stage5",
+      "notes": "Frozen Stage 13 equivalent processing layer",
+      "representation": "persisted_artifact",
+      "side": "expanded",
+      "source_file": "data/research/historical_expansion/stage13_nvda/NVDA_stage13_pit_states.csv",
+      "source_hash": "4881abcb554d11678f7eb98cf5fa23e7ea71cf61a6127cb8c2761401fc8a38b1",
+      "value": 121732200.0
+    },
+    {
+      "authority_level": 3,
+      "available": true,
+      "date": "2026-09-30",
+      "field": "volume",
+      "layer": "stage61",
+      "notes": "Frozen Stage 13 equivalent processing layer",
+      "representation": "persisted_artifact",
+      "side": "expanded",
+      "source_file": "data/research/historical_expansion/stage13_nvda/NVDA_stage13_research_matrix.csv",
+      "source_hash": "85d9297de51d4fa930af08d6b0aedea748c2915ee795c472c9a229d49b471ce6",
+      "value": 121732200.0
+    },
+    {
+      "authority_level": 3,
+      "available": true,
+      "date": "2026-09-30",
+      "field": "volume",
+      "layer": "stage8_labeled",
+      "notes": "Indirect frozen audit of in-memory Stage 8 labeled join; no standalone expanded labeled artifact was persisted",
+      "representation": "frozen_audit_of_in_memory_join",
+      "side": "expanded",
+      "source_file": "data/research/historical_expansion/stage13_nvda/NVDA_stage13_unexpected_overlap_differences.csv",
+      "source_hash": "4f55b69faadd4bd9fa19722b27690d8151bfb5fecd598d58f62cc9b9e7c1453b",
+      "value": 121732200.0
+    }
+  ],
+  "source_inventory": [
+    {
+      "acquisition_time_if_known": null,
+      "authoritative_role": "Level 1 original source",
+      "date_range_if_known": null,
+      "evidence_status": "NOT_AVAILABLE",
+      "exists": false,
+      "file_path": null,
+      "notes": "Repository discovery found no legacy chart response",
+      "query_if_known": null,
+      "sha256": null,
+      "source_side": "legacy",
+      "source_type": "original_yahoo_chart"
+    },
+    {
+      "acquisition_time_if_known": null,
+      "authoritative_role": "Level 1 original source",
+      "date_range_if_known": null,
+      "evidence_status": "NOT_AVAILABLE",
+      "exists": false,
+      "file_path": null,
+      "notes": "Legacy downloader standardized immediately and saved only six OHLCV columns; no original yfinance representation retained",
+      "query_if_known": null,
+      "sha256": null,
+      "source_side": "legacy",
+      "source_type": "original_yfinance_table"
+    },
+    {
+      "acquisition_time_if_known": null,
+      "authoritative_role": "Level 2 acquisition context",
+      "date_range_if_known": null,
+      "evidence_status": "NOT_AVAILABLE",
+      "exists": false,
+      "file_path": null,
+      "notes": "No contemporaneous retrieval/request timestamp, query manifest or library version recovered",
+      "query_if_known": null,
+      "sha256": null,
+      "source_side": "legacy",
+      "source_type": "acquisition_metadata"
+    },
+    {
+      "acquisition_time_if_known": null,
+      "authoritative_role": "Level 3 normalized/processed historical record",
+      "date_range_if_known": null,
+      "evidence_status": "AVAILABLE",
+      "exists": true,
+      "file_path": "data/raw/NVDA.csv",
+      "notes": null,
+      "query_if_known": null,
+      "sha256": "066133d6cbaa0496cd6e7cfe8626542e269d7da013862b2bbeaced2db4fbd920",
+      "source_side": "legacy",
+      "source_type": "normalized_market"
+    },
+    {
+      "acquisition_time_if_known": null,
+      "authoritative_role": "Level 3 normalized/processed historical record",
+      "date_range_if_known": null,
+      "evidence_status": "AVAILABLE",
+      "exists": true,
+      "file_path": "data/processed/NVDA.csv",
+      "notes": null,
+      "query_if_known": null,
+      "sha256": "e1c8cd51e259778c60363c47db38af0adb6a7237b171dd19f1cf38b1f6778810",
+      "source_side": "legacy",
+      "source_type": "stage3"
+    },
+    {
+      "acquisition_time_if_known": null,
+      "authoritative_role": "Level 3 normalized/processed historical record",
+      "date_range_if_known": null,
+      "evidence_status": "AVAILABLE",
+      "exists": true,
+      "file_path": "data/research/NVDA_research.csv",
+      "notes": null,
+      "query_if_known": null,
+      "sha256": "0e4de534498c92686cbc3529ac184047459ad5ab51b8622bf60ae19782bc2804",
+      "source_side": "legacy",
+      "source_type": "stage5"
+    },
+    {
+      "acquisition_time_if_known": null,
+      "authoritative_role": "Level 3 normalized/processed historical record",
+      "date_range_if_known": null,
+      "evidence_status": "AVAILABLE",
+      "exists": true,
+      "file_path": "data/research/NVDA_features.csv",
+      "notes": null,
+      "query_if_known": null,
+      "sha256": "f73cb2a9d9d4d3fb1e859942141abfb2f895d98a437f7fd518e30e6e94048853",
+      "source_side": "legacy",
+      "source_type": "stage61"
+    },
+    {
+      "acquisition_time_if_known": null,
+      "authoritative_role": "Level 3 normalized/processed historical record",
+      "date_range_if_known": null,
+      "evidence_status": "AVAILABLE",
+      "exists": true,
+      "file_path": "data/research/NVDA_labeled.csv",
+      "notes": null,
+      "query_if_known": null,
+      "sha256": "e6a438a1b832e97eab30b0de4f656e881618fc87348debc8c5b7978410cace2b",
+      "source_side": "legacy",
+      "source_type": "stage8_labeled"
+    },
+    {
+      "acquisition_time_if_known": null,
+      "authoritative_role": "Level 2 configured behavior only",
+      "date_range_if_known": null,
+      "evidence_status": "PARTIAL",
+      "exists": true,
+      "file_path": "data/research/historical_expansion/stage13_1_yahoo_reconciliation/evidence/legacy_HEAD_data.py",
+      "notes": "Exact HEAD source; proves available code behavior, not historical request args or installed yfinance version",
+      "query_if_known": null,
+      "sha256": "25ab543d3abeeb3f253a9e50335d818053e2c508aab807ebb0ef2b0c77f22053",
+      "source_side": "legacy",
+      "source_type": "original_downloader_code"
+    },
+    {
+      "acquisition_time_if_known": null,
+      "authoritative_role": "Level 1 original vendor response",
+      "date_range_if_known": null,
+      "evidence_status": "AVAILABLE",
+      "exists": true,
+      "file_path": "data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json",
+      "notes": "Contains primary bar",
+      "query_if_known": null,
+      "sha256": "c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227",
+      "source_side": "stage13",
+      "source_type": "original_yahoo_chart"
+    },
+    {
+      "acquisition_time_if_known": null,
+      "authoritative_role": "Level 1 original vendor response",
+      "date_range_if_known": null,
+      "evidence_status": "PARTIAL",
+      "exists": true,
+      "file_path": "data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_d2306ab048d4171827c527cc46cc44aa6011145eb3902091ba451399b10aa6ae.json",
+      "notes": "Auxiliary one-day response; primary bar absent",
+      "query_if_known": null,
+      "sha256": "d2306ab048d4171827c527cc46cc44aa6011145eb3902091ba451399b10aa6ae",
+      "source_side": "stage13",
+      "source_type": "original_yahoo_chart"
+    },
+    {
+      "acquisition_time_if_known": null,
+      "authoritative_role": "Level 1 original yfinance representation",
+      "date_range_if_known": null,
+      "evidence_status": "AVAILABLE",
+      "exists": true,
+      "file_path": "data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_source.csv",
+      "notes": null,
+      "query_if_known": null,
+      "sha256": "df45bf7400f08dc0e0e92c5cde50606a14004bfbcd9e3e9ccf3a0fcb9282c6a2",
+      "source_side": "stage13",
+      "source_type": "original_yfinance_table"
+    },
+    {
+      "acquisition_time_if_known": null,
+      "authoritative_role": "Level 3 frozen processed representation",
+      "date_range_if_known": null,
+      "evidence_status": "AVAILABLE",
+      "exists": true,
+      "file_path": "data/research/historical_expansion/stage13_nvda/raw/NVDA_market.csv",
+      "notes": null,
+      "query_if_known": null,
+      "sha256": "019077bc0f1708ac4ac2ffb73613d28836b8b315070046e13c9ec59208b1fc14",
+      "source_side": "stage13",
+      "source_type": "normalized_market"
+    },
+    {
+      "acquisition_time_if_known": null,
+      "authoritative_role": "Level 3 frozen processed representation",
+      "date_range_if_known": null,
+      "evidence_status": "AVAILABLE",
+      "exists": true,
+      "file_path": "data/research/historical_expansion/stage13_nvda/NVDA_stage13_market_history.csv",
+      "notes": null,
+      "query_if_known": null,
+      "sha256": "4ddef40c793a7fdb93dbff4ec89a9bbbb2fc8943038cac08da4735c77b0ecb28",
+      "source_side": "stage13",
+      "source_type": "stage3"
+    },
+    {
+      "acquisition_time_if_known": null,
+      "authoritative_role": "Level 3 frozen processed representation",
+      "date_range_if_known": null,
+      "evidence_status": "AVAILABLE",
+      "exists": true,
+      "file_path": "data/research/historical_expansion/stage13_nvda/NVDA_stage13_pit_states.csv",
+      "notes": null,
+      "query_if_known": null,
+      "sha256": "4881abcb554d11678f7eb98cf5fa23e7ea71cf61a6127cb8c2761401fc8a38b1",
+      "source_side": "stage13",
+      "source_type": "stage5"
+    },
+    {
+      "acquisition_time_if_known": null,
+      "authoritative_role": "Level 3 frozen processed representation",
+      "date_range_if_known": null,
+      "evidence_status": "AVAILABLE",
+      "exists": true,
+      "file_path": "data/research/historical_expansion/stage13_nvda/NVDA_stage13_research_matrix.csv",
+      "notes": null,
+      "query_if_known": null,
+      "sha256": "85d9297de51d4fa930af08d6b0aedea748c2915ee795c472c9a229d49b471ce6",
+      "source_side": "stage13",
+      "source_type": "stage61"
+    },
+    {
+      "acquisition_time_if_known": null,
+      "authoritative_role": "Level 3 standalone labeled representation",
+      "date_range_if_known": null,
+      "evidence_status": "NOT_AVAILABLE",
+      "exists": false,
+      "file_path": null,
+      "notes": "Not produced as a standalone Stage 13 artifact",
+      "query_if_known": null,
+      "sha256": null,
+      "source_side": "stage13",
+      "source_type": "expanded_stage8_labeled_file"
+    },
+    {
+      "acquisition_time_if_known": null,
+      "authoritative_role": "Level 3 indirect frozen labeled-join evidence",
+      "date_range_if_known": null,
+      "evidence_status": "PARTIAL",
+      "exists": true,
+      "file_path": "data/research/historical_expansion/stage13_nvda/NVDA_stage13_unexpected_overlap_differences.csv",
+      "notes": null,
+      "query_if_known": null,
+      "sha256": "4f55b69faadd4bd9fa19722b27690d8151bfb5fecd598d58f62cc9b9e7c1453b",
+      "source_side": "stage13",
+      "source_type": "stage8_labeled_audit"
+    },
+    {
+      "acquisition_time_if_known": null,
+      "authoritative_role": "Level 2 recorded query/adjustment policy; missing retrieval timestamp/version",
+      "date_range_if_known": null,
+      "evidence_status": "PARTIAL",
+      "exists": true,
+      "file_path": "data/research/historical_expansion/stage13_nvda/raw/NVDA_acquisition.json",
+      "notes": null,
+      "query_if_known": null,
+      "sha256": "7e398ad570b0c8ebfdd6212763e1a60917b7f63db060c6782bb54c31fe9bdc03",
+      "source_side": "stage13",
+      "source_type": "acquisition_manifest"
+    },
+    {
+      "acquisition_time_if_known": null,
+      "authoritative_role": "Frozen execution/hash evidence, not acquisition timing",
+      "date_range_if_known": null,
+      "evidence_status": "AVAILABLE",
+      "exists": true,
+      "file_path": "data/research/historical_expansion/stage13_nvda/NVDA_stage13_execution_verification.json",
+      "notes": null,
+      "query_if_known": null,
+      "sha256": "d64f5aea4af0febdf3c4119d501af4f3a1c283563e4a9a5606df9396ebab74ef",
+      "source_side": "stage13",
+      "source_type": "execution_verification"
+    },
+    {
+      "acquisition_time_if_known": null,
+      "authoritative_role": "Out of investigation scope; preservation only",
+      "date_range_if_known": null,
+      "evidence_status": "AVAILABLE",
+      "exists": true,
+      "file_path": "data/research/historical_expansion/stage13_nvda/raw/NVDA_companyfacts.json",
+      "notes": null,
+      "query_if_known": null,
+      "sha256": "19ef503a5770f5660964b3c3aea6937579d9b359da344afe6a9adf59c63d26ff",
+      "source_side": "stage13",
+      "source_type": "SEC_raw_copy"
+    }
+  ],
+  "timezone_session_context": [
+    {
+      "UTC_and_Eastern_date_match": true,
+      "bar_epoch": 1790688600,
+      "bar_time_US_Eastern": "2026-09-29T09:30:00-04:00",
+      "bar_time_UTC": "2026-09-29T13:30:00+00:00",
+      "date": "2026-09-29",
+      "source_file": "data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json",
+      "source_side": "stage13",
+      "volume": 101494900
+    },
+    {
+      "UTC_and_Eastern_date_match": true,
+      "bar_epoch": 1790775000,
+      "bar_time_US_Eastern": "2026-09-30T09:30:00-04:00",
+      "bar_time_UTC": "2026-09-30T13:30:00+00:00",
+      "date": "2026-09-30",
+      "source_file": "data/research/historical_expansion/stage13_nvda/raw/NVDA_yahoo_chart_c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227.json",
+      "source_side": "stage13",
+      "volume": 121732200
+    }
+  ]
+}

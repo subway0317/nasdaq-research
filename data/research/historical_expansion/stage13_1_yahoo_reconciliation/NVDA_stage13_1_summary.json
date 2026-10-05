@@ -1,0 +1,75 @@
+{
+  "Stage13_historical_status": "INCOMPLETE_OR_BLOCKED",
+  "additional_downstream_manifestations": 4,
+  "canonical_policy_frozen": true,
+  "causal_first_divergence_identified": false,
+  "completion_status": "UNRESOLVED_BLOCKER",
+  "current_yahoo_value": 121732200,
+  "difference": 462900,
+  "engineering_checks_passed": true,
+  "evidence_gaps": [
+    "Legacy original Yahoo HTTP response or yfinance raw table",
+    "Legacy reliable request/retrieval timestamp and exact query/session parameters",
+    "Historical acquisition library version/endpoint evidence"
+  ],
+  "expanded_dataset_approved_for_downstream_research": false,
+  "expanded_original_source_value": 121732200,
+  "external_evidence_available": true,
+  "feature_changes": false,
+  "final_test_locked": true,
+  "final_test_metrics_computed": false,
+  "final_test_performance_dependency": false,
+  "final_test_predictions_generated": false,
+  "final_training_pool_used": false,
+  "first_divergence_layer": "NOT_IDENTIFIABLE_WITH_AVAILABLE_EVIDENCE",
+  "first_observed_divergence_layer": "normalized_market",
+  "future_stage14_plus_market_data_authority": null,
+  "legacy_normalized_value": 121269300,
+  "new_CV": false,
+  "new_model_fit": false,
+  "observed_independent_discrepancy_count": 1,
+  "original_manifestations_including_normalized_layer": 5,
+  "original_stage13_overlap_violations": 5,
+  "primary_date": "2026-09-30",
+  "primary_field": "volume",
+  "propagation": {
+    "available_lineage_edges_checked": 10,
+    "propagation_consistency_violations": 0,
+    "sides": {
+      "expanded": {
+        "available_layers": 7,
+        "normalized_to_downstream_verified": true,
+        "original_source_to_normalized_verified": true,
+        "propagation_violations": 0
+      },
+      "legacy": {
+        "available_layers": 5,
+        "normalized_to_downstream_verified": true,
+        "original_source_to_normalized_verified": false,
+        "propagation_violations": 0
+      }
+    }
+  },
+  "protected": {
+    "changed_files": [],
+    "mutation_violations": 0,
+    "protected_files_checked": 188,
+    "stage13_files_checked": 30,
+    "stage13_mutation_violations": 0,
+    "stage1_12_files_checked": 158,
+    "stage1_12_mutation_violations": 0
+  },
+  "remaining_hypotheses": [
+    "Unrecorded legacy acquisition before session/source finalization",
+    "Historical vendor/source-vintage change",
+    "Unrecoverable pre-normalized source/session/cache difference"
+  ],
+  "resolved_independent_discrepancy_count": 0,
+  "root_cause": "UNRESOLVED_SOURCE_DISCREPANCY",
+  "stage14_designed": false,
+  "stage14_executed": false,
+  "stage14_modeling_eligible": false,
+  "stage_name": "Stage 13.1 \u2014 Yahoo Source-Vintage Reconciliation and Canonical Snapshot Policy",
+  "target_changes": false,
+  "ticker": "NVDA"
+}

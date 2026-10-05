@@ -1,0 +1,122 @@
+{
+  "Stage13_acquisition_metadata_status": "PARTIAL",
+  "evidence_facts": {
+    "bug_file": null,
+    "bug_function": null,
+    "bug_transformation": null,
+    "conflicting_evidence": false,
+    "corrected_and_revalidated": false,
+    "expanded_complete_session_proven": true,
+    "expanded_processing_faithful": true,
+    "expanded_raw_available": true,
+    "expanded_raw_value": 121732200,
+    "legacy_complete_session_proven": false,
+    "legacy_incomplete_session_proven": false,
+    "legacy_processing_faithful": false,
+    "legacy_raw_available": false,
+    "legacy_raw_value": null,
+    "legacy_timing_known": false,
+    "processing_bug_proven": false,
+    "source_session_identity_comparable": false,
+    "unresolved_partial_session_possibility": true
+  },
+  "expanded_original_chart_count": 1,
+  "feature_changes": false,
+  "final_test_locked": true,
+  "final_test_metrics_computed": false,
+  "final_test_performance_dependency": false,
+  "final_test_predictions_generated": false,
+  "final_training_pool_used": false,
+  "first_divergence": {
+    "causal_first_divergence_identified": false,
+    "expanded_value": 121732200,
+    "first_divergence_evidence": [
+      {
+        "side": "legacy",
+        "source_file": "data/raw/NVDA.csv",
+        "source_hash": "066133d6cbaa0496cd6e7cfe8626542e269d7da013862b2bbeaced2db4fbd920"
+      },
+      {
+        "side": "expanded",
+        "source_file": "data/research/historical_expansion/stage13_nvda/raw/NVDA_market.csv",
+        "source_hash": "019077bc0f1708ac4ac2ffb73613d28836b8b315070046e13c9ec59208b1fc14"
+      }
+    ],
+    "first_divergence_layer": "NOT_IDENTIFIABLE_WITH_AVAILABLE_EVIDENCE",
+    "first_observed_divergence_layer": "normalized_market",
+    "interpretation": "First common available mismatch is confirmed; missing earlier evidence prevents causal source localization",
+    "legacy_value": 121269300,
+    "missing_earlier_layers": [
+      "raw_yahoo_chart",
+      "raw_yfinance_table"
+    ]
+  },
+  "legacy_acquisition_timing_available": false,
+  "legacy_original_chart_count": 0,
+  "legacy_original_yfinance_table_available": false,
+  "legacy_source_evidence_status": "NOT_AVAILABLE",
+  "local_trace_completed_before_external_acquisition": true,
+  "missing_required_evidence": [
+    "Legacy original Yahoo HTTP response or yfinance raw table",
+    "Legacy reliable request/retrieval timestamp and exact query/session parameters",
+    "Historical acquisition library version/endpoint evidence"
+  ],
+  "new_CV": false,
+  "new_model_fit": false,
+  "normalized_replay": {
+    "exact_transformation": "pd.to_numeric Volume; no arithmetic on Volume; observed date normalization",
+    "function": "nasdaq_research.data.standardize_history",
+    "normalized_recorded_volume": 121732200,
+    "normalized_replay_volume": 121732200,
+    "primary_original_yfinance_volume": 121732200,
+    "violations": 0
+  },
+  "propagation": {
+    "available_lineage_edges_checked": 10,
+    "propagation_consistency_violations": 0,
+    "sides": {
+      "expanded": {
+        "available_layers": 7,
+        "normalized_to_downstream_verified": true,
+        "original_source_to_normalized_verified": true,
+        "propagation_violations": 0
+      },
+      "legacy": {
+        "available_layers": 5,
+        "normalized_to_downstream_verified": true,
+        "original_source_to_normalized_verified": false,
+        "propagation_violations": 0
+      }
+    }
+  },
+  "protected": {
+    "changed_files": [],
+    "mutation_violations": 0,
+    "protected_files_checked": 188,
+    "stage13_files_checked": 30,
+    "stage13_mutation_violations": 0,
+    "stage1_12_files_checked": 158,
+    "stage1_12_mutation_violations": 0
+  },
+  "remaining_hypotheses": [
+    "Unrecorded legacy acquisition before session/source finalization",
+    "Historical vendor/source-vintage change",
+    "Unrecoverable pre-normalized source/session/cache difference"
+  ],
+  "searched_file_count": 170,
+  "stage14_designed": false,
+  "stage14_executed": false,
+  "target_changes": false,
+  "timezone_audit": {
+    "available_chart_context_rows_checked": 2,
+    "bar_timestamp_is_retrieval_time": false,
+    "expanded_regularMarketTime_UTC": "2026-10-05T14:06:30+00:00",
+    "issues": 0,
+    "legacy_raw_session_identity_certified": false,
+    "legacy_timezone_evidence": "NOT_AVAILABLE",
+    "primary_bar_US_Eastern": "2026-09-30T09:30:00-04:00",
+    "primary_bar_UTC": "2026-09-30T13:30:00+00:00",
+    "primary_bar_epoch": 1790775000,
+    "vendor_quote_timestamp_is_retrieval_time": false
+  }
+}

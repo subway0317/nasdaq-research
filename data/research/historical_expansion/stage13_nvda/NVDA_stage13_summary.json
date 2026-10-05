@@ -1,0 +1,388 @@
+{
+  "MAE_evaluation": false,
+  "SEC_amendment_observation_count": 0,
+  "SEC_filing_range": [
+    "2009-08-20",
+    "2026-08-26"
+  ],
+  "SEC_observation_counts": {
+    "annual": 17,
+    "quarterly": 62,
+    "ytd": 35
+  },
+  "SEC_period_range": [
+    "2009-07-26",
+    "2026-07-26"
+  ],
+  "SEC_real_amendment_note": "No real amendment observations in retained archived source; independently tested in-memory amendment fixtures.",
+  "acceptance_failures": [
+    "overlap_compatible"
+  ],
+  "actual_research_dates": [
+    "2020-01-02",
+    "2026-09-30"
+  ],
+  "completion_status": "INCOMPLETE_OR_BLOCKED",
+  "corporate_action_audit": {
+    "OHLC_bound_violations": 0,
+    "audit_metadata_used_in_features": false,
+    "dividend_events_in_research_window": 27,
+    "global_discontinuity_violations": 0,
+    "missing_documented_split_events": [],
+    "price_vintage_note": "Vendor OHLC is split-adjusted in a fixed snapshot coordinate; dividends are not reapplied. Absolute levels are not certified historical as-traded prices.",
+    "split_events": [
+      {
+        "SMA_rolling_oracle_violations": 0,
+        "close_ratio": 0.9910674367392721,
+        "cross_event_max_abs_target_return": 0.12686112939648897,
+        "cross_event_target_violations": 0,
+        "date": "2021-07-20",
+        "dividend_amount": null,
+        "event_type": "splits",
+        "inverse_split_mechanical_jump": false,
+        "log_return": -0.0089726977854803,
+        "ohlc_ratios_in_registered_bounds": true,
+        "open_to_prior_close": 0.99735080181816,
+        "previous_session": "2021-07-19",
+        "reason": "documentary audit; unchanged source OHLC",
+        "source_sha256": "c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227",
+        "split_ratio": 4.0,
+        "violations": 0
+      },
+      {
+        "SMA_rolling_oracle_violations": 0,
+        "close_ratio": 1.0074614554265338,
+        "cross_event_max_abs_target_return": 0.448519783818468,
+        "cross_event_target_violations": 0,
+        "date": "2024-06-10",
+        "dividend_amount": null,
+        "event_type": "splits",
+        "inverse_split_mechanical_jump": false,
+        "log_return": 0.0074337564657012,
+        "ohlc_ratios_in_registered_bounds": true,
+        "open_to_prior_close": 0.9957150607206097,
+        "previous_session": "2024-06-07",
+        "reason": "documentary audit; unchanged source OHLC",
+        "source_sha256": "c8925631bb56ef3700f384bd325454dad7d03548493c7b6ddf4942f8f5074227",
+        "split_ratio": 10.0,
+        "violations": 0
+      }
+    ],
+    "violations": 0
+  },
+  "final_test_evaluation": false,
+  "final_test_locked": true,
+  "final_test_metrics_computed": false,
+  "final_test_predictions_generated": false,
+  "final_training_pool_used": false,
+  "first_usable_dates": {
+    "first_all_39_features_valid": null,
+    "first_annual_state": "2020-01-02",
+    "first_balance_sheet_state": "2020-01-02",
+    "first_mature_60_session_market_date": "2020-01-02",
+    "first_quarterly_state": "2020-01-02",
+    "first_research_date": "2020-01-02",
+    "first_structurally_eligible_5d_all_39": null,
+    "first_valid_1d_target": "2020-01-02",
+    "first_valid_20d_target": "2020-01-02",
+    "first_valid_5d_target": "2020-01-02",
+    "last_research_date": "2026-09-30"
+  },
+  "inherited_vintage_limitations": [
+    "Fixed Yahoo split-adjusted price coordinate is inherited; this is not an archive of as-traded historical prices. Absolute SMA cannot be certified invariant to vendor retroactive price rescaling.",
+    "SEC current archived Company Facts vintage and retained same-accession concepts are inherited; not a complete historical disclosure-vintage archive. Filing-PIT correctness is tested conditional on this frozen snapshot."
+  ],
+  "leakage_audits": {
+    "PIT_truncation": {
+      "representative_dates": 45,
+      "violations": 0
+    },
+    "amendment_timing_isolation": {
+      "filing_date": "2024-12-20",
+      "fixture_only": true,
+      "post_effective_positive_control": true,
+      "violations": 0
+    },
+    "deterministic_source_order": {
+      "violations": 0
+    },
+    "future_SEC_isolation": {
+      "cutoff": "2024-05-29",
+      "violations": 0
+    },
+    "future_market_isolation": {
+      "cutoff": "2024-05-29",
+      "violations": 0
+    },
+    "future_split_metadata_isolation": {
+      "basis": "construct_features takes only OHLCV and facts; no action metadata input; raw price vintage held fixed",
+      "violations": 0
+    },
+    "future_split_price_vintage_invariance_certified": false,
+    "future_target_isolation": {
+      "violations": 0,
+      "whitelist": [
+        "simple_return",
+        "log_return",
+        "intraday_return",
+        "daily_range",
+        "sma_5",
+        "sma_20",
+        "sma_60",
+        "rolling_volatility_20",
+        "rolling_volatility_60",
+        "q_gross_margin",
+        "q_operating_margin",
+        "q_net_margin",
+        "q_rd_to_revenue",
+        "q_sga_to_revenue",
+        "q_ocf_margin",
+        "q_fcf_margin",
+        "fy_gross_margin",
+        "fy_operating_margin",
+        "fy_net_margin",
+        "fy_rd_to_revenue",
+        "fy_sga_to_revenue",
+        "fy_ocf_margin",
+        "fy_fcf_margin",
+        "current_ratio",
+        "cash_to_assets",
+        "liabilities_to_assets",
+        "debt_to_assets",
+        "q_revenue_growth_yoy",
+        "q_gross_profit_growth_yoy",
+        "q_operating_income_growth_yoy",
+        "q_net_income_growth_yoy",
+        "q_rd_growth_yoy",
+        "q_operating_cash_flow_growth_yoy",
+        "fy_revenue_growth_yoy",
+        "fy_gross_profit_growth_yoy",
+        "fy_operating_income_growth_yoy",
+        "fy_net_income_growth_yoy",
+        "fy_rd_growth_yoy",
+        "fy_operating_cash_flow_growth_yoy"
+      ]
+    },
+    "independent_YoY_oracle": {
+      "cells_checked": 553,
+      "violations": 0
+    },
+    "independent_state_oracle": {
+      "cells_checked": 1575,
+      "violations": 0
+    },
+    "market_rolling_oracle": {
+      "cells_checked": 405,
+      "violations": 0
+    },
+    "relative_SMA_oracle": {
+      "cells_checked": 135,
+      "violations": 0
+    }
+  },
+  "market_presample_rows": 2609,
+  "market_raw_dates": [
+    "2009-08-20",
+    "2026-09-30"
+  ],
+  "market_raw_rows": 4304,
+  "new_cv": false,
+  "new_model_fit": false,
+  "no_final_test_performance_dependency": true,
+  "overlap": {
+    "exact_matches": 103030,
+    "expected_expansion_differences": 2400,
+    "expected_reason_counts": {
+      "legacy_pre_window_filing_effective_date_left_censoring": 1744,
+      "registered_market_warmup_truncated_at_legacy_sample_start": 656
+    },
+    "field_comparisons": 447,
+    "locked_numeric_target_cells_skipped": 700,
+    "overlapping_dates": 251,
+    "strict_tolerance_matches": 6062,
+    "unexpected_violations": 5
+  },
+  "relative_feature_count": 3,
+  "research_feature_count": 39,
+  "research_rows": 1695,
+  "research_window": [
+    "2020-01-01",
+    "2026-09-30"
+  ],
+  "stage_name": "Stage 13 \u2014 NVDA Historical Evidence-Base Expansion",
+  "targets": {
+    "1d": {
+      "tail_NaN_count": 1,
+      "valid_count": 1694
+    },
+    "20d": {
+      "tail_NaN_count": 20,
+      "valid_count": 1675
+    },
+    "5d": {
+      "tail_NaN_count": 5,
+      "valid_count": 1690
+    }
+  },
+  "upstream": {
+    "changed_files": [],
+    "files_checked": 157,
+    "mutation_violations": 0
+  },
+  "yearly_coverage": [
+    {
+      "annual_feature_coverage": 0.9230769230769231,
+      "balance_sheet_feature_coverage": 0.7786561264822134,
+      "bs_state_coverage": 1.0,
+      "bs_state_rows": 253,
+      "duplicate_dates": 0,
+      "fy_state_coverage": 1.0,
+      "fy_state_rows": 253,
+      "market_feature_coverage": 1.0,
+      "market_rows": 253,
+      "missing_research_feature_cells": 2062,
+      "non_finite_infinity_count": 0,
+      "q_state_coverage": 1.0,
+      "q_state_rows": 253,
+      "quarterly_feature_coverage": 0.5180906050471268,
+      "relative_market_feature_coverage": 1.0,
+      "research_39_feature_coverage": 0.7910205736292693,
+      "target_1d_valid_count": 253,
+      "target_20d_valid_count": 253,
+      "target_5d_valid_count": 253,
+      "year": 2020
+    },
+    {
+      "annual_feature_coverage": 0.9230769230769231,
+      "balance_sheet_feature_coverage": 1.0,
+      "bs_state_coverage": 1.0,
+      "bs_state_rows": 252,
+      "duplicate_dates": 0,
+      "fy_state_coverage": 1.0,
+      "fy_state_rows": 252,
+      "market_feature_coverage": 1.0,
+      "market_rows": 252,
+      "missing_research_feature_cells": 1573,
+      "non_finite_infinity_count": 0,
+      "q_state_coverage": 1.0,
+      "q_state_rows": 252,
+      "quarterly_feature_coverage": 0.5967643467643468,
+      "relative_market_feature_coverage": 1.0,
+      "research_39_feature_coverage": 0.83994708994709,
+      "target_1d_valid_count": 252,
+      "target_20d_valid_count": 252,
+      "target_5d_valid_count": 252,
+      "year": 2021
+    },
+    {
+      "annual_feature_coverage": 0.9230769230769231,
+      "balance_sheet_feature_coverage": 1.0,
+      "bs_state_coverage": 1.0,
+      "bs_state_rows": 251,
+      "duplicate_dates": 0,
+      "fy_state_coverage": 1.0,
+      "fy_state_rows": 251,
+      "market_feature_coverage": 1.0,
+      "market_rows": 251,
+      "missing_research_feature_cells": 874,
+      "non_finite_infinity_count": 0,
+      "q_state_coverage": 1.0,
+      "q_state_rows": 251,
+      "quarterly_feature_coverage": 0.8090714066809684,
+      "relative_market_feature_coverage": 1.0,
+      "research_39_feature_coverage": 0.9107161099192972,
+      "target_1d_valid_count": 251,
+      "target_20d_valid_count": 251,
+      "target_5d_valid_count": 251,
+      "year": 2022
+    },
+    {
+      "annual_feature_coverage": 0.9230769230769231,
+      "balance_sheet_feature_coverage": 1.0,
+      "bs_state_coverage": 1.0,
+      "bs_state_rows": 250,
+      "duplicate_dates": 0,
+      "fy_state_coverage": 1.0,
+      "fy_state_rows": 250,
+      "market_feature_coverage": 1.0,
+      "market_rows": 250,
+      "missing_research_feature_cells": 874,
+      "non_finite_infinity_count": 0,
+      "q_state_coverage": 1.0,
+      "q_state_rows": 250,
+      "quarterly_feature_coverage": 0.808,
+      "relative_market_feature_coverage": 1.0,
+      "research_39_feature_coverage": 0.9103589743589744,
+      "target_1d_valid_count": 250,
+      "target_20d_valid_count": 250,
+      "target_5d_valid_count": 250,
+      "year": 2023
+    },
+    {
+      "annual_feature_coverage": 0.9230769230769231,
+      "balance_sheet_feature_coverage": 1.0,
+      "bs_state_coverage": 1.0,
+      "bs_state_rows": 252,
+      "duplicate_dates": 0,
+      "fy_state_coverage": 1.0,
+      "fy_state_rows": 252,
+      "market_feature_coverage": 1.0,
+      "market_rows": 252,
+      "missing_research_feature_cells": 882,
+      "non_finite_infinity_count": 0,
+      "q_state_coverage": 1.0,
+      "q_state_rows": 252,
+      "quarterly_feature_coverage": 0.8076923076923077,
+      "relative_market_feature_coverage": 1.0,
+      "research_39_feature_coverage": 0.9102564102564102,
+      "target_1d_valid_count": 252,
+      "target_20d_valid_count": 252,
+      "target_5d_valid_count": 252,
+      "year": 2024
+    },
+    {
+      "annual_feature_coverage": 0.9230769230769231,
+      "balance_sheet_feature_coverage": 1.0,
+      "bs_state_coverage": 1.0,
+      "bs_state_rows": 250,
+      "duplicate_dates": 0,
+      "fy_state_coverage": 1.0,
+      "fy_state_rows": 250,
+      "market_feature_coverage": 1.0,
+      "market_rows": 250,
+      "missing_research_feature_cells": 874,
+      "non_finite_infinity_count": 0,
+      "q_state_coverage": 1.0,
+      "q_state_rows": 250,
+      "quarterly_feature_coverage": 0.808,
+      "relative_market_feature_coverage": 1.0,
+      "research_39_feature_coverage": 0.9103589743589744,
+      "target_1d_valid_count": 250,
+      "target_20d_valid_count": 250,
+      "target_5d_valid_count": 250,
+      "year": 2025
+    },
+    {
+      "annual_feature_coverage": 0.9230769230769231,
+      "balance_sheet_feature_coverage": 1.0,
+      "bs_state_coverage": 1.0,
+      "bs_state_rows": 187,
+      "duplicate_dates": 0,
+      "fy_state_coverage": 1.0,
+      "fy_state_rows": 187,
+      "market_feature_coverage": 1.0,
+      "market_rows": 187,
+      "missing_research_feature_cells": 614,
+      "non_finite_infinity_count": 0,
+      "q_state_coverage": 1.0,
+      "q_state_rows": 187,
+      "quarterly_feature_coverage": 0.8243521184697655,
+      "relative_market_feature_coverage": 1.0,
+      "research_39_feature_coverage": 0.9158096805155629,
+      "target_1d_valid_count": 186,
+      "target_20d_valid_count": 167,
+      "target_5d_valid_count": 182,
+      "year": 2026
+    }
+  ]
+}
