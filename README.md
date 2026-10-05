@@ -771,3 +771,67 @@ artifact tampering and scope mutations. Validation mutations protect the same
 fold's fit; earlier validation may legitimately enter later expanding training.
 This stage explains the development benchmark only, without opening the test
 or implementing any next-stage intervention.
+
+### Stage 11 — Pre-Registered Market Representation Ablation
+
+Run the single diagnostic-informed follow-up experiment offline:
+
+```bash
+PYTHONPATH=src .venv/bin/python -m nasdaq_research.market_representation --register-only
+PYTHONPATH=src .venv/bin/python -m nasdaq_research.market_representation
+```
+
+The first command saves the protocol and upstream SHA-256 manifest before any
+Stage 11 fitting. The regular CLI also registers these first and refuses changes
+to an existing contract. Outputs live independently under
+`data/research/modeling/stage11_market_representation/`. All earlier artifacts
+remain immutable. Path overrides are `--labeled-path`, `--split-dir`,
+`--diagnostic-dir`, `--baseline-dir`, `--stability-dir` and `--output-dir`.
+
+Control uses the original nine Market candidates. Treatment replaces only
+`sma_5`, `sma_20`, `sma_60` with `close_to_sma_5`, `close_to_sma_20`,
+`close_to_sma_60`, each exactly **same-day Close / same-day SMA − 1**. Warm-up
+missing values remain missing. Raw Close supplies the formulas and cannot enter
+X; treatment still has nine candidates. A local bijective name adapter reuses
+the unmodified Stage 10 preprocessing and estimators, then restores treatment
+feature labels, including the scaler labels. It changes no global whitelist.
+
+Only OLS/Ridge Market control and treatment are fit, with Ridge alpha fixed at
+1 and its SVD solver unchanged. Target `forward_return_5d`, the three Stage 9.1
+folds, training coverage >=50% (equality retained), training median, exact
+constant-feature removal and training StandardScaler are unchanged. Final Test,
+pre-test gap and unlabeled tail never enter fitting or diagnostics. Date is the
+immutable manifest join identity; unused rows' ticker and other metadata payload
+cannot affect development outputs. Secondary targets/provenance and metadata
+are read only for isolation mutations; explicit whitelists determine X.
+
+Twelve CSVs record feature usage/preprocessing, 300 learned OOF prediction rows
+(75 dates × four arms), fold metrics, raw support, training z-scores, prediction
+distributions, coefficients/norms, contributions, predictive summaries, fixed
+benchmark-anchor metrics and fold/pooled stability endpoints. Protocol, upstream
+hashes, summary and validation are JSON. CSV/JSON are authoritative; this CLI
+does not generate figures. Control is checked against every original Stage 10
+OOF date, fold, prediction, metric, coefficient and feature-filter/scaler record
+at `rtol=0, atol=1e-12`; projected CSV byte equality is also recorded.
+
+The pre-registered mechanistic rule requires at least 25% cv_3 reductions in
+SMA-related range exposure, maximum absolute z and each family's mean absolute
+prediction, strictly better pooled endpoints, and no new extreme instability
+in cv_1/cv_2 for `SUPPORTED`. Mixed endpoint/family/fold evidence is
+`PARTIALLY_SUPPORTED_OR_INCONCLUSIVE`; no material endpoint improvement is
+`NOT_SUPPORTED`. Full details, including the new-instability thresholds, are
+fixed in the protocol before results. Equal-fold mean MAE remains the primary
+predictive summary and cannot decide this mechanistic category. There is no
+model selection or alternative formula search. Development CV was already
+examined; this is not an independent confirmatory experiment or causal proof.
+
+Validation includes scalar formula and independent trailing-SMA oracles, prefix
+invariance, training-statistic audits, all 300 prediction reconstructions, CSV
+round trips, in-memory test X/Y/metadata mutations, gap/tail/secondary-target
+mutations, and same-fold validation X/Y fit invariance. Final Test remains locked:
+predictions=false, metrics=false and final_training_pool_used=false.
+
+```bash
+PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -p 'test_market_representation.py' -v
+PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -v
+```

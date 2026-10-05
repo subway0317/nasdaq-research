@@ -1,0 +1,208 @@
+{
+  "stage": "11",
+  "stage_name": "Pre-Registered Extrapolation-Stable Market Feature Representation Ablation",
+  "ticker": "NVDA",
+  "experiment_status": "diagnostic-informed pre-registered follow-up development experiment",
+  "independent_confirmatory_experiment": false,
+  "primary_target": "forward_return_5d",
+  "target_definition": "Close[t+5] / Open[t+1] - 1",
+  "feature_timestamp_semantics": "trading day t after close",
+  "earliest_entry": "Open[t+1]",
+  "split_authority": "frozen Stage 9.1 manifest and evaluation protocol",
+  "split_manifest_sha256": "28568dd154031d4f0386dfeda826b2cf36a89c872bea7a9c0246266619c6dd4e",
+  "split_protocol_version": "9.1",
+  "cv_boundaries": [
+    {
+      "fold": "cv_1",
+      "start": "2026-02-26",
+      "end": "2026-04-01"
+    },
+    {
+      "fold": "cv_2",
+      "start": "2026-04-02",
+      "end": "2026-05-07"
+    },
+    {
+      "fold": "cv_3",
+      "start": "2026-05-08",
+      "end": "2026-06-12"
+    }
+  ],
+  "control_features": [
+    "simple_return",
+    "log_return",
+    "intraday_return",
+    "daily_range",
+    "sma_5",
+    "sma_20",
+    "sma_60",
+    "rolling_volatility_20",
+    "rolling_volatility_60"
+  ],
+  "treatment_features": [
+    "simple_return",
+    "log_return",
+    "intraday_return",
+    "daily_range",
+    "close_to_sma_5",
+    "close_to_sma_20",
+    "close_to_sma_60",
+    "rolling_volatility_20",
+    "rolling_volatility_60"
+  ],
+  "candidate_count_per_arm": 9,
+  "formulas": {
+    "close_to_sma_5": "Close / sma_5 - 1",
+    "close_to_sma_20": "Close / sma_20 - 1",
+    "close_to_sma_60": "Close / sma_60 - 1"
+  },
+  "representation_scope": "local same-row transformation of authorized CV rows; original SMA artifacts unchanged",
+  "name_adapter": "bijective treatment-to-control column labels for unchanged Stage 10 fit; restore treatment labels before transform/diagnostics",
+  "models": [
+    "C1 Original Market OLS",
+    "C2 Original Market Ridge",
+    "T1 Relative Market OLS",
+    "T2 Relative Market Ridge"
+  ],
+  "paired_comparisons": [
+    "C1 vs T1",
+    "C2 vs T2"
+  ],
+  "ols_implementation": "Stage 10 LinearRegression(fit_intercept=True, n_jobs=1)",
+  "ridge_alpha": 1.0,
+  "ridge_solver": "svd",
+  "fit_intercept": true,
+  "training_coverage_threshold": 0.5,
+  "exact_50_percent_rule": "KEEP",
+  "imputation_rule": "effective-training median",
+  "zero_variance_rule": "drop exactly constant imputed effective-training feature; Stage 10 semantics",
+  "scaling_rule": "effective-training StandardScaler, ddof=0",
+  "target_scaling_rule": "none",
+  "primary_metric": "MAE",
+  "aggregation": "equal-weight mean fold MAE; sample fold std ddof=1",
+  "secondary_metrics": [
+    "RMSE",
+    "R\u00b2",
+    "Pearson correlation",
+    "Spearman correlation",
+    "Directional accuracy"
+  ],
+  "range_diagnostics": "strict below/above raw training bounds; equality within; denominator non-null validation values",
+  "zscore_diagnostics": [
+    "max |z|",
+    "count |z| > 3",
+    "count |z| > 5"
+  ],
+  "prediction_diagnostics": [
+    "mean",
+    "std ddof=1",
+    "min",
+    "max",
+    "mean absolute",
+    "median absolute",
+    "count/fraction |prediction| > 0.10",
+    "count/fraction |prediction| > 0.30"
+  ],
+  "coefficient_diagnostics": [
+    "intercept",
+    "standardized coefficients",
+    "L2",
+    "max absolute",
+    "contributions"
+  ],
+  "residual_definition": "actual minus prediction",
+  "success_interpretation_framework": {
+    "categories": [
+      "SUPPORTED",
+      "PARTIALLY_SUPPORTED_OR_INCONCLUSIVE",
+      "NOT_SUPPORTED"
+    ],
+    "safety_gate": "all leakage, reproduction, determinism, PIT and immutability checks must pass",
+    "primary_stability_endpoints": [
+      "SMA-related raw out-of-range fraction",
+      "SMA-related max absolute training z",
+      "mean absolute prediction for each model family"
+    ],
+    "material_improvement_ratio": 0.75,
+    "supported_rule": "all three endpoints reduce at least 25% in cv_3 for both OLS and Ridge; pooled endpoints strictly improve; no new extreme instability in cv_1/cv_2",
+    "new_instability_rule": "outside cv_3: treatment all-feature max |z| > 5 and > control, or treatment count |prediction| > 0.10 or > 0.30 exceeds control",
+    "partial_rule": "at least one cv_3 stability endpoint reduces at least 25%, but supported rule fails; mixed folds/families remain inconclusive",
+    "not_supported_rule": "no cv_3 stability endpoint reduces at least 25%",
+    "MAE_role": "report unchanged primary predictive metric; MAE cannot determine mechanism category",
+    "claim_limit": "descriptive support only; no proven causal mechanism, better generalization or alpha"
+  },
+  "benchmark_anchors": {
+    "zero_return": "0",
+    "historical_mean": "mean current effective training primary Y",
+    "part_of_representation_ablation": false
+  },
+  "forbidden_interventions": [
+    "alternative SMA formulas",
+    "formula search",
+    "fundamental interventions",
+    "All specification",
+    "target changes",
+    "new splits",
+    "alpha tuning",
+    "new model families",
+    "predictive feature selection",
+    "PCA",
+    "clipping",
+    "winsorization",
+    "outlier removal",
+    "alternative scaler/imputation",
+    "final model training",
+    "backtest",
+    "trading strategy"
+  ],
+  "final_test_lock_rules": "no predictions, metrics, distribution diagnostics or conclusion inputs; in-memory isolation tests only",
+  "pre_test_gap_allowed_in_cv": false,
+  "unlabeled_tail_allowed": false,
+  "final_test_locked": true,
+  "final_test_predictions_generated": false,
+  "final_test_metrics_computed": false,
+  "final_training_pool_used": false,
+  "comparison_tolerance": {
+    "rtol": 0,
+    "atol": 1e-12
+  },
+  "input_artifact_sha256": {
+    "/home/zbw21/projects/nasdaq-research/data/research/NVDA_labeled.csv": "e6a438a1b832e97eab30b0de4f656e881618fc87348debc8c5b7978410cace2b",
+    "/home/zbw21/projects/nasdaq-research/data/research/diagnostics/feature_inventory.csv": "65c6756b753b4dd680ed50ee209f14315e6a55bd84a93034a3420230b918cac4",
+    "/home/zbw21/projects/nasdaq-research/data/research/diagnostics/feature_quality.csv": "0b5330fb5fcec8d13d216e48d42bb2d0cf56eff5b883d607beb6bc2d62ad3305",
+    "/home/zbw21/projects/nasdaq-research/data/research/modeling/NVDA_baseline_coefficients.csv": "8e537c21c9f58c58bec6277c825f8c8b2c8ded447903113f078eaeaa8313be2e",
+    "/home/zbw21/projects/nasdaq-research/data/research/modeling/NVDA_baseline_cv_metrics.csv": "f9d1a96d420fac349dd0e33ba8b02436d4578afddf2651613d8ed14ae38eb747",
+    "/home/zbw21/projects/nasdaq-research/data/research/modeling/NVDA_baseline_cv_summary.csv": "9f747a070fee4e392199a7566253e9368fe1104bc319426fc070c39375760992",
+    "/home/zbw21/projects/nasdaq-research/data/research/modeling/NVDA_baseline_feature_usage.csv": "4d45861c9c4b8735122fe7843c1a69406dec0d16fca76e6b2f2b37e2d8907339",
+    "/home/zbw21/projects/nasdaq-research/data/research/modeling/NVDA_baseline_oof_predictions.csv": "d581a8fcaff80cd9beca568f547db85ff8aab682b441354d391a85547b3b645d",
+    "/home/zbw21/projects/nasdaq-research/data/research/modeling/NVDA_baseline_protocol.json": "5c0b7a8c808bf36c209a8c1e12600768e37d2383b5e96db10c364daefbf0f836",
+    "/home/zbw21/projects/nasdaq-research/data/research/modeling/NVDA_baseline_validation.json": "ffed68504aea1f5e8cf5ceec7e93d91af0032af79cb42fb2c3f4e066bc906d7a",
+    "/home/zbw21/projects/nasdaq-research/data/research/modeling/stability/NVDA_stability_coefficient_summary.csv": "1b9023660def23878594f6450796e96c3efa364aa31ddad1072f60f6fde4db26",
+    "/home/zbw21/projects/nasdaq-research/data/research/modeling/stability/NVDA_stability_conditioning.csv": "8d1cd62e432f5f7877b3e57e51c140c7bd2b7cf7daa6069ea9613bc96fec3151",
+    "/home/zbw21/projects/nasdaq-research/data/research/modeling/stability/NVDA_stability_contributions.csv": "2fee8ce1350008cf058c1be2347a345e403ca5b2c426349200db7793d679cdf8",
+    "/home/zbw21/projects/nasdaq-research/data/research/modeling/stability/NVDA_stability_feature_shift.csv": "568a41d97899d49978f8fe9bb0c794166382d615d73843a3ab78cf7fb63a00c9",
+    "/home/zbw21/projects/nasdaq-research/data/research/modeling/stability/NVDA_stability_influence.csv": "00c4bc87f9c8ab82c3819528aa7b5d2d6c6d4151c71193ca4614d95e57f35de9",
+    "/home/zbw21/projects/nasdaq-research/data/research/modeling/stability/NVDA_stability_prediction_summary.csv": "9d8de6dc8e5a64c15b0846bb6f6505daa6f9e02cc0c94101f6d6bdfb1e10aa70",
+    "/home/zbw21/projects/nasdaq-research/data/research/modeling/stability/NVDA_stability_row_errors.csv": "767f08ee5a72318f447f6d22579e207eb3d683660c696f6add1ac456dfddaf90",
+    "/home/zbw21/projects/nasdaq-research/data/research/modeling/stability/NVDA_stability_state_context.csv": "0c43fa705817e8d859c1bf6b8c1428543c10bd80c610c0452a4584c22c5d0aee",
+    "/home/zbw21/projects/nasdaq-research/data/research/modeling/stability/NVDA_stability_summary.json": "d61c807d2561f4f0cd258ad89d139772fab85559290766023ce7ca374367e70e",
+    "/home/zbw21/projects/nasdaq-research/data/research/modeling/stability/NVDA_stability_validation.json": "16814b4be7c401e5d10b5b132d0ac15256edc5c3bed5266246dc786662ade8a1",
+    "/home/zbw21/projects/nasdaq-research/data/research/modeling/stability/NVDA_stability_zscores.csv": "384d2fb243fb25258eb79795df4f11316e65f5d1aeb50539f1e9bac20f81e060",
+    "/home/zbw21/projects/nasdaq-research/data/research/modeling/stability/figures/actual_vs_prediction_by_fold.png": "70a94639246b1464abfa6fa7fa3de4803b8ddde5e41606e86786824daea6fb86",
+    "/home/zbw21/projects/nasdaq-research/data/research/modeling/stability/figures/coefficient_drift.png": "e130f7b439d8e0dcab47185230865b48a360b115bfed97a827e505b235739416",
+    "/home/zbw21/projects/nasdaq-research/data/research/modeling/stability/figures/cv3_largest_absolute_errors.png": "f109fc1d66b43606e958d9881d8f446718fdd45a28f085a4a750b513d290f556",
+    "/home/zbw21/projects/nasdaq-research/data/research/modeling/stability/figures/max_validation_abs_z_by_feature.png": "71ea2d238ae2a2f7059ceb31b8393b06930db02a2bee3b760d03b6e35dc30dfb",
+    "/home/zbw21/projects/nasdaq-research/data/research/modeling/stability/figures/prediction_range_by_fold.png": "6fb2cd3fc4a69461cf502a380bd0a8a6606e64f9d340b2155256be7d2fd0cf97",
+    "/home/zbw21/projects/nasdaq-research/data/research/splits/NVDA_cv_folds.csv": "62c6d18e652a3bbb7c78fe9841e7f73ae16ef09016dfc5d91e9d67ca8699ef02",
+    "/home/zbw21/projects/nasdaq-research/data/research/splits/NVDA_evaluation_protocol.json": "479108452108a1cd811cd73981d186de4185a76da77b50f843b86c7261192d04",
+    "/home/zbw21/projects/nasdaq-research/data/research/splits/NVDA_final_training_pool.csv": "fac122687541b58da3620543f5277bb3981cb84a61c58c664509ccfbc8d9e944",
+    "/home/zbw21/projects/nasdaq-research/data/research/splits/NVDA_split_manifest.csv": "28568dd154031d4f0386dfeda826b2cf36a89c872bea7a9c0246266619c6dd4e",
+    "/home/zbw21/projects/nasdaq-research/data/research/splits/NVDA_split_summary.csv": "5130c37ef0a4a21db3a10bd4b1adb612fce7b3d28352f6a2945866e43d360771",
+    "/home/zbw21/projects/nasdaq-research/data/research/splits/NVDA_split_validation.json": "30da95567c7ae6feea1cdc348df986d4ef0b27363014f35ea99177d243561279"
+  },
+  "limitations": [
+    "Development CV was previously examined in Stage 10/10.1.",
+    "75 overlapping-label OOF rows, 25 per fold; observations are not independent.",
+    "Locked Final Test remains the unused confirmatory dataset."
+  ]
+}
