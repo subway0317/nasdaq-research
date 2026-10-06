@@ -1,0 +1,49 @@
+{
+  "branch": {
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "main\n"
+  },
+  "client_date": "2026-10-06",
+  "diff_check": {
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  "head": {
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "9e8b2448bd11a520b271d44eee03b52333b9fce5\n"
+  },
+  "log5": {
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "9e8b244 Complete stage 14 multi-year walk-forward validation\nc3da396 Approve stage 13 canonical market data authority\n04e2789 Complete legacy evidence recovery audit\nd6c4b2c Record stage 13 history expansion and unresolved source reconciliation\nbde8ed9 Complete stage 12 post-representation signal diagnostics\n"
+  },
+  "origin": {
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "https://github.com/subway0317/nasdaq-research.git\n"
+  },
+  "origin_main": {
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "9e8b2448bd11a520b271d44eee03b52333b9fce5\n"
+  },
+  "porcelain": {
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  "pwd": {
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "/home/zbw21/projects/nasdaq-research\n"
+  },
+  "status": {
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "On branch main\nYour branch is up to date with 'origin/main'.\n\nnothing to commit, working tree clean\n"
+  },
+  "working_tree_clean": true
+}

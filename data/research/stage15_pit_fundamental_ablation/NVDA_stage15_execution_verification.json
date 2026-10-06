@@ -1,0 +1,232 @@
+{
+  "Control_reproduction": {
+    "OOF_dates": 1367,
+    "baselines_reproduced": true,
+    "coverage": 1.0,
+    "duplicates": 0,
+    "max_absolute_difference": 0.0,
+    "passed": true,
+    "rows_checked": 2734,
+    "tolerance": {
+      "atol": 1e-12,
+      "rtol": 0.0
+    },
+    "tolerance_violations": 0,
+    "unexpected_missing": 0
+  },
+  "HEAD": "9e8b2448bd11a520b271d44eee03b52333b9fce5\n",
+  "OOF_actual_sessions": 1367,
+  "OOF_duplicates": 0,
+  "OOF_expected_sessions": 1367,
+  "OOF_unexpected_missing": 0,
+  "PIT": {
+    "canonical_exact_state_cells": 48600,
+    "cell_checks": 48600,
+    "future_information_violations": 0,
+    "future_numeric_filings_loaded": false,
+    "growth_reference_oracle": {
+      "cells_checked": 546,
+      "violations": 0
+    },
+    "independent_state_oracle": {
+      "cells_checked": 56700,
+      "violations": 0
+    },
+    "numeric_locked_payload_loaded": false,
+    "passed": true,
+    "replay_violations": 0,
+    "replayed_state_cells": 48600
+  },
+  "Volume_dependency": false,
+  "absolute_predictive_signal_classification": "NO_ROBUST_MULTI_YEAR_SIGNAL",
+  "acceptance_criteria_passed": true,
+  "all_changes_new_Stage15_files": true,
+  "branch": "main\n",
+  "canonical_source_immutability": {
+    "changed_files": [],
+    "mutation_violations": 0,
+    "source_files_checked": 24
+  },
+  "canonical_vintage_id": "NVDA_YAHOO_STAGE13_2020_2026_V1",
+  "complete_case_filtering": false,
+  "engineering_status": "PASS",
+  "execution_logs": {
+    "full_suite_tests.txt": {
+      "path": "data/research/stage15_pit_fundamental_ablation/execution_logs/full_suite_tests.txt",
+      "sha256": "669015b434451d10dd188f35d80d6c4d5962228f3deacbc7718fd115c85eb581"
+    },
+    "preliminary_diagnostics.txt": {
+      "path": "data/research/stage15_pit_fundamental_ablation/execution_logs/preliminary_diagnostics.txt",
+      "sha256": "926f87771b3924f4b233699e04d1da5d85559413be2e2b184883496241420a31"
+    },
+    "run1.txt": {
+      "path": "data/research/stage15_pit_fundamental_ablation/execution_logs/run1.txt",
+      "sha256": "1765730b56846a176016cc4304ddd5e767e3b8ad62e4bf50208b0a1430cdd0e5"
+    },
+    "run2.txt": {
+      "path": "data/research/stage15_pit_fundamental_ablation/execution_logs/run2.txt",
+      "sha256": "1765730b56846a176016cc4304ddd5e767e3b8ad62e4bf50208b0a1430cdd0e5"
+    },
+    "targeted_tests.txt": {
+      "path": "data/research/stage15_pit_fundamental_ablation/execution_logs/targeted_tests.txt",
+      "sha256": "b3acb2a9a90e942a63aa15a6e6307ee67877052146127f9f904fb373a269e1a1"
+    }
+  },
+  "execution_verification_authoritative": false,
+  "execution_verification_in_formal_repeat_set": false,
+  "execution_verification_repeated_serialization_byte_identical": true,
+  "feature_family_search_allowed": false,
+  "final_formal_hashes_match_run2": true,
+  "final_model_fitted": false,
+  "final_test_locked": true,
+  "final_test_metrics_computed": false,
+  "final_test_predictions_generated": false,
+  "final_training_pool_used": false,
+  "finite_predictions": true,
+  "fit_failures": 0,
+  "formal_artifact_count_without_post_run_verification": 31,
+  "fundamentals_used": true,
+  "git_diff_check": "",
+  "git_diff_check_passed": true,
+  "git_log_1": "9e8b244 Complete stage 14 multi-year walk-forward validation\n",
+  "git_mutation_commands_executed": false,
+  "git_status": "On branch main\nYour branch is up to date with 'origin/main'.\n\nUntracked files:\n  (use \"git add <file>...\" to include in what will be committed)\n\tdata/research/stage15_pit_fundamental_ablation/\n\tdocs/stage15_execution_report.md\n\tsrc/nasdaq_research/fundamental_ablation.py\n\ttests/test_fundamental_ablation.py\n\nnothing added to commit but untracked files present (use \"git add\" to track)\n",
+  "git_status_short": "?? data/research/stage15_pit_fundamental_ablation/\n?? docs/stage15_execution_report.md\n?? src/nasdaq_research/fundamental_ablation.py\n?? tests/test_fundamental_ablation.py\n",
+  "hyperparameter_tuning_allowed": false,
+  "implementation_sha256": {
+    "src/nasdaq_research/fundamental_ablation.py": "3ef9b96e3057e8d3608df0f806c50d0fc95bf51e45e0064ed63b7591bdf64918",
+    "tests/test_fundamental_ablation.py": "87b316c43efb67e1fcd0921ca841988f38c1a44b45b94b7c2ca8a50c0254837f"
+  },
+  "incremental_fundamental_value_classification": "NO_ROBUST_INCREMENTAL_FUNDAMENTAL_VALUE",
+  "legacy_root_cause_reinvestigated": false,
+  "max_abs_treatment_predictions": {
+    "relative_fundamentals_ols": 1.052852005512068,
+    "relative_fundamentals_ridge_alpha1": 0.8184420258052895
+  },
+  "network_allowed": false,
+  "network_requests": 0,
+  "new_feature_engineering_allowed": false,
+  "new_features_created": false,
+  "new_prediction_pathology_observed": true,
+  "no_mature_module_modified": true,
+  "origin": "https://github.com/subway0317/nasdaq-research.git",
+  "origin_main": "9e8b2448bd11a520b271d44eee03b52333b9fce5\n",
+  "protocol_frozen_before_control_and_treatment": true,
+  "protocol_sha256": "a74822e331126644ec219a645ba4946fa175533c6df6e2bb633c3656807892fa",
+  "quant_mainline_auto_extension_after_stage15": false,
+  "registration_sha256": "2d3dc60d0697fdb278e9f4ccdadd7d6a377e1c203285eee329b43450371a01fb",
+  "report_sections_checked": 28,
+  "report_sha256": {
+    "docs/stage15_execution_report.md": "79a70ae87a3c6e6c5b392ce138d40dbcef7c47daf0170ac949aaa685833e2c46"
+  },
+  "reproducibility": {
+    "byte_identical": true,
+    "consecutive_formal_runs": 2,
+    "different_files": [],
+    "formal_artifact_count": 31,
+    "run1_sha256": {
+      "NVDA_stage15_absolute_baseline_comparison.csv": "48a434e56ee226c4376b5f29e2fe4473c728674b5d8eb99aab4d1233dabcc8bc",
+      "NVDA_stage15_canonical_input_audit.json": "329cea0233642262d643b8b5576e04a82ae721d9632b55646f4501ae9f97e8b9",
+      "NVDA_stage15_control_feature_manifest.csv": "825743f398e134ee5a2ad270c721591bf363dc13ca1bfcfd39ff52a63b346a54",
+      "NVDA_stage15_control_reproduction_summary.json": "637323f9c8d5d821e463c8d4c1ee3c57b3326f38d37d1ece6198a64a9889be3f",
+      "NVDA_stage15_extrapolation_audit.csv": "4be588d5b6ddf80af9680d36f0248fd918b23afb68c01f41f842d73ff59ae8ca",
+      "NVDA_stage15_final_test_lock_audit.json": "e17a726e4de454355e695e859593adf8418521889b966a543fe6e649fe77021f",
+      "NVDA_stage15_fit_membership.csv": "4d680eae5b9f69aca4266cf1403e642907e504d12380c6ce3d9fb0fb2c69058a",
+      "NVDA_stage15_fold_inventory.csv": "e7658efb97b92d1b03e6ca97cdf13f6864348ad6e81f4003e6f8b26dc0019f95",
+      "NVDA_stage15_fold_metrics.csv": "ef7b6e6751bcfef9228f65027e208356c293512bf053ca86c98ecebfd357a7db",
+      "NVDA_stage15_fundamental_coverage.csv": "524f363b38383e3432f59503dca276a284a9644c9eaaec442d798c8946711d7a",
+      "NVDA_stage15_fundamental_feature_manifest.csv": "b661d7101c10480a65ea5be439120efedb0f0ad8f29c2a34687d805de862092f",
+      "NVDA_stage15_incremental_comparison.csv": "7fd4087bfdfda0916c62458b414081a87b77c7ee89a2e204976b7e61e371ffdb",
+      "NVDA_stage15_initial_repository_state.json": "286292e5893c09ef333af4713887e5a568a11649e02a0e021befca55a9d4525f",
+      "NVDA_stage15_leakage_audit.csv": "e46c78744a5c2de48a6b2b54bcea7adde9e3418a3e026e3a32dc3a510c4a07a8",
+      "NVDA_stage15_model_parameters.csv": "c8c9781d4a72cd6431499819d61ec2850f5bba992182bb3844c5e32e18e223c9",
+      "NVDA_stage15_model_summary.csv": "f5b201ee52e825ac250bc3225a9de0a11f21cb6ee9bb5a452f8280274d24c787",
+      "NVDA_stage15_numerical_stability.csv": "00576f8d907ffca540ff1e1be65544fd47ce7f070579afd223763079b5253195",
+      "NVDA_stage15_oof_predictions.csv": "433a73298aea55f0d5538bb6d9e0818f4b0f0b78a6b8fe8a953c59d47417cebd",
+      "NVDA_stage15_pit_leakage_audit.csv": "b92e397f7af458c929a48971a0d491fcb83a18edd9df95f8324fbfdf27bc8052",
+      "NVDA_stage15_pit_state_replay_audit.json": "19024cf765daff9520a5a125ae831c570de821250b15f4f741ba762b31d18cb5",
+      "NVDA_stage15_prediction_stability.csv": "c017528d4efd975fc979394fd25f14d4c02b92498c6fd3b954141e27d280ce83",
+      "NVDA_stage15_preprocessing_audit.csv": "2f54637e54065ac6df12c8770c43032e1b2031545f4125e401dc71c343b6691b",
+      "NVDA_stage15_protocol.json": "a74822e331126644ec219a645ba4946fa175533c6df6e2bb633c3656807892fa",
+      "NVDA_stage15_registration.json": "2d3dc60d0697fdb278e9f4ccdadd7d6a377e1c203285eee329b43450371a01fb",
+      "NVDA_stage15_stage14_control_reproduction.csv": "ee10c22f93e98b8e838a53b60c5e366d489c2bd5bb4978d062e5b63cb358a747",
+      "NVDA_stage15_summary.json": "89e4aa82d83641dd55e9d18f9a7e84a3e389c7471798486478d1bce982fe282a",
+      "NVDA_stage15_target_purge_audit.csv": "766cd1e520ad1fcbd5624aba82fa4ed5f9daa0361a961bae64309de137e3bae3",
+      "NVDA_stage15_treatment_feature_manifest.csv": "5fafe5c876565dd9816ed33cf683829cc935c92d44bae120f8b615a60d12253b",
+      "NVDA_stage15_upstream_sha256.json": "407f2282fe4d1a96e8ae592c42c05ebfbb69626f4d5089ea1774b76cdaede6ce",
+      "NVDA_stage15_validation.json": "6c1ab94d56646534d3bc1238a12b3b572de857a289c0047ef0a180ab18d2982e",
+      "NVDA_stage15_yearly_diagnostics.csv": "6d46c125a52525536c5d61041e5b06de4f5fdd00dfaa7ffaab3a475fc2b9d65e"
+    },
+    "run2_sha256": {
+      "NVDA_stage15_absolute_baseline_comparison.csv": "48a434e56ee226c4376b5f29e2fe4473c728674b5d8eb99aab4d1233dabcc8bc",
+      "NVDA_stage15_canonical_input_audit.json": "329cea0233642262d643b8b5576e04a82ae721d9632b55646f4501ae9f97e8b9",
+      "NVDA_stage15_control_feature_manifest.csv": "825743f398e134ee5a2ad270c721591bf363dc13ca1bfcfd39ff52a63b346a54",
+      "NVDA_stage15_control_reproduction_summary.json": "637323f9c8d5d821e463c8d4c1ee3c57b3326f38d37d1ece6198a64a9889be3f",
+      "NVDA_stage15_extrapolation_audit.csv": "4be588d5b6ddf80af9680d36f0248fd918b23afb68c01f41f842d73ff59ae8ca",
+      "NVDA_stage15_final_test_lock_audit.json": "e17a726e4de454355e695e859593adf8418521889b966a543fe6e649fe77021f",
+      "NVDA_stage15_fit_membership.csv": "4d680eae5b9f69aca4266cf1403e642907e504d12380c6ce3d9fb0fb2c69058a",
+      "NVDA_stage15_fold_inventory.csv": "e7658efb97b92d1b03e6ca97cdf13f6864348ad6e81f4003e6f8b26dc0019f95",
+      "NVDA_stage15_fold_metrics.csv": "ef7b6e6751bcfef9228f65027e208356c293512bf053ca86c98ecebfd357a7db",
+      "NVDA_stage15_fundamental_coverage.csv": "524f363b38383e3432f59503dca276a284a9644c9eaaec442d798c8946711d7a",
+      "NVDA_stage15_fundamental_feature_manifest.csv": "b661d7101c10480a65ea5be439120efedb0f0ad8f29c2a34687d805de862092f",
+      "NVDA_stage15_incremental_comparison.csv": "7fd4087bfdfda0916c62458b414081a87b77c7ee89a2e204976b7e61e371ffdb",
+      "NVDA_stage15_initial_repository_state.json": "286292e5893c09ef333af4713887e5a568a11649e02a0e021befca55a9d4525f",
+      "NVDA_stage15_leakage_audit.csv": "e46c78744a5c2de48a6b2b54bcea7adde9e3418a3e026e3a32dc3a510c4a07a8",
+      "NVDA_stage15_model_parameters.csv": "c8c9781d4a72cd6431499819d61ec2850f5bba992182bb3844c5e32e18e223c9",
+      "NVDA_stage15_model_summary.csv": "f5b201ee52e825ac250bc3225a9de0a11f21cb6ee9bb5a452f8280274d24c787",
+      "NVDA_stage15_numerical_stability.csv": "00576f8d907ffca540ff1e1be65544fd47ce7f070579afd223763079b5253195",
+      "NVDA_stage15_oof_predictions.csv": "433a73298aea55f0d5538bb6d9e0818f4b0f0b78a6b8fe8a953c59d47417cebd",
+      "NVDA_stage15_pit_leakage_audit.csv": "b92e397f7af458c929a48971a0d491fcb83a18edd9df95f8324fbfdf27bc8052",
+      "NVDA_stage15_pit_state_replay_audit.json": "19024cf765daff9520a5a125ae831c570de821250b15f4f741ba762b31d18cb5",
+      "NVDA_stage15_prediction_stability.csv": "c017528d4efd975fc979394fd25f14d4c02b92498c6fd3b954141e27d280ce83",
+      "NVDA_stage15_preprocessing_audit.csv": "2f54637e54065ac6df12c8770c43032e1b2031545f4125e401dc71c343b6691b",
+      "NVDA_stage15_protocol.json": "a74822e331126644ec219a645ba4946fa175533c6df6e2bb633c3656807892fa",
+      "NVDA_stage15_registration.json": "2d3dc60d0697fdb278e9f4ccdadd7d6a377e1c203285eee329b43450371a01fb",
+      "NVDA_stage15_stage14_control_reproduction.csv": "ee10c22f93e98b8e838a53b60c5e366d489c2bd5bb4978d062e5b63cb358a747",
+      "NVDA_stage15_summary.json": "89e4aa82d83641dd55e9d18f9a7e84a3e389c7471798486478d1bce982fe282a",
+      "NVDA_stage15_target_purge_audit.csv": "766cd1e520ad1fcbd5624aba82fa4ed5f9daa0361a961bae64309de137e3bae3",
+      "NVDA_stage15_treatment_feature_manifest.csv": "5fafe5c876565dd9816ed33cf683829cc935c92d44bae120f8b615a60d12253b",
+      "NVDA_stage15_upstream_sha256.json": "407f2282fe4d1a96e8ae592c42c05ebfbb69626f4d5089ea1774b76cdaede6ce",
+      "NVDA_stage15_validation.json": "6c1ab94d56646534d3bc1238a12b3b572de857a289c0047ef0a180ab18d2982e",
+      "NVDA_stage15_yearly_diagnostics.csv": "6d46c125a52525536c5d61041e5b06de4f5fdd00dfaa7ffaab3a475fc2b9d65e"
+    },
+    "upstream": {
+      "changed_files": [],
+      "files_checked": 299,
+      "mutation_violations": 0
+    }
+  },
+  "saved_model_reconstruction_fits": 88,
+  "secondary_targets_modeled": false,
+  "stage": 15,
+  "statistical_inference_performed": false,
+  "target_purge_violations": 0,
+  "tests": {
+    "errors": 0,
+    "failed": 0,
+    "full_suite_tests": {
+      "errors": 0,
+      "failed": 0,
+      "passed": 739,
+      "skipped": 0
+    },
+    "full_suite_total": 739,
+    "historical_passed": 679,
+    "new_Stage15_passed": 60,
+    "skipped": 0,
+    "targeted_tests": {
+      "errors": 0,
+      "failed": 0,
+      "passed": 60,
+      "skipped": 0
+    }
+  },
+  "training_only_preprocessing": true,
+  "treatment_rank_deficient_fits": 44,
+  "upstream_immutability": {
+    "changed_files": [],
+    "files_checked": 299,
+    "mutation_violations": 0
+  },
+  "volume_used": false
+}

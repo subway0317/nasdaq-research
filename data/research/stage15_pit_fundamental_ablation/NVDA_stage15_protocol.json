@@ -1,0 +1,410 @@
+{
+  "BLAS_threads": 1,
+  "PIT_semantics": "filing date -> first observed session strictly after filing; unchanged Stage6 q/fy/bs whole-observation state and amendment precedence; no period-end backfill",
+  "absolute_signal_classifications": [
+    "ROBUST_MULTI_YEAR_SIGNAL",
+    "MIXED_OR_REGIME_DEPENDENT_SIGNAL",
+    "NO_ROBUST_MULTI_YEAR_SIGNAL"
+  ],
+  "absolute_signal_success_rules": {
+    "ambiguity_resolution": "Use the explicit numeric conditions in sections 40/42/43 in that order; illustrative examples in section 44 do not override numeric NO_ROBUST predicate.",
+    "classification_precedence": [
+      "ROBUST if either Relative model passes all six",
+      "NO_ROBUST if neither Relative model simultaneously passes both mean-fold baseline wins and both strict majority fold wins",
+      "MIXED otherwise"
+    ],
+    "model_robust": "All six: mean-fold MAE beats zero and historical_mean; median fold delta vs each <0; strict fold win rate vs each >0.50"
+  },
+  "baselines": [
+    "zero_return",
+    "historical_mean"
+  ],
+  "canonical_vintage_id": "NVDA_YAHOO_STAGE13_2020_2026_V1",
+  "complete_case_filtering_allowed": false,
+  "control_features": [
+    "simple_return",
+    "log_return",
+    "intraday_return",
+    "daily_range",
+    "close_to_sma_5",
+    "close_to_sma_20",
+    "close_to_sma_60",
+    "rolling_volatility_20",
+    "rolling_volatility_60"
+  ],
+  "control_reproduction_required": true,
+  "control_reproduction_tolerance": {
+    "atol": 1e-12,
+    "rtol": 0.0
+  },
+  "coverage_threshold": 0.5,
+  "development_end": "2026-06-12",
+  "development_start": "2020-01-02",
+  "expected_oof_dates": 1367,
+  "extrapolation_endpoints": [
+    "max_abs_validation_z",
+    "median_abs_validation_z",
+    "fraction_abs_z_gt_3",
+    "fraction_abs_z_gt_5",
+    "fraction_validation_outside_training_min_max",
+    "train_min",
+    "train_max",
+    "validation_min",
+    "validation_max"
+  ],
+  "feature_family_search_allowed": false,
+  "final_model_fitted": false,
+  "final_test": [
+    "2026-07-15",
+    "2026-09-23"
+  ],
+  "final_test_locked": true,
+  "final_test_metrics_computed": false,
+  "final_test_predictions_generated": false,
+  "final_training_pool_read_allowed": false,
+  "final_training_pool_used": false,
+  "fit_authority": "Control: Stage11 fit_arm; Treatment: bijective SMA-name adapter -> unchanged Stage10 fit_linear(ols_all/ridge_all)",
+  "fit_intercept": true,
+  "fold_calendar_definitions": [
+    {
+      "fold_id": "2021Q1",
+      "partial": false,
+      "validation_calendar_end": "2021-03-31",
+      "validation_calendar_start": "2021-01-01"
+    },
+    {
+      "fold_id": "2021Q2",
+      "partial": false,
+      "validation_calendar_end": "2021-06-30",
+      "validation_calendar_start": "2021-04-01"
+    },
+    {
+      "fold_id": "2021Q3",
+      "partial": false,
+      "validation_calendar_end": "2021-09-30",
+      "validation_calendar_start": "2021-07-01"
+    },
+    {
+      "fold_id": "2021Q4",
+      "partial": false,
+      "validation_calendar_end": "2021-12-31",
+      "validation_calendar_start": "2021-10-01"
+    },
+    {
+      "fold_id": "2022Q1",
+      "partial": false,
+      "validation_calendar_end": "2022-03-31",
+      "validation_calendar_start": "2022-01-01"
+    },
+    {
+      "fold_id": "2022Q2",
+      "partial": false,
+      "validation_calendar_end": "2022-06-30",
+      "validation_calendar_start": "2022-04-01"
+    },
+    {
+      "fold_id": "2022Q3",
+      "partial": false,
+      "validation_calendar_end": "2022-09-30",
+      "validation_calendar_start": "2022-07-01"
+    },
+    {
+      "fold_id": "2022Q4",
+      "partial": false,
+      "validation_calendar_end": "2022-12-31",
+      "validation_calendar_start": "2022-10-01"
+    },
+    {
+      "fold_id": "2023Q1",
+      "partial": false,
+      "validation_calendar_end": "2023-03-31",
+      "validation_calendar_start": "2023-01-01"
+    },
+    {
+      "fold_id": "2023Q2",
+      "partial": false,
+      "validation_calendar_end": "2023-06-30",
+      "validation_calendar_start": "2023-04-01"
+    },
+    {
+      "fold_id": "2023Q3",
+      "partial": false,
+      "validation_calendar_end": "2023-09-30",
+      "validation_calendar_start": "2023-07-01"
+    },
+    {
+      "fold_id": "2023Q4",
+      "partial": false,
+      "validation_calendar_end": "2023-12-31",
+      "validation_calendar_start": "2023-10-01"
+    },
+    {
+      "fold_id": "2024Q1",
+      "partial": false,
+      "validation_calendar_end": "2024-03-31",
+      "validation_calendar_start": "2024-01-01"
+    },
+    {
+      "fold_id": "2024Q2",
+      "partial": false,
+      "validation_calendar_end": "2024-06-30",
+      "validation_calendar_start": "2024-04-01"
+    },
+    {
+      "fold_id": "2024Q3",
+      "partial": false,
+      "validation_calendar_end": "2024-09-30",
+      "validation_calendar_start": "2024-07-01"
+    },
+    {
+      "fold_id": "2024Q4",
+      "partial": false,
+      "validation_calendar_end": "2024-12-31",
+      "validation_calendar_start": "2024-10-01"
+    },
+    {
+      "fold_id": "2025Q1",
+      "partial": false,
+      "validation_calendar_end": "2025-03-31",
+      "validation_calendar_start": "2025-01-01"
+    },
+    {
+      "fold_id": "2025Q2",
+      "partial": false,
+      "validation_calendar_end": "2025-06-30",
+      "validation_calendar_start": "2025-04-01"
+    },
+    {
+      "fold_id": "2025Q3",
+      "partial": false,
+      "validation_calendar_end": "2025-09-30",
+      "validation_calendar_start": "2025-07-01"
+    },
+    {
+      "fold_id": "2025Q4",
+      "partial": false,
+      "validation_calendar_end": "2025-12-31",
+      "validation_calendar_start": "2025-10-01"
+    },
+    {
+      "fold_id": "2026Q1",
+      "partial": false,
+      "validation_calendar_end": "2026-03-31",
+      "validation_calendar_start": "2026-01-01"
+    },
+    {
+      "fold_id": "2026Q2",
+      "partial": true,
+      "validation_calendar_end": "2026-06-12",
+      "validation_calendar_start": "2026-04-01"
+    }
+  ],
+  "fold_count": 22,
+  "fold_win_definition": "strict delta < 0; exact ties are not wins",
+  "fundamental_features": [
+    "q_gross_margin",
+    "q_operating_margin",
+    "q_net_margin",
+    "q_rd_to_revenue",
+    "q_sga_to_revenue",
+    "q_ocf_margin",
+    "q_fcf_margin",
+    "fy_gross_margin",
+    "fy_operating_margin",
+    "fy_net_margin",
+    "fy_rd_to_revenue",
+    "fy_sga_to_revenue",
+    "fy_ocf_margin",
+    "fy_fcf_margin",
+    "current_ratio",
+    "cash_to_assets",
+    "liabilities_to_assets",
+    "debt_to_assets",
+    "q_revenue_growth_yoy",
+    "q_gross_profit_growth_yoy",
+    "q_operating_income_growth_yoy",
+    "q_net_income_growth_yoy",
+    "q_rd_growth_yoy",
+    "q_operating_cash_flow_growth_yoy",
+    "fy_revenue_growth_yoy",
+    "fy_gross_profit_growth_yoy",
+    "fy_operating_income_growth_yoy",
+    "fy_net_income_growth_yoy",
+    "fy_rd_growth_yoy",
+    "fy_operating_cash_flow_growth_yoy"
+  ],
+  "fundamental_whitelist_authority": "research_features.FEATURE_COLUMNS; Stage13 protocol; Stage13.2 scope",
+  "historical_statuses": {
+    "Recovery": "LEGACY_EVIDENCE_NOT_RECOVERABLE",
+    "Stage13": "INCOMPLETE_OR_BLOCKED",
+    "Stage13_1": "UNRESOLVED_BLOCKER",
+    "Stage13_2": "APPROVED_WITH_DOCUMENTED_NONMATERIAL_CROSS_VINTAGE_DIFFERENCE",
+    "legacy_root_cause": "UNRESOLVED_SOURCE_DISCREPANCY"
+  },
+  "hyperparameter_tuning_allowed": false,
+  "incremental_classifications": [
+    "ROBUST_INCREMENTAL_FUNDAMENTAL_VALUE",
+    "MIXED_OR_REGIME_DEPENDENT_INCREMENTAL_VALUE",
+    "NO_ROBUST_INCREMENTAL_FUNDAMENTAL_VALUE"
+  ],
+  "incremental_metric_definition": "MAE_treatment - MAE_corresponding_control",
+  "incremental_success_rules": {
+    "ambiguity_resolution": "Numeric robust predicate takes precedence over illustrative mixed examples; broad OOS improvement uses inherited Stage14 mean-and-majority semantics, frozen before Treatment.",
+    "broad_OOS_improvement_definition": "mean paired delta < 0 AND strict fold win rate > 0.50",
+    "classification_precedence": [
+      "ROBUST if either fixed family passes all three",
+      "NO_ROBUST if neither family has broad OOS improvement and neither passes all three",
+      "MIXED otherwise"
+    ],
+    "model_robust": [
+      "mean paired delta < 0",
+      "median paired delta < 0",
+      "strict fold win rate > 0.50"
+    ]
+  },
+  "inherited_stage14_classifications": {
+    "predictive_signal": "NO_ROBUST_MULTI_YEAR_SIGNAL",
+    "representation_stability": "BROAD_REPRESENTATION_STABILITY_SUPPORT"
+  },
+  "legacy_root_cause_reinvestigated": false,
+  "missingness_indicators_allowed": false,
+  "models": [
+    "relative_ols",
+    "relative_ridge_alpha1",
+    "relative_fundamentals_ols",
+    "relative_fundamentals_ridge_alpha1"
+  ],
+  "network_allowed": false,
+  "new_feature_engineering_allowed": false,
+  "numerical_diagnostics": [
+    "effective feature count",
+    "augmented scaled design matrix rank",
+    "rank deficiency",
+    "condition number",
+    "coefficient L2",
+    "max abs coefficient",
+    "intercept"
+  ],
+  "numerical_failure_rule": "Nonfinite prediction/parameter/input or fit failure blocks; rank/condition/coefficient magnitude descriptive only; no post-hoc feature changes",
+  "pit_audit_scope": "Every development date x 30 features; source snapshot identity/value, source filing, next-session activation, eligible chronology and YoY reference chronology; independent whole-observation selection oracle",
+  "prediction_reconstruction_tolerance": {
+    "atol": 1e-12,
+    "rtol": 1e-10
+  },
+  "prediction_stability_endpoints": [
+    "prediction_mean",
+    "prediction_std_ddof1",
+    "prediction_min",
+    "prediction_max",
+    "max_abs_prediction",
+    "fraction_abs_prediction_gt_0_10",
+    "fraction_abs_prediction_gt_0_20"
+  ],
+  "preprocessing_order": [
+    "effective-train coverage >= 0.50",
+    "effective-train median fill",
+    "exact zero-variance removal on imputed effective train",
+    "effective-train StandardScaler ddof=0",
+    "fit with intercept; y unscaled"
+  ],
+  "pretest_gap": [
+    "2026-06-15",
+    "2026-07-14"
+  ],
+  "primary_aggregate_metric": "equal-weight mean fold MAE",
+  "protocol_frozen_before_treatment": true,
+  "purge_rule": "Training feature date < first observed validation session; entry/exit observed-source oracle; 5d exit must be strictly before first observed validation session. Ordinary folds use 5d; frozen final pre-gap is not shortened.",
+  "quant_mainline_auto_extension_after_stage15": false,
+  "randomness": "none",
+  "range_denominator": "Non-null raw validation feature values; strict below/above raw effective-train min/max; equality within",
+  "reproducibility_policy": "Two consecutive offline formal runs, every CSV/JSON byte-identical; no timestamps or temporary paths; execution verification afterwards",
+  "required_authority_status": "APPROVED_WITH_DOCUMENTED_NONMATERIAL_CROSS_VINTAGE_DIFFERENCE",
+  "ridge_alpha": 1.0,
+  "ridge_solver": "svd",
+  "secondary_targets_modeled": false,
+  "stage14_authority_sha256": {
+    "feature_manifest": "915a4119ba4dab2129616aadcb1a23a3163b5d75b1e32a1d46cf8158b9c18216",
+    "fit_membership": "6e84e7fd0c9c2a85c0c065f913386df42bd7c50280aadfcbd41691bc8e13fe33",
+    "fold_inventory": "e7658efb97b92d1b03e6ca97cdf13f6864348ad6e81f4003e6f8b26dc0019f95",
+    "fold_registration": "40abf357c537936759c60a13d042eea51184eb9ea283cee5c4d8cd0f9b1341a1",
+    "model_parameters": "97dc847774c3ea0a62f794fdcc0ba5008c4359f7966d386ae7808d219dd62a37",
+    "oof_predictions": "897efb8f7704b37af695314e77e00a32a9197b5ec12462950189f3ff51fda563",
+    "protocol": "e6787c175a077a3e422d9533df00369e0450c35532b7c67276fbaeee21446908",
+    "target_purge_audit": "766cd1e520ad1fcbd5624aba82fa4ed5f9daa0361a961bae64309de137e3bae3"
+  },
+  "stage14_control_authority": {
+    "feature_manifest": "data/research/stage14_multi_year_walk_forward/NVDA_stage14_feature_manifest.csv",
+    "fit_membership": "data/research/stage14_multi_year_walk_forward/NVDA_stage14_fit_membership.csv",
+    "fold_inventory": "data/research/stage14_multi_year_walk_forward/NVDA_stage14_fold_inventory.csv",
+    "fold_registration": "data/research/stage14_multi_year_walk_forward/NVDA_stage14_fold_registration.json",
+    "model_parameters": "data/research/stage14_multi_year_walk_forward/NVDA_stage14_model_parameters.csv",
+    "oof_predictions": "data/research/stage14_multi_year_walk_forward/NVDA_stage14_oof_predictions.csv",
+    "protocol": "data/research/stage14_multi_year_walk_forward/NVDA_stage14_protocol.json",
+    "target_purge_audit": "data/research/stage14_multi_year_walk_forward/NVDA_stage14_target_purge_audit.csv"
+  },
+  "stage14_fold_authority": "data/research/stage14_multi_year_walk_forward/NVDA_stage14_fold_registration.json",
+  "stage_name": "Stage 15 \u2014 Pre-Registered Incremental PIT Fundamentals Walk-Forward Ablation",
+  "stage_type": [
+    "INCREMENTAL INFORMATION ABLATION",
+    "MULTI-YEAR OOS VALIDATION",
+    "PIT FUNDAMENTAL VALIDATION"
+  ],
+  "statistical_inference_allowed": false,
+  "target": "forward_return_5d",
+  "target_definition": "Close[t+5] / Open[t+1] - 1 using observed session positions",
+  "target_horizon": 5,
+  "target_scaling": "none",
+  "ticker": "NVDA",
+  "treatment_features": [
+    "simple_return",
+    "log_return",
+    "intraday_return",
+    "daily_range",
+    "close_to_sma_5",
+    "close_to_sma_20",
+    "close_to_sma_60",
+    "rolling_volatility_20",
+    "rolling_volatility_60",
+    "q_gross_margin",
+    "q_operating_margin",
+    "q_net_margin",
+    "q_rd_to_revenue",
+    "q_sga_to_revenue",
+    "q_ocf_margin",
+    "q_fcf_margin",
+    "fy_gross_margin",
+    "fy_operating_margin",
+    "fy_net_margin",
+    "fy_rd_to_revenue",
+    "fy_sga_to_revenue",
+    "fy_ocf_margin",
+    "fy_fcf_margin",
+    "current_ratio",
+    "cash_to_assets",
+    "liabilities_to_assets",
+    "debt_to_assets",
+    "q_revenue_growth_yoy",
+    "q_gross_profit_growth_yoy",
+    "q_operating_income_growth_yoy",
+    "q_net_income_growth_yoy",
+    "q_rd_growth_yoy",
+    "q_operating_cash_flow_growth_yoy",
+    "fy_revenue_growth_yoy",
+    "fy_gross_profit_growth_yoy",
+    "fy_operating_income_growth_yoy",
+    "fy_net_income_growth_yoy",
+    "fy_rd_growth_yoy",
+    "fy_operating_cash_flow_growth_yoy"
+  ],
+  "validation_frequency": "CALENDAR_QUARTER",
+  "validation_label_policy": "Every declared development validation session retains its canonical 5d label and provenance. Labels may realize in the frozen pre-test gap but must end strictly before Final Test. Gap sessions are never training/validation feature observations; frozen labels are not recomputed using a truncated price window.",
+  "versions": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "scikit_learn": "1.9.1"
+  },
+  "volume_forbidden": true,
+  "volume_used": false,
+  "walk_forward_type": "EXPANDING_WINDOW",
+  "yearly_diagnostics": "2021\u20132026 pre-test, descriptive only; no regime selection"
+}

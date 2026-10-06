@@ -1,0 +1,24 @@
+Stage15 implementation diagnostics before final acceptance. No protocol or historical source changes.
+1. Exact identity first rejected calendar_year int32 vs CSV int64; all cell values identical and both prediction max differences zero.
+2. Initial next-session auditor used research-window calendar, omitted presample dates. Canonical snapshot cells already exactly matched; raw date-only presample calendar corrected the oracle. Initial summary:
+{
+  "canonical_exact_state_cells": 48600,
+  "cell_checks": 48600,
+  "future_information_violations": 1020,
+  "future_numeric_filings_loaded": false,
+  "growth_reference_oracle": {
+    "cells_checked": 546,
+    "violations": 0
+  },
+  "independent_state_oracle": {
+    "cells_checked": 56700,
+    "violations": 102
+  },
+  "numeric_locked_payload_loaded": false,
+  "passed": false,
+  "replay_violations": 0,
+  "replayed_state_cells": 48600
+}
+3. Control reconstruction auditor received augmented schema; corrected to explicitly select frozen Market-only source fields.
+4. Preliminary 59-test run had two engineering errors: not-yet-emitted model_parameters file and augmented Control schema. Final 60-test and full 739-test runs passed.
+5. Pipeline-only status metadata clarified to PASS with final external execution-verification scope. Preliminary summary/validation retained in /tmp/nasdaq-stage15-engineering-attempt; no prediction, feature, fold, target, protocol, model or tuning changes.

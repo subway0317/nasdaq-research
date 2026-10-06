@@ -1,0 +1,10 @@
+representation,feature_position,feature_name,paired_original_feature,substitution,source_fields,Volume_dependency,definition,implementation_authority,implementation_sha256,feature_group
+relative,0,simple_return,simple_return,False,close,False,close.pct_change(fill_method=None),market_representation.representation,944dd7857caff776848acb77a547b5d8773a8d8117989acb0bacb98f4b37cc17,market
+relative,1,log_return,log_return,False,close,False,np.log(close / close.shift(1)),market_representation.representation,944dd7857caff776848acb77a547b5d8773a8d8117989acb0bacb98f4b37cc17,market
+relative,2,intraday_return,intraday_return,False,close|open,False,close / result['open'] - 1,market_representation.representation,944dd7857caff776848acb77a547b5d8773a8d8117989acb0bacb98f4b37cc17,market
+relative,3,daily_range,daily_range,False,close|high|low,False,(result['high'] - result['low']) / close,market_representation.representation,944dd7857caff776848acb77a547b5d8773a8d8117989acb0bacb98f4b37cc17,market
+relative,4,close_to_sma_5,sma_5,True,close,False,daily.close / daily[f'sma_{k}'] - 1,market_representation.representation,944dd7857caff776848acb77a547b5d8773a8d8117989acb0bacb98f4b37cc17,market
+relative,5,close_to_sma_20,sma_20,True,close,False,daily.close / daily[f'sma_{k}'] - 1,market_representation.representation,944dd7857caff776848acb77a547b5d8773a8d8117989acb0bacb98f4b37cc17,market
+relative,6,close_to_sma_60,sma_60,True,close,False,daily.close / daily[f'sma_{k}'] - 1,market_representation.representation,944dd7857caff776848acb77a547b5d8773a8d8117989acb0bacb98f4b37cc17,market
+relative,7,rolling_volatility_20,rolling_volatility_20,False,close,False,"result['simple_return'].rolling(window, min_periods=window, center=False).std(ddof=1)",market_representation.representation,944dd7857caff776848acb77a547b5d8773a8d8117989acb0bacb98f4b37cc17,market
+relative,8,rolling_volatility_60,rolling_volatility_60,False,close,False,"result['simple_return'].rolling(window, min_periods=window, center=False).std(ddof=1)",market_representation.representation,944dd7857caff776848acb77a547b5d8773a8d8117989acb0bacb98f4b37cc17,market

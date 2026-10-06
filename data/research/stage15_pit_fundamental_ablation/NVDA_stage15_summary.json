@@ -1,0 +1,302 @@
+{
+  "OOF_sessions": 1367,
+  "PIT_audit": {
+    "canonical_exact_state_cells": 48600,
+    "cell_checks": 48600,
+    "future_information_violations": 0,
+    "future_numeric_filings_loaded": false,
+    "growth_reference_oracle": {
+      "cells_checked": 546,
+      "violations": 0
+    },
+    "independent_state_oracle": {
+      "cells_checked": 56700,
+      "violations": 0
+    },
+    "numeric_locked_payload_loaded": false,
+    "passed": true,
+    "replay_violations": 0,
+    "replayed_state_cells": 48600
+  },
+  "absolute_comparisons": [
+    {
+      "MAE_reference": null,
+      "MAE_treatment": null,
+      "fold_count": 22.0,
+      "fold_id": "ALL",
+      "loss": null,
+      "losses": 21.0,
+      "mean_delta_MAE": 0.08413761356695586,
+      "mean_reference_MAE": 0.0524426275631154,
+      "mean_treatment_MAE": 0.13658024113007125,
+      "median_delta_MAE": 0.03996953827302004,
+      "model": "relative_fundamentals_ols",
+      "paired_delta_MAE": null,
+      "reference": "zero_return",
+      "scope": "aggregate",
+      "tie": null,
+      "ties": 0.0,
+      "win": null,
+      "win_rate": 0.045454545454545456,
+      "wins": 1.0
+    },
+    {
+      "MAE_reference": null,
+      "MAE_treatment": null,
+      "fold_count": 22.0,
+      "fold_id": "ALL",
+      "loss": null,
+      "losses": 21.0,
+      "mean_delta_MAE": 0.08471523395044513,
+      "mean_reference_MAE": 0.05186500717962612,
+      "mean_treatment_MAE": 0.13658024113007125,
+      "median_delta_MAE": 0.04194685469075206,
+      "model": "relative_fundamentals_ols",
+      "paired_delta_MAE": null,
+      "reference": "historical_mean",
+      "scope": "aggregate",
+      "tie": null,
+      "ties": 0.0,
+      "win": null,
+      "win_rate": 0.045454545454545456,
+      "wins": 1.0
+    },
+    {
+      "MAE_reference": null,
+      "MAE_treatment": null,
+      "fold_count": 22.0,
+      "fold_id": "ALL",
+      "loss": null,
+      "losses": 22.0,
+      "mean_delta_MAE": 0.049328583256697825,
+      "mean_reference_MAE": 0.0524426275631154,
+      "mean_treatment_MAE": 0.10177121081981322,
+      "median_delta_MAE": 0.021930875748642595,
+      "model": "relative_fundamentals_ridge_alpha1",
+      "paired_delta_MAE": null,
+      "reference": "zero_return",
+      "scope": "aggregate",
+      "tie": null,
+      "ties": 0.0,
+      "win": null,
+      "win_rate": 0.0,
+      "wins": 0.0
+    },
+    {
+      "MAE_reference": null,
+      "MAE_treatment": null,
+      "fold_count": 22.0,
+      "fold_id": "ALL",
+      "loss": null,
+      "losses": 19.0,
+      "mean_delta_MAE": 0.0499062036401871,
+      "mean_reference_MAE": 0.05186500717962612,
+      "mean_treatment_MAE": 0.10177121081981322,
+      "median_delta_MAE": 0.02376143569017834,
+      "model": "relative_fundamentals_ridge_alpha1",
+      "paired_delta_MAE": null,
+      "reference": "historical_mean",
+      "scope": "aggregate",
+      "tie": null,
+      "ties": 0.0,
+      "win": null,
+      "win_rate": 0.13636363636363635,
+      "wins": 3.0
+    }
+  ],
+  "absolute_predictive_assessment": {
+    "classification": "NO_ROBUST_MULTI_YEAR_SIGNAL",
+    "four_mean_majority_gates": {
+      "relative_fundamentals_ols": false,
+      "relative_fundamentals_ridge_alpha1": false
+    },
+    "model_criteria": {
+      "relative_fundamentals_ols": {
+        "all_six_passed": false,
+        "mean_MAE_beats_historical_mean": false,
+        "mean_MAE_beats_zero_return": false,
+        "median_delta_vs_historical_mean_negative": false,
+        "median_delta_vs_zero_return_negative": false,
+        "win_rate_vs_historical_mean_majority": false,
+        "win_rate_vs_zero_return_majority": false
+      },
+      "relative_fundamentals_ridge_alpha1": {
+        "all_six_passed": false,
+        "mean_MAE_beats_historical_mean": false,
+        "mean_MAE_beats_zero_return": false,
+        "median_delta_vs_historical_mean_negative": false,
+        "median_delta_vs_zero_return_negative": false,
+        "win_rate_vs_historical_mean_majority": false,
+        "win_rate_vs_zero_return_majority": false
+      }
+    }
+  },
+  "absolute_predictive_signal_classification": "NO_ROBUST_MULTI_YEAR_SIGNAL",
+  "candidate_counts": {
+    "control": 9,
+    "fundamentals": 30,
+    "treatment": 39
+  },
+  "canonical_vintage_id": "NVDA_YAHOO_STAGE13_2020_2026_V1",
+  "control_reproduction": {
+    "OOF_dates": 1367,
+    "baselines_reproduced": true,
+    "coverage": 1.0,
+    "duplicates": 0,
+    "max_absolute_difference": 0.0,
+    "passed": true,
+    "rows_checked": 2734,
+    "tolerance": {
+      "atol": 1e-12,
+      "rtol": 0.0
+    },
+    "tolerance_violations": 0,
+    "unexpected_missing": 0
+  },
+  "development_rows": 1620,
+  "engineering_scope": "Pipeline audits; complete stage acceptance additionally requires execution_verification.json tests and two-run reproducibility",
+  "engineering_status": "PASS",
+  "feature_family_search_allowed": false,
+  "final_model_fitted": false,
+  "final_test_locked": true,
+  "final_test_metrics_computed": false,
+  "final_test_predictions_generated": false,
+  "final_training_pool_used": false,
+  "fold_count": 22,
+  "hyperparameter_tuning_allowed": false,
+  "incremental_assessment": {
+    "broad_OOS_improvement": {
+      "relative_fundamentals_ols": false,
+      "relative_fundamentals_ridge_alpha1": false
+    },
+    "classification": "NO_ROBUST_INCREMENTAL_FUNDAMENTAL_VALUE",
+    "model_criteria": {
+      "relative_fundamentals_ols": {
+        "all_three_passed": false,
+        "mean_paired_delta_negative": false,
+        "median_paired_delta_negative": false,
+        "strict_majority_fold_wins": false
+      },
+      "relative_fundamentals_ridge_alpha1": {
+        "all_three_passed": false,
+        "mean_paired_delta_negative": false,
+        "median_paired_delta_negative": false,
+        "strict_majority_fold_wins": false
+      }
+    }
+  },
+  "incremental_comparisons": [
+    {
+      "MAE_reference": null,
+      "MAE_treatment": null,
+      "fold_count": 22.0,
+      "fold_id": "ALL",
+      "loss": null,
+      "losses": 21.0,
+      "mean_delta_MAE": 0.08310109339913913,
+      "mean_reference_MAE": 0.053479147730932125,
+      "mean_treatment_MAE": 0.13658024113007125,
+      "median_delta_MAE": 0.035702104085245434,
+      "model": "relative_fundamentals_ols",
+      "paired_delta_MAE": null,
+      "reference": "relative_ols",
+      "scope": "aggregate",
+      "tie": null,
+      "ties": 0.0,
+      "win": null,
+      "win_rate": 0.045454545454545456,
+      "wins": 1.0
+    },
+    {
+      "MAE_reference": null,
+      "MAE_treatment": null,
+      "fold_count": 22.0,
+      "fold_id": "ALL",
+      "loss": null,
+      "losses": 20.0,
+      "mean_delta_MAE": 0.0484434433650106,
+      "mean_reference_MAE": 0.05332776745480264,
+      "mean_treatment_MAE": 0.10177121081981322,
+      "median_delta_MAE": 0.02134876885489426,
+      "model": "relative_fundamentals_ridge_alpha1",
+      "paired_delta_MAE": null,
+      "reference": "relative_ridge_alpha1",
+      "scope": "aggregate",
+      "tie": null,
+      "ties": 0.0,
+      "win": null,
+      "win_rate": 0.09090909090909091,
+      "wins": 2.0
+    }
+  ],
+  "incremental_fundamental_value_classification": "NO_ROBUST_INCREMENTAL_FUNDAMENTAL_VALUE",
+  "learned_model_fits": 88,
+  "legacy_root_cause_reinvestigated": false,
+  "model_summary": [
+    {
+      "OOF_rows": 1367,
+      "fold_count": 22,
+      "mean_fold_MAE": 0.0524426275631154,
+      "median_fold_MAE": 0.051463954999627366,
+      "model": "zero_return",
+      "pooled_OOF_MAE": 0.05240643675151172
+    },
+    {
+      "OOF_rows": 1367,
+      "fold_count": 22,
+      "mean_fold_MAE": 0.05186500717962612,
+      "median_fold_MAE": 0.04912816012936325,
+      "model": "historical_mean",
+      "pooled_OOF_MAE": 0.051845002734463484
+    },
+    {
+      "OOF_rows": 1367,
+      "fold_count": 22,
+      "mean_fold_MAE": 0.053479147730932125,
+      "median_fold_MAE": 0.04860204571994134,
+      "model": "relative_ols",
+      "pooled_OOF_MAE": 0.053452912008846255
+    },
+    {
+      "OOF_rows": 1367,
+      "fold_count": 22,
+      "mean_fold_MAE": 0.05332776745480264,
+      "median_fold_MAE": 0.04838846425237828,
+      "model": "relative_ridge_alpha1",
+      "pooled_OOF_MAE": 0.053301723061131866
+    },
+    {
+      "OOF_rows": 1367,
+      "fold_count": 22,
+      "mean_fold_MAE": 0.13658024113007125,
+      "median_fold_MAE": 0.09712364706266599,
+      "model": "relative_fundamentals_ols",
+      "pooled_OOF_MAE": 0.1365184302754071
+    },
+    {
+      "OOF_rows": 1367,
+      "fold_count": 22,
+      "mean_fold_MAE": 0.10177121081981322,
+      "median_fold_MAE": 0.0823765635912122,
+      "model": "relative_fundamentals_ridge_alpha1",
+      "pooled_OOF_MAE": 0.10196452637863243
+    }
+  ],
+  "network_allowed": false,
+  "new_feature_engineering_allowed": false,
+  "numerical_summary": {
+    "fit_failures": 0,
+    "thresholds_descriptive_only": true,
+    "treatment_rank_deficient_fits": 44
+  },
+  "quant_mainline_auto_extension_after_stage15": false,
+  "secondary_targets_modeled": false,
+  "stage_name": "Stage 15 \u2014 Pre-Registered Incremental PIT Fundamentals Walk-Forward Ablation",
+  "statistical_inference_performed": false,
+  "upstream": {
+    "changed_files": [],
+    "files_checked": 299,
+    "mutation_violations": 0
+  },
+  "volume_used": false
+}

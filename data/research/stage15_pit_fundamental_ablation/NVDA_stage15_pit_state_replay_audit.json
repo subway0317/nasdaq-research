@@ -1,0 +1,18 @@
+{
+  "canonical_exact_state_cells": 48600,
+  "cell_checks": 48600,
+  "future_information_violations": 0,
+  "future_numeric_filings_loaded": false,
+  "growth_reference_oracle": {
+    "cells_checked": 546,
+    "violations": 0
+  },
+  "independent_state_oracle": {
+    "cells_checked": 56700,
+    "violations": 0
+  },
+  "numeric_locked_payload_loaded": false,
+  "passed": true,
+  "replay_violations": 0,
+  "replayed_state_cells": 48600
+}
